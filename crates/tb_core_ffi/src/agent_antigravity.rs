@@ -2273,6 +2273,22 @@ where
     None
 }
 
+/// Linux ships a flat Electron tree whose `language_server` embeds the OAuth
+/// client. Only `/opt/antigravity/Antigravity-x64` has been observed on a real
+/// install; the other roots are the usual package prefixes.
+#[cfg(target_os = "linux")]
+fn client_artifact_candidates() -> Vec<PathBuf> {
+    [
+        "/opt/antigravity/Antigravity-x64",
+        "/opt/antigravity",
+        "/usr/share/antigravity",
+    ]
+    .iter()
+    .map(|root| Path::new(root).join("resources/bin/language_server"))
+    .collect()
+}
+
+#[cfg(not(target_os = "linux"))]
 fn client_artifact_candidates() -> Vec<PathBuf> {
     let relative = [
         "Contents/Resources/bin/language_server",

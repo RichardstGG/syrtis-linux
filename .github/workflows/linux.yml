@@ -1,0 +1,47 @@
+name: linux
+
+# Linux port gate: Rust workspace tests, clippy and the C ABI smoke on the
+# Debian release the port targets. rustfmt is not gated: upstream sources are
+# not clean under rustfmt 1.96.1 and reformatting them would conflict with
+# every upstream merge.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: linux-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  rust:
+    runs-on: ubuntu-latest
+    container: debian:trixie
+    env:
+      RUST_TOOLCHAIN: "1.96.1" # vendor/tokscale-core/rust-toolchain.toml
+    steps:
+      - name: Install build dependencies
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends \
+            build-essential ca-certificates cmake curl git pkg-config
+          useradd --create-home ci
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1 (node24)
+        with:
+          submodules: true
+      # Tests assert that chmod-protected directories refuse writes, which
+      # root bypasses, so everything after dependency install runs unprivileged.
+      - name: Test, clippy and C ABI smoke
+        run: |
+          chown -R ci "$GITHUB_WORKSPACE"
+          runuser -u ci -- env HOME=/home/ci RUST_TOOLCHAIN="$RUST_TOOLCHAIN" sh -euc '
+            curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs \
+              | sh -s -- -y --profile minimal --default-toolchain "$RUST_TOOLCHAIN" -c clippy
+            export PATH="$HOME/.cargo/bin:$PATH"
+            cargo test --workspace --locked --no-fail-fast
+            cargo clippy --workspace --all-targets --locked
+            linux/tests/ffi-smoke/run.sh
+          '
