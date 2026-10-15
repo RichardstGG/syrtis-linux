@@ -2226,7 +2226,8 @@ mod tests {
             "fresh random bytes"
         );
 
-        let backend = SystemRandomBackend(TestBackend::new("system-random").directory);
+        let root = tempfile::tempdir().unwrap(); // removed on drop, even after a failed assert
+        let backend = SystemRandomBackend(root.path().join("store"));
         let first = ensure_installation_key(&backend, &Mutex::new(())).unwrap();
         let key_path = backend.0.join(INSTALLATION_KEY_FILE);
         assert!(
@@ -2237,7 +2238,6 @@ mod tests {
         );
         let second = ensure_installation_key(&backend, &Mutex::new(())).unwrap();
         assert!(first == second, "existing key is reloaded, not regenerated");
-        let _ = fs::remove_dir_all(&backend.0);
     }
 
     #[test]

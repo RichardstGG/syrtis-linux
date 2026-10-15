@@ -37,7 +37,7 @@ int main(void) {
     check("tb_filter_parity_probe", tb_filter_parity_probe(), "\"ok\":true");
     check("tb_usage_trace(600)", tb_usage_trace(600), "\"ok\":true");
     check("tb_tokens_per_min", tb_tokens_per_min(), "\"tokensPerMin\"");
-    check("tb_window_usage(NULL,0,1)", tb_window_usage(NULL, 0, 1), "\"ok\":");
+    check("tb_window_usage(NULL,0,1)", tb_window_usage(NULL, 0, 1), "\"ok\":true");
 
     /* Registries: valid input succeeds, malformed input is an error envelope. */
     check("tb_set_extra_scan_paths({})", tb_set_extra_scan_paths("{}"), "\"ok\":true");
@@ -46,14 +46,15 @@ int main(void) {
     check("tb_set_antigravity_accounts([])", tb_set_antigravity_accounts("[]"), "\"ok\":true");
     check("tb_set_antigravity_binding(NULL)", tb_set_antigravity_binding(NULL), "\"bound\":false");
     check("tb_set_keychain_consent({})", tb_set_keychain_consent("{}"), "\"ok\":true");
-    check("tb_set_cursor_sync(off)", tb_set_cursor_sync("{\"enabled\":false}"), "\"ok\":");
-    check("tb_cursor_sync(0)", tb_cursor_sync(0), "\"ok\":");
+    check("tb_set_cursor_sync(off)", tb_set_cursor_sync("{\"enabled\":false}"), "\"enabled\":false");
+    check("tb_cursor_sync(0)", tb_cursor_sync(0), "\"state\":\"disabled\"");
 
-    /* Quota-side entry points without a publication or a macOS Keychain. */
+    /* Quota-side entry points without a publication or a macOS Keychain.
+     * Linux has no agy Keychain item, so even a well-formed key cannot be removed. */
     check("tb_quota_curve(no binding)", tb_quota_curve("codex", NULL, "x", 1), "\"ok\":false");
     check("tb_antigravity_login_marker", tb_antigravity_login_marker(), "marker_unavailable");
     check("tb_antigravity_remove(bad key)", tb_antigravity_remove("nope"), "invalid_key");
-    check("tb_antigravity_remove(zero key)", tb_antigravity_remove(zero_key), "\"ok\":");
+    check("tb_antigravity_remove(zero key)", tb_antigravity_remove(zero_key), "keychain_delete_failed");
     check("tb_antigravity_capture", tb_antigravity_capture(), "\"ok\":false");
     check("tb_antigravity_auto_capture([])", tb_antigravity_auto_capture("[]"), "\"ok\":false");
 
