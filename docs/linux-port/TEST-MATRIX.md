@@ -8,8 +8,8 @@
 | --- | --- | --- | --- |
 | Q1 | Rust FFI 能否在 Debian 13 建置？ | pinned toolchain release build exit 0；26／26 symbol 匯出；C smoke 全過；`cargo test` 無失敗 | ✅ **Go（需 PR-01 一行修正）** |
 | Q2 | 三個 Client 是否有資料來源？ | 本機 Token：Claude、Codex、Antigravity（sync 後）皆有資料；quota：至少一條路徑在修正後可驗證 | ✅ Token Go／⏳ quota 待 PR-01 修正 RNG 後重測 |
-| Q3 | 3D renderer 選型？ | 方案 A 在 llvmpipe、2x 縮放下拖曳 p95 < 16 ms；20／20 命中測試正確 | ⏳ Codex spike |
-| Q4 | 托盤與單實例在 Plasma Wayland 可用？ | 點托盤 → 視窗出現並取得焦點；第二次啟動聚焦既有視窗 | ⏳ Codex spike |
+| Q3 | 3D renderer 選型？ | 方案 A 在 llvmpipe、2x 縮放下拖曳 p95 < 16 ms；20／20 命中測試正確 | ❌ **單一方案未達標**：A 在 hardware、llvmpipe 的 2x 下 p95 ≥ 16 ms；B 在 Qt software 後端沒有畫出方塊。「B 用於 RHI、A 用於 software」的組合在 6 組量測中全部合格，但尚未選定（待維護者決定 ADR-006）。命中測試 12 組皆 40/40 |
+| Q4 | 托盤與單實例在 Plasma Wayland 可用？ | 點托盤 → 視窗出現並取得焦點；第二次啟動聚焦既有視窗 | ⚠️ **部分**：兩種托盤後端都能透過 D-Bus 程式化 Activate 開窗並取得焦點；QLocalServer 單實例 IPC 成功，但有其他視窗持有焦點時**聚焦失敗**；真人點擊、面板四方向、KDBusService、activation token 傳遞：未執行 |
 
 **PR-00 整體 Go 條件**：Q1、Q2 達成，Q3、Q4 有實測結論（Go 或明確的降階方案），且維護者確認 ADR 修訂。
 

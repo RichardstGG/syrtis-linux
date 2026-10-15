@@ -26,7 +26,7 @@
 | `cargo clippy --workspace --all-targets --locked` | ✅ exit 0；47 個 warning（dead code、lifetime elision、參數數量等），無 error |
 
 產物：`libtb_core_ffi.a`（44 MB）、`libtb_core_ffi.so`（19 MB）。
-`--print native-static-libs`：`-lgcc_s -lutil -lrt -lpthread -lm -ldl -lc`。
+`--print native-static-libs`（命令見 §11，exit 0）：`-lgcc_s -lutil -lrt -lpthread -lm -ldl -lc`。
 
 ## 3. 基線編譯失敗的根因與最小修正（PR-01 範圍）
 
@@ -97,8 +97,8 @@ Claude：維護者使用 Claude desktop 帳號；現行程式只認 `~/.claude/.
 
 | 步驟 | 結果 |
 | --- | --- |
-| `tokscale antigravity status`（tokscale 4.18.0） | 偵測到 1 個 Language Server 連線；快取 0 |
-| `tokscale antigravity sync` | ✅ exit 0；快取 10 個 session |
+| `tokscale antigravity status`（tokscale 4.18.0） | exit 0；偵測到 Language Server 連線；首次執行時快取為空 |
+| `tokscale antigravity sync` | ✅ exit 0（以 `$?` 直接取得，見 §11）；快取 session 數非零 |
 | FFI `tb_refresh_graph(NULL)`（真實 `HOME`） | ✅ `antigravity` client 出現且有非零訊息；`claude`、`codex` 同樣有資料。7 s（快取冷熱未控制） |
 
 `~/.gemini/antigravity-cli/conversations` 在本機不存在，因此 `antigravity-cli` lane 只做到原始碼確認（🔶）。
@@ -125,3 +125,53 @@ Claude：維護者使用 Claude desktop 帳號；現行程式只認 `~/.claude/.
 - Claude desktop 帳號在 Linux 的憑證位置 ❓
 - Debian 套件 rustc 能否建置（本 PR 直接採用 rustup 鎖定版本，未測試）❓
 - 冷／熱快取的效能基線（NFR-06）❓
+
+## 11. 命令與 exit code 附錄（回應 Antigravity 審查，2026-10-15 重跑）
+
+第一次記錄 `tokscale antigravity sync` 時，命令後面接了 `| tail`，當時寫下的 `exit=0` 其實是 `tail` 的結束碼。以下所有 exit code 都是重跑後直接取 `$?`，命令輸出改寫入檔案，不再經過 pipe。`$LIB` 指向 `target/release`，`$INC` 指向 `Sources/CTB/include`，`$SMOKE_HOME` 是合成的家目錄。
+
+| 步驟 | 命令 | exit |
+| --- | --- | --- |
+| 匯出 symbol | `nm -D --defined-only $LIB/libtb_core_ffi.so > nm.txt` | 0 |
+| 與 header 比對 | `diff hdr.txt so.txt`（`hdr.txt` = `grep -o 'tb_[a-z_]*(' ctb.h \| tr -d '(' \| sort -u`；`so.txt` = `nm.txt` 中型別 `T`、`tb_` 開頭的名稱） | 0（無差異，26 = 26） |
+| 連結參數 | `cargo rustc --release -p tb_core_ffi --locked --crate-type staticlib -- --print native-static-libs` | 0 |
+| 編譯 smoke | `gcc -std=c11 -Wall -O1 -I$INC smoke.c $LIB/libtb_core_ffi.a -lgcc_s -lutil -lrt -lpthread -lm -ldl -lc -o smoke` | 0 |
+| 執行 smoke | `env -i PATH=/usr/bin:/bin HOME=$SMOKE_HOME XDG_CONFIG_HOME=… XDG_DATA_HOME=… XDG_CACHE_HOME=… TOKSCALE_CONFIG_DIR=… TZ=Asia/Taipei ./smoke` | 0（`fails=0`） |
+| 編譯 live／graph harness | 同 smoke 的 gcc 命令，來源為 `live.c`、`graph.c` | 0、0 |
+| live quota | `./live run1.json run2.json`（真實 `HOME`） | 0（外層 envelope `ok:true`；三個 provider 皆帶 error、0 個 window；generation 1、2） |
+| 真實資料 graph | `./graph g.json` | 0（`ok:true`；`claude`、`codex`、`antigravity` 皆有非零訊息） |
+| lock 檔存在 | `test -f ~/.local/share/com.nyanako.tokenbar/quota-account-scope-v1.lock` | 0；同目錄中 lock 以外的檔案數為 0，也就是沒有安裝金鑰 |
+| Antigravity status | `tokscale antigravity status` | 0 |
+| Antigravity sync | `tokscale antigravity sync` | 0 |
+
+smoke 的 C 原始碼會在 PR-01 以 `linux/tests/ffi-smoke/smoke.c` 提交。live／graph harness 很短，全文如下：
+
+```c
+/* live.c — one tb_agent_usage() per output file; only redacted status fields are reported */
+#include <stdio.h>
+#include "ctb.h"
+int main(int argc, char **argv) {
+    for (int i = 1; i < argc; i++) {
+        char *p = tb_agent_usage();
+        FILE *f = fopen(argv[i], "w");
+        if (!f || !p) return 2;
+        fputs(p, f); fclose(f); tb_free(p);
+    }
+    return 0;
+}
+```
+
+```c
+/* graph.c — tb_refresh_graph(NULL) to a file; only per-client non-zero presence is reported */
+#include <stdio.h>
+#include "ctb.h"
+int main(int argc, char **argv) {
+    char *p = tb_refresh_graph(NULL);
+    FILE *f = fopen(argv[1], "w");
+    if (!f || !p) return 2;
+    fputs(p, f); fclose(f); tb_free(p);
+    return 0;
+}
+```
+
+輸出檔建立時 `umask 077`，讀取完狀態欄位後立即刪除。
