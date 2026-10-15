@@ -71,7 +71,7 @@ flowchart TD
 
 ### ADR-012：Linux 帳號範圍金鑰的亂數來源
 
-**狀態：Proposed（PR-00 實測阻斷）**。`agent_account_scope.rs` 的 `random_bytes` 在非 macOS 回傳 `UnsupportedPlatform`，安裝金鑰無法建立；實測 Codex／Antigravity quota 皆在發出請求前以「account identity could not be verified」終止。PR-01 以 `cfg(target_os = "linux")` additive 實作 OS CSPRNG（`getrandom(2)`），沿用既有 `0700`／`0600`、fail-closed 儲存契約；暫不提案回上游（維護者 2026-10-15）。
+**狀態：Proposed（PR-00 實測阻斷）**。`agent_account_scope.rs` 的 `random_bytes` 在非 macOS 回傳 `UnsupportedPlatform`，安裝金鑰無法建立；實測 Codex／Antigravity quota 皆在發出請求前以「account identity could not be verified」終止。PR-01 以 `cfg(target_os = "linux")` additive 實作 OS CSPRNG（讀 `/dev/urandom`，`read_exact`；不新增 crate 依賴），沿用既有 `0700`／`0600`、fail-closed 儲存契約；暫不提案回上游（維護者 2026-10-15）。
 
 ### ADR-013：Antigravity 在 Linux 的範圍
 
