@@ -28,17 +28,20 @@ jobs:
           apt-get update
           apt-get install -y --no-install-recommends \
             build-essential ca-certificates cmake curl git pkg-config
+          useradd --create-home ci
       - uses: actions/checkout@v4
         with:
           submodules: true
-      - name: Install Rust ${{ env.RUST_TOOLCHAIN }}
+      # Tests assert that chmod-protected directories refuse writes, which
+      # root bypasses, so everything after dependency install runs unprivileged.
+      - name: Test, clippy and C ABI smoke
         run: |
-          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \
-            | sh -s -- -y --profile minimal --default-toolchain "$RUST_TOOLCHAIN" -c clippy
-          echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
-      - name: Test
-        run: cargo test --workspace --locked
-      - name: Clippy
-        run: cargo clippy --workspace --all-targets --locked
-      - name: C ABI smoke
-        run: linux/tests/ffi-smoke/run.sh
+          chown -R ci "$GITHUB_WORKSPACE"
+          runuser -u ci -- env HOME=/home/ci RUST_TOOLCHAIN="$RUST_TOOLCHAIN" sh -euc '
+            curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs \
+              | sh -s -- -y --profile minimal --default-toolchain "$RUST_TOOLCHAIN" -c clippy
+            export PATH="$HOME/.cargo/bin:$PATH"
+            cargo test --workspace --locked --no-fail-fast
+            cargo clippy --workspace --all-targets --locked
+            linux/tests/ffi-smoke/run.sh
+          '
