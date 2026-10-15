@@ -3947,6 +3947,7 @@ fn load_claude_credentials_from_keychain_item(
 
 #[cfg(not(target_os = "macos"))]
 fn load_claude_credentials_from_keychain_item(
+    _service: &str,
     _account: Option<&str>,
 ) -> Result<Option<String>, String> {
     Ok(None)

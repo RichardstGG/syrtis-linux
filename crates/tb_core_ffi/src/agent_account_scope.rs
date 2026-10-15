@@ -195,7 +195,17 @@ impl Backend for SystemBackend {
         Ok(bytes)
     }
 
-    #[cfg(not(target_os = "macos"))]
+    #[cfg(target_os = "linux")]
+    fn random_bytes(&self, length: usize) -> Result<Vec<u8>, AccountScopeError> {
+        // The kernel CSPRNG; read_exact never returns a short key.
+        let mut bytes = vec![0_u8; length];
+        File::open("/dev/urandom")
+            .and_then(|mut source| source.read_exact(&mut bytes))
+            .map_err(|_| AccountScopeError::RandomUnavailable)?;
+        Ok(bytes)
+    }
+
+    #[cfg(not(any(target_os = "macos", target_os = "linux")))]
     fn random_bytes(&self, _length: usize) -> Result<Vec<u8>, AccountScopeError> {
         Err(AccountScopeError::UnsupportedPlatform)
     }
@@ -2188,6 +2198,46 @@ mod tests {
             "random failure type and artifacts"
         );
         unavailable.cleanup();
+    }
+
+    /// The production RNG with a temporary storage root. Every other key test
+    /// injects `TestBackend` bytes, which is how a missing Linux RNG shipped
+    /// with the whole suite green.
+    #[cfg(target_os = "linux")]
+    #[test]
+    fn system_random_creates_and_reloads_installation_key_on_linux() {
+        struct SystemRandomBackend(PathBuf);
+        impl Backend for SystemRandomBackend {
+            fn random_bytes(&self, length: usize) -> Result<Vec<u8>, AccountScopeError> {
+                SystemBackend.random_bytes(length)
+            }
+            fn storage_dir(&self) -> Result<PathBuf, AccountScopeError> {
+                Ok(self.0.clone())
+            }
+            fn now_seconds(&self) -> i64 {
+                SystemBackend.now_seconds()
+            }
+        }
+
+        let a = SystemBackend.random_bytes(INSTALLATION_KEY_BYTES).unwrap();
+        let b = SystemBackend.random_bytes(INSTALLATION_KEY_BYTES).unwrap();
+        assert!(
+            a.len() == INSTALLATION_KEY_BYTES && a != b,
+            "fresh random bytes"
+        );
+
+        let backend = SystemRandomBackend(TestBackend::new("system-random").directory);
+        let first = ensure_installation_key(&backend, &Mutex::new(())).unwrap();
+        let key_path = backend.0.join(INSTALLATION_KEY_FILE);
+        assert!(
+            fs::read(&key_path).unwrap() == first
+                && unix_mode(&backend.0) == 0o700
+                && unix_mode(&key_path) == 0o600,
+            "persisted key and storage modes"
+        );
+        let second = ensure_installation_key(&backend, &Mutex::new(())).unwrap();
+        assert!(first == second, "existing key is reloaded, not regenerated");
+        let _ = fs::remove_dir_all(&backend.0);
     }
 
     #[test]
