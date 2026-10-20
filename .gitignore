@@ -16,3 +16,6 @@ __pycache__/
 # release-notes/<tag>.{md,txt}; never committed.
 release-notes.txt
 release-notes.md
+
+# Codex worker scratch dir
+.tmp/

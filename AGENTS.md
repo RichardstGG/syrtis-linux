@@ -34,3 +34,18 @@ A plan approval authorizes implementation, not integration. Do not push, merge, 
 ## Handoff
 
 Before reporting completion, name the canonical files changed, run the relevant repository checks, and state any private material intentionally retained outside the repository. Use repository-relative links in documentation.
+
+## For the Codex worker
+
+- 只修改 issue 的 Scope 列出的路徑。
+- 不要 git commit / push（.git 在 sandbox 中是唯讀的）。
+- 不要安裝套件（沒有網路）。缺依賴就回報 blocked。
+- 需要暫存目錄時：TMPDIR="$PWD/.tmp" <command>
+- 完成後執行 ./scripts/ai/verify.sh。
+- 最終回覆只用以下格式，不要貼完整 diff：
+  STATUS: done | blocked | partial
+  SUMMARY: <3 行內>
+  FILES: <改了哪些檔>
+  TESTS: <跑了什麼、結果>
+  COMMIT_MESSAGE: <conventional commit 一行>
+  QUESTIONS: <blocked 時要問的問題，否則 none>
