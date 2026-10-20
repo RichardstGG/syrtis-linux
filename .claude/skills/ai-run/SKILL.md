@@ -11,7 +11,7 @@ description: Run one ai:ready GitHub issue through the Codex plugin, open a draf
 3. gh issue edit N --remove-label ai:ready --add-label ai:in-progress
 4. 交給 codex:codex-rescue subagent，請求內容：
    「--background 依 AGENTS.md 的 Codex worker 規則完成 issue #N：<issue 全文>」
-5. 記下 job id，用 `node <plugin>/scripts/codex-companion.mjs status <job-id> --wait --timeout-ms 600000` 等待（逾時就再呼叫一次，最多 3 次）。
+5. 記下 job id，用 `node "$(ls -d ~/.claude/plugins/cache/openai-codex/codex/*/ | sort -V | tail -1)scripts/codex-companion.mjs" status <job-id> --wait --timeout-ms 600000` 等待（逾時就再呼叫一次，最多 3 次）。
    完成後直接進入 Finalize；失敗或 3 次仍未完成 → 告訴我 job id 與狀態，停下來等我。
 
 ## Finalize（我說「看結果」或任務完成後）
