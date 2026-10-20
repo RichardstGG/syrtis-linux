@@ -9,6 +9,8 @@ if [ "$(id -u)" = 0 ]; then echo "run as non-root (chmod-based tests fail as roo
 mapfile -t sh_files < <(git ls-files --cached --others --exclude-standard '*.sh')
 for f in "${sh_files[@]}"; do bash -n "$f"; done
 
-# shortcut: tb_core_ffi does not build on Linux until PR-01 (feat/linux-rust-core) merges; add its test+clippy lines then.
 cargo test -p tokscale-core --locked --offline
+cargo test -p tb_core_ffi --locked --offline
+# no -D warnings: mirrors linux.yml, and main has existing clippy warnings
+cargo clippy -p tb_core_ffi --all-targets --locked --offline
 echo "verify OK"
