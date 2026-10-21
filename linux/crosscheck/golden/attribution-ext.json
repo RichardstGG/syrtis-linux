@@ -1,0 +1,2249 @@
+{
+  "cases" : [
+    {
+      "id" : "copy",
+      "value" : {
+        "breakdown" : [
+          "API-list-price equivalent",
+          "Nothing is classified yet. Classify sources in Settings → Usage attribution.",
+          "No attributed usage in this range.",
+          "Usage breakdown is unavailable right now."
+        ],
+        "settings" : [
+          "Usage attribution",
+          "Pick which subscription each source's usage counts toward. This only changes how Syrtis groups your usage; it doesn't read your bills.",
+          "Providers are matched exactly as each tool reports them, so similar ones can appear on separate rows. Some tools merge providers before reporting (Vertex AI shows up as Anthropic, Codex as OpenAI), and those rows can't be split.",
+          "No usage in this range lists a provider.",
+          "Usage couldn't be loaded.",
+          "Accept all suggestions (%lld)",
+          "Suggestions apply only when you accept them.",
+          "%@ · %@",
+          "Observed %@ tokens · %@",
+          "Classification",
+          "Unassigned",
+          "Not a subscription",
+          "Counts toward %@",
+          "Suggested: counts toward %@",
+          "Suggested: not a subscription",
+          "Unspecified provider",
+          "Classification for %@",
+          "Could not save this classification: existing attribution data is invalid or foreign.",
+          "Could not save this classification: the attribution entry limit was reached.",
+          "Could not save this classification: the new value is too large or unsupported."
+        ]
+      }
+    },
+    {
+      "id" : "breakdown-mixed",
+      "value" : {
+        "rows" : [
+          {
+            "cost" : 1,
+            "id" : "assigned:claude",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            },
+            "tokens" : 10
+          },
+          {
+            "cost" : 0,
+            "id" : "assigned:cursor",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "cursor"
+            },
+            "tokens" : 80
+          },
+          {
+            "cost" : 2,
+            "id" : "excluded",
+            "state" : {
+              "kind" : "excluded"
+            },
+            "tokens" : 20
+          },
+          {
+            "cost" : 0,
+            "id" : "unassigned",
+            "state" : {
+              "kind" : "unassigned"
+            },
+            "tokens" : 7
+          }
+        ]
+      }
+    },
+    {
+      "id" : "breakdown-cancel",
+      "value" : {
+        "rows" : [
+
+        ]
+      }
+    },
+    {
+      "id" : "breakdown-saturation",
+      "value" : {
+        "rows" : [
+          {
+            "cost" : 0,
+            "id" : "assigned:claude",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            },
+            "tokens" : 9223372036854775807
+          }
+        ]
+      }
+    },
+    {
+      "id" : "settings-mixed",
+      "value" : {
+        "accepted" : [
+          {
+            "client" : "synthetic",
+            "model" : null,
+            "provider" : "",
+            "state" : {
+              "kind" : "excluded"
+            }
+          }
+        ],
+        "onboarding" : {
+          "records" : [
+
+          ],
+          "unsuggestedCount" : 2
+        },
+        "pageState" : "rows",
+        "proposed" : [
+
+        ],
+        "rows" : [
+          {
+            "client" : "claude",
+            "cost" : 3,
+            "id" : "claude\u0000anthropic",
+            "provider" : "anthropic",
+            "providerLabel" : "anthropic",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            },
+            "suggestedState" : null,
+            "tokens" : 30
+          },
+          {
+            "client" : "cursor",
+            "cost" : 0,
+            "id" : "cursor\u0000openai",
+            "provider" : "openai",
+            "providerLabel" : "openai",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "cursor"
+            },
+            "suggestedState" : null,
+            "tokens" : 80
+          },
+          {
+            "client" : "synthetic",
+            "cost" : 0,
+            "id" : "synthetic\u0000",
+            "provider" : "",
+            "providerLabel" : "Unspecified provider",
+            "state" : {
+              "kind" : "unassigned"
+            },
+            "suggestedState" : {
+              "kind" : "excluded"
+            },
+            "tokens" : 7
+          },
+          {
+            "client" : "ignored",
+            "cost" : 9,
+            "id" : "ignored\u0000xai",
+            "provider" : "xai",
+            "providerLabel" : "xai",
+            "state" : {
+              "kind" : "unassigned"
+            },
+            "suggestedState" : null,
+            "tokens" : 900
+          }
+        ],
+        "signature" : "claude\u001fanthropic\u001fmodel-a\u001f10\u001f4607182418800017408\u001eclaude\u001fanthropic\u001fapi\u001f20\u001f4611686018427387904\u001ecursor\u001fopenai\u001fmodel-a\u001f80\u001f0\u001esynthetic\u001f\u001fmodel-a\u001f7\u001f0\u001eignored\u001fxai\u001fmodel-a\u001f900\u001f4621256167635550208\u001eclaude\u001fanthropic\u001fmodel-a\u001f0\u001f0|known|claude,codex,cursor|"
+      }
+    },
+    {
+      "id" : "settings-loading",
+      "value" : {
+        "accepted" : [
+
+        ],
+        "onboarding" : {
+          "records" : [
+
+          ],
+          "unsuggestedCount" : 0
+        },
+        "pageState" : "loading",
+        "proposed" : [
+
+        ],
+        "rows" : [
+
+        ],
+        "signature" : "|known|claude,codex,cursor|"
+      }
+    },
+    {
+      "id" : "settings-unavailable",
+      "value" : {
+        "accepted" : [
+
+        ],
+        "onboarding" : {
+          "records" : [
+
+          ],
+          "unsuggestedCount" : 0
+        },
+        "pageState" : "unavailable",
+        "proposed" : [
+
+        ],
+        "rows" : [
+
+        ],
+        "signature" : "|known|claude,codex,cursor|"
+      }
+    },
+    {
+      "id" : "settings-empty",
+      "value" : {
+        "accepted" : [
+
+        ],
+        "onboarding" : {
+          "records" : [
+
+          ],
+          "unsuggestedCount" : 0
+        },
+        "pageState" : "empty",
+        "proposed" : [
+
+        ],
+        "rows" : [
+
+        ],
+        "signature" : "|known|claude,codex,cursor|"
+      }
+    },
+    {
+      "id" : "settings-pending",
+      "value" : {
+        "accepted" : [
+          {
+            "client" : "synthetic",
+            "model" : null,
+            "provider" : "",
+            "state" : {
+              "kind" : "excluded"
+            }
+          }
+        ],
+        "onboarding" : {
+          "records" : [
+
+          ],
+          "unsuggestedCount" : 2
+        },
+        "pageState" : "rows",
+        "proposed" : [
+
+        ],
+        "rows" : [
+          {
+            "client" : "claude",
+            "cost" : 3,
+            "id" : "claude\u0000anthropic",
+            "provider" : "anthropic",
+            "providerLabel" : "anthropic",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            },
+            "suggestedState" : null,
+            "tokens" : 30
+          },
+          {
+            "client" : "cursor",
+            "cost" : 0,
+            "id" : "cursor\u0000openai",
+            "provider" : "openai",
+            "providerLabel" : "openai",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "cursor"
+            },
+            "suggestedState" : null,
+            "tokens" : 80
+          },
+          {
+            "client" : "synthetic",
+            "cost" : 0,
+            "id" : "synthetic\u0000",
+            "provider" : "",
+            "providerLabel" : "Unspecified provider",
+            "state" : {
+              "kind" : "unassigned"
+            },
+            "suggestedState" : {
+              "kind" : "excluded"
+            },
+            "tokens" : 7
+          },
+          {
+            "client" : "ignored",
+            "cost" : 9,
+            "id" : "ignored\u0000xai",
+            "provider" : "xai",
+            "providerLabel" : "xai",
+            "state" : {
+              "kind" : "unassigned"
+            },
+            "suggestedState" : null,
+            "tokens" : 900
+          }
+        ],
+        "signature" : "claude\u001fanthropic\u001fmodel-a\u001f10\u001f4607182418800017408\u001eclaude\u001fanthropic\u001fapi\u001f20\u001f4611686018427387904\u001ecursor\u001fopenai\u001fmodel-a\u001f80\u001f0\u001esynthetic\u001f\u001fmodel-a\u001f7\u001f0\u001eignored\u001fxai\u001fmodel-a\u001f900\u001f4621256167635550208\u001eclaude\u001fanthropic\u001fmodel-a\u001f0\u001f0|pending|claude,codex,cursor|"
+      }
+    },
+    {
+      "id" : "settings-routing",
+      "value" : {
+        "accepted" : [
+          {
+            "client" : "synthetic",
+            "model" : null,
+            "provider" : "",
+            "state" : {
+              "kind" : "excluded"
+            }
+          }
+        ],
+        "onboarding" : {
+          "records" : [
+
+          ],
+          "unsuggestedCount" : 2
+        },
+        "pageState" : "rows",
+        "proposed" : [
+
+        ],
+        "rows" : [
+          {
+            "client" : "claude",
+            "cost" : 3,
+            "id" : "claude\u0000anthropic",
+            "provider" : "anthropic",
+            "providerLabel" : "anthropic",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            },
+            "suggestedState" : null,
+            "tokens" : 30
+          },
+          {
+            "client" : "cursor",
+            "cost" : 0,
+            "id" : "cursor\u0000openai",
+            "provider" : "openai",
+            "providerLabel" : "openai",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "cursor"
+            },
+            "suggestedState" : null,
+            "tokens" : 80
+          },
+          {
+            "client" : "synthetic",
+            "cost" : 0,
+            "id" : "synthetic\u0000",
+            "provider" : "",
+            "providerLabel" : "Unspecified provider",
+            "state" : {
+              "kind" : "unassigned"
+            },
+            "suggestedState" : {
+              "kind" : "excluded"
+            },
+            "tokens" : 7
+          },
+          {
+            "client" : "ignored",
+            "cost" : 9,
+            "id" : "ignored\u0000xai",
+            "provider" : "xai",
+            "providerLabel" : "xai",
+            "state" : {
+              "kind" : "unassigned"
+            },
+            "suggestedState" : null,
+            "tokens" : 900
+          }
+        ],
+        "signature" : "claude\u001fanthropic\u001fmodel-a\u001f10\u001f4607182418800017408\u001eclaude\u001fanthropic\u001fapi\u001f20\u001f4611686018427387904\u001ecursor\u001fopenai\u001fmodel-a\u001f80\u001f0\u001esynthetic\u001f\u001fmodel-a\u001f7\u001f0\u001eignored\u001fxai\u001fmodel-a\u001f900\u001f4621256167635550208\u001eclaude\u001fanthropic\u001fmodel-a\u001f0\u001f0|known|claude,codex,cursor|opencode>codex+grok"
+      }
+    },
+    {
+      "id" : "settings-cancel-kept",
+      "value" : {
+        "accepted" : [
+
+        ],
+        "onboarding" : {
+          "records" : [
+            {
+              "client" : "claude",
+              "model" : null,
+              "provider" : "anthropic",
+              "state" : {
+                "kind" : "assigned",
+                "target" : "claude"
+              }
+            }
+          ],
+          "unsuggestedCount" : 0
+        },
+        "pageState" : "rows",
+        "proposed" : [
+          {
+            "client" : "claude",
+            "model" : null,
+            "provider" : "anthropic",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            }
+          }
+        ],
+        "rows" : [
+          {
+            "client" : "claude",
+            "cost" : 0,
+            "id" : "claude\u0000anthropic",
+            "provider" : "anthropic",
+            "providerLabel" : "anthropic",
+            "state" : {
+              "kind" : "unassigned"
+            },
+            "suggestedState" : null,
+            "tokens" : 0
+          }
+        ],
+        "signature" : "claude\u001fanthropic\u001fmodel-a\u001f5\u001f4607182418800017408\u001eclaude\u001fanthropic\u001fmodel-a\u001f-5\u001f13830554455654793216|known|claude,codex,cursor|"
+      }
+    },
+    {
+      "id" : "settings-unicode",
+      "value" : {
+        "accepted" : [
+
+        ],
+        "onboarding" : {
+          "records" : [
+
+          ],
+          "unsuggestedCount" : 0
+        },
+        "pageState" : "rows",
+        "proposed" : [
+
+        ],
+        "rows" : [
+          {
+            "client" : "Café",
+            "cost" : 2,
+            "id" : "Café\u0000p",
+            "provider" : "p",
+            "providerLabel" : "p",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            },
+            "suggestedState" : null,
+            "tokens" : 12
+          }
+        ],
+        "signature" : "Café\u001fp\u001fmodel-a\u001f5\u001f4607182418800017408\u001eCafé\u001fp\u001fmodel-a\u001f7\u001f4607182418800017408|known|claude,codex,cursor|"
+      }
+    },
+    {
+      "id" : "suggestion-own-without-meter",
+      "value" : {
+        "state" : {
+          "kind" : "assigned",
+          "target" : "cursor"
+        }
+      }
+    },
+    {
+      "id" : "suggestion-quota-owner",
+      "value" : {
+        "state" : {
+          "kind" : "assigned",
+          "target" : "antigravity"
+        }
+      }
+    },
+    {
+      "id" : "suggestion-router",
+      "value" : {
+        "state" : {
+          "kind" : "assigned",
+          "target" : "codex"
+        }
+      }
+    },
+    {
+      "id" : "suggestion-router-ambiguous",
+      "value" : {
+        "state" : null
+      }
+    },
+    {
+      "id" : "suggestion-router-none",
+      "value" : {
+        "state" : null
+      }
+    },
+    {
+      "id" : "suggestion-unknown-source",
+      "value" : {
+        "state" : null
+      }
+    },
+    {
+      "id" : "suggestion-bound-excluded",
+      "value" : {
+        "state" : {
+          "kind" : "excluded"
+        }
+      }
+    },
+    {
+      "id" : "suggestion-bound-reseller",
+      "value" : {
+        "state" : {
+          "kind" : "assigned",
+          "target" : "copilot"
+        }
+      }
+    },
+    {
+      "id" : "suggestion-cross-agent",
+      "value" : {
+        "state" : {
+          "kind" : "assigned",
+          "target" : "codex"
+        }
+      }
+    },
+    {
+      "id" : "suggestion-ambiguous",
+      "value" : {
+        "state" : null
+      }
+    },
+    {
+      "id" : "suggestion-own-only",
+      "value" : {
+        "state" : {
+          "kind" : "assigned",
+          "target" : "grok"
+        }
+      }
+    },
+    {
+      "id" : "suggestion-own-only-no-owner",
+      "value" : {
+        "state" : null
+      }
+    },
+    {
+      "id" : "suggestion-bot-own",
+      "value" : {
+        "state" : {
+          "kind" : "assigned",
+          "target" : "grok-bot"
+        }
+      }
+    },
+    {
+      "id" : "suggestion-unknown-provider",
+      "value" : {
+        "state" : null
+      }
+    },
+    {
+      "id" : "suggestion-exact-provider",
+      "value" : {
+        "state" : null
+      }
+    },
+    {
+      "id" : "targets-empty",
+      "value" : {
+        "labels" : [
+          "codex",
+          "claude",
+          "antigravity",
+          "grok",
+          "micode",
+          "kimi",
+          null,
+          "kiro",
+          null,
+          null,
+          "codex"
+        ],
+        "routed" : {
+
+        },
+        "subscriptions" : [
+
+        ]
+      }
+    },
+    {
+      "id" : "targets-configured",
+      "value" : {
+        "labels" : [
+          "codex",
+          "claude",
+          "antigravity",
+          "grok",
+          "micode",
+          "kimi",
+          null,
+          "kiro",
+          null,
+          null,
+          "codex"
+        ],
+        "routed" : {
+          "opencode" : [
+            "claude",
+            "grok",
+            "kimi",
+            "codex"
+          ]
+        },
+        "subscriptions" : [
+          "codex",
+          "grok",
+          "claude",
+          "kimi"
+        ]
+      }
+    },
+    {
+      "id" : "accept-success",
+      "value" : {
+        "confirmedRaw" : "[{\"client\":\"claude\",\"model\":null,\"provider\":\"anthropic\",\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"claude\",\"model\":\"api\",\"provider\":\"anthropic\",\"state\":\"excluded\"},{\"client\":\"cursor\",\"model\":null,\"provider\":\"openai\",\"state\":\"assigned\",\"target\":\"cursor\"},{\"client\":\"synthetic\",\"model\":null,\"provider\":\"\",\"state\":\"excluded\"}]",
+        "failure" : null,
+        "suggestionsRaw" : "[{\"client\":\"cursor\",\"model\":null,\"provider\":\"openai\",\"state\":\"assigned\",\"target\":\"cursor\"}]"
+      }
+    },
+    {
+      "id" : "accept-foreign-confirmed",
+      "value" : {
+        "confirmedRaw" : false,
+        "failure" : "Could not save this classification: existing attribution data is invalid or foreign.",
+        "suggestionsRaw" : "[{\"client\":\"synthetic\",\"provider\":\"\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"cursor\",\"provider\":\"openai\",\"model\":null,\"state\":\"assigned\",\"target\":\"cursor\"}]"
+      }
+    },
+    {
+      "id" : "accept-foreign-suggestions",
+      "value" : {
+        "confirmedRaw" : "[{\"client\":\"claude\",\"provider\":\"anthropic\",\"model\":null,\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"claude\",\"provider\":\"anthropic\",\"model\":\"api\",\"state\":\"excluded\"},{\"client\":\"cursor\",\"provider\":\"openai\",\"model\":null,\"state\":\"assigned\",\"target\":\"cursor\"}]",
+        "failure" : "Could not save this classification: existing attribution data is invalid or foreign.",
+        "suggestionsRaw" : 42
+      }
+    },
+    {
+      "id" : "accept-noop",
+      "value" : {
+        "confirmedRaw" : false,
+        "failure" : null,
+        "suggestionsRaw" : 42
+      }
+    },
+    {
+      "id" : "accept-absent",
+      "value" : {
+        "confirmedRaw" : "[{\"client\":\"claude\",\"model\":null,\"provider\":\"anthropic\",\"state\":\"assigned\",\"target\":\"claude\"}]",
+        "failure" : null,
+        "suggestionsRaw" : "[]"
+      }
+    },
+    {
+      "id" : "write-valid",
+      "value" : {
+        "failure" : null,
+        "result" : "[{\"client\":\"claude\",\"model\":null,\"provider\":\"anthropic\",\"state\":\"excluded\"},{\"client\":\"claude\",\"model\":\"api\",\"provider\":\"anthropic\",\"state\":\"excluded\"},{\"client\":\"cursor\",\"model\":null,\"provider\":\"openai\",\"state\":\"assigned\",\"target\":\"cursor\"}]"
+      }
+    },
+    {
+      "id" : "write-foreign",
+      "value" : {
+        "failure" : "Could not save this classification: existing attribution data is invalid or foreign.",
+        "result" : null
+      }
+    },
+    {
+      "id" : "write-invalid",
+      "value" : {
+        "failure" : "Could not save this classification: the new value is too large or unsupported.",
+        "result" : null
+      }
+    },
+    {
+      "id" : "write-limit",
+      "value" : {
+        "failure" : "Could not save this classification: the attribution entry limit was reached.",
+        "result" : null
+      }
+    },
+    {
+      "id" : "window-boundaries",
+      "value" : {
+        "assigned" : [
+          {
+            "cost" : 4,
+            "target" : "claude",
+            "tokens" : 119
+          },
+          {
+            "cost" : 1,
+            "target" : "cursor",
+            "tokens" : 8
+          }
+        ],
+        "buckets" : [
+          14,
+          8,
+          9
+        ],
+        "excluded" : {
+          "cost" : 1,
+          "target" : "excluded",
+          "tokens" : 5
+        },
+        "messages" : [
+          {
+            "tokens" : 10,
+            "tokensExCacheRead" : 10
+          },
+          {
+            "tokens" : 2,
+            "tokensExCacheRead" : 2
+          },
+          {
+            "tokens" : 7,
+            "tokensExCacheRead" : 3
+          },
+          {
+            "tokens" : 5,
+            "tokensExCacheRead" : 5
+          },
+          {
+            "tokens" : 8,
+            "tokensExCacheRead" : 8
+          },
+          {
+            "tokens" : 9,
+            "tokensExCacheRead" : 9
+          },
+          {
+            "tokens" : 100,
+            "tokensExCacheRead" : 100
+          }
+        ],
+        "processingTimeMs" : 3,
+        "unassigned" : {
+          "cost" : 1,
+          "target" : "unassigned",
+          "tokens" : 9
+        },
+        "undatedCount" : 2
+      }
+    },
+    {
+      "id" : "window-zero-width",
+      "value" : {
+        "assigned" : [
+          {
+            "cost" : 4,
+            "target" : "claude",
+            "tokens" : 119
+          },
+          {
+            "cost" : 1,
+            "target" : "cursor",
+            "tokens" : 8
+          }
+        ],
+        "buckets" : [
+          0,
+          0,
+          0
+        ],
+        "excluded" : {
+          "cost" : 1,
+          "target" : "excluded",
+          "tokens" : 5
+        },
+        "messages" : [
+          {
+            "tokens" : 10,
+            "tokensExCacheRead" : 10
+          },
+          {
+            "tokens" : 2,
+            "tokensExCacheRead" : 2
+          },
+          {
+            "tokens" : 7,
+            "tokensExCacheRead" : 3
+          },
+          {
+            "tokens" : 5,
+            "tokensExCacheRead" : 5
+          },
+          {
+            "tokens" : 8,
+            "tokensExCacheRead" : 8
+          },
+          {
+            "tokens" : 9,
+            "tokensExCacheRead" : 9
+          },
+          {
+            "tokens" : 100,
+            "tokensExCacheRead" : 100
+          }
+        ],
+        "processingTimeMs" : 3,
+        "unassigned" : {
+          "cost" : 1,
+          "target" : "unassigned",
+          "tokens" : 9
+        },
+        "undatedCount" : 2
+      }
+    },
+    {
+      "id" : "window-zero-count",
+      "value" : {
+        "assigned" : [
+          {
+            "cost" : 4,
+            "target" : "claude",
+            "tokens" : 119
+          },
+          {
+            "cost" : 1,
+            "target" : "cursor",
+            "tokens" : 8
+          }
+        ],
+        "buckets" : [
+
+        ],
+        "excluded" : {
+          "cost" : 1,
+          "target" : "excluded",
+          "tokens" : 5
+        },
+        "messages" : [
+          {
+            "tokens" : 10,
+            "tokensExCacheRead" : 10
+          },
+          {
+            "tokens" : 2,
+            "tokensExCacheRead" : 2
+          },
+          {
+            "tokens" : 7,
+            "tokensExCacheRead" : 3
+          },
+          {
+            "tokens" : 5,
+            "tokensExCacheRead" : 5
+          },
+          {
+            "tokens" : 8,
+            "tokensExCacheRead" : 8
+          },
+          {
+            "tokens" : 9,
+            "tokensExCacheRead" : 9
+          },
+          {
+            "tokens" : 100,
+            "tokensExCacheRead" : 100
+          }
+        ],
+        "processingTimeMs" : 3,
+        "unassigned" : {
+          "cost" : 1,
+          "target" : "unassigned",
+          "tokens" : 9
+        },
+        "undatedCount" : 2
+      }
+    },
+    {
+      "id" : "window-negative-count",
+      "value" : {
+        "assigned" : [
+          {
+            "cost" : 4,
+            "target" : "claude",
+            "tokens" : 119
+          },
+          {
+            "cost" : 1,
+            "target" : "cursor",
+            "tokens" : 8
+          }
+        ],
+        "buckets" : [
+
+        ],
+        "excluded" : {
+          "cost" : 1,
+          "target" : "excluded",
+          "tokens" : 5
+        },
+        "messages" : [
+          {
+            "tokens" : 10,
+            "tokensExCacheRead" : 10
+          },
+          {
+            "tokens" : 2,
+            "tokensExCacheRead" : 2
+          },
+          {
+            "tokens" : 7,
+            "tokensExCacheRead" : 3
+          },
+          {
+            "tokens" : 5,
+            "tokensExCacheRead" : 5
+          },
+          {
+            "tokens" : 8,
+            "tokensExCacheRead" : 8
+          },
+          {
+            "tokens" : 9,
+            "tokensExCacheRead" : 9
+          },
+          {
+            "tokens" : 100,
+            "tokensExCacheRead" : 100
+          }
+        ],
+        "processingTimeMs" : 3,
+        "unassigned" : {
+          "cost" : 1,
+          "target" : "unassigned",
+          "tokens" : 9
+        },
+        "undatedCount" : 2
+      }
+    },
+    {
+      "id" : "window-overflow",
+      "value" : {
+        "assigned" : [
+          {
+            "cost" : 2,
+            "target" : "claude",
+            "tokens" : 9223372036854775807
+          }
+        ],
+        "buckets" : [
+          9223372036854775807,
+          0,
+          0
+        ],
+        "excluded" : {
+          "cost" : 0,
+          "target" : "excluded",
+          "tokens" : 0
+        },
+        "messages" : [
+          {
+            "tokens" : 9223372036854775807,
+            "tokensExCacheRead" : 9223372036854775807
+          },
+          {
+            "tokens" : 1,
+            "tokensExCacheRead" : 1
+          }
+        ],
+        "processingTimeMs" : 3,
+        "unassigned" : {
+          "cost" : 0,
+          "target" : "unassigned",
+          "tokens" : 0
+        },
+        "undatedCount" : 2
+      }
+    },
+    {
+      "id" : "window-negative-overflow",
+      "value" : {
+        "assigned" : [
+          {
+            "cost" : 0,
+            "target" : "claude",
+            "tokens" : 9223372036854775807
+          }
+        ],
+        "buckets" : [
+          9223372036854775807,
+          0,
+          0
+        ],
+        "excluded" : {
+          "cost" : 0,
+          "target" : "excluded",
+          "tokens" : 0
+        },
+        "messages" : [
+          {
+            "tokens" : 9223372036854775807,
+            "tokensExCacheRead" : 9223372036854775807
+          }
+        ],
+        "processingTimeMs" : 3,
+        "unassigned" : {
+          "cost" : 0,
+          "target" : "unassigned",
+          "tokens" : 0
+        },
+        "undatedCount" : 2
+      }
+    },
+    {
+      "id" : "daily-mixed",
+      "value" : {
+        "points" : [
+          {
+            "cost" : 99,
+            "date" : "2026-02-01",
+            "model" : "model-a",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            },
+            "tokens" : 999
+          },
+          {
+            "cost" : 2,
+            "date" : "2026-02-27",
+            "model" : "model-a",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            },
+            "tokens" : 7
+          },
+          {
+            "cost" : 1,
+            "date" : "2026-03-01",
+            "model" : "model-a",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            },
+            "tokens" : 20
+          },
+          {
+            "cost" : 10,
+            "date" : "2026-03-01",
+            "model" : "model-a",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "cursor"
+            },
+            "tokens" : 5
+          },
+          {
+            "cost" : 4,
+            "date" : "2026-03-01",
+            "model" : "api",
+            "state" : {
+              "kind" : "excluded"
+            },
+            "tokens" : 40
+          },
+          {
+            "cost" : 0,
+            "date" : "2026-03-01",
+            "model" : "model-a",
+            "state" : {
+              "kind" : "unassigned"
+            },
+            "tokens" : 109
+          },
+          {
+            "cost" : 99,
+            "date" : "2026-03-02",
+            "model" : "model-a",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            },
+            "tokens" : 999
+          }
+        ],
+        "range" : [
+          "2026-02-27",
+          "2026-02-28",
+          "2026-03-01"
+        ],
+        "trend" : {
+          "costOrder" : [
+            "cursor",
+            "claude",
+            "__unassigned"
+          ],
+          "days" : [
+            {
+              "byTarget" : {
+                "claude" : {
+                  "cost" : 2,
+                  "tokens" : 7
+                }
+              },
+              "date" : "2026-02-27",
+              "isEmpty" : false,
+              "totalCost" : 2,
+              "totalTokens" : 7
+            },
+            {
+              "byTarget" : {
+
+              },
+              "date" : "2026-02-28",
+              "isEmpty" : true,
+              "totalCost" : 0,
+              "totalTokens" : 0
+            },
+            {
+              "byTarget" : {
+                "__unassigned" : {
+                  "cost" : 0,
+                  "tokens" : 109
+                },
+                "claude" : {
+                  "cost" : 1,
+                  "tokens" : 20
+                },
+                "cursor" : {
+                  "cost" : 10,
+                  "tokens" : 5
+                }
+              },
+              "date" : "2026-03-01",
+              "isEmpty" : false,
+              "totalCost" : 11,
+              "totalTokens" : 134
+            }
+          ],
+          "peakCost" : 11,
+          "peakTokens" : 134,
+          "targets" : [
+            "cursor",
+            "claude",
+            "__unassigned"
+          ],
+          "targetsByTokens" : [
+            "__unassigned",
+            "claude",
+            "cursor"
+          ],
+          "tokenOrder" : [
+            "__unassigned",
+            "claude",
+            "cursor"
+          ]
+        }
+      }
+    },
+    {
+      "id" : "daily-permuted",
+      "value" : {
+        "points" : [
+          {
+            "cost" : 99,
+            "date" : "2026-02-01",
+            "model" : "model-a",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            },
+            "tokens" : 999
+          },
+          {
+            "cost" : 2,
+            "date" : "2026-02-27",
+            "model" : "model-a",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            },
+            "tokens" : 7
+          },
+          {
+            "cost" : 1,
+            "date" : "2026-03-01",
+            "model" : "model-a",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            },
+            "tokens" : 20
+          },
+          {
+            "cost" : 10,
+            "date" : "2026-03-01",
+            "model" : "model-a",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "cursor"
+            },
+            "tokens" : 5
+          },
+          {
+            "cost" : 4,
+            "date" : "2026-03-01",
+            "model" : "api",
+            "state" : {
+              "kind" : "excluded"
+            },
+            "tokens" : 40
+          },
+          {
+            "cost" : 0,
+            "date" : "2026-03-01",
+            "model" : "model-a",
+            "state" : {
+              "kind" : "unassigned"
+            },
+            "tokens" : 109
+          },
+          {
+            "cost" : 99,
+            "date" : "2026-03-02",
+            "model" : "model-a",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            },
+            "tokens" : 999
+          }
+        ],
+        "range" : [
+          "2026-02-27",
+          "2026-02-28",
+          "2026-03-01"
+        ],
+        "trend" : {
+          "costOrder" : [
+            "cursor",
+            "claude",
+            "__unassigned"
+          ],
+          "days" : [
+            {
+              "byTarget" : {
+                "claude" : {
+                  "cost" : 2,
+                  "tokens" : 7
+                }
+              },
+              "date" : "2026-02-27",
+              "isEmpty" : false,
+              "totalCost" : 2,
+              "totalTokens" : 7
+            },
+            {
+              "byTarget" : {
+
+              },
+              "date" : "2026-02-28",
+              "isEmpty" : true,
+              "totalCost" : 0,
+              "totalTokens" : 0
+            },
+            {
+              "byTarget" : {
+                "__unassigned" : {
+                  "cost" : 0,
+                  "tokens" : 109
+                },
+                "claude" : {
+                  "cost" : 1,
+                  "tokens" : 20
+                },
+                "cursor" : {
+                  "cost" : 10,
+                  "tokens" : 5
+                }
+              },
+              "date" : "2026-03-01",
+              "isEmpty" : false,
+              "totalCost" : 11,
+              "totalTokens" : 134
+            }
+          ],
+          "peakCost" : 11,
+          "peakTokens" : 134,
+          "targets" : [
+            "cursor",
+            "claude",
+            "__unassigned"
+          ],
+          "targetsByTokens" : [
+            "__unassigned",
+            "claude",
+            "cursor"
+          ],
+          "tokenOrder" : [
+            "__unassigned",
+            "claude",
+            "cursor"
+          ]
+        }
+      }
+    },
+    {
+      "id" : "daily-model-group",
+      "value" : {
+        "points" : [
+          {
+            "cost" : 3,
+            "date" : "2026-03-01",
+            "model" : "grok-4.1",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "grok"
+            },
+            "tokens" : 12
+          }
+        ],
+        "range" : [
+          "2026-03-01"
+        ],
+        "trend" : {
+          "costOrder" : [
+            "grok"
+          ],
+          "days" : [
+            {
+              "byTarget" : {
+                "grok" : {
+                  "cost" : 3,
+                  "tokens" : 12
+                }
+              },
+              "date" : "2026-03-01",
+              "isEmpty" : false,
+              "totalCost" : 3,
+              "totalTokens" : 12
+            }
+          ],
+          "peakCost" : 3,
+          "peakTokens" : 12,
+          "targets" : [
+            "grok"
+          ],
+          "targetsByTokens" : [
+            "grok"
+          ],
+          "tokenOrder" : [
+            "grok"
+          ]
+        }
+      }
+    },
+    {
+      "id" : "daily-raw-override",
+      "value" : {
+        "points" : [
+          {
+            "cost" : 2,
+            "date" : "2026-03-01",
+            "model" : "grok-4.1",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "grok"
+            },
+            "tokens" : 7
+          },
+          {
+            "cost" : 1,
+            "date" : "2026-03-01",
+            "model" : "grok-4.1",
+            "state" : {
+              "kind" : "excluded"
+            },
+            "tokens" : 5
+          }
+        ],
+        "range" : [
+          "2026-03-01"
+        ],
+        "trend" : {
+          "costOrder" : [
+            "grok"
+          ],
+          "days" : [
+            {
+              "byTarget" : {
+                "grok" : {
+                  "cost" : 2,
+                  "tokens" : 7
+                }
+              },
+              "date" : "2026-03-01",
+              "isEmpty" : false,
+              "totalCost" : 2,
+              "totalTokens" : 7
+            }
+          ],
+          "peakCost" : 2,
+          "peakTokens" : 7,
+          "targets" : [
+            "grok"
+          ],
+          "targetsByTokens" : [
+            "grok"
+          ],
+          "tokenOrder" : [
+            "grok"
+          ]
+        }
+      }
+    },
+    {
+      "id" : "daily-saturation",
+      "value" : {
+        "points" : [
+          {
+            "cost" : 0,
+            "date" : "2026-03-01",
+            "model" : "model-a",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            },
+            "tokens" : 9223372036854775807
+          }
+        ],
+        "range" : [
+          "2026-03-01"
+        ],
+        "trend" : {
+          "costOrder" : [
+            "claude"
+          ],
+          "days" : [
+            {
+              "byTarget" : {
+                "claude" : {
+                  "cost" : 0,
+                  "tokens" : 9223372036854775807
+                }
+              },
+              "date" : "2026-03-01",
+              "isEmpty" : false,
+              "totalCost" : 0,
+              "totalTokens" : 9223372036854775807
+            }
+          ],
+          "peakCost" : 0,
+          "peakTokens" : 9223372036854775807,
+          "targets" : [
+            "claude"
+          ],
+          "targetsByTokens" : [
+            "claude"
+          ],
+          "tokenOrder" : [
+            "claude"
+          ]
+        }
+      }
+    },
+    {
+      "id" : "daily-empty",
+      "value" : {
+        "points" : [
+
+        ],
+        "range" : [
+          "2026-02-27",
+          "2026-02-28",
+          "2026-03-01"
+        ],
+        "trend" : {
+          "costOrder" : [
+
+          ],
+          "days" : [
+            {
+              "byTarget" : {
+
+              },
+              "date" : "2026-02-27",
+              "isEmpty" : true,
+              "totalCost" : 0,
+              "totalTokens" : 0
+            },
+            {
+              "byTarget" : {
+
+              },
+              "date" : "2026-02-28",
+              "isEmpty" : true,
+              "totalCost" : 0,
+              "totalTokens" : 0
+            },
+            {
+              "byTarget" : {
+
+              },
+              "date" : "2026-03-01",
+              "isEmpty" : true,
+              "totalCost" : 0,
+              "totalTokens" : 0
+            }
+          ],
+          "peakCost" : 0,
+          "peakTokens" : 0,
+          "targets" : [
+
+          ],
+          "targetsByTokens" : [
+
+          ],
+          "tokenOrder" : [
+
+          ]
+        }
+      }
+    },
+    {
+      "id" : "daily-zero-days",
+      "value" : {
+        "points" : [
+
+        ],
+        "range" : [
+
+        ],
+        "trend" : {
+          "costOrder" : [
+
+          ],
+          "days" : [
+
+          ],
+          "peakCost" : 0,
+          "peakTokens" : 0,
+          "targets" : [
+
+          ],
+          "targetsByTokens" : [
+
+          ],
+          "tokenOrder" : [
+
+          ]
+        }
+      }
+    },
+    {
+      "id" : "daily-invalid-date",
+      "value" : {
+        "points" : [
+
+        ],
+        "range" : null,
+        "trend" : {
+          "costOrder" : [
+
+          ],
+          "days" : [
+
+          ],
+          "peakCost" : 0,
+          "peakTokens" : 0,
+          "targets" : [
+
+          ],
+          "targetsByTokens" : [
+
+          ],
+          "tokenOrder" : [
+
+          ]
+        }
+      }
+    },
+    {
+      "id" : "daily-leap",
+      "value" : {
+        "points" : [
+
+        ],
+        "range" : [
+          "2024-02-28",
+          "2024-02-29",
+          "2024-03-01"
+        ],
+        "trend" : {
+          "costOrder" : [
+
+          ],
+          "days" : [
+            {
+              "byTarget" : {
+
+              },
+              "date" : "2024-02-28",
+              "isEmpty" : true,
+              "totalCost" : 0,
+              "totalTokens" : 0
+            },
+            {
+              "byTarget" : {
+
+              },
+              "date" : "2024-02-29",
+              "isEmpty" : true,
+              "totalCost" : 0,
+              "totalTokens" : 0
+            },
+            {
+              "byTarget" : {
+
+              },
+              "date" : "2024-03-01",
+              "isEmpty" : true,
+              "totalCost" : 0,
+              "totalTokens" : 0
+            }
+          ],
+          "peakCost" : 0,
+          "peakTokens" : 0,
+          "targets" : [
+
+          ],
+          "targetsByTokens" : [
+
+          ],
+          "tokenOrder" : [
+
+          ]
+        }
+      }
+    },
+    {
+      "id" : "daily-dst",
+      "value" : {
+        "points" : [
+
+        ],
+        "range" : [
+          "2026-10-31",
+          "2026-11-01",
+          "2026-11-02"
+        ],
+        "trend" : {
+          "costOrder" : [
+
+          ],
+          "days" : [
+            {
+              "byTarget" : {
+
+              },
+              "date" : "2026-10-31",
+              "isEmpty" : true,
+              "totalCost" : 0,
+              "totalTokens" : 0
+            },
+            {
+              "byTarget" : {
+
+              },
+              "date" : "2026-11-01",
+              "isEmpty" : true,
+              "totalCost" : 0,
+              "totalTokens" : 0
+            },
+            {
+              "byTarget" : {
+
+              },
+              "date" : "2026-11-02",
+              "isEmpty" : true,
+              "totalCost" : 0,
+              "totalTokens" : 0
+            }
+          ],
+          "peakCost" : 0,
+          "peakTokens" : 0,
+          "targets" : [
+
+          ],
+          "targetsByTokens" : [
+
+          ],
+          "tokenOrder" : [
+
+          ]
+        }
+      }
+    },
+    {
+      "id" : "daily-negative-only",
+      "value" : {
+        "points" : [
+          {
+            "cost" : -2,
+            "date" : "2026-03-01",
+            "model" : "model-a",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            },
+            "tokens" : -3
+          }
+        ],
+        "range" : [
+          "2026-03-01"
+        ],
+        "trend" : {
+          "costOrder" : [
+            "claude"
+          ],
+          "days" : [
+            {
+              "byTarget" : {
+                "claude" : {
+                  "cost" : -2,
+                  "tokens" : -3
+                }
+              },
+              "date" : "2026-03-01",
+              "isEmpty" : false,
+              "totalCost" : -2,
+              "totalTokens" : -3
+            }
+          ],
+          "peakCost" : -2,
+          "peakTokens" : -3,
+          "targets" : [
+            "claude"
+          ],
+          "targetsByTokens" : [
+            "claude"
+          ],
+          "tokenOrder" : [
+            "claude"
+          ]
+        }
+      }
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "messages",
+          "Index 0",
+          "isTurnStart"
+        ]
+      },
+      "id" : "decode-window-bool-null"
+    },
+    {
+      "error" : {
+        "kind" : "dataCorrupted",
+        "path" : [
+
+        ]
+      },
+      "id" : "decode-window-int-fraction"
+    },
+    {
+      "error" : {
+        "kind" : "valueNotFound",
+        "path" : [
+          "messages",
+          "Index 0",
+          "input"
+        ]
+      },
+      "id" : "decode-window-int-null"
+    },
+    {
+      "error" : {
+        "field" : "providerId",
+        "kind" : "keyNotFound",
+        "path" : [
+          "messages",
+          "Index 0"
+        ]
+      },
+      "id" : "decode-window-missing-provider"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "messages"
+        ]
+      },
+      "id" : "decode-window-wrong-messages"
+    },
+    {
+      "error" : {
+        "field" : "undatedCount",
+        "kind" : "keyNotFound",
+        "path" : [
+
+        ]
+      },
+      "id" : "decode-window-missing-count"
+    },
+    {
+      "error" : {
+        "kind" : "valueNotFound",
+        "path" : [
+          "Index 0",
+          "clients",
+          "Index 0",
+          "tokens",
+          "reasoning"
+        ]
+      },
+      "id" : "decode-daily-token-null"
+    },
+    {
+      "error" : {
+        "field" : "cost",
+        "kind" : "keyNotFound",
+        "path" : [
+          "Index 0"
+        ]
+      },
+      "id" : "decode-report-cost-missing"
+    },
+    {
+      "id" : "settings-onboarding",
+      "value" : {
+        "accepted" : [
+          {
+            "client" : "synthetic",
+            "model" : null,
+            "provider" : "",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            }
+          }
+        ],
+        "onboarding" : {
+          "records" : [
+            {
+              "client" : "claude",
+              "model" : null,
+              "provider" : "anthropic",
+              "state" : {
+                "kind" : "assigned",
+                "target" : "claude"
+              }
+            },
+            {
+              "client" : "cursor",
+              "model" : null,
+              "provider" : "openai",
+              "state" : {
+                "kind" : "assigned",
+                "target" : "cursor"
+              }
+            }
+          ],
+          "unsuggestedCount" : 1
+        },
+        "pageState" : "rows",
+        "proposed" : [
+          {
+            "client" : "claude",
+            "model" : null,
+            "provider" : "anthropic",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            }
+          },
+          {
+            "client" : "cursor",
+            "model" : null,
+            "provider" : "openai",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "cursor"
+            }
+          }
+        ],
+        "rows" : [
+          {
+            "client" : "claude",
+            "cost" : 3,
+            "id" : "claude\u0000anthropic",
+            "provider" : "anthropic",
+            "providerLabel" : "anthropic",
+            "state" : {
+              "kind" : "unassigned"
+            },
+            "suggestedState" : null,
+            "tokens" : 30
+          },
+          {
+            "client" : "cursor",
+            "cost" : 0,
+            "id" : "cursor\u0000openai",
+            "provider" : "openai",
+            "providerLabel" : "openai",
+            "state" : {
+              "kind" : "unassigned"
+            },
+            "suggestedState" : null,
+            "tokens" : 80
+          },
+          {
+            "client" : "synthetic",
+            "cost" : 0,
+            "id" : "synthetic\u0000",
+            "provider" : "",
+            "providerLabel" : "Unspecified provider",
+            "state" : {
+              "kind" : "unassigned"
+            },
+            "suggestedState" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            },
+            "tokens" : 7
+          }
+        ],
+        "signature" : "claude\u001fanthropic\u001fmodel-a\u001f10\u001f4607182418800017408\u001eclaude\u001fanthropic\u001fapi\u001f20\u001f4611686018427387904\u001ecursor\u001fopenai\u001fmodel-a\u001f80\u001f0\u001esynthetic\u001f\u001fmodel-a\u001f7\u001f0|known||"
+      }
+    },
+    {
+      "id" : "settings-router",
+      "value" : {
+        "accepted" : [
+
+        ],
+        "onboarding" : {
+          "records" : [
+            {
+              "client" : "opencode",
+              "model" : null,
+              "provider" : "openai",
+              "state" : {
+                "kind" : "assigned",
+                "target" : "codex"
+              }
+            }
+          ],
+          "unsuggestedCount" : 0
+        },
+        "pageState" : "rows",
+        "proposed" : [
+          {
+            "client" : "opencode",
+            "model" : null,
+            "provider" : "openai",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "codex"
+            }
+          }
+        ],
+        "rows" : [
+          {
+            "client" : "opencode",
+            "cost" : 1,
+            "id" : "opencode\u0000openai",
+            "provider" : "openai",
+            "providerLabel" : "openai",
+            "state" : {
+              "kind" : "unassigned"
+            },
+            "suggestedState" : null,
+            "tokens" : 10
+          }
+        ],
+        "signature" : "opencode\u001fopenai\u001fmodel-a\u001f10\u001f4607182418800017408|known||opencode>codex"
+      }
+    },
+    {
+      "id" : "daily-cancel",
+      "value" : {
+        "points" : [
+
+        ],
+        "range" : [
+          "2026-02-27",
+          "2026-02-28",
+          "2026-03-01"
+        ],
+        "trend" : {
+          "costOrder" : [
+
+          ],
+          "days" : [
+            {
+              "byTarget" : {
+
+              },
+              "date" : "2026-02-27",
+              "isEmpty" : true,
+              "totalCost" : 0,
+              "totalTokens" : 0
+            },
+            {
+              "byTarget" : {
+
+              },
+              "date" : "2026-02-28",
+              "isEmpty" : true,
+              "totalCost" : 0,
+              "totalTokens" : 0
+            },
+            {
+              "byTarget" : {
+
+              },
+              "date" : "2026-03-01",
+              "isEmpty" : true,
+              "totalCost" : 0,
+              "totalTokens" : 0
+            }
+          ],
+          "peakCost" : 0,
+          "peakTokens" : 0,
+          "targets" : [
+
+          ],
+          "targetsByTokens" : [
+
+          ],
+          "tokenOrder" : [
+
+          ]
+        }
+      }
+    },
+    {
+      "id" : "daily-cancel-models",
+      "value" : {
+        "points" : [
+          {
+            "cost" : 1,
+            "date" : "2026-03-01",
+            "model" : "model-a",
+            "state" : {
+              "kind" : "unassigned"
+            },
+            "tokens" : 20
+          },
+          {
+            "cost" : -1,
+            "date" : "2026-03-01",
+            "model" : "model-b",
+            "state" : {
+              "kind" : "unassigned"
+            },
+            "tokens" : -20
+          }
+        ],
+        "range" : [
+          "2026-02-27",
+          "2026-02-28",
+          "2026-03-01"
+        ],
+        "trend" : {
+          "costOrder" : [
+            "__unassigned"
+          ],
+          "days" : [
+            {
+              "byTarget" : {
+
+              },
+              "date" : "2026-02-27",
+              "isEmpty" : true,
+              "totalCost" : 0,
+              "totalTokens" : 0
+            },
+            {
+              "byTarget" : {
+
+              },
+              "date" : "2026-02-28",
+              "isEmpty" : true,
+              "totalCost" : 0,
+              "totalTokens" : 0
+            },
+            {
+              "byTarget" : {
+                "__unassigned" : {
+                  "cost" : 0,
+                  "tokens" : 0
+                }
+              },
+              "date" : "2026-03-01",
+              "isEmpty" : true,
+              "totalCost" : 0,
+              "totalTokens" : 0
+            }
+          ],
+          "peakCost" : 0,
+          "peakTokens" : 0,
+          "targets" : [
+            "__unassigned"
+          ],
+          "targetsByTokens" : [
+            "__unassigned"
+          ],
+          "tokenOrder" : [
+            "__unassigned"
+          ]
+        }
+      }
+    },
+    {
+      "id" : "daily-turns",
+      "value" : {
+        "points" : [
+          {
+            "cost" : 4,
+            "date" : "2026-03-01",
+            "model" : "api",
+            "state" : {
+              "kind" : "unassigned"
+            },
+            "tokens" : 40
+          },
+          {
+            "cost" : 11,
+            "date" : "2026-03-01",
+            "model" : "model-a",
+            "state" : {
+              "kind" : "unassigned"
+            },
+            "tokens" : 134
+          }
+        ],
+        "range" : [
+          "2026-02-27",
+          "2026-02-28",
+          "2026-03-01"
+        ],
+        "trend" : {
+          "costOrder" : [
+            "__unassigned"
+          ],
+          "days" : [
+            {
+              "byTarget" : {
+
+              },
+              "date" : "2026-02-27",
+              "isEmpty" : true,
+              "totalCost" : 0,
+              "totalTokens" : 0
+            },
+            {
+              "byTarget" : {
+
+              },
+              "date" : "2026-02-28",
+              "isEmpty" : true,
+              "totalCost" : 0,
+              "totalTokens" : 0
+            },
+            {
+              "byTarget" : {
+                "__unassigned" : {
+                  "cost" : 15,
+                  "tokens" : 174
+                }
+              },
+              "date" : "2026-03-01",
+              "isEmpty" : false,
+              "totalCost" : 15,
+              "totalTokens" : 174
+            }
+          ],
+          "peakCost" : 15,
+          "peakTokens" : 174,
+          "targets" : [
+            "__unassigned"
+          ],
+          "targetsByTokens" : [
+            "__unassigned"
+          ],
+          "tokenOrder" : [
+            "__unassigned"
+          ]
+        }
+      }
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "Index 0",
+          "turnsByClient",
+          "claude"
+        ]
+      },
+      "id" : "decode-daily-turns"
+    }
+  ]
+}
