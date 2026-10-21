@@ -39,7 +39,8 @@ Support **A and B**, with B as the documented default:
 
 ## Maintainer decision
 
-_Pending:_
-- Is B (Secret Service setup-token) accepted?
-- For A, is refresh write-back to `~/.claude/.credentials.json` accepted?
-- Is `libsecret-tools` an acceptable runtime dependency for the `.deb` (PR-08)?
+Decided 2026-10-21 by the maintainer:
+- Recommendation accepted: support A and B, with B as the documented default.
+- B (Secret Service setup-token item) accepted; implemented in issue #30.
+- For A, refresh write-back to `~/.claude/.credentials.json` is accepted (same as Codex `~/.codex/auth.json`, 2026-10-15).
+- `libsecret-tools` is accepted as a runtime dependency (record it for the `.deb` in PR-08).
