@@ -22,24 +22,33 @@ jobs:
   qt:
     runs-on: ubuntu-latest
     container: debian:trixie
+    env:
+      RUST_TOOLCHAIN: "1.96.1" # vendor/tokscale-core/rust-toolchain.toml
     steps:
       - name: Install build dependencies
         run: |
           apt-get update
           apt-get install -y --no-install-recommends \
-            build-essential ca-certificates cmake git pkg-config \
+            build-essential ca-certificates cmake curl git pkg-config \
             qt6-base-dev qt6-declarative-dev \
             qml6-module-qtquick qml6-module-qtquick-window \
             qml6-module-qtqml-workerscript \
             libkf6dbusaddons-dev dbus-daemon qt6-svg-plugins
           useradd --create-home ci
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1 (node24)
+        with:
+          submodules: true
       - name: Build and test Qt offscreen
         run: |
           chown -R ci "$GITHUB_WORKSPACE"
-          runuser -u ci -- env HOME=/home/ci \
+          runuser -u ci -- env HOME=/home/ci RUST_TOOLCHAIN="$RUST_TOOLCHAIN" \
             QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software sh -euc '
             test "$(id -u)" -ne 0
+            curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs \
+              | sh -s -- -y --profile minimal --default-toolchain "$RUST_TOOLCHAIN"
+            export PATH="$HOME/.cargo/bin:$PATH"
+            # CMake builds the staticlib with --offline, so fetch crates first.
+            cargo fetch --locked
             cmake -S linux -B .build/linux-qt \
               -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON
             cmake --build .build/linux-qt --parallel 2

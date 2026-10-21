@@ -1,3 +1,4 @@
+#include "bridge/Bridge.h"
 #include "singleinstance/SingleInstance.h"
 
 #include <QCommandLineParser>
@@ -20,7 +21,20 @@ int main(int argc, char *argv[])
     const QCommandLineOption quitAfterStart(QStringLiteral("quit-after-start"),
                                           QStringLiteral("Exit after creating the window."));
     parser.addOption(quitAfterStart);
+    const QCommandLineOption probe(QStringLiteral("probe"),
+                                   QStringLiteral("Probe local sessions asynchronously and exit."));
+    parser.addOption(probe);
     parser.process(app);
+
+    Syrtis::Bridge bridge;
+    if (parser.isSet(probe)) {
+        QObject::connect(&bridge, &Syrtis::Bridge::completed, &app,
+                         [&app](quint64, const QJsonObject &envelope) {
+            app.exit(envelope.value("ok").toBool() ? EXIT_SUCCESS : EXIT_FAILURE);
+        });
+        bridge.probe();
+        return app.exec();
+    }
 
     QQmlApplicationEngine engine;
     QObject::connect(&singleInstance, &Syrtis::SingleInstance::activationRequested,
