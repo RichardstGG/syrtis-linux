@@ -16,6 +16,10 @@ struct TokenBreakdown {
         return saturatingAdding(saturatingAdding(saturatingAdding(
             saturatingAdding(input, output), cacheRead), cacheWrite), reasoning);
     }
+    static TokenBreakdown decode(const json::Decoder &d) {
+        return {d.field<qint64>("input"), d.field<qint64>("output"), d.field<qint64>("cacheRead"),
+                d.field<qint64>("cacheWrite"), d.field<qint64>("reasoning")};
+    }
     bool operator==(const TokenBreakdown &) const = default;
 };
 }

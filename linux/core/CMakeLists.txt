@@ -80,3 +80,18 @@ if(BUILD_TESTING)
     target_link_libraries(attribution-test PRIVATE syrtis-core)
     add_test(NAME attribution-unit COMMAND attribution-test)
 endif()
+
+# Attribution settings, daily series, trend and complete window usage.
+target_sources(syrtis-core PRIVATE UsageAttributionBreakdown.cpp UsageAttributionSettings.cpp AttributedDailySeries.cpp SubscriptionTrend.cpp)
+target_sources(syrtis-crosscheck PRIVATE ../crosscheck/harness/attribution-ext.cpp)
+if(BUILD_TESTING)
+    add_test(NAME crosscheck-attribution-ext
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/../crosscheck/harness/run_selector.py"
+            $<TARGET_FILE:syrtis-crosscheck> "${CMAKE_CURRENT_SOURCE_DIR}/../crosscheck/fixtures"
+            "${CMAKE_CURRENT_SOURCE_DIR}/../crosscheck/golden" "${CMAKE_CURRENT_BINARY_DIR}/attribution-ext" attribution-ext)
+    set_tests_properties(crosscheck-attribution-ext PROPERTIES ENVIRONMENT "TZ=Asia/Taipei" SKIP_RETURN_CODE 77 TIMEOUT 30)
+    add_test(NAME attribution-ext-selftest
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/../crosscheck/harness/attribution_ext_check.py"
+            $<TARGET_FILE:syrtis-crosscheck> "${CMAKE_CURRENT_BINARY_DIR}/attribution-ext-selftest")
+    set_tests_properties(attribution-ext-selftest PROPERTIES TIMEOUT 30)
+endif()

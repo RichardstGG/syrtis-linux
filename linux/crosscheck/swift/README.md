@@ -97,3 +97,18 @@ case IDs and error structure. It never runs the separate C++ semantic checks or
 asserts inferred Swift results. The existing `all` workflow includes this
 selector. Its macOS build, structural preflight, golden generation and C++
 comparison remain CI gates; workers never create `golden/attribution.json`.
+
+
+The `attribution-ext` extension reads [attribution-ext.json](../fixtures/attribution-ext.json)
+and invokes shipping `UsageAttributionSettings`, `UsageAttributionBreakdown`,
+`AttributedDailySeries`, `SubscriptionTrendFold`, and `WindowUsage`. Graph,
+report, agent and window inputs use production decoders. Accept/write cases
+use an isolated synthetic UserDefaults suite, removed after each case, to
+exercise the shipping two-table update path. Reflection transports values and
+computed row IDs, labels, day emptiness and metric orders.
+
+`check.py` calls only `attribution_ext_check.verify_structure`, checking case
+coverage and transport/error shape without inferred Swift results. The existing
+oracle `all` run includes this selector. macOS build, structural preflight,
+oracle golden generation and C++ comparison remain CI gates; workers never
+write `golden/attribution-ext.json`.

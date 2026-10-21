@@ -13,6 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "harness"))
 from reports_check import verify_structure as verify_reports_structure
 from agent_usage_check import verify_structure as verify_agent_structure
 from attribution_check import verify_structure as verify_attribution_structure
+from attribution_ext_check import verify_structure as verify_attribution_ext_structure
 
 
 def main():
@@ -25,6 +26,7 @@ def main():
         shutil.copyfile(Path(__file__).resolve().parents[1] / "fixtures/reports.json", fixtures / "reports.json")
         shutil.copyfile(Path(__file__).resolve().parents[1] / "fixtures/agent-usage.json", fixtures / "agent-usage.json")
         shutil.copyfile(Path(__file__).resolve().parents[1] / "fixtures/attribution.json", fixtures / "attribution.json")
+        shutil.copyfile(Path(__file__).resolve().parents[1] / "fixtures/attribution-ext.json", fixtures / "attribution-ext.json")
         out = Path(scratch) / "out"
         base = [str(fixtures), str(out)]
         pin = ["-AppleLanguages", "(en)"]
@@ -43,7 +45,7 @@ def main():
         # The extension must never run root selectors or invent oracle goldens.
         run([*base, *pin])
         run([*pin, *base, "all"])
-        if {p.name for p in out.iterdir()} != {"core-leaf.actual.json", "reports.actual.json", "agent-usage.actual.json", "attribution.actual.json"}:
+        if {p.name for p in out.iterdir()} != {"core-leaf.actual.json", "reports.actual.json", "agent-usage.actual.json", "attribution.actual.json", "attribution-ext.actual.json"}:
             raise RuntimeError("extension selector set changed")
         # Oracle checks validate transport/coverage, never guessed decoder or
         # calculation results. diff.py compares C++ semantics to these outputs.
@@ -52,6 +54,9 @@ def main():
         verify_reports_structure(out / "reports.actual.json", fixtures / "reports.json")
         verify_agent_structure(out / "agent-usage.actual.json", fixtures / "agent-usage.json")
         verify_attribution_structure(out / "attribution.actual.json", fixtures / "attribution.json")
+        verify_attribution_ext_structure(out / "attribution-ext.actual.json", fixtures / "attribution-ext.json")
+        run([*base, "attribution-ext", *pin])
+        verify_attribution_ext_structure(out / "attribution-ext.actual.json", fixtures / "attribution-ext.json")
         run([*base, "attribution", *pin])
         verify_attribution_structure(out / "attribution.actual.json", fixtures / "attribution.json")
         run([*base, "agent-usage", *pin])

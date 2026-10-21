@@ -1,0 +1,4244 @@
+{
+  "cases": [
+    {
+      "id": "copy",
+      "op": "copy",
+      "input": {}
+    },
+    {
+      "id": "breakdown-mixed",
+      "op": "breakdown",
+      "input": {
+        "entries": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "model-a",
+            "input": 10,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 10,
+            "messageCount": 1,
+            "cost": 1
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "input": 20,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 20,
+            "messageCount": 1,
+            "cost": 2
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": "model-a",
+            "input": 80,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 80,
+            "messageCount": 1,
+            "cost": 0
+          },
+          {
+            "client": "synthetic",
+            "provider": "",
+            "model": "model-a",
+            "input": 7,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 7,
+            "messageCount": 1,
+            "cost": 0
+          },
+          {
+            "client": "ignored",
+            "provider": "xai",
+            "model": "model-a",
+            "input": 900,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 900,
+            "messageCount": 1,
+            "cost": 9
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "model-a",
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 0,
+            "messageCount": 1,
+            "cost": 0
+          }
+        ],
+        "clients": [
+          "claude",
+          "cursor",
+          "synthetic"
+        ],
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ]
+      }
+    },
+    {
+      "id": "breakdown-cancel",
+      "op": "breakdown",
+      "input": {
+        "entries": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "model-a",
+            "input": 5,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 5,
+            "messageCount": 1,
+            "cost": 1
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "model-a",
+            "input": -5,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": -5,
+            "messageCount": 1,
+            "cost": -1
+          }
+        ],
+        "clients": [
+          "claude"
+        ],
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ]
+      }
+    },
+    {
+      "id": "breakdown-saturation",
+      "op": "breakdown",
+      "input": {
+        "entries": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "model-a",
+            "input": 9223372036854775807,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 9223372036854775807,
+            "messageCount": 1,
+            "cost": 0
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "model-a",
+            "input": 1,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 1,
+            "messageCount": 1,
+            "cost": 0
+          }
+        ],
+        "clients": [
+          "claude"
+        ],
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ]
+      }
+    },
+    {
+      "id": "settings-mixed",
+      "op": "settings",
+      "input": {
+        "entries": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "model-a",
+            "input": 10,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 10,
+            "messageCount": 1,
+            "cost": 1
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "input": 20,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 20,
+            "messageCount": 1,
+            "cost": 2
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": "model-a",
+            "input": 80,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 80,
+            "messageCount": 1,
+            "cost": 0
+          },
+          {
+            "client": "synthetic",
+            "provider": "",
+            "model": "model-a",
+            "input": 7,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 7,
+            "messageCount": 1,
+            "cost": 0
+          },
+          {
+            "client": "ignored",
+            "provider": "xai",
+            "model": "model-a",
+            "input": 900,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 900,
+            "messageCount": 1,
+            "cost": 9
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "model-a",
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 0,
+            "messageCount": 1,
+            "cost": 0
+          }
+        ],
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "suggestions": [
+          {
+            "client": "synthetic",
+            "provider": "",
+            "model": null,
+            "state": "excluded"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "codex"
+          }
+        ],
+        "subscriptions": [
+          "claude",
+          "codex",
+          "cursor"
+        ],
+        "routed": {},
+        "hasReport": true,
+        "isLoading": false,
+        "targetsKnown": true
+      }
+    },
+    {
+      "id": "settings-loading",
+      "op": "settings",
+      "input": {
+        "entries": [],
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "suggestions": [
+          {
+            "client": "synthetic",
+            "provider": "",
+            "model": null,
+            "state": "excluded"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "codex"
+          }
+        ],
+        "subscriptions": [
+          "claude",
+          "codex",
+          "cursor"
+        ],
+        "routed": {},
+        "hasReport": false,
+        "isLoading": true,
+        "targetsKnown": true
+      }
+    },
+    {
+      "id": "settings-unavailable",
+      "op": "settings",
+      "input": {
+        "entries": [],
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "suggestions": [
+          {
+            "client": "synthetic",
+            "provider": "",
+            "model": null,
+            "state": "excluded"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "codex"
+          }
+        ],
+        "subscriptions": [
+          "claude",
+          "codex",
+          "cursor"
+        ],
+        "routed": {},
+        "hasReport": false,
+        "isLoading": false,
+        "targetsKnown": true
+      }
+    },
+    {
+      "id": "settings-empty",
+      "op": "settings",
+      "input": {
+        "entries": [],
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "suggestions": [
+          {
+            "client": "synthetic",
+            "provider": "",
+            "model": null,
+            "state": "excluded"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "codex"
+          }
+        ],
+        "subscriptions": [
+          "claude",
+          "codex",
+          "cursor"
+        ],
+        "routed": {},
+        "hasReport": true,
+        "isLoading": false,
+        "targetsKnown": true
+      }
+    },
+    {
+      "id": "settings-pending",
+      "op": "settings",
+      "input": {
+        "entries": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "model-a",
+            "input": 10,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 10,
+            "messageCount": 1,
+            "cost": 1
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "input": 20,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 20,
+            "messageCount": 1,
+            "cost": 2
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": "model-a",
+            "input": 80,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 80,
+            "messageCount": 1,
+            "cost": 0
+          },
+          {
+            "client": "synthetic",
+            "provider": "",
+            "model": "model-a",
+            "input": 7,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 7,
+            "messageCount": 1,
+            "cost": 0
+          },
+          {
+            "client": "ignored",
+            "provider": "xai",
+            "model": "model-a",
+            "input": 900,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 900,
+            "messageCount": 1,
+            "cost": 9
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "model-a",
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 0,
+            "messageCount": 1,
+            "cost": 0
+          }
+        ],
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "suggestions": [
+          {
+            "client": "synthetic",
+            "provider": "",
+            "model": null,
+            "state": "excluded"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "codex"
+          }
+        ],
+        "subscriptions": [
+          "claude",
+          "codex",
+          "cursor"
+        ],
+        "routed": {},
+        "hasReport": true,
+        "isLoading": false,
+        "targetsKnown": false
+      }
+    },
+    {
+      "id": "settings-routing",
+      "op": "settings",
+      "input": {
+        "entries": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "model-a",
+            "input": 10,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 10,
+            "messageCount": 1,
+            "cost": 1
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "input": 20,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 20,
+            "messageCount": 1,
+            "cost": 2
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": "model-a",
+            "input": 80,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 80,
+            "messageCount": 1,
+            "cost": 0
+          },
+          {
+            "client": "synthetic",
+            "provider": "",
+            "model": "model-a",
+            "input": 7,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 7,
+            "messageCount": 1,
+            "cost": 0
+          },
+          {
+            "client": "ignored",
+            "provider": "xai",
+            "model": "model-a",
+            "input": 900,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 900,
+            "messageCount": 1,
+            "cost": 9
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "model-a",
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 0,
+            "messageCount": 1,
+            "cost": 0
+          }
+        ],
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "suggestions": [
+          {
+            "client": "synthetic",
+            "provider": "",
+            "model": null,
+            "state": "excluded"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "codex"
+          }
+        ],
+        "subscriptions": [
+          "claude",
+          "codex",
+          "cursor"
+        ],
+        "routed": {
+          "opencode": [
+            "codex",
+            "grok"
+          ]
+        },
+        "hasReport": true,
+        "isLoading": false,
+        "targetsKnown": true
+      }
+    },
+    {
+      "id": "settings-cancel-kept",
+      "op": "settings",
+      "input": {
+        "entries": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "model-a",
+            "input": 5,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 5,
+            "messageCount": 1,
+            "cost": 1
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "model-a",
+            "input": -5,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": -5,
+            "messageCount": 1,
+            "cost": -1
+          }
+        ],
+        "confirmed": [],
+        "suggestions": [],
+        "subscriptions": [
+          "claude",
+          "codex",
+          "cursor"
+        ],
+        "routed": {},
+        "hasReport": true,
+        "isLoading": false,
+        "targetsKnown": true
+      }
+    },
+    {
+      "id": "settings-unicode",
+      "op": "settings",
+      "input": {
+        "entries": [
+          {
+            "client": "Café",
+            "provider": "p",
+            "model": "model-a",
+            "input": 5,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 5,
+            "messageCount": 1,
+            "cost": 1
+          },
+          {
+            "client": "Café",
+            "provider": "p",
+            "model": "model-a",
+            "input": 7,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 7,
+            "messageCount": 1,
+            "cost": 1
+          }
+        ],
+        "confirmed": [
+          {
+            "client": "Café",
+            "provider": "p",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "suggestions": [],
+        "subscriptions": [
+          "claude",
+          "codex",
+          "cursor"
+        ],
+        "routed": {},
+        "hasReport": true,
+        "isLoading": false,
+        "targetsKnown": true
+      }
+    },
+    {
+      "id": "suggestion-own-without-meter",
+      "op": "suggestion",
+      "input": {
+        "sourceClient": "cursor",
+        "provider": "anthropic",
+        "subscriptions": [],
+        "routed": {}
+      }
+    },
+    {
+      "id": "suggestion-quota-owner",
+      "op": "suggestion",
+      "input": {
+        "sourceClient": "antigravity-cli",
+        "provider": "google",
+        "subscriptions": [],
+        "routed": {}
+      }
+    },
+    {
+      "id": "suggestion-router",
+      "op": "suggestion",
+      "input": {
+        "sourceClient": "opencode",
+        "provider": "openai",
+        "subscriptions": [
+          "codex"
+        ],
+        "routed": {
+          "opencode": [
+            "codex"
+          ]
+        }
+      }
+    },
+    {
+      "id": "suggestion-router-ambiguous",
+      "op": "suggestion",
+      "input": {
+        "sourceClient": "opencode",
+        "provider": "openai",
+        "subscriptions": [],
+        "routed": {
+          "opencode": [
+            "codex",
+            "cursor"
+          ]
+        }
+      }
+    },
+    {
+      "id": "suggestion-router-none",
+      "op": "suggestion",
+      "input": {
+        "sourceClient": "opencode",
+        "provider": "anthropic",
+        "subscriptions": [],
+        "routed": {
+          "opencode": [
+            "codex"
+          ]
+        }
+      }
+    },
+    {
+      "id": "suggestion-unknown-source",
+      "op": "suggestion",
+      "input": {
+        "sourceClient": "synthetic",
+        "provider": "openai",
+        "subscriptions": [
+          "codex"
+        ],
+        "routed": {}
+      }
+    },
+    {
+      "id": "suggestion-bound-excluded",
+      "op": "suggestion",
+      "input": {
+        "sourceClient": "codex",
+        "provider": "anthropic",
+        "subscriptions": [
+          "claude"
+        ],
+        "routed": {}
+      }
+    },
+    {
+      "id": "suggestion-bound-reseller",
+      "op": "suggestion",
+      "input": {
+        "sourceClient": "codex",
+        "provider": "anthropic",
+        "subscriptions": [
+          "claude",
+          "copilot"
+        ],
+        "routed": {}
+      }
+    },
+    {
+      "id": "suggestion-cross-agent",
+      "op": "suggestion",
+      "input": {
+        "sourceClient": "claude",
+        "provider": "openai",
+        "subscriptions": [
+          "codex"
+        ],
+        "routed": {}
+      }
+    },
+    {
+      "id": "suggestion-ambiguous",
+      "op": "suggestion",
+      "input": {
+        "sourceClient": "claude",
+        "provider": "openai",
+        "subscriptions": [
+          "codex",
+          "cursor"
+        ],
+        "routed": {}
+      }
+    },
+    {
+      "id": "suggestion-own-only",
+      "op": "suggestion",
+      "input": {
+        "sourceClient": "claude",
+        "provider": "xai",
+        "subscriptions": [
+          "grok",
+          "grok-bot"
+        ],
+        "routed": {}
+      }
+    },
+    {
+      "id": "suggestion-own-only-no-owner",
+      "op": "suggestion",
+      "input": {
+        "sourceClient": "claude",
+        "provider": "xai",
+        "subscriptions": [
+          "grok-bot"
+        ],
+        "routed": {}
+      }
+    },
+    {
+      "id": "suggestion-bot-own",
+      "op": "suggestion",
+      "input": {
+        "sourceClient": "grok-bot",
+        "provider": "xai",
+        "subscriptions": [
+          "grok"
+        ],
+        "routed": {}
+      }
+    },
+    {
+      "id": "suggestion-unknown-provider",
+      "op": "suggestion",
+      "input": {
+        "sourceClient": "claude",
+        "provider": "unlisted",
+        "subscriptions": [
+          "codex"
+        ],
+        "routed": {}
+      }
+    },
+    {
+      "id": "suggestion-exact-provider",
+      "op": "suggestion",
+      "input": {
+        "sourceClient": "claude",
+        "provider": "OpenAI",
+        "subscriptions": [
+          "codex"
+        ],
+        "routed": {}
+      }
+    },
+    {
+      "id": "targets-empty",
+      "op": "targets",
+      "input": {
+        "payload": null,
+        "labels": [
+          "Codex",
+          "Claude",
+          "Gemini",
+          "Xai",
+          "Minimax-coding-plan",
+          "Kimi-for-coding",
+          "Zai-coding-plan",
+          "Kiro",
+          "crush",
+          "unknown",
+          "Openai-codex"
+        ]
+      }
+    },
+    {
+      "id": "targets-configured",
+      "op": "targets",
+      "input": {
+        "payload": {
+          "generatedAt": "2026-01-01T00:00:00Z",
+          "agents": [
+            {
+              "clientId": "claude",
+              "source": "synthetic",
+              "updatedAt": "2026-01-01T00:00:00Z",
+              "windows": []
+            },
+            {
+              "clientId": "codex",
+              "source": "synthetic",
+              "updatedAt": "2026-01-01T00:00:00Z",
+              "windows": [],
+              "identity": {}
+            },
+            {
+              "clientId": "grok",
+              "source": "synthetic",
+              "updatedAt": "2026-01-01T00:00:00Z",
+              "windows": [],
+              "credits": {
+                "unlimited": false
+              }
+            },
+            {
+              "clientId": "opencode",
+              "source": "synthetic",
+              "updatedAt": "2026-01-01T00:00:00Z",
+              "windows": [],
+              "identity": {}
+            },
+            {
+              "clientId": "unknown",
+              "source": "synthetic",
+              "updatedAt": "2026-01-01T00:00:00Z",
+              "windows": [],
+              "identity": {}
+            },
+            {
+              "clientId": "codex",
+              "source": "synthetic",
+              "updatedAt": "2026-01-01T00:00:00Z",
+              "windows": [],
+              "identity": {}
+            }
+          ],
+          "opencodeSubscriptions": [
+            "Claude",
+            "Xai",
+            "Kimi-for-coding",
+            "Codex",
+            "unknown"
+          ]
+        },
+        "labels": [
+          "Codex",
+          "Claude",
+          "Gemini",
+          "Xai",
+          "Minimax-coding-plan",
+          "Kimi-for-coding",
+          "Zai-coding-plan",
+          "Kiro",
+          "crush",
+          "unknown",
+          "Openai-codex"
+        ]
+      }
+    },
+    {
+      "id": "accept-success",
+      "op": "accept",
+      "input": {
+        "confirmedRaw": "[{\"client\":\"claude\",\"provider\":\"anthropic\",\"model\":null,\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"claude\",\"provider\":\"anthropic\",\"model\":\"api\",\"state\":\"excluded\"},{\"client\":\"cursor\",\"provider\":\"openai\",\"model\":null,\"state\":\"assigned\",\"target\":\"cursor\"}]",
+        "suggestionsRaw": "[{\"client\":\"synthetic\",\"provider\":\"\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"cursor\",\"provider\":\"openai\",\"model\":null,\"state\":\"assigned\",\"target\":\"cursor\"}]",
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "",
+            "model": null,
+            "state": "excluded"
+          }
+        ]
+      }
+    },
+    {
+      "id": "accept-foreign-confirmed",
+      "op": "accept",
+      "input": {
+        "confirmedRaw": false,
+        "suggestionsRaw": "[{\"client\":\"synthetic\",\"provider\":\"\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"cursor\",\"provider\":\"openai\",\"model\":null,\"state\":\"assigned\",\"target\":\"cursor\"}]",
+        "records": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ]
+      }
+    },
+    {
+      "id": "accept-foreign-suggestions",
+      "op": "accept",
+      "input": {
+        "confirmedRaw": "[{\"client\":\"claude\",\"provider\":\"anthropic\",\"model\":null,\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"claude\",\"provider\":\"anthropic\",\"model\":\"api\",\"state\":\"excluded\"},{\"client\":\"cursor\",\"provider\":\"openai\",\"model\":null,\"state\":\"assigned\",\"target\":\"cursor\"}]",
+        "suggestionsRaw": 42,
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "",
+            "model": null,
+            "state": "excluded"
+          }
+        ]
+      }
+    },
+    {
+      "id": "accept-noop",
+      "op": "accept",
+      "input": {
+        "confirmedRaw": false,
+        "suggestionsRaw": 42,
+        "records": []
+      }
+    },
+    {
+      "id": "accept-absent",
+      "op": "accept",
+      "input": {
+        "records": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ]
+      }
+    },
+    {
+      "id": "write-valid",
+      "op": "writeFailure",
+      "input": {
+        "confirmedRaw": "[{\"client\":\"claude\",\"provider\":\"anthropic\",\"model\":null,\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"claude\",\"provider\":\"anthropic\",\"model\":\"api\",\"state\":\"excluded\"},{\"client\":\"cursor\",\"provider\":\"openai\",\"model\":null,\"state\":\"assigned\",\"target\":\"cursor\"}]",
+        "records": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "excluded"
+          }
+        ]
+      }
+    },
+    {
+      "id": "write-foreign",
+      "op": "writeFailure",
+      "input": {
+        "confirmedRaw": false,
+        "records": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ]
+      }
+    },
+    {
+      "id": "write-invalid",
+      "op": "writeFailure",
+      "input": {
+        "confirmedRaw": "[]",
+        "records": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "unknown"
+          }
+        ]
+      }
+    },
+    {
+      "id": "write-limit",
+      "op": "writeFailure",
+      "input": {
+        "confirmedRaw": "[{\"client\":\"synthetic-0\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-1\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-2\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-3\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-4\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-5\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-6\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-7\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-8\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-9\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-10\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-11\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-12\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-13\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-14\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-15\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-16\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-17\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-18\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-19\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-20\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-21\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-22\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-23\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-24\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-25\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-26\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-27\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-28\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-29\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-30\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-31\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-32\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-33\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-34\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-35\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-36\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-37\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-38\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-39\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-40\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-41\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-42\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-43\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-44\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-45\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-46\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-47\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-48\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-49\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-50\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-51\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-52\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-53\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-54\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-55\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-56\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-57\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-58\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-59\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-60\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-61\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-62\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-63\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-64\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-65\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-66\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-67\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-68\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-69\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-70\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-71\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-72\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-73\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-74\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-75\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-76\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-77\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-78\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-79\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-80\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-81\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-82\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-83\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-84\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-85\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-86\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-87\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-88\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-89\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-90\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-91\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-92\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-93\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-94\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-95\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-96\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-97\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-98\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-99\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-100\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-101\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-102\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-103\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-104\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-105\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-106\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-107\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-108\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-109\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-110\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-111\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-112\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-113\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-114\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-115\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-116\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-117\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-118\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-119\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-120\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-121\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-122\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-123\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-124\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-125\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-126\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"},{\"client\":\"synthetic-127\",\"provider\":\"p\",\"model\":null,\"state\":\"excluded\"}]",
+        "records": [
+          {
+            "client": "extra",
+            "provider": "p",
+            "model": null,
+            "state": "excluded"
+          }
+        ]
+      }
+    },
+    {
+      "id": "window-boundaries",
+      "op": "window",
+      "input": {
+        "usage": {
+          "messages": [
+            {
+              "timestamp": -10,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 10,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": -1,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 2,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 0,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 3,
+              "output": 0,
+              "cacheRead": 4,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 9,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "api",
+              "input": 5,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 10,
+              "client": "cursor",
+              "providerId": "openai",
+              "modelId": "model-a",
+              "input": 8,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 20,
+              "client": "synthetic",
+              "providerId": "",
+              "modelId": "model-a",
+              "input": 9,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 30,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 100,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            }
+          ],
+          "undatedCount": 2,
+          "processingTimeMs": 3
+        },
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "from": 0,
+        "bucketMs": 10,
+        "count": 3
+      }
+    },
+    {
+      "id": "window-zero-width",
+      "op": "window",
+      "input": {
+        "usage": {
+          "messages": [
+            {
+              "timestamp": -10,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 10,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": -1,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 2,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 0,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 3,
+              "output": 0,
+              "cacheRead": 4,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 9,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "api",
+              "input": 5,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 10,
+              "client": "cursor",
+              "providerId": "openai",
+              "modelId": "model-a",
+              "input": 8,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 20,
+              "client": "synthetic",
+              "providerId": "",
+              "modelId": "model-a",
+              "input": 9,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 30,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 100,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            }
+          ],
+          "undatedCount": 2,
+          "processingTimeMs": 3
+        },
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "from": 0,
+        "bucketMs": 0,
+        "count": 3
+      }
+    },
+    {
+      "id": "window-zero-count",
+      "op": "window",
+      "input": {
+        "usage": {
+          "messages": [
+            {
+              "timestamp": -10,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 10,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": -1,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 2,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 0,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 3,
+              "output": 0,
+              "cacheRead": 4,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 9,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "api",
+              "input": 5,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 10,
+              "client": "cursor",
+              "providerId": "openai",
+              "modelId": "model-a",
+              "input": 8,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 20,
+              "client": "synthetic",
+              "providerId": "",
+              "modelId": "model-a",
+              "input": 9,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 30,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 100,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            }
+          ],
+          "undatedCount": 2,
+          "processingTimeMs": 3
+        },
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "from": 0,
+        "bucketMs": 10,
+        "count": 0
+      }
+    },
+    {
+      "id": "window-negative-count",
+      "op": "window",
+      "input": {
+        "usage": {
+          "messages": [
+            {
+              "timestamp": -10,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 10,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": -1,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 2,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 0,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 3,
+              "output": 0,
+              "cacheRead": 4,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 9,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "api",
+              "input": 5,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 10,
+              "client": "cursor",
+              "providerId": "openai",
+              "modelId": "model-a",
+              "input": 8,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 20,
+              "client": "synthetic",
+              "providerId": "",
+              "modelId": "model-a",
+              "input": 9,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 30,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 100,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            }
+          ],
+          "undatedCount": 2,
+          "processingTimeMs": 3
+        },
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "from": 0,
+        "bucketMs": 10,
+        "count": -2
+      }
+    },
+    {
+      "id": "window-overflow",
+      "op": "window",
+      "input": {
+        "usage": {
+          "messages": [
+            {
+              "timestamp": 0,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 9223372036854775807,
+              "output": 0,
+              "cacheRead": 9223372036854775807,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 0,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 1,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            }
+          ],
+          "undatedCount": 2,
+          "processingTimeMs": 3
+        },
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "from": 0,
+        "bucketMs": 10,
+        "count": 3
+      }
+    },
+    {
+      "id": "window-negative-overflow",
+      "op": "window",
+      "input": {
+        "usage": {
+          "messages": [
+            {
+              "timestamp": 0,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": -9223372036854775808,
+              "output": -1,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 0,
+              "isTurnStart": false
+            }
+          ],
+          "undatedCount": 2,
+          "processingTimeMs": 3
+        },
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "from": 0,
+        "bucketMs": 10,
+        "count": 3
+      }
+    },
+    {
+      "id": "daily-mixed",
+      "op": "daily",
+      "input": {
+        "contributions": [
+          {
+            "date": "2026-03-01",
+            "totals": {
+              "tokens": 0,
+              "cost": 0,
+              "messages": 0
+            },
+            "intensity": 0,
+            "tokenBreakdown": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 20,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "api",
+                "tokens": {
+                  "input": 40,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 4,
+                "messages": 1
+              },
+              {
+                "client": "cursor",
+                "providerId": "openai",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 5,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 10,
+                "messages": 1
+              },
+              {
+                "client": "synthetic",
+                "providerId": "p",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 100,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "providerId": "anthropic,openai",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 9,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 1
+              }
+            ]
+          },
+          {
+            "date": "2026-02-27",
+            "totals": {
+              "tokens": 0,
+              "cost": 0,
+              "messages": 0
+            },
+            "intensity": 0,
+            "tokenBreakdown": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 7,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 2,
+                "messages": 1
+              }
+            ]
+          },
+          {
+            "date": "2026-02-01",
+            "totals": {
+              "tokens": 0,
+              "cost": 0,
+              "messages": 0
+            },
+            "intensity": 0,
+            "tokenBreakdown": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 999,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 99,
+                "messages": 1
+              }
+            ]
+          },
+          {
+            "date": "2026-03-02",
+            "totals": {
+              "tokens": 0,
+              "cost": 0,
+              "messages": 0
+            },
+            "intensity": 0,
+            "tokenBreakdown": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 999,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 99,
+                "messages": 1
+              }
+            ]
+          }
+        ],
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic,openai",
+            "model": null,
+            "state": "assigned",
+            "target": "codex"
+          }
+        ],
+        "today": "2026-03-01",
+        "days": 3
+      }
+    },
+    {
+      "id": "daily-permuted",
+      "op": "daily",
+      "input": {
+        "contributions": [
+          {
+            "date": "2026-03-02",
+            "totals": {
+              "tokens": 0,
+              "cost": 0,
+              "messages": 0
+            },
+            "intensity": 0,
+            "tokenBreakdown": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 999,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 99,
+                "messages": 1
+              }
+            ]
+          },
+          {
+            "date": "2026-02-01",
+            "totals": {
+              "tokens": 0,
+              "cost": 0,
+              "messages": 0
+            },
+            "intensity": 0,
+            "tokenBreakdown": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 999,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 99,
+                "messages": 1
+              }
+            ]
+          },
+          {
+            "date": "2026-02-27",
+            "totals": {
+              "tokens": 0,
+              "cost": 0,
+              "messages": 0
+            },
+            "intensity": 0,
+            "tokenBreakdown": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 7,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 2,
+                "messages": 1
+              }
+            ]
+          },
+          {
+            "date": "2026-03-01",
+            "totals": {
+              "tokens": 0,
+              "cost": 0,
+              "messages": 0
+            },
+            "intensity": 0,
+            "tokenBreakdown": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "providerId": "anthropic,openai",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 9,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 1
+              },
+              {
+                "client": "synthetic",
+                "providerId": "p",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 100,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 1
+              },
+              {
+                "client": "cursor",
+                "providerId": "openai",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 5,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 10,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "api",
+                "tokens": {
+                  "input": 40,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 4,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 20,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              }
+            ]
+          }
+        ],
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic,openai",
+            "model": null,
+            "state": "assigned",
+            "target": "codex"
+          }
+        ],
+        "today": "2026-03-01",
+        "days": 3
+      }
+    },
+    {
+      "id": "daily-model-group",
+      "op": "daily",
+      "input": {
+        "contributions": [
+          {
+            "date": "2026-03-01",
+            "totals": {
+              "tokens": 0,
+              "cost": 0,
+              "messages": 0
+            },
+            "intensity": 0,
+            "tokenBreakdown": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "grok",
+                "providerId": "xai",
+                "modelId": "grok-4.1-build",
+                "tokens": {
+                  "input": 5,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              },
+              {
+                "client": "grok",
+                "providerId": "xai",
+                "modelId": "grok-4.1",
+                "tokens": {
+                  "input": 7,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 2,
+                "messages": 1
+              }
+            ]
+          }
+        ],
+        "confirmed": [
+          {
+            "client": "grok",
+            "provider": "xai",
+            "model": null,
+            "state": "assigned",
+            "target": "grok"
+          }
+        ],
+        "today": "2026-03-01",
+        "days": 1
+      }
+    },
+    {
+      "id": "daily-raw-override",
+      "op": "daily",
+      "input": {
+        "contributions": [
+          {
+            "date": "2026-03-01",
+            "totals": {
+              "tokens": 0,
+              "cost": 0,
+              "messages": 0
+            },
+            "intensity": 0,
+            "tokenBreakdown": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "grok",
+                "providerId": "xai",
+                "modelId": "grok-4.1-build",
+                "tokens": {
+                  "input": 5,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              },
+              {
+                "client": "grok",
+                "providerId": "xai",
+                "modelId": "grok-4.1",
+                "tokens": {
+                  "input": 7,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 2,
+                "messages": 1
+              }
+            ]
+          }
+        ],
+        "confirmed": [
+          {
+            "client": "grok",
+            "provider": "xai",
+            "model": null,
+            "state": "assigned",
+            "target": "grok"
+          },
+          {
+            "client": "grok",
+            "provider": "xai",
+            "model": "grok-4.1-build",
+            "state": "excluded"
+          }
+        ],
+        "today": "2026-03-01",
+        "days": 1
+      }
+    },
+    {
+      "id": "daily-saturation",
+      "op": "daily",
+      "input": {
+        "contributions": [
+          {
+            "date": "2026-03-01",
+            "totals": {
+              "tokens": 0,
+              "cost": 0,
+              "messages": 0
+            },
+            "intensity": 0,
+            "tokenBreakdown": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 9223372036854775807,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 10,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": -1,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 1
+              }
+            ]
+          }
+        ],
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "today": "2026-03-01",
+        "days": 1
+      }
+    },
+    {
+      "id": "daily-empty",
+      "op": "daily",
+      "input": {
+        "contributions": [],
+        "confirmed": [],
+        "today": "2026-03-01",
+        "days": 3
+      }
+    },
+    {
+      "id": "daily-zero-days",
+      "op": "daily",
+      "input": {
+        "contributions": [],
+        "confirmed": [],
+        "today": "2026-03-01",
+        "days": 0
+      }
+    },
+    {
+      "id": "daily-invalid-date",
+      "op": "daily",
+      "input": {
+        "contributions": [],
+        "confirmed": [],
+        "today": "invalid",
+        "days": 3
+      }
+    },
+    {
+      "id": "daily-leap",
+      "op": "daily",
+      "input": {
+        "contributions": [],
+        "confirmed": [],
+        "today": "2024-03-01",
+        "days": 3
+      }
+    },
+    {
+      "id": "daily-dst",
+      "op": "daily",
+      "input": {
+        "contributions": [],
+        "confirmed": [],
+        "today": "2026-11-02",
+        "days": 3
+      }
+    },
+    {
+      "id": "daily-negative-only",
+      "op": "daily",
+      "input": {
+        "contributions": [
+          {
+            "date": "2026-03-01",
+            "totals": {
+              "tokens": 0,
+              "cost": 0,
+              "messages": 0
+            },
+            "intensity": 0,
+            "tokenBreakdown": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": -3,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": -2,
+                "messages": 1
+              }
+            ]
+          }
+        ],
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "today": "2026-03-01",
+        "days": 1
+      }
+    },
+    {
+      "id": "decode-window-bool-null",
+      "op": "window",
+      "input": {
+        "usage": {
+          "messages": [
+            {
+              "timestamp": -10,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 10,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": null
+            },
+            {
+              "timestamp": -1,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 2,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 0,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 3,
+              "output": 0,
+              "cacheRead": 4,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 9,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "api",
+              "input": 5,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 10,
+              "client": "cursor",
+              "providerId": "openai",
+              "modelId": "model-a",
+              "input": 8,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 20,
+              "client": "synthetic",
+              "providerId": "",
+              "modelId": "model-a",
+              "input": 9,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 30,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 100,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            }
+          ],
+          "undatedCount": 2,
+          "processingTimeMs": 3
+        },
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "from": 0,
+        "bucketMs": 10,
+        "count": 3
+      }
+    },
+    {
+      "id": "decode-window-int-fraction",
+      "op": "window",
+      "input": {
+        "usage": {
+          "messages": [
+            {
+              "timestamp": -10,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 1.25,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": -1,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 2,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 0,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 3,
+              "output": 0,
+              "cacheRead": 4,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 9,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "api",
+              "input": 5,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 10,
+              "client": "cursor",
+              "providerId": "openai",
+              "modelId": "model-a",
+              "input": 8,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 20,
+              "client": "synthetic",
+              "providerId": "",
+              "modelId": "model-a",
+              "input": 9,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 30,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 100,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            }
+          ],
+          "undatedCount": 2,
+          "processingTimeMs": 3
+        },
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "from": 0,
+        "bucketMs": 10,
+        "count": 3
+      }
+    },
+    {
+      "id": "decode-window-int-null",
+      "op": "window",
+      "input": {
+        "usage": {
+          "messages": [
+            {
+              "timestamp": -10,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": null,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": -1,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 2,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 0,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 3,
+              "output": 0,
+              "cacheRead": 4,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 9,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "api",
+              "input": 5,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 10,
+              "client": "cursor",
+              "providerId": "openai",
+              "modelId": "model-a",
+              "input": 8,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 20,
+              "client": "synthetic",
+              "providerId": "",
+              "modelId": "model-a",
+              "input": 9,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 30,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 100,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            }
+          ],
+          "undatedCount": 2,
+          "processingTimeMs": 3
+        },
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "from": 0,
+        "bucketMs": 10,
+        "count": 3
+      }
+    },
+    {
+      "id": "decode-window-missing-provider",
+      "op": "window",
+      "input": {
+        "usage": {
+          "messages": [
+            {
+              "timestamp": -10,
+              "client": "claude",
+              "modelId": "model-a",
+              "input": 10,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": -1,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 2,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 0,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 3,
+              "output": 0,
+              "cacheRead": 4,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 9,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "api",
+              "input": 5,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 10,
+              "client": "cursor",
+              "providerId": "openai",
+              "modelId": "model-a",
+              "input": 8,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 20,
+              "client": "synthetic",
+              "providerId": "",
+              "modelId": "model-a",
+              "input": 9,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 30,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 100,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            }
+          ],
+          "undatedCount": 2,
+          "processingTimeMs": 3
+        },
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "from": 0,
+        "bucketMs": 10,
+        "count": 3
+      }
+    },
+    {
+      "id": "decode-window-wrong-messages",
+      "op": "window",
+      "input": {
+        "usage": {
+          "messages": {},
+          "undatedCount": 2,
+          "processingTimeMs": 3
+        },
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "from": 0,
+        "bucketMs": 10,
+        "count": 3
+      }
+    },
+    {
+      "id": "decode-window-missing-count",
+      "op": "window",
+      "input": {
+        "usage": {
+          "messages": [
+            {
+              "timestamp": -10,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 10,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": -1,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 2,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 0,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 3,
+              "output": 0,
+              "cacheRead": 4,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 9,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "api",
+              "input": 5,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 10,
+              "client": "cursor",
+              "providerId": "openai",
+              "modelId": "model-a",
+              "input": 8,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 20,
+              "client": "synthetic",
+              "providerId": "",
+              "modelId": "model-a",
+              "input": 9,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            },
+            {
+              "timestamp": 30,
+              "client": "claude",
+              "providerId": "anthropic",
+              "modelId": "model-a",
+              "input": 100,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0,
+              "cost": 1,
+              "isTurnStart": false
+            }
+          ],
+          "processingTimeMs": 3
+        },
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "from": 0,
+        "bucketMs": 10,
+        "count": 3
+      }
+    },
+    {
+      "id": "decode-daily-token-null",
+      "op": "daily",
+      "input": {
+        "contributions": [
+          {
+            "date": "2026-03-01",
+            "totals": {
+              "tokens": 0,
+              "cost": 0,
+              "messages": 0
+            },
+            "intensity": 0,
+            "tokenBreakdown": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 20,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": null
+                },
+                "cost": 1,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "api",
+                "tokens": {
+                  "input": 40,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 4,
+                "messages": 1
+              },
+              {
+                "client": "cursor",
+                "providerId": "openai",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 5,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 10,
+                "messages": 1
+              },
+              {
+                "client": "synthetic",
+                "providerId": "p",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 100,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "providerId": "anthropic,openai",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 9,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 1
+              }
+            ]
+          },
+          {
+            "date": "2026-02-27",
+            "totals": {
+              "tokens": 0,
+              "cost": 0,
+              "messages": 0
+            },
+            "intensity": 0,
+            "tokenBreakdown": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 7,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 2,
+                "messages": 1
+              }
+            ]
+          },
+          {
+            "date": "2026-02-01",
+            "totals": {
+              "tokens": 0,
+              "cost": 0,
+              "messages": 0
+            },
+            "intensity": 0,
+            "tokenBreakdown": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 999,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 99,
+                "messages": 1
+              }
+            ]
+          },
+          {
+            "date": "2026-03-02",
+            "totals": {
+              "tokens": 0,
+              "cost": 0,
+              "messages": 0
+            },
+            "intensity": 0,
+            "tokenBreakdown": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 999,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 99,
+                "messages": 1
+              }
+            ]
+          }
+        ],
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "today": "2026-03-01",
+        "days": 3
+      }
+    },
+    {
+      "id": "decode-report-cost-missing",
+      "op": "settings",
+      "input": {
+        "entries": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "model-a",
+            "input": 10,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 10,
+            "messageCount": 1
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "input": 20,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 20,
+            "messageCount": 1,
+            "cost": 2
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": "model-a",
+            "input": 80,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 80,
+            "messageCount": 1,
+            "cost": 0
+          },
+          {
+            "client": "synthetic",
+            "provider": "",
+            "model": "model-a",
+            "input": 7,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 7,
+            "messageCount": 1,
+            "cost": 0
+          },
+          {
+            "client": "ignored",
+            "provider": "xai",
+            "model": "model-a",
+            "input": 900,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 900,
+            "messageCount": 1,
+            "cost": 9
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "model-a",
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 0,
+            "messageCount": 1,
+            "cost": 0
+          }
+        ],
+        "confirmed": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "state": "excluded"
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": null,
+            "state": "assigned",
+            "target": "cursor"
+          }
+        ],
+        "suggestions": [
+          {
+            "client": "synthetic",
+            "provider": "",
+            "model": null,
+            "state": "excluded"
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": null,
+            "state": "assigned",
+            "target": "codex"
+          }
+        ],
+        "subscriptions": [
+          "claude",
+          "codex",
+          "cursor"
+        ],
+        "routed": {},
+        "hasReport": true,
+        "isLoading": false,
+        "targetsKnown": true
+      }
+    },
+    {
+      "id": "settings-onboarding",
+      "op": "settings",
+      "input": {
+        "entries": [
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "model-a",
+            "input": 10,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 10,
+            "messageCount": 1,
+            "cost": 1
+          },
+          {
+            "client": "claude",
+            "provider": "anthropic",
+            "model": "api",
+            "input": 20,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 20,
+            "messageCount": 1,
+            "cost": 2
+          },
+          {
+            "client": "cursor",
+            "provider": "openai",
+            "model": "model-a",
+            "input": 80,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 80,
+            "messageCount": 1,
+            "cost": 0
+          },
+          {
+            "client": "synthetic",
+            "provider": "",
+            "model": "model-a",
+            "input": 7,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 7,
+            "messageCount": 1,
+            "cost": 0
+          }
+        ],
+        "confirmed": [],
+        "suggestions": [
+          {
+            "client": "synthetic",
+            "provider": "",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "subscriptions": [],
+        "routed": {},
+        "hasReport": true,
+        "isLoading": false,
+        "targetsKnown": true
+      }
+    },
+    {
+      "id": "settings-router",
+      "op": "settings",
+      "input": {
+        "entries": [
+          {
+            "client": "opencode",
+            "provider": "openai",
+            "model": "model-a",
+            "input": 10,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 10,
+            "messageCount": 1,
+            "cost": 1
+          }
+        ],
+        "confirmed": [],
+        "suggestions": [],
+        "subscriptions": [],
+        "routed": {
+          "opencode": [
+            "codex"
+          ]
+        },
+        "hasReport": true,
+        "isLoading": false,
+        "targetsKnown": true
+      }
+    },
+    {
+      "id": "daily-cancel",
+      "op": "daily",
+      "input": {
+        "contributions": [
+          {
+            "date": "2026-03-01",
+            "totals": {
+              "tokens": 0,
+              "cost": 0,
+              "messages": 0
+            },
+            "intensity": 0,
+            "tokenBreakdown": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 20,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": -20,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": -1,
+                "messages": 1
+              }
+            ]
+          }
+        ],
+        "confirmed": [],
+        "today": "2026-03-01",
+        "days": 3
+      }
+    },
+    {
+      "id": "daily-cancel-models",
+      "op": "daily",
+      "input": {
+        "contributions": [
+          {
+            "date": "2026-03-01",
+            "totals": {
+              "tokens": 0,
+              "cost": 0,
+              "messages": 0
+            },
+            "intensity": 0,
+            "tokenBreakdown": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 20,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-b",
+                "tokens": {
+                  "input": -20,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": -1,
+                "messages": 1
+              }
+            ]
+          }
+        ],
+        "confirmed": [],
+        "today": "2026-03-01",
+        "days": 3
+      }
+    },
+    {
+      "id": "daily-turns",
+      "op": "daily",
+      "input": {
+        "contributions": [
+          {
+            "date": "2026-03-01",
+            "totals": {
+              "tokens": 0,
+              "cost": 0,
+              "messages": 0
+            },
+            "intensity": 0,
+            "tokenBreakdown": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 20,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "api",
+                "tokens": {
+                  "input": 40,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 4,
+                "messages": 1
+              },
+              {
+                "client": "cursor",
+                "providerId": "openai",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 5,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 10,
+                "messages": 1
+              },
+              {
+                "client": "synthetic",
+                "providerId": "p",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 100,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "providerId": "anthropic,openai",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 9,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 1
+              }
+            ],
+            "turnsByClient": {
+              "claude": 2
+            }
+          }
+        ],
+        "confirmed": [],
+        "today": "2026-03-01",
+        "days": 3
+      }
+    },
+    {
+      "id": "decode-daily-turns",
+      "op": "daily",
+      "input": {
+        "contributions": [
+          {
+            "date": "2026-03-01",
+            "totals": {
+              "tokens": 0,
+              "cost": 0,
+              "messages": 0
+            },
+            "intensity": 0,
+            "tokenBreakdown": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 20,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "api",
+                "tokens": {
+                  "input": 40,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 4,
+                "messages": 1
+              },
+              {
+                "client": "cursor",
+                "providerId": "openai",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 5,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 10,
+                "messages": 1
+              },
+              {
+                "client": "synthetic",
+                "providerId": "p",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 100,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "providerId": "anthropic,openai",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 9,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "providerId": "anthropic",
+                "modelId": "model-a",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 1
+              }
+            ],
+            "turnsByClient": {
+              "claude": "invalid"
+            }
+          }
+        ],
+        "confirmed": [],
+        "today": "2026-03-01",
+        "days": 3
+      }
+    }
+  ]
+}

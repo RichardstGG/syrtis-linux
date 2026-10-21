@@ -1,8 +1,9 @@
 #pragma once
 #include "TokenBreakdown.h"
+#include "UsageAttribution.h"
 
 namespace syrtis::core {
-// WindowUsage.swift value dependency of the history and geometry ports.
+// Per-message quota-window values from WindowUsage.swift.
 struct WindowMessage {
     qint64 timestamp = 0;
     QString client, providerId, modelId;
@@ -13,5 +14,22 @@ struct WindowMessage {
     qint64 tokensExCacheRead() const;
     static WindowMessage decode(const json::Decoder &d);
     bool operator==(const WindowMessage &) const = default;
+};
+struct WindowUsage {
+    QList<WindowMessage> messages;
+    qint64 undatedCount = 0, processingTimeMs = 0;
+    struct SubscriptionTotal {
+        QString target;
+        qint64 tokens = 0;
+        double cost = 0;
+        bool operator==(const SubscriptionTotal &other) const;
+    };
+    struct Totals {
+        QList<SubscriptionTotal> assigned;
+        SubscriptionTotal excluded{"excluded"}, unassigned{"unassigned"};
+    };
+    static WindowUsage decode(const json::Decoder &d);
+    Totals totals(const QList<UsageAttribution::Record> &confirmed) const;
+    QList<qint64> buckets(qint64 from, qint64 bucketMs, qsizetype count) const;
 };
 }
