@@ -1,14 +1,19 @@
+#include "singleinstance/SingleInstance.h"
+
 #include <QCommandLineParser>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QTimer>
+#include <QWindow>
 
 #include <cstdlib>
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication app(argc, argv);
+    Syrtis::SingleInstance::LaunchArguments arguments(argc, argv);
+    QGuiApplication app(arguments.argc, arguments.argv.data());
     QCoreApplication::setApplicationName(QStringLiteral("Syrtis"));
+    Syrtis::SingleInstance singleInstance(arguments);
 
     QCommandLineParser parser;
     parser.addHelpOption();
@@ -18,6 +23,16 @@ int main(int argc, char *argv[])
     parser.process(app);
 
     QQmlApplicationEngine engine;
+    QObject::connect(&singleInstance, &Syrtis::SingleInstance::activationRequested,
+                     &engine, [&engine] {
+        for (auto *root : engine.rootObjects()) {
+            if (auto *window = qobject_cast<QWindow *>(root)) {
+                window->show();
+                window->raise();
+                window->requestActivate();
+            }
+        }
+    });
     engine.loadFromModule("Syrtis", "Main");
     if (engine.rootObjects().isEmpty())
         return EXIT_FAILURE;
