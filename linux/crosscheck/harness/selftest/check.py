@@ -1,0 +1,95 @@
+"""Synthetic comparator wiring and fail-closed harness invocation checks."""
+
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
+
+
+def run(command, expected=0, env=None):
+    result = subprocess.run(command, capture_output=True, text=True, env=env, check=False)
+    if result.returncode != expected:
+        raise RuntimeError(
+            f"{command}: expected exit {expected}, got {result.returncode}\n"
+            f"{result.stdout}{result.stderr}"
+        )
+    return result
+
+
+def main():
+    harness, work = sys.argv[1:]
+    here = Path(__file__).resolve().parent
+    crosscheck = here.parents[1]
+    Path(work).mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(dir=work) as scratch:
+        scratch = Path(scratch)
+        runner = crosscheck / "harness/run_selector.py"
+
+        def compare(fixtures, golden=here / "golden", expected=0):
+            return run([sys.executable, str(runner), str(here / "emit.py"),
+                        str(fixtures), str(golden), str(scratch / "synthetic"),
+                        "synthetic"], expected=expected)
+
+        result = compare(here / "actual")
+        if "CROSSCHECK OK" not in result.stdout:
+            raise RuntimeError("diff.py did not report a comparison")
+        # A changed byte, adjacent Int64, boolean-as-number, or material float
+        # drift must each reach the vendored comparator and fail.
+        bad = scratch / "bad"
+        bad.mkdir()
+        for key, value in (("label", "Synthetic 台湾"), ("count", 9223372036854775806),
+                           ("ready", 1), ("fraction", 0.301)):
+            data = json.loads((here / "actual/synthetic.actual.json").read_text(encoding="utf-8"))
+            data["synthetic"][key] = value
+            (bad / "synthetic.actual.json").write_text(json.dumps(data), encoding="utf-8")
+            compare(bad, expected=1)
+        result = compare(here / "actual", golden=scratch / "missing", expected=77)
+        if "golden missing" not in result.stdout or "not ported" in result.stdout:
+            raise RuntimeError("ported selector without an oracle did not skip")
+        (bad / "synthetic.actual.json").write_text('{"error":"not ported"}', encoding="utf-8")
+        result = compare(bad, expected=77)
+        if "not ported" not in result.stdout or "golden missing" in result.stdout:
+            raise RuntimeError("unported selector with an oracle did not skip")
+
+        fixtures = str(crosscheck / "fixtures")
+        out = scratch / "out"
+        base = [harness, fixtures, str(out)]
+        for selector in ("usage-pace", "format", "provider-quota-pace-v3"):
+            run([*base, selector])
+            if json.loads((out / f"{selector}.actual.json").read_text()) != {"error": "not ported"}:
+                raise RuntimeError(f"unexpected skeleton output: {selector}")
+        for selector in ([], ["all"]):
+            legacy = scratch / ("default" if not selector else "all")
+            run([harness, fixtures, str(legacy), *selector])
+            if {p.name for p in legacy.iterdir()} != {"usage-pace.actual.json", "format.actual.json"}:
+                raise RuntimeError("legacy selector set changed")
+
+        for args, code in (([], 2), ([fixtures], 2), ([*base[1:], "unknown"], 2),
+                           ([*base[1:], "format", "extra"], 2),
+                           ([*base[1:], "--unknown"], 2),
+                           ([*base[1:], "format", "-extra"], 2),
+                           ([*base[1:], "format", "-AppleLanguages"], 2),
+                           ([*base[1:], "format", "-AppleLanguages", "(zh-Hant)"], 1)):
+            run([harness, *args], expected=code)
+        run([harness, "-AppleLanguages", "(en)", fixtures, str(out), "format"])
+        for zone in (None, "UTC", "Asia/Taipei "):
+            env = dict(os.environ)
+            env.pop("TZ", None)
+            if zone is not None:
+                env["TZ"] = zone
+            run([*base, "format"], expected=1, env=env)
+        blocked = scratch / "file"
+        blocked.write_text("synthetic", encoding="utf-8")
+        run([harness, fixtures, str(blocked), "format"], expected=1)
+
+        result = run([sys.executable, str(runner), harness, fixtures,
+                      str(scratch / "missing"), str(scratch / "selector"), "format"], expected=77)
+        if "not ported" not in result.stdout or "golden missing" not in result.stdout:
+            raise RuntimeError("skeleton selector did not report both skip reasons")
+    print("crosscheck self-test OK (diff success/failure, CLI, timezone, skips)")
+
+
+if __name__ == "__main__":
+    main()
