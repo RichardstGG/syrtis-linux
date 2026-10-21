@@ -11,7 +11,8 @@ set_target_properties(syrtis PROPERTIES CXX_EXTENSIONS OFF)
 
 qt_add_qml_module(syrtis
     URI Syrtis
-    QML_FILES qml/Main.qml
+    QML_FILES qml/Main.qml src/tray/Tray.qml
+    RESOURCES src/tray/tray-icon.svg
 )
 target_link_libraries(syrtis PRIVATE Qt6::Quick)
 
@@ -34,6 +35,19 @@ if(BUILD_TESTING)
     target_link_libraries(syrtis-bridge-test PRIVATE Qt6::Concurrent Qt6::Test)
     add_test(NAME syrtis-bridge COMMAND syrtis-bridge-test)
     set_tests_properties(syrtis-bridge PROPERTIES TIMEOUT 30)
+
+    qt_add_executable(syrtis-tray-test tests/tray/TrayTest.cpp)
+    target_compile_features(syrtis-tray-test PRIVATE cxx_std_20)
+    target_link_libraries(syrtis-tray-test PRIVATE Qt6::Quick Qt6::Test)
+    qt_add_resources(syrtis-tray-test tray-fixtures
+        PREFIX "/"
+        FILES qml/Main.qml src/tray/Tray.qml src/tray/tray-icon.svg
+    )
+    add_test(NAME syrtis-tray COMMAND syrtis-tray-test)
+    set_tests_properties(syrtis-tray PROPERTIES
+        ENVIRONMENT "QT_QPA_PLATFORM=offscreen"
+        TIMEOUT 10
+    )
 
     add_test(NAME syrtis-startup COMMAND syrtis --quit-after-start)
     set_tests_properties(syrtis-startup PROPERTIES
