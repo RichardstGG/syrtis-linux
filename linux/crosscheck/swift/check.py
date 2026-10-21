@@ -1,4 +1,4 @@
-"""Check the core-leaf selector and fail-closed CLI on macOS."""
+"""Check core-leaf, reports, and the fail-closed CLI on macOS."""
 
 import json
 import os
@@ -11,6 +11,7 @@ import tempfile
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "harness"))
 from core_leaf_check import verify_output
+from reports_check import verify_output as verify_reports_output
 
 
 def main():
@@ -20,6 +21,7 @@ def main():
         fixtures = Path(scratch) / "fixtures"
         fixtures.mkdir()
         shutil.copyfile(Path(__file__).resolve().parents[1] / "fixtures/core-leaf.json", fixtures / "core-leaf.json")
+        shutil.copyfile(Path(__file__).resolve().parents[1] / "fixtures/reports.json", fixtures / "reports.json")
         out = Path(scratch) / "out"
         base = [str(fixtures), str(out)]
         pin = ["-AppleLanguages", "(en)"]
@@ -38,9 +40,14 @@ def main():
         # The extension must never run root selectors or invent oracle goldens.
         run([*base, *pin])
         run([*pin, *base, "all"])
-        if {p.name for p in out.iterdir()} != {"core-leaf.actual.json"}:
+        if {p.name for p in out.iterdir()} != {"core-leaf.actual.json", "reports.actual.json"}:
             raise RuntimeError("extension selector set changed")
         verify_output(out / "core-leaf.actual.json")
+        verify_reports_output(out / "reports.actual.json")
+        reports_baseline = json.loads((out / "reports.actual.json").read_text())
+        run([*base, "reports", *pin])
+        if json.loads((out / "reports.actual.json").read_text()) != reports_baseline:
+            raise RuntimeError("reports output depends on selector invocation")
         baseline = json.loads((out / "core-leaf.actual.json").read_text())
         run([*base, "core-leaf", *pin])
         if json.loads((out / "core-leaf.actual.json").read_text()) != baseline:
@@ -56,7 +63,7 @@ def main():
         blocked = Path(scratch) / "file"
         blocked.write_text("synthetic", encoding="utf-8")
         run([str(fixtures), str(blocked), *pin], expected=1)
-    print("Linux Swift harness self-test OK (core-leaf branches, CLI, timezone, I/O)")
+    print("Linux Swift harness self-test OK (core-leaf, reports, CLI, timezone, I/O)")
 
 
 if __name__ == "__main__":

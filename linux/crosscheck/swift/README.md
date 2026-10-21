@@ -42,3 +42,18 @@ the production `WindowMessage` decoder and `PerDay` initializer, and serializes
 every grid cell, including inactive cells outside the requested year. The
 self-test shares branch assertions with the C++ harness; these assertions are
 not oracle goldens. Only the macOS oracle workflow produces those goldens.
+
+The `reports` extension reads the synthetic
+[`reports.json`](../fixtures/reports.json) and calls the shipping
+`TBCore.decodeEnvelope`, `decodeOptionalEnvelope`, and `JSONDecoder` for the
+ported payload types. Package access permits testing the production envelope
+decoder without invoking FFI or changing shipping Swift sources. Reflection is
+used only to serialize decoded DTOs for comparison. Errors retain their kind,
+coding path, missing field, and envelope contract description; bridge errors
+retain their exact text. The public `FilterParityProbe.smokeSummary` exercises
+the shipping status labels and POSIX cost formatting.
+
+`check.py` also checks `reports` through the shared decoder assertions. On macOS,
+run it with the command above, then generate `reports.actual.json` explicitly or
+with `all`. Build, shared assertions, and comparison with C++ remain macOS CI
+gates; Linux workers never create `golden/reports.json`.
