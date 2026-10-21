@@ -65,7 +65,8 @@ set_target_properties(syrtis PROPERTIES CXX_EXTENSIONS OFF)
 
 qt_add_qml_module(syrtis
     URI Syrtis
-    QML_FILES qml/Main.qml src/tray/Tray.qml
+    QML_FILES qml/Main.qml qml/QuotaView.qml qml/AgentLimitsCard.qml
+        qml/QuotaSummaryLine.qml src/tray/Tray.qml
     RESOURCES src/tray/tray-icon.svg
 )
 target_link_libraries(syrtis PRIVATE Qt6::Quick syrtis-singleinstance syrtis-bridge syrtis-quota)
@@ -115,6 +116,7 @@ if(BUILD_TESTING)
     target_link_libraries(syrtis-quota-test PRIVATE syrtis-core Qt6::Concurrent Qt6::Test)
     add_test(NAME syrtis-quota COMMAND syrtis-quota-test)
     set_tests_properties(syrtis-quota PROPERTIES TIMEOUT 30)
+    add_subdirectory(tests/quota)
 
     qt_add_executable(syrtis-bridge-smoke tests/bridge/BridgeSmokeTest.cpp)
     target_link_libraries(syrtis-bridge-smoke PRIVATE syrtis-bridge Qt6::Test)
@@ -136,7 +138,8 @@ if(BUILD_TESTING)
     target_link_libraries(syrtis-tray-test PRIVATE Qt6::Quick Qt6::Test)
     qt_add_resources(syrtis-tray-test tray-fixtures
         PREFIX "/"
-        FILES qml/Main.qml src/tray/Tray.qml src/tray/tray-icon.svg
+        FILES qml/Main.qml qml/QuotaView.qml qml/AgentLimitsCard.qml
+            qml/QuotaSummaryLine.qml src/tray/Tray.qml src/tray/tray-icon.svg
     )
     add_test(NAME syrtis-tray COMMAND syrtis-tray-test)
     set_tests_properties(syrtis-tray PROPERTIES
@@ -144,8 +147,10 @@ if(BUILD_TESTING)
         TIMEOUT 10
     )
 
-    add_test(NAME syrtis-startup COMMAND "${DBUS_RUN_SESSION_EXECUTABLE}" --
-        $<TARGET_FILE:syrtis> --quit-after-start)
+    # Starting the quota view now polls providers; keep startup hermetic too.
+    add_test(NAME syrtis-startup
+        COMMAND sh "${CMAKE_CURRENT_SOURCE_DIR}/tests/bridge/run-smoke.sh"
+            "${DBUS_RUN_SESSION_EXECUTABLE}" -- $<TARGET_FILE:syrtis> --quit-after-start)
     set_tests_properties(syrtis-startup PROPERTIES
         ENVIRONMENT "QT_QPA_PLATFORM=offscreen"
         TIMEOUT 10
