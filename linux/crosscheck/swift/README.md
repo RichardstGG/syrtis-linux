@@ -2,8 +2,10 @@
 
 This macOS SwiftPM package adds selectors that the
 [root harness](../../../Sources/CrossCheckHarness/main.swift) does not provide.
-The selector table starts empty. Omitted selector or `all` runs every registered
-extension in sorted order and currently writes no files; unknown selectors fail.
+The `quota-trend` selector calls shipping `QuotaHeatmapFold` and `QuotaTrendFold`
+with the synthetic [fixture](../fixtures/quota-trend.json), decoding curve points
+with the production `QuotaCurvePoint` decoder. Omitted selector or `all` runs
+every registered extension in sorted order; unknown selectors fail.
 The root harness remains responsible for `usage-pace`, `format`, and
 `provider-quota-pace-v3` (its legacy `all` runs only the first two).
 

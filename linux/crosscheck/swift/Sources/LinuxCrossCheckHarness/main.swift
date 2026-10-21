@@ -37,9 +37,8 @@ guard (2...3).contains(args.count) else {
 
 // Only selectors absent from Sources/CrossCheckHarness belong here. Each
 // handler reads synthetic fixtures and calls shipping TokenBarCore/Format.
-// Empty by design until the first additional Linux cross-check surface lands.
 typealias Selector = (URL) throws -> [String: Any]
-let selectors: [String: Selector] = [:]
+let selectors: [String: Selector] = ["quota-trend": quotaTrendSelector]
 
 let selector = args.count == 3 ? args[2] : "all"
 guard selector == "all" || selectors[selector] != nil else {

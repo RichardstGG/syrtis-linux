@@ -1,0 +1,783 @@
+{
+  "heatmap": [
+    {
+      "id": "heatmap-empty",
+      "timeZone": "Asia/Taipei",
+      "points": []
+    },
+    {
+      "id": "heatmap-single",
+      "timeZone": "Asia/Taipei",
+      "points": [
+        {
+          "sampledAt": 1792376100,
+          "usedPercent": 7,
+          "resetAt": 1792462500,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        }
+      ]
+    },
+    {
+      "id": "heatmap-weighted-hours",
+      "timeZone": "Asia/Taipei",
+      "points": [
+        {
+          "sampledAt": 1792380600,
+          "usedPercent": 42,
+          "resetAt": 1792467000,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        },
+        {
+          "sampledAt": 1792373400,
+          "usedPercent": 18,
+          "resetAt": 1792467000,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        }
+      ]
+    },
+    {
+      "id": "heatmap-local-midnight",
+      "timeZone": "Asia/Taipei",
+      "points": [
+        {
+          "sampledAt": 1792337400,
+          "usedPercent": 10,
+          "resetAt": 1792427400,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        },
+        {
+          "sampledAt": 1792341000,
+          "usedPercent": 22,
+          "resetAt": 1792427400,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        }
+      ]
+    },
+    {
+      "id": "heatmap-utc-midnight-one-local-day",
+      "timeZone": "Asia/Taipei",
+      "points": [
+        {
+          "sampledAt": 1792366200,
+          "usedPercent": 10,
+          "resetAt": 1792456200,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        },
+        {
+          "sampledAt": 1792369800,
+          "usedPercent": 18,
+          "resetAt": 1792456200,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        }
+      ]
+    },
+    {
+      "id": "heatmap-six-hours",
+      "timeZone": "Asia/Taipei",
+      "points": [
+        {
+          "sampledAt": 1792339200,
+          "usedPercent": 0,
+          "resetAt": 1792447200,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        },
+        {
+          "sampledAt": 1792360800,
+          "usedPercent": 30,
+          "resetAt": 1792447200,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        }
+      ]
+    },
+    {
+      "id": "heatmap-gap-only-fractional",
+      "timeZone": "Asia/Taipei",
+      "points": [
+        {
+          "sampledAt": 1792339200,
+          "usedPercent": 0,
+          "resetAt": 1792447201,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        },
+        {
+          "sampledAt": 1792360801,
+          "usedPercent": 0.5,
+          "resetAt": 1792447201,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        }
+      ]
+    },
+    {
+      "id": "heatmap-correction-and-duplicate",
+      "timeZone": "Asia/Taipei",
+      "points": [
+        {
+          "sampledAt": 1792375200,
+          "usedPercent": 30,
+          "resetAt": 1792468800,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        },
+        {
+          "sampledAt": 1792375200,
+          "usedPercent": 40,
+          "resetAt": 1792468800,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        },
+        {
+          "sampledAt": 1792378800,
+          "usedPercent": 20,
+          "resetAt": 1792468800,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        },
+        {
+          "sampledAt": 1792382400,
+          "usedPercent": 26,
+          "resetAt": 1792468800,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        }
+      ]
+    },
+    {
+      "id": "heatmap-cycle-boundaries",
+      "timeZone": "Asia/Taipei",
+      "points": [
+        {
+          "sampledAt": 1792375200,
+          "usedPercent": 80,
+          "resetAt": 1792382400,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        },
+        {
+          "sampledAt": 1792378800,
+          "usedPercent": 90,
+          "resetAt": 1792382400,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        },
+        {
+          "sampledAt": 1792382400,
+          "usedPercent": 1,
+          "resetAt": 1792472400,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        },
+        {
+          "sampledAt": 1792386000,
+          "usedPercent": 5,
+          "resetAt": 1792472400,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        }
+      ]
+    },
+    {
+      "id": "heatmap-placed-and-gap",
+      "timeZone": "Asia/Taipei",
+      "points": [
+        {
+          "sampledAt": 1792339200,
+          "usedPercent": 0,
+          "resetAt": 1792454400,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        },
+        {
+          "sampledAt": 1792342800,
+          "usedPercent": 4,
+          "resetAt": 1792454400,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        },
+        {
+          "sampledAt": 1792368000,
+          "usedPercent": 14,
+          "resetAt": 1792454400,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        }
+      ]
+    },
+    {
+      "id": "heatmap-dst-spring",
+      "timeZone": "America/New_York",
+      "points": [
+        {
+          "sampledAt": 1772951400,
+          "usedPercent": 10,
+          "resetAt": 1773041400,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        },
+        {
+          "sampledAt": 1772955000,
+          "usedPercent": 22,
+          "resetAt": 1773041400,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        }
+      ]
+    },
+    {
+      "id": "heatmap-dst-fall",
+      "timeZone": "America/New_York",
+      "points": [
+        {
+          "sampledAt": 1793507400,
+          "usedPercent": 0,
+          "resetAt": 1793604600,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        },
+        {
+          "sampledAt": 1793518200,
+          "usedPercent": 24,
+          "resetAt": 1793604600,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        }
+      ]
+    },
+    {
+      "id": "heatmap-fractional-offset",
+      "timeZone": "Asia/Kathmandu",
+      "points": [
+        {
+          "sampledAt": 1792381500,
+          "usedPercent": 10,
+          "resetAt": 1792471500,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        },
+        {
+          "sampledAt": 1792385100,
+          "usedPercent": 20,
+          "resetAt": 1792471500,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        }
+      ]
+    },
+    {
+      "id": "heatmap-negative-epoch",
+      "timeZone": "UTC",
+      "points": [
+        {
+          "sampledAt": -225000,
+          "usedPercent": 0,
+          "resetAt": -135000,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        },
+        {
+          "sampledAt": -221400,
+          "usedPercent": 6,
+          "resetAt": -135000,
+          "durationSeconds": 604800,
+          "durationSource": "provider",
+          "origin": "liveV3",
+          "isActiveGroup": true
+        }
+      ]
+    }
+  ],
+  "trend": [
+    {
+      "id": "trend-empty",
+      "usedPercent": 40,
+      "windowStartMs": 0,
+      "windowEndMs": 10000,
+      "nowMs": 5000,
+      "samples": []
+    },
+    {
+      "id": "trend-single",
+      "usedPercent": 40,
+      "windowStartMs": 0,
+      "windowEndMs": 10000,
+      "nowMs": 5000,
+      "samples": [
+        {
+          "atMs": 5000,
+          "usedPercent": 40
+        }
+      ]
+    },
+    {
+      "id": "trend-zero-duration",
+      "usedPercent": 40,
+      "windowStartMs": 0,
+      "windowEndMs": 0,
+      "nowMs": 5000,
+      "samples": [
+        {
+          "atMs": 3000,
+          "usedPercent": 20
+        },
+        {
+          "atMs": 5000,
+          "usedPercent": 40
+        }
+      ]
+    },
+    {
+      "id": "trend-reversed-window",
+      "usedPercent": 40,
+      "windowStartMs": 10000,
+      "windowEndMs": 10000,
+      "nowMs": 5000,
+      "samples": [
+        {
+          "atMs": 3000,
+          "usedPercent": 20
+        },
+        {
+          "atMs": 5000,
+          "usedPercent": 40
+        }
+      ]
+    },
+    {
+      "id": "trend-at-start",
+      "usedPercent": 40,
+      "windowStartMs": 0,
+      "windowEndMs": 10000,
+      "nowMs": 0,
+      "samples": [
+        {
+          "atMs": 0,
+          "usedPercent": 0
+        },
+        {
+          "atMs": 1,
+          "usedPercent": 1
+        }
+      ]
+    },
+    {
+      "id": "trend-before-start",
+      "usedPercent": 40,
+      "windowStartMs": 0,
+      "windowEndMs": 10000,
+      "nowMs": -1,
+      "samples": [
+        {
+          "atMs": -2,
+          "usedPercent": 0
+        },
+        {
+          "atMs": -1,
+          "usedPercent": 1
+        }
+      ]
+    },
+    {
+      "id": "trend-duplicates-only",
+      "usedPercent": 40,
+      "windowStartMs": 0,
+      "windowEndMs": 10000,
+      "nowMs": 5000,
+      "samples": [
+        {
+          "atMs": 5000,
+          "usedPercent": 20
+        },
+        {
+          "atMs": 5000,
+          "usedPercent": 40
+        }
+      ]
+    },
+    {
+      "id": "trend-outside-window",
+      "usedPercent": 40,
+      "windowStartMs": 0,
+      "windowEndMs": 10000,
+      "nowMs": 5000,
+      "samples": [
+        {
+          "atMs": -1,
+          "usedPercent": 10
+        },
+        {
+          "atMs": 5001,
+          "usedPercent": 40
+        }
+      ]
+    },
+    {
+      "id": "trend-rising-unsorted",
+      "usedPercent": 40,
+      "windowStartMs": 0,
+      "windowEndMs": 10000,
+      "nowMs": 5000,
+      "samples": [
+        {
+          "atMs": 5000,
+          "usedPercent": 40
+        },
+        {
+          "atMs": -1,
+          "usedPercent": 100
+        },
+        {
+          "atMs": 3000,
+          "usedPercent": 20
+        },
+        {
+          "atMs": 5001,
+          "usedPercent": 100
+        }
+      ]
+    },
+    {
+      "id": "trend-current-reading-lags",
+      "usedPercent": 45,
+      "windowStartMs": 0,
+      "windowEndMs": 10000,
+      "nowMs": 5000,
+      "samples": [
+        {
+          "atMs": 3000,
+          "usedPercent": 20
+        },
+        {
+          "atMs": 5000,
+          "usedPercent": 40
+        }
+      ]
+    },
+    {
+      "id": "trend-runs-out",
+      "usedPercent": 80,
+      "windowStartMs": 0,
+      "windowEndMs": 10000,
+      "nowMs": 5000,
+      "samples": [
+        {
+          "atMs": 3000,
+          "usedPercent": 10
+        },
+        {
+          "atMs": 5000,
+          "usedPercent": 40
+        }
+      ]
+    },
+    {
+      "id": "trend-exact-100",
+      "usedPercent": 50,
+      "windowStartMs": 0,
+      "windowEndMs": 10000,
+      "nowMs": 5000,
+      "samples": [
+        {
+          "atMs": 3000,
+          "usedPercent": 10
+        },
+        {
+          "atMs": 5000,
+          "usedPercent": 30
+        }
+      ]
+    },
+    {
+      "id": "trend-falling",
+      "usedPercent": 40,
+      "windowStartMs": 0,
+      "windowEndMs": 10000,
+      "nowMs": 5000,
+      "samples": [
+        {
+          "atMs": 3000,
+          "usedPercent": 40
+        },
+        {
+          "atMs": 5000,
+          "usedPercent": 30
+        }
+      ]
+    },
+    {
+      "id": "trend-falling-floored",
+      "usedPercent": 10,
+      "windowStartMs": 0,
+      "windowEndMs": 10000,
+      "nowMs": 5000,
+      "samples": [
+        {
+          "atMs": 3000,
+          "usedPercent": 100
+        },
+        {
+          "atMs": 5000,
+          "usedPercent": 0
+        }
+      ]
+    },
+    {
+      "id": "trend-flat",
+      "usedPercent": 40,
+      "windowStartMs": 0,
+      "windowEndMs": 10000,
+      "nowMs": 5000,
+      "samples": [
+        {
+          "atMs": 3000,
+          "usedPercent": 40
+        },
+        {
+          "atMs": 5000,
+          "usedPercent": 40
+        }
+      ]
+    },
+    {
+      "id": "trend-flat-threshold",
+      "usedPercent": 10,
+      "windowStartMs": 0,
+      "windowEndMs": 10000,
+      "nowMs": 2500,
+      "samples": [
+        {
+          "atMs": 0,
+          "usedPercent": 0
+        },
+        {
+          "atMs": 2500,
+          "usedPercent": 1.25
+        }
+      ]
+    },
+    {
+      "id": "trend-above-flat-threshold",
+      "usedPercent": 10,
+      "windowStartMs": 0,
+      "windowEndMs": 10000,
+      "nowMs": 2500,
+      "samples": [
+        {
+          "atMs": 0,
+          "usedPercent": 0
+        },
+        {
+          "atMs": 2500,
+          "usedPercent": 1.2501
+        }
+      ]
+    },
+    {
+      "id": "trend-negative-flat-threshold",
+      "usedPercent": 10,
+      "windowStartMs": 0,
+      "windowEndMs": 10000,
+      "nowMs": 2500,
+      "samples": [
+        {
+          "atMs": 0,
+          "usedPercent": 1.25
+        },
+        {
+          "atMs": 2500,
+          "usedPercent": 0
+        }
+      ]
+    },
+    {
+      "id": "trend-lookback-inclusive",
+      "usedPercent": 40,
+      "windowStartMs": 0,
+      "windowEndMs": 10000,
+      "nowMs": 5000,
+      "samples": [
+        {
+          "atMs": 2500,
+          "usedPercent": 10
+        },
+        {
+          "atMs": 5000,
+          "usedPercent": 30
+        }
+      ]
+    },
+    {
+      "id": "trend-lookback-excludes-old",
+      "usedPercent": 40,
+      "windowStartMs": 0,
+      "windowEndMs": 10000,
+      "nowMs": 5000,
+      "samples": [
+        {
+          "atMs": 2499,
+          "usedPercent": 10
+        },
+        {
+          "atMs": 5000,
+          "usedPercent": 30
+        }
+      ]
+    },
+    {
+      "id": "trend-newest-anchors-lookback",
+      "usedPercent": 40,
+      "windowStartMs": 0,
+      "windowEndMs": 10000,
+      "nowMs": 8000,
+      "samples": [
+        {
+          "atMs": 1000,
+          "usedPercent": 10
+        },
+        {
+          "atMs": 3000,
+          "usedPercent": 30
+        }
+      ]
+    },
+    {
+      "id": "trend-round-half-away",
+      "usedPercent": 30,
+      "windowStartMs": 0,
+      "windowEndMs": 10,
+      "nowMs": 5,
+      "samples": [
+        {
+          "atMs": 2,
+          "usedPercent": 0
+        },
+        {
+          "atMs": 5,
+          "usedPercent": 30
+        }
+      ]
+    },
+    {
+      "id": "trend-duplicate-then-rise",
+      "usedPercent": 40,
+      "windowStartMs": 0,
+      "windowEndMs": 10000,
+      "nowMs": 5000,
+      "samples": [
+        {
+          "atMs": 3000,
+          "usedPercent": 10
+        },
+        {
+          "atMs": 3000,
+          "usedPercent": 20
+        },
+        {
+          "atMs": 5000,
+          "usedPercent": 30
+        }
+      ]
+    },
+    {
+      "id": "trend-after-reset",
+      "usedPercent": 40,
+      "windowStartMs": 0,
+      "windowEndMs": 10000,
+      "nowMs": 12000,
+      "samples": [
+        {
+          "atMs": 3000,
+          "usedPercent": 20
+        },
+        {
+          "atMs": 5000,
+          "usedPercent": 40
+        }
+      ]
+    },
+    {
+      "id": "trend-long-window-same-scale",
+      "usedPercent": 40,
+      "windowStartMs": 0,
+      "windowEndMs": 1000000000,
+      "nowMs": 500000000,
+      "samples": [
+        {
+          "atMs": 300000000,
+          "usedPercent": 20
+        },
+        {
+          "atMs": 500000000,
+          "usedPercent": 40
+        }
+      ]
+    }
+  ]
+}

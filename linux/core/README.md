@@ -1,8 +1,8 @@
 # Syrtis Core
 
-Standalone C++20 static library, linked only to Qt6::Core. This skeleton has no
-ported calculation surfaces yet. Future ports retain their Swift source names
-and semantics; the library does not perform I/O, call FFI, or aggregate Rust data.
+Standalone C++20 static library, linked only to Qt6::Core. `QuotaHeatmap` and
+`QuotaTrend` retain their Swift source names and semantics; the library does not
+perform I/O, call FFI, or aggregate Rust data.
 It is intentionally not included by [`../CMakeLists.txt`](../CMakeLists.txt).
 
 From the repository root:
@@ -14,8 +14,8 @@ ctest --test-dir linux/core/build --output-on-failure
 TZ=Asia/Taipei linux/core/build/crosscheck/syrtis-crosscheck linux/crosscheck/fixtures linux/core/build/actual format
 ```
 
-The harness accepts `usage-pace`, `format`, and `provider-quota-pace-v3`. Like the
-[Swift harness](../../Sources/CrossCheckHarness/main.swift), an omitted selector
+The harness accepts `usage-pace`, `format`, `provider-quota-pace-v3`, and
+`quota-trend`. Like the [Swift harness](../../Sources/CrossCheckHarness/main.swift), an omitted selector
 or `all` runs the two legacy selectors (`usage-pace` and `format`). `TZ` must be
 exactly `Asia/Taipei`. The Qt harness pins its locale to English internally;
 the Swift-compatible `-AppleLanguages "(en)"` pair is also accepted anywhere in
@@ -29,3 +29,13 @@ build directory with the `.actual.json` suffix required by the vendored
 [`diff.py`](../crosscheck/diff.py); it never writes the oracle directory.
 Only the deliberately synthetic self-test pair lives under
 [`../crosscheck/harness/selftest/`](../crosscheck/harness/selftest/).
+
+`quota-trend` covers both folds using the synthetic
+[fixture](../crosscheck/fixtures/quota-trend.json). Heatmap inputs are the three
+fields consumed from each curve point (seconds); its weekday/hour cells and
+observed days use a Gregorian calendar in the supplied `QTimeZone`. Trend samples
+use milliseconds. The default-constructed `QuotaHeatmap{}` is Swift's `.empty`.
+`quota-trend-selftest` checks local semantics independently of oracle availability;
+`crosscheck-quota-trend` skips until the macOS oracle supplies its golden. The
+[Swift extension](../crosscheck/swift/README.md) calls the shipping folds for
+parity validation; local assertions do not substitute for that gate.

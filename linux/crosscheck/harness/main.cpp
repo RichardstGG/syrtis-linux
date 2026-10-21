@@ -2,8 +2,11 @@
 #include <QtCore/QLocale>
 #include <QtCore/QSaveFile>
 #include <QtCore/QStringList>
+#include <QtCore/QJsonDocument>
+#include "QuotaTrendSelector.h"
 
 #include <iostream>
+#include <exception>
 
 namespace {
 int fail(const QString &message, int code)
@@ -42,10 +45,11 @@ int main(int argc, char *argv[])
     QLocale::setDefault(QLocale(QLocale::English, QLocale::UnitedStates));
 
     if (args.size() < 2 || args.size() > 3)
-        return fail(QStringLiteral("usage: syrtis-crosscheck <fixtures-dir> <out-dir> [usage-pace|format|provider-quota-pace-v3]"), 2);
+        return fail(QStringLiteral("usage: syrtis-crosscheck <fixtures-dir> <out-dir> [usage-pace|format|provider-quota-pace-v3|quota-trend]"), 2);
 
     const QStringList knownSelectors{
         QStringLiteral("usage-pace"), QStringLiteral("format"),
+        QStringLiteral("quota-trend"),
         QStringLiteral("provider-quota-pace-v3")};
     const auto selector = args.size() == 3 ? args[2] : QStringLiteral("all");
     if (selector != QStringLiteral("all") && !knownSelectors.contains(selector))
@@ -60,7 +64,14 @@ int main(int argc, char *argv[])
         : QStringList{selector};
     for (const auto &name : selected) {
         QSaveFile output(outDir.filePath(name + QStringLiteral(".actual.json")));
-        const QByteArray data("{\"error\":\"not ported\"}\n");
+        QByteArray data("{\"error\":\"not ported\"}\n");
+        if (name == QStringLiteral("quota-trend")) {
+            try {
+                data = QJsonDocument(quotaTrendSelector(QDir(args[0]))).toJson();
+            } catch (const std::exception &error) {
+                return fail(QString::fromUtf8(error.what()), 1);
+            }
+        }
         if (!output.open(QIODevice::WriteOnly) || output.write(data) != data.size()
             || !output.commit())
             return fail(QStringLiteral("error: cannot write %1: %2")
