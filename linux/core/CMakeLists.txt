@@ -5,6 +5,7 @@ project(SyrtisCore LANGUAGES CXX)
 find_package(Qt6 6.8 REQUIRED COMPONENTS Core)
 
 add_library(syrtis-core STATIC AgentUsage.cpp UsagePace.cpp Localization.cpp)
+target_sources(syrtis-core PRIVATE Format.cpp)
 target_compile_features(syrtis-core PUBLIC cxx_std_20)
 set_target_properties(syrtis-core PROPERTIES CXX_EXTENSIONS OFF)
 target_include_directories(syrtis-core PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")

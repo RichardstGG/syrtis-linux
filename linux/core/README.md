@@ -8,6 +8,16 @@ retain their Swift source names and semantics; the library does not perform
 I/O, call FFI, or aggregate Rust data.
 It is intentionally not included by [`../CMakeLists.txt`](../CMakeLists.txt).
 
+`Format` ports the English-pinned formatting surface from
+[`Format.swift`](../../Sources/Syrtis/Format.swift): compact/exact tokens, USD,
+month/day labels, relative time and local day keys. Its `todayTokens`,
+`todayCost` and `todayTopClient` functions implement the format selector's
+unfiltered [`Graph.swift`](../../Sources/TokenBarCore/Graph.swift) projection:
+read the last matching contribution's existing totals, and select its top
+client using Swift's saturating stripe fold and token/cost/id tie-break.
+`paceDurationText` delegates to the existing `UsagePace` formatter. Numeric
+formatting rounds the binary Double directly, independently of the host locale.
+
 `AgentUsage` contains only the pace input types and `UsageWindow` decoder needed
 by this selector, not the full AgentUsage surface. The decoder follows current
 Swift v3 validation: `durationSeconds` comes from `paceStatus`, never legacy
@@ -34,7 +44,10 @@ the arguments. Other options and non-English language pins fail closed.
 Each selector writes `<selector>.actual.json`. `usage-pace` implements `compute`
 and `runOutRisk` with the shipping Swift harness's output fields, nulls and
 rejections. Its existing Swift mode in `Sources/CrossCheckHarness/main.swift`
-remains the oracle; no new selector or Swift mode is introduced. Unported selectors emit
+remains the oracle; no new selector or Swift mode is introduced. `format` handles
+all eleven existing Swift harness functions, including null top-client results
+and errors for missing or invalid `now` timestamps. Its oracle mode also already
+exists in that root Swift harness. Unported selectors emit
 `{"error":"not ported"}`; their CTests skip. Once ported, each CTest compares
 against the matching macOS oracle JSON under [`../crosscheck/golden/`](../crosscheck/golden/),
 skipping if that oracle is absent. The runner copies the oracle to an isolated
@@ -45,3 +58,5 @@ Only the deliberately synthetic self-test pair lives under
 `usage-pace-unit` covers calculation/rounding boundaries and presentation;
 `crosscheck-selftest` also runs synthetic v3 inputs through the real selector
 and checks strict decoding and serialization without creating oracle goldens.
+The same self-test checks Format's binary rounding, Int64 limits, local midnight,
+duplicate days, per-client stripe totals, saturation and deterministic ties.
