@@ -41,6 +41,11 @@ struct Decoder {
         const auto child = value.toObject().value(name);
         if constexpr (!Optional<T>::value)
             if (child.isUndefined()) throw DecodingError("keyNotFound", path, name);
+        // JSONDecoder's keyed Bool overload checks the JSON type directly,
+        // including null. Other required types use valueNotFound for null.
+        // Keep this here: single-value decoding has its own null check.
+        if constexpr (std::is_same_v<T, bool>)
+            if (!child.isBool()) throw DecodingError("typeMismatch", path + QStringList{name});
         return Decoder{child, path + QStringList{name}}.decode<T>();
     }
     template<class T> T decode() const {

@@ -67,10 +67,16 @@ surface. Reports retain Rust's supplied totals, entry order, and client lists.
 The typed payload and optional error are decoded before checking `ok`, as in
 Swift. Missing and explicit-null `data` differ only in the optional-envelope
 path. Unknown keys are ignored; required fields never default to zero.
+Missing required keys produce `keyNotFound`. Present null values produce
+`valueNotFound`, except keyed `Bool` fields, where Swift's direct type check
+produces `typeMismatch`. Optional fields accept both missing and null keys.
 
 [`reports.json`](../crosscheck/fixtures/reports.json) contains only synthetic
 data, including legacy optional fields, exact signed 64-bit values, malformed
 envelopes, all four parity statuses, and the Rust `msPer1kTokens` spelling.
-`reports-selftest` shares assertions with the Swift oracle self-test.
+`reports-selftest` checks C++ decoder regressions, including missing/null/wrong
+types for every Boolean field and each other decoded field category. The Swift
+oracle preflight shares only JSON structure and case-id coverage checks;
+semantic agreement is checked by `diff.py` after golden generation.
 `crosscheck-reports` runs the normal comparator and skips with return code 77
 until macOS supplies `golden/reports.json`.
