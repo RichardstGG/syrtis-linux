@@ -1,0 +1,215 @@
+{
+  "cases" : {
+    "available-ahead-historical" : {
+      "actualUsedPercent" : 72,
+      "basis" : "historical",
+      "deltaPercent" : 40,
+      "etaSeconds" : 3600,
+      "etaText" : "Projected empty in 1h",
+      "expectedUsedPercent" : 32,
+      "isHistoricalDeficit" : true,
+      "label" : "40% in deficit",
+      "riskText" : "≈ 75% run-out risk",
+      "stage" : "farAhead",
+      "willLastToReset" : false
+    },
+    "available-behind-historical" : {
+      "actualUsedPercent" : 28,
+      "basis" : "historical",
+      "deltaPercent" : -28,
+      "etaSeconds" : null,
+      "etaText" : null,
+      "expectedUsedPercent" : 56,
+      "isHistoricalDeficit" : false,
+      "label" : "28% in reserve",
+      "riskText" : "≈ 20% run-out risk",
+      "stage" : "farBehind",
+      "willLastToReset" : true
+    },
+    "available-current-fit-zero-complete-cycles" : {
+      "actualUsedPercent" : 36,
+      "basis" : "historical",
+      "deltaPercent" : 6,
+      "etaSeconds" : 5400,
+      "etaText" : "Projected empty in 1h 30m",
+      "expectedUsedPercent" : 30,
+      "isHistoricalDeficit" : true,
+      "label" : "6% in deficit",
+      "riskText" : null,
+      "stage" : "slightlyAhead",
+      "willLastToReset" : false
+    },
+    "available-exhausted-fact-override" : {
+      "actualUsedPercent" : 100,
+      "basis" : "historical",
+      "deltaPercent" : 20,
+      "etaSeconds" : 0,
+      "etaText" : "Projected empty now",
+      "expectedUsedPercent" : 80,
+      "isHistoricalDeficit" : true,
+      "label" : "20% in deficit",
+      "riskText" : "≈ 100% run-out risk",
+      "stage" : "farAhead",
+      "willLastToReset" : false
+    },
+    "learning-history-historical-uses-linear" : {
+      "actualUsedPercent" : 40,
+      "basis" : "linear",
+      "deltaPercent" : 0,
+      "etaSeconds" : null,
+      "etaText" : "On average: lasts until reset",
+      "expectedUsedPercent" : 40,
+      "isHistoricalDeficit" : false,
+      "label" : "On pace",
+      "riskText" : null,
+      "stage" : "onTrack",
+      "willLastToReset" : true
+    },
+    "legacy-missing-pace-status" : {
+      "completeCycles" : 0,
+      "durationSeconds" : null,
+      "durationSource" : null,
+      "historicalPace" : false,
+      "linearPace" : false,
+      "reason" : null,
+      "rejected" : false,
+      "state" : "legacyMissing",
+      "windowMinutes" : 300
+    },
+    "malformed-available-without-historical" : {
+      "rejected" : true
+    },
+    "malformed-duration-window-minutes-mismatch" : {
+      "rejected" : true
+    },
+    "malformed-pace-status-null" : {
+      "rejected" : true
+    },
+    "malformed-percentages-not-complementary" : {
+      "rejected" : true
+    },
+    "malformed-unknown-state" : {
+      "rejected" : true
+    },
+    "selection-ambiguous-legacy-label-preserved" : {
+      "canonicalSelection" : "provider-fixture.invalid|Shared label",
+      "resolvedCardId" : null,
+      "resolvedClientId" : null,
+      "selection" : "provider-fixture.invalid|Shared label"
+    },
+    "selection-exact-card-id" : {
+      "canonicalSelection" : "provider-fixture.invalid|shared-second.invalid",
+      "resolvedCardId" : "shared-second.invalid",
+      "resolvedClientId" : "provider-fixture.invalid",
+      "selection" : "provider-fixture.invalid|shared-second.invalid"
+    },
+    "selection-unique-legacy-label" : {
+      "canonicalSelection" : "provider-fixture.invalid|ahead.invalid",
+      "resolvedCardId" : "ahead.invalid",
+      "resolvedClientId" : "provider-fixture.invalid",
+      "selection" : "provider-fixture.invalid|Ahead quota"
+    }
+  },
+  "lifecycle" : [
+    {
+      "cardId" : "ahead.invalid",
+      "clientId" : "provider-fixture.invalid",
+      "completeCycles" : 5,
+      "durationSeconds" : 18000,
+      "durationSource" : "provider",
+      "hasHistorical" : true,
+      "label" : "Ahead quota",
+      "reason" : null,
+      "state" : "available"
+    },
+    {
+      "cardId" : "behind.invalid",
+      "clientId" : "provider-fixture.invalid",
+      "completeCycles" : 7,
+      "durationSeconds" : 604800,
+      "durationSource" : "contract",
+      "hasHistorical" : true,
+      "label" : "Behind quota",
+      "reason" : null,
+      "state" : "available"
+    },
+    {
+      "cardId" : "current-fit.invalid",
+      "clientId" : "provider-fixture.invalid",
+      "completeCycles" : 0,
+      "durationSeconds" : 18000,
+      "durationSource" : "provider",
+      "hasHistorical" : true,
+      "label" : "Current fit",
+      "reason" : null,
+      "state" : "available"
+    },
+    {
+      "cardId" : "exhausted.invalid",
+      "clientId" : "provider-fixture.invalid",
+      "completeCycles" : 0,
+      "durationSeconds" : 18000,
+      "durationSource" : "provider",
+      "hasHistorical" : true,
+      "label" : "Exhausted quota",
+      "reason" : null,
+      "state" : "available"
+    },
+    {
+      "cardId" : "learning-history.invalid",
+      "clientId" : "provider-fixture.invalid",
+      "completeCycles" : 2,
+      "durationSeconds" : 18000,
+      "durationSource" : "provider",
+      "hasHistorical" : false,
+      "label" : "Learning history",
+      "reason" : null,
+      "state" : "learningHistory"
+    },
+    {
+      "cardId" : "learning-duration.invalid",
+      "clientId" : "provider-fixture.invalid",
+      "completeCycles" : 0,
+      "durationSeconds" : null,
+      "durationSource" : "observed",
+      "hasHistorical" : false,
+      "label" : "Learning duration",
+      "reason" : null,
+      "state" : "learningDuration"
+    },
+    {
+      "cardId" : "missing-reset.invalid",
+      "clientId" : "provider-fixture.invalid",
+      "completeCycles" : 0,
+      "durationSeconds" : null,
+      "durationSource" : null,
+      "hasHistorical" : false,
+      "label" : "Missing reset",
+      "reason" : "missingReset",
+      "state" : "unavailable"
+    },
+    {
+      "cardId" : "shared-first.invalid",
+      "clientId" : "provider-fixture.invalid",
+      "completeCycles" : 2,
+      "durationSeconds" : 18000,
+      "durationSource" : "provider",
+      "hasHistorical" : false,
+      "label" : "Shared label",
+      "reason" : null,
+      "state" : "learningHistory"
+    },
+    {
+      "cardId" : "shared-second.invalid",
+      "clientId" : "provider-fixture.invalid",
+      "completeCycles" : 2,
+      "durationSeconds" : 18000,
+      "durationSource" : "provider",
+      "hasHistorical" : false,
+      "label" : "Shared label",
+      "reason" : null,
+      "state" : "learningHistory"
+    }
+  ],
+  "schemaVersion" : 3
+}
