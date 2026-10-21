@@ -35,6 +35,23 @@ set_target_properties(syrtis-bridge PROPERTIES CXX_EXTENSIONS OFF)
 target_include_directories(syrtis-bridge PUBLIC src/bridge)
 target_link_libraries(syrtis-bridge PUBLIC Qt6::Concurrent PRIVATE tb_core_ffi)
 
+# Keep core independently buildable; its tests/crosschecks belong to the core
+# build, not the app's ctest registry. EXCLUDE_FROM_ALL builds only the library
+# consumed here, without building the standalone crosscheck executable.
+function(add_syrtis_core)
+    set(BUILD_TESTING OFF)
+    add_subdirectory(core EXCLUDE_FROM_ALL)
+endfunction()
+add_syrtis_core()
+
+set(SYRTIS_QUOTA_SOURCES
+    src/quota/QuotaSelectionPolicy.cpp src/quota/QuotaSelectionPolicy.h
+    src/quota/QuotaService.cpp src/quota/QuotaService.h
+)
+add_library(syrtis-quota STATIC ${SYRTIS_QUOTA_SOURCES})
+target_include_directories(syrtis-quota PUBLIC src/quota)
+target_link_libraries(syrtis-quota PUBLIC syrtis-core syrtis-bridge)
+
 add_library(syrtis-singleinstance STATIC
     src/singleinstance/SingleInstance.cpp
     src/singleinstance/SingleInstance.h
@@ -51,7 +68,7 @@ qt_add_qml_module(syrtis
     QML_FILES qml/Main.qml src/tray/Tray.qml
     RESOURCES src/tray/tray-icon.svg
 )
-target_link_libraries(syrtis PRIVATE Qt6::Quick syrtis-singleinstance syrtis-bridge)
+target_link_libraries(syrtis PRIVATE Qt6::Quick syrtis-singleinstance syrtis-bridge syrtis-quota)
 
 include(CTest)
 if(BUILD_TESTING)
@@ -86,6 +103,18 @@ if(BUILD_TESTING)
     target_link_libraries(syrtis-bridge-test PRIVATE Qt6::Concurrent Qt6::Test)
     add_test(NAME syrtis-bridge COMMAND syrtis-bridge-test)
     set_tests_properties(syrtis-bridge PROPERTIES TIMEOUT 30)
+
+    qt_add_executable(syrtis-quota-test
+        ${SYRTIS_QUOTA_SOURCES}
+        src/bridge/Bridge.cpp src/bridge/Bridge.h
+        tests/quota/QuotaServiceTest.cpp
+        tests/bridge/FakeFfi.cpp tests/bridge/FakeFfi.h
+    )
+    target_include_directories(syrtis-quota-test PRIVATE
+        src/quota src/bridge tests/bridge ../Sources/CTB/include)
+    target_link_libraries(syrtis-quota-test PRIVATE syrtis-core Qt6::Concurrent Qt6::Test)
+    add_test(NAME syrtis-quota COMMAND syrtis-quota-test)
+    set_tests_properties(syrtis-quota PROPERTIES TIMEOUT 30)
 
     qt_add_executable(syrtis-bridge-smoke tests/bridge/BridgeSmokeTest.cpp)
     target_link_libraries(syrtis-bridge-smoke PRIVATE syrtis-bridge Qt6::Test)
