@@ -1,6 +1,7 @@
 #pragma once
 
 #include "JsonDecoder.h"
+#include "AccountIdentity.h"
 #include <QtCore/QString>
 
 #include <optional>
@@ -83,6 +84,7 @@ struct AgentUsageSnapshot {
     // Display-only rewrites never decode this field from the wire.
     std::optional<QString> historyAccountKey;
 
+    AccountIdentity accountIdentity() const { return {clientId, accountKey}; }
     std::optional<QString> historyReadAccountKey() const;
     bool isSetupPlaceholder() const;
     std::optional<QString> setupBadgeKey() const;
