@@ -12,6 +12,7 @@ import tempfile
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "harness"))
 from core_leaf_check import verify_output
 from reports_check import verify_output as verify_reports_output
+from charts_check import verify_output as verify_charts_output
 
 
 def main():
@@ -22,6 +23,7 @@ def main():
         fixtures.mkdir()
         shutil.copyfile(Path(__file__).resolve().parents[1] / "fixtures/core-leaf.json", fixtures / "core-leaf.json")
         shutil.copyfile(Path(__file__).resolve().parents[1] / "fixtures/reports.json", fixtures / "reports.json")
+        shutil.copyfile(Path(__file__).resolve().parents[1] / "fixtures/charts.json", fixtures / "charts.json")
         out = Path(scratch) / "out"
         base = [str(fixtures), str(out)]
         pin = ["-AppleLanguages", "(en)"]
@@ -40,10 +42,15 @@ def main():
         # The extension must never run root selectors or invent oracle goldens.
         run([*base, *pin])
         run([*pin, *base, "all"])
-        if {p.name for p in out.iterdir()} != {"core-leaf.actual.json", "reports.actual.json"}:
+        if {p.name for p in out.iterdir()} != {"core-leaf.actual.json", "reports.actual.json", "charts.actual.json"}:
             raise RuntimeError("extension selector set changed")
         verify_output(out / "core-leaf.actual.json")
         verify_reports_output(out / "reports.actual.json")
+        verify_charts_output(out / "charts.actual.json")
+        charts_baseline = json.loads((out / "charts.actual.json").read_text())
+        run([*base, "charts", *pin])
+        if json.loads((out / "charts.actual.json").read_text()) != charts_baseline:
+            raise RuntimeError("charts output depends on selector invocation")
         reports_baseline = json.loads((out / "reports.actual.json").read_text())
         run([*base, "reports", *pin])
         if json.loads((out / "reports.actual.json").read_text()) != reports_baseline:
