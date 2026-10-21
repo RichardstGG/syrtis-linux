@@ -5,7 +5,7 @@ project(SyrtisCore LANGUAGES CXX)
 find_package(Qt6 6.8 REQUIRED COMPONENTS Core)
 
 add_library(syrtis-core STATIC AgentUsage.cpp UsagePace.cpp Localization.cpp)
-target_sources(syrtis-core PRIVATE Format.cpp)
+target_sources(syrtis-core PRIVATE Format.cpp QuotaCurve.cpp)
 target_sources(syrtis-core PRIVATE ClientRegistry.cpp ModelGrouping.cpp ModelScope.cpp WindowResolution.cpp Grid.cpp)
 target_sources(syrtis-core PRIVATE TBCore.cpp AgentsReport.cpp HourlyReport.cpp ModelReport.cpp FilterParityProbe.cpp)
 target_compile_features(syrtis-core PUBLIC cxx_std_20)
@@ -21,7 +21,7 @@ if(BUILD_TESTING)
 endif()
 add_subdirectory(../crosscheck crosscheck)
 target_sources(syrtis-crosscheck PRIVATE ../crosscheck/harness/core-leaf.cpp)
-target_sources(syrtis-crosscheck PRIVATE ../crosscheck/harness/reports.cpp)
+target_sources(syrtis-crosscheck PRIVATE ../crosscheck/harness/reports.cpp ../crosscheck/harness/agent-usage.cpp)
 
 if(BUILD_TESTING)
     find_package(Python3 REQUIRED COMPONENTS Interpreter)
@@ -49,4 +49,16 @@ if(BUILD_TESTING)
     set_tests_properties(core-leaf-selftest PROPERTIES TIMEOUT 30)
     set_tests_properties(crosscheck-core-leaf PROPERTIES
         ENVIRONMENT "TZ=Asia/Taipei" SKIP_RETURN_CODE 77 TIMEOUT 30)
+    add_test(NAME crosscheck-agent-usage
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/../crosscheck/harness/run_selector.py"
+            $<TARGET_FILE:syrtis-crosscheck>
+            "${CMAKE_CURRENT_SOURCE_DIR}/../crosscheck/fixtures"
+            "${CMAKE_CURRENT_SOURCE_DIR}/../crosscheck/golden"
+            "${CMAKE_CURRENT_BINARY_DIR}/agent-usage" agent-usage)
+    set_tests_properties(crosscheck-agent-usage PROPERTIES
+        ENVIRONMENT "TZ=Asia/Taipei" SKIP_RETURN_CODE 77 TIMEOUT 30)
+    add_test(NAME agent-usage-selftest
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/../crosscheck/harness/agent_usage_check.py"
+            $<TARGET_FILE:syrtis-crosscheck> "${CMAKE_CURRENT_BINARY_DIR}/agent-usage-selftest")
+    set_tests_properties(agent-usage-selftest PROPERTIES TIMEOUT 30)
 endif()

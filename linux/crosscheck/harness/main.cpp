@@ -15,6 +15,7 @@
 #include "FormatSelector.h"
 #include "core-leaf.h"
 #include "reports.h"
+#include "agent-usage.h"
 
 namespace {
 int fail(const QString &message, int code)
@@ -138,11 +139,11 @@ int main(int argc, char *argv[])
     QLocale::setDefault(QLocale(QLocale::English, QLocale::UnitedStates));
 
     if (args.size() < 2 || args.size() > 3)
-        return fail(QStringLiteral("usage: syrtis-crosscheck <fixtures-dir> <out-dir> [usage-pace|format|provider-quota-pace-v3|core-leaf|reports]"), 2);
+        return fail(QStringLiteral("usage: syrtis-crosscheck <fixtures-dir> <out-dir> [usage-pace|format|provider-quota-pace-v3|core-leaf|reports|agent-usage]"), 2);
 
     const QStringList knownSelectors{
         QStringLiteral("usage-pace"), QStringLiteral("format"),
-        QStringLiteral("provider-quota-pace-v3"), QStringLiteral("core-leaf"), QStringLiteral("reports")};
+        QStringLiteral("provider-quota-pace-v3"), QStringLiteral("core-leaf"), QStringLiteral("reports"), QStringLiteral("agent-usage")};
     const auto selector = args.size() == 3 ? args[2] : QStringLiteral("all");
     if (selector != QStringLiteral("all") && !knownSelectors.contains(selector))
         return fail(QStringLiteral("error: unknown selector %1").arg(selector), 2);
@@ -168,6 +169,7 @@ int main(int argc, char *argv[])
         try {
             if (name == QStringLiteral("core-leaf")) data = coreLeaf(args[0]);
             if (name == QStringLiteral("reports")) data = reports(args[0]);
+            if (name == QStringLiteral("agent-usage")) data = agentUsage(args[0]);
         } catch (const std::exception &error) {
             return fail(QString::fromUtf8(error.what()), 1);
         }

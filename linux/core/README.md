@@ -30,12 +30,20 @@ client using Swift's saturating stripe fold and token/cost/id tie-break.
 `paceDurationText` delegates to the existing `UsagePace` formatter. Numeric
 formatting rounds the binary Double directly, independently of the host locale.
 
-`AgentUsage` contains only the pace input types and `UsageWindow` decoder needed
-by this selector, not the full AgentUsage surface. The decoder follows current
-Swift v3 validation: `durationSeconds` comes from `paceStatus`, never legacy
-`windowMinutes`, and the backend historical projection remains one coherent
-result. Legacy fixtures therefore produce null or `rejected` results according
-to the shipping decoder, regardless of their old explanatory notes.
+`AgentUsage` ports the shipping payload, snapshot, identity, credits, transport
+diagnostic, pace and window decoders, plus setup/configured-client selection,
+card qualification and display-only identity/history rewrites. `durationSeconds`
+comes from `paceStatus`, never legacy `windowMinutes`, and the backend historical
+projection remains one coherent result. `UsageWindow::decode(QJsonValue)` keeps
+the optional-result interface used by UsagePace; the throwing Decoder overload
+preserves error kinds and paths for typed payload/envelope decoding. Provider
+calls and transport logging remain outside this UI-free library.
+
+`QuotaCurve` validates producer-owned points and coverage without reconstructing
+history: required active flags, durations within 400 days, cycle bounds with
+checked subtraction, percentages, ordering, exact duplicate samples, coverage
+endpoints/count and the 65,536-point ceiling. It preserves `isActiveGroup` rather
+than deriving it from reset timestamps.
 
 From the repository root:
 
@@ -46,7 +54,7 @@ TZ=Asia/Taipei ctest --test-dir linux/core/build --output-on-failure
 TZ=Asia/Taipei linux/core/build/crosscheck/syrtis-crosscheck linux/crosscheck/fixtures linux/core/build/actual format
 ```
 
-The harness accepts `reports`, `core-leaf`, `usage-pace`, `format`, and `provider-quota-pace-v3`. Like the
+The harness accepts `agent-usage`, `reports`, `core-leaf`, `usage-pace`, `format`, and `provider-quota-pace-v3`. Like the
 [Swift harness](../../Sources/CrossCheckHarness/main.swift), an omitted selector
 or `all` runs the two legacy selectors (`usage-pace` and `format`). `TZ` must be
 exactly `Asia/Taipei`. The Qt harness pins its locale to English internally;
@@ -112,3 +120,25 @@ oracle preflight shares only JSON structure and case-id coverage checks;
 semantic agreement is checked by `diff.py` after golden generation.
 `crosscheck-reports` runs the normal comparator and skips with return code 77
 until macOS supplies `golden/reports.json`.
+
+The [`agent-usage.json`](../crosscheck/fixtures/agent-usage.json) selector covers
+payload/window/curve decoding, nested malformed values, legacy and v3 states,
+setup placeholders, account-history rewrites, and repeated-label qualification.
+It serializes both raw and qualified card names: unlike the legacy Swift/C#
+harness, this selector explicitly exercises the presentation layer discussed in
+[verification.md](../../docs/knowledge/verification.md#cross-port-fixture-cross-check).
+Duplicate card IDs keep the first row; repeated labels try distinct duration
+names, distinct reset spans, then collision-free ordinals, preserving raw labels
+and identities. Swift String canonical equivalence is retained for grouping.
+
+Qualification fixtures with `resetOffsetsSeconds` materialize synthetic resets
+relative to the harness clock, and emit only card IDs and names. Offsets sit ten
+seconds below minute boundaries (at least fifty seconds of margin before the
+countdown changes), so the macOS oracle can exercise shipping
+`uniqueCardWindows` without exposing a clock override in production Swift.
+C++ uses a fixed reference clock with the same offsets. Other operations retain
+all decoded fields and backend totals. The Swift preflight checks only output
+JSON structure and case IDs; C++ semantic regression assertions are separate.
+`agent-usage-selftest` also constructs a curve above the sample ceiling locally.
+`crosscheck-agent-usage` uses `diff.py` and skips (77) until the macOS workflow
+supplies its golden. Workers never create oracle goldens.
