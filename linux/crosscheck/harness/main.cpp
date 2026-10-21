@@ -11,6 +11,7 @@
 #include <stdexcept>
 
 #include "UsagePace.h"
+#include "FormatSelector.h"
 
 namespace {
 int fail(const QString &message, int code)
@@ -153,9 +154,10 @@ int main(int argc, char *argv[])
     for (const auto &name : selected) {
         QSaveFile output(outDir.filePath(name + QStringLiteral(".actual.json")));
         QByteArray data("{\"error\":\"not ported\"}\n");
-        if (name == QStringLiteral("usage-pace")) {
+        if (name == QStringLiteral("usage-pace") || name == QStringLiteral("format")) {
             try {
-                data = QJsonDocument(runUsagePace(QDir(args[0]))).toJson();
+                data = QJsonDocument(name == QStringLiteral("format")
+                    ? runFormat(QDir(args[0])) : runUsagePace(QDir(args[0]))).toJson();
             } catch (const std::exception &error) {
                 return fail(QString::fromUtf8(error.what()), 1);
             }
