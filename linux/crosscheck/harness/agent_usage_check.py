@@ -65,7 +65,7 @@ def verify_cpp_output(path):
     error("payload-bad-nested-window", "valueNotFound", ("agents", "Index 0", "windows", "Index 0", "usedPercent"))
     error("payload-bad-subscription", "typeMismatch", ("opencodeSubscriptions", "Index 1"))
     error("window-validation-order", "typeMismatch", ("resetText",))
-    error("window-fractional-int", "dataCorrupted", ("windowMinutes",))
+    error("window-fractional-int", "dataCorrupted", ())  # Swift golden: integer conversion errors carry an empty path
     error("QuotaCurve-missing-activeResetAt", "dataCorrupted")
     error("QuotaCurvePoint-missing-isActiveGroup", "dataCorrupted")
     error("curve-point-bool-null-nested", "typeMismatch", ("points", "Index 0", "isActiveGroup"))
