@@ -7,6 +7,9 @@ import subprocess
 import sys
 import tempfile
 
+from usage_pace import check_usage_pace
+from format_selector import check_format
+
 
 def run(command, expected=0, env=None):
     result = subprocess.run(command, capture_output=True, text=True, env=env, check=False)
@@ -58,8 +61,17 @@ def main():
         base = [harness, fixtures, str(out)]
         for selector in ("usage-pace", "format", "provider-quota-pace-v3"):
             run([*base, selector])
-            if json.loads((out / f"{selector}.actual.json").read_text()) != {"error": "not ported"}:
+            output = json.loads((out / f"{selector}.actual.json").read_text())
+            if selector == "usage-pace":
+                if len(output) != 42 or output.get("clamp-used-over-100") != {"rejected": True}:
+                    raise RuntimeError("usage-pace did not decode the legacy fixture")
+            elif selector == "format":
+                if len(output) != 74 or output.get("exact-int64-max") != "9,223,372,036,854,775,807":
+                    raise RuntimeError("format did not preserve exact token formatting")
+            elif output != {"error": "not ported"}:
                 raise RuntimeError(f"unexpected skeleton output: {selector}")
+        check_usage_pace(harness, scratch)
+        check_format(harness, scratch)
         for selector in ([], ["all"]):
             legacy = scratch / ("default" if not selector else "all")
             run([harness, fixtures, str(legacy), *selector])
@@ -86,8 +98,12 @@ def main():
 
         result = run([sys.executable, str(runner), harness, fixtures,
                       str(scratch / "missing"), str(scratch / "selector"), "format"], expected=77)
-        if "not ported" not in result.stdout or "golden missing" not in result.stdout:
-            raise RuntimeError("skeleton selector did not report both skip reasons")
+        if "not ported" in result.stdout or "golden missing" not in result.stdout:
+            raise RuntimeError("ported format did not skip only for the absent oracle")
+        result = run([sys.executable, str(runner), harness, fixtures,
+                      str(scratch / "missing"), str(scratch / "pace-selector"), "usage-pace"], expected=77)
+        if "not ported" in result.stdout or "golden missing" not in result.stdout:
+            raise RuntimeError("ported usage-pace did not skip only for the absent oracle")
     print("crosscheck self-test OK (diff success/failure, CLI, timezone, skips)")
 
 
