@@ -62,3 +62,21 @@ if(BUILD_TESTING)
             $<TARGET_FILE:syrtis-crosscheck> "${CMAKE_CURRENT_BINARY_DIR}/agent-usage-selftest")
     set_tests_properties(agent-usage-selftest PROPERTIES TIMEOUT 30)
 endif()
+
+# Quota history / attribution port (registration kept local to this scope).
+target_sources(syrtis-core PRIVATE UsageAttribution.cpp QuotaHistory.cpp WindowCardGeometry.cpp WindowEquivalence.cpp WindowUsage.cpp)
+target_sources(syrtis-crosscheck PRIVATE ../crosscheck/harness/attribution.cpp)
+if(BUILD_TESTING)
+    add_test(NAME crosscheck-attribution
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/../crosscheck/harness/run_selector.py"
+            $<TARGET_FILE:syrtis-crosscheck> "${CMAKE_CURRENT_SOURCE_DIR}/../crosscheck/fixtures"
+            "${CMAKE_CURRENT_SOURCE_DIR}/../crosscheck/golden" "${CMAKE_CURRENT_BINARY_DIR}/attribution" attribution)
+    set_tests_properties(crosscheck-attribution PROPERTIES ENVIRONMENT "TZ=Asia/Taipei" SKIP_RETURN_CODE 77 TIMEOUT 30)
+    add_test(NAME attribution-selftest
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/../crosscheck/harness/attribution_check.py"
+            $<TARGET_FILE:syrtis-crosscheck> "${CMAKE_CURRENT_BINARY_DIR}/attribution-selftest")
+    set_tests_properties(attribution-selftest PROPERTIES TIMEOUT 30)
+    add_executable(attribution-test tests/AttributionTest.cpp)
+    target_link_libraries(attribution-test PRIVATE syrtis-core)
+    add_test(NAME attribution-unit COMMAND attribution-test)
+endif()

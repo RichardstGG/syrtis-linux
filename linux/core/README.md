@@ -9,8 +9,8 @@ I/O, call FFI, or aggregate Rust data.
 
 The leaf ports are `ClientRegistry`, `ModelGrouping`,
 `ModelScope`, `WindowResolution`, and `Grid`. `Grid.h` includes its `ISODay` and
-`PerDay` value dependencies from `UsageStats.swift`. `WindowResolution.h` carries
-the message timestamp needed by the resolver.
+`PerDay` value dependencies from `UsageStats.swift`. `WindowUsage.h` carries the shared message value used by the resolver, history,
+and geometry ports.
 
 `ClientPreferences` is a caller-supplied snapshot of the three registry defaults
 and optional legacy order. Missing order and an explicitly saved empty order
@@ -54,7 +54,7 @@ TZ=Asia/Taipei ctest --test-dir linux/core/build --output-on-failure
 TZ=Asia/Taipei linux/core/build/crosscheck/syrtis-crosscheck linux/crosscheck/fixtures linux/core/build/actual format
 ```
 
-The harness accepts `agent-usage`, `reports`, `core-leaf`, `usage-pace`, `format`, and `provider-quota-pace-v3`. Like the
+The harness accepts `attribution`, `agent-usage`, `reports`, `core-leaf`, `usage-pace`, `format`, and `provider-quota-pace-v3`. Like the
 [Swift harness](../../Sources/CrossCheckHarness/main.swift), an omitted selector
 or `all` runs the two legacy selectors (`usage-pace` and `format`). `TZ` must be
 exactly `Asia/Taipei`. The Qt harness pins its locale to English internally;
@@ -142,3 +142,37 @@ JSON structure and case IDs; C++ semantic regression assertions are separate.
 `agent-usage-selftest` also constructs a curve above the sample ceiling locally.
 `crosscheck-agent-usage` uses `diff.py` and skips (77) until the macOS workflow
 supplies its golden. Workers never create oracle goldens.
+
+
+`QuotaHistory`, `WindowCardGeometry`, `WindowEquivalence`, and `UsageAttribution`
+port the corresponding shipping Swift calculations together. `WindowUsage`
+provides their message dependency; `TokenBreakdown` provides the five token
+lanes and signed saturating sum. These folds use the producer's existing window
+messages and quota points; they do not reconstruct Rust reports or call FFI.
+
+History excludes active groups using `isActiveGroup`, groups nearby reset
+samples by the producer's quantum, and reports the modal stored reset (smaller
+reset wins ties). The newest point supplies duration. Every completed cycle
+remains available; only scan-paying consumers apply the 32-cycle cap. Rows
+cover `[evidenceStartMs, resetAtMs)`, while equivalence spans cover
+`(firstSampleMs, lastSampleMs]`. The latter keeps full tokens beside full cost;
+bars and their displayed token totals exclude cache reads. Assigned, excluded,
+and unassigned presence remain separate even for cost-only messages.
+
+Attribution receives raw caller-owned settings values rather than reading
+storage. An undefined `QJsonValue` means an absent key; a present non-string,
+malformed record set, duplicate source, unknown target, or size violation makes
+the table read-only. Source IDs may be outside the registry. Model declarations
+override provider declarations, and only confirmed records drive history.
+Updates and suggestion replacement preserve the observed raw value's guard;
+confirmed and suggestion key constants retain the shipping names.
+
+The synthetic [`attribution.json`](../crosscheck/fixtures/attribution.json)
+selector covers codec updates and exclusions, window history, observed spans,
+all equivalence cases and text, reset/rising-run boundaries, model grouping,
+geometry and monotone interpolation, saturation and decoder errors. C++ value
+checks and `attribution-selftest` cover calculations and codec size ceilings.
+`crosscheck-attribution` uses the shared comparator and returns SKIP (77) until
+the macOS oracle supplies its golden. The Swift extension calls shipping code;
+its preflight checks only transport structure and case IDs, with semantic
+agreement left to `diff.py`. Workers never write goldens.
