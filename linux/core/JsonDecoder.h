@@ -62,13 +62,18 @@ struct Decoder {
                 return value.toBool();
             } else if constexpr (std::is_same_v<T, qint64> || std::is_same_v<T, quint64>) {
                 if (!value.isDouble()) fail("typeMismatch");
+                // TokenBreakdown uses synthesized keyed Decodable. Foundation's
+                // integer conversion throws JSONError.numberIsNotRepresentableInSwift;
+                // JSONDecoder._decode catches it at the root and wraps it in
+                // dataCorrupted with codingPath: [], even for nested values.
+                // Type/null/key errors still retain their container paths.
                 // Qt keeps signed 64-bit JSON integers losslessly. Do not
                 // round them through double (e.g. 9007199254740993).
                 const auto signedValue = value.toInteger(std::numeric_limits<qint64>::min());
                 if (signedValue != std::numeric_limits<qint64>::min()
                     || value == QJsonValue(std::numeric_limits<qint64>::min())) {
                     if constexpr (std::is_unsigned_v<T>)
-                        if (signedValue < 0) fail("dataCorrupted");
+                        if (signedValue < 0) throw DecodingError("dataCorrupted", {});
                     return static_cast<T>(signedValue);
                 }
                 if constexpr (std::is_unsigned_v<T>) {
@@ -76,7 +81,7 @@ struct Decoder {
                     if (n >= 0 && n < std::ldexp(1.0, 64) && std::trunc(n) == n)
                         return static_cast<T>(n);
                 }
-                fail("dataCorrupted");
+                throw DecodingError("dataCorrupted", {});
             } else if constexpr (std::is_same_v<T, double>) {
                 if (!value.isDouble()) fail("typeMismatch");
                 return value.toDouble();

@@ -1,5 +1,6 @@
 """Synthetic model regression checks; independent of the macOS parity gate."""
 
+import copy
 import json
 import os
 from pathlib import Path
@@ -149,7 +150,7 @@ def verify_output(path):
                        ("turns-array", ["turnsByClient"]), ("trace-string", ["tokens_per_min"]),
                        ("payload-client-element", ["summary", "clients", "Index 1"]), ("scalar", [])):
         error(name, "typeMismatch", path)
-    error("token-fraction", "dataCorrupted", ["input"])
+    error("token-fraction", "dataCorrupted")
     error("clients-null", "valueNotFound", ["clients"])
     error("payload-missing-end", "keyNotFound", ["meta", "dateRange"], field="end")
     error("malformed", "dataCorrupted")
@@ -166,6 +167,42 @@ def main():
         subprocess.run([harness, str(fixtures), str(out), "charts"], check=True, env=env)
         verify_output(out / "charts.actual.json")
         assert {p.name for p in out.iterdir()} == {"charts.actual.json"}
+        # Exercise the shared conversion rule without changing the fixtures
+        # paired with the immutable macOS golden. These are C++ regressions;
+        # only token-fraction has already been qualified by the Swift oracle.
+        source = json.loads((fixtures / "charts.json").read_text())["cases"]
+        numeric = scratch / "numeric"
+        numeric.mkdir()
+        cases = []
+        token_case = next(c for c in source if c["id"] == "token-fraction")
+        client_case = next(c for c in source if c["id"] == "decode-ContributionClient")
+        contribution_case = next(c for c in source if c["id"] == "decode-Contribution")
+        payload_case = next(c for c in source if c["id"] == "decode-UsagePayload")
+        color_case = next(c for c in source if c["id"] == "colors")
+        for value in (1.5, 2**63, -(2**64)):
+            for template in (token_case, client_case, contribution_case, payload_case):
+                c = copy.deepcopy(template)
+                c["id"] = f"signed-{len(cases)}"
+                if c["type"] == "TokenBreakdown":
+                    c["input"]["input"] = value
+                elif c["type"] == "ContributionClient":
+                    c["input"]["tokens"]["input"] = value
+                elif c["type"] == "Contribution":
+                    c["input"]["turnsByClient"] = {"claude": value}
+                else:
+                    c["input"]["contributions"][0]["clients"][0]["tokens"]["input"] = value
+                cases.append(c)
+        for value in (1.5, -1, 2**64):
+            c = copy.deepcopy(color_case)
+            c["id"] = f"unsigned-{len(cases)}"
+            c["report"]["pricingUpdatedAt"] = value
+            cases.append(c)
+        (numeric / "charts.json").write_text(json.dumps({"cases": cases}), encoding="utf-8")
+        subprocess.run([harness, str(numeric), str(out), "charts"], check=True, env=env)
+        results = json.loads((out / "charts.actual.json").read_text())["cases"]
+        assert [c["id"] for c in results] == [c["id"] for c in cases]
+        for c in results:
+            assert c["error"] == {"kind": "dataCorrupted", "path": []}, c
         bad = scratch / "fixtures"
         bad.mkdir()
         for value in (None, {}, {"cases": {}}, {"cases": [{}]},
