@@ -1,4 +1,4 @@
-"""Decoder regression assertions, shared with the macOS oracle self-test.
+"""Structural oracle checks and separate C++ decoder regression assertions.
 
 These checks never write oracle goldens. Swift/C++ parity remains a separate
 gate using run_selector.py and diff.py.
@@ -12,10 +12,33 @@ import sys
 import tempfile
 
 
-def verify_output(path):
-    cases = json.loads(Path(path).read_text(encoding="utf-8"))["cases"]
+def verify_structure(path, fixture_path=None):
+    """Check JSON and case coverage only; shipping Swift owns the semantics."""
+    def invalid_constant(value):
+        raise ValueError(f"invalid JSON constant: {value}")
+
+    output = json.loads(Path(path).read_text(encoding="utf-8"), parse_constant=invalid_constant)
+    fixture_path = fixture_path or Path(__file__).resolve().parents[1] / "fixtures/reports.json"
+    fixture = json.loads(Path(fixture_path).read_text(encoding="utf-8"))
+    assert isinstance(output, dict) and isinstance(output.get("cases"), list)
+    cases = output["cases"]
+    for c in cases:
+        assert isinstance(c, dict) and isinstance(c.get("id"), str)
+        assert ("value" in c) != ("error" in c), c["id"]
+        if "error" in c:
+            assert isinstance(c["error"], dict) and isinstance(c["error"].get("kind"), str)
+        if "smokeSummary" in c:
+            assert isinstance(c["smokeSummary"], str)
+    ids = [c["id"] for c in cases]
+    assert ids == [c["id"] for c in fixture["cases"]]
+    assert len(ids) == len(set(ids))
+    return cases
+
+
+def verify_cpp_output(path):
+    """C++-only regressions; never invoked before oracle golden generation."""
+    cases = verify_structure(path)
     fixture = json.loads((Path(__file__).resolve().parents[1] / "fixtures/reports.json").read_text())
-    assert [c["id"] for c in cases] == [c["id"] for c in fixture["cases"]]
     out = {c["id"]: c for c in cases}
     for c in fixture["cases"]:
         if not c["id"].startswith("valid-"):
@@ -88,10 +111,39 @@ def verify_output(path):
     assert out["optional-value"]["value"] == out["valid-AgentsReport"]["value"]
     assert out["success-null-error"]["value"] == out["valid-AgentsReport"]["value"]
     error("missing-ok", "keyNotFound", field="ok")
-    error("null-ok", "valueNotFound", ("ok",))
+    error("null-ok", "typeMismatch", ("ok",))
     error("null-envelope", "valueNotFound")
     for name in ("malformed-json", "trailing-json", "empty-json"):
         error(name, "dataCorrupted")
+
+    # Keyed Bool.decode checks type directly; String/number unwrap and
+    # keyed/unkeyed container creation check null first. decodeIfPresent
+    # accepts missing/null before checking the wrapped type. These C++-only
+    # assertions follow Foundation's JSONDecoder, not a uniform null rule.
+    # https://github.com/swiftlang/swift-foundation/blob/main/Sources/FoundationEssentials/JSON/JSONDecoder.swift
+    boolean_fields = {
+        ("ProbeResult", "ok"), ("AntigravityBindingResult", "bound"), ("AntigravityRemoved", "removed"),
+        ("CursorSyncConfigResult", "enabled"), ("CursorSyncConfigResult", "cliTakeoverConfirmed"),
+        ("CursorSyncConfigResult", "cleanupFailed"),
+    }
+    optional_fields = {
+        ("ModelReportEntry", "costEstimate"), ("ModelReport", "pricingUpdatedAt"),
+        ("CursorSyncStatus", "reason"), ("CursorSyncStatus", "lastSuccessMs"), ("FilterParityReport", "delta"),
+    }
+    for c in fixture["cases"]:
+        if not c["id"].startswith("field-"):
+            continue
+        _, typ, field, variant = c["id"].split("-")
+        parent = () if c["mode"] == "bare" else ("data",)
+        if (typ, field) in optional_fields and variant != "wrong":
+            assert out[c["id"]]["value"][field] is None
+        elif variant == "missing":
+            error(c["id"], "keyNotFound", parent, field=field)
+        else:
+            kind = "valueNotFound" if variant == "null" and (typ, field) not in boolean_fields else "typeMismatch"
+            error(c["id"], kind, (*parent, field))
+    error("null-string-array-element", "valueNotFound", ("data", "clients", "Index 0"))
+    error("null-object-array-element", "valueNotFound", ("data", "entries", "Index 0"))
 
 
 def main():
@@ -103,7 +155,30 @@ def main():
     with tempfile.TemporaryDirectory(dir=work) as scratch:
         out = Path(scratch) / "out"
         subprocess.run([harness, str(fixtures), str(out), "reports"], env=env, check=True)
-        verify_output(out / "reports.actual.json")
+        verify_cpp_output(out / "reports.actual.json")
+        # A semantic difference must survive oracle preflight and reach diff.py.
+        output = json.loads((out / "reports.actual.json").read_text())
+        for c in output["cases"]:
+            if c["id"] == "null-ok":
+                c["error"]["kind"] = "futureOracleClassification"
+        structural = Path(scratch) / "structure.json"
+        structural.write_text(json.dumps(output), encoding="utf-8")
+        verify_structure(structural)
+        for cases in (output["cases"][:-1], output["cases"] + [output["cases"][0]], list(reversed(output["cases"]))):
+            structural.write_text(json.dumps({"cases": cases}), encoding="utf-8")
+            try:
+                verify_structure(structural)
+            except AssertionError:
+                pass
+            else:
+                raise AssertionError("structure check accepted missing, duplicate, or reordered ids")
+        structural.write_text("NaN", encoding="utf-8")
+        try:
+            verify_structure(structural)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("structure check accepted invalid JSON")
         result = subprocess.run([sys.executable, str(here / "run_selector.py"), harness,
                                  str(fixtures), str(Path(scratch) / "missing-golden"),
                                  str(Path(scratch) / "runner"), "reports"], env=env,
@@ -117,7 +192,7 @@ def main():
             result = subprocess.run([harness, str(bad), str(out), "reports"], env=env,
                                     capture_output=True, check=False)
             assert result.returncode == 1
-    print("reports self-test OK (95 cases, decoder errors, exact Int64, missing oracle SKIP)")
+    print("reports self-test OK (structure, decoder errors, exact Int64, missing oracle SKIP)")
 
 
 if __name__ == "__main__":

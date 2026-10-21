@@ -40,8 +40,8 @@ UserDefaults overloads. Its synthetic preferences are scoped to the harness
 process and all four previous key values are restored after each case. It uses
 the production `WindowMessage` decoder and `PerDay` initializer, and serializes
 every grid cell, including inactive cells outside the requested year. The
-self-test shares branch assertions with the C++ harness; these assertions are
-not oracle goldens. Only the macOS oracle workflow produces those goldens.
+self-test checks JSON output structure; semantic comparisons use `diff.py`
+against the oracle output. Only the macOS oracle workflow produces goldens.
 
 The `reports` extension reads the synthetic
 [`reports.json`](../fixtures/reports.json) and calls the shipping
@@ -53,7 +53,12 @@ coding path, missing field, and envelope contract description; bridge errors
 retain their exact text. The public `FilterParityProbe.smokeSummary` exercises
 the shipping status labels and POSIX cost formatting.
 
-`check.py` also checks `reports` through the shared decoder assertions. On macOS,
-run it with the command above, then generate `reports.actual.json` explicitly or
-with `all`. Build, shared assertions, and comparison with C++ remain macOS CI
+`check.py` checks `reports` using only `reports_check.verify_structure`: valid
+JSON, one result per fixture case, matching ids, and the value/error output
+shape. It never calls the C++ semantic assertions in `verify_cpp_output`, so a
+new Swift classification cannot prevent oracle golden generation. Semantic
+agreement is decided by `diff.py` against the generated golden.
+
+On macOS, run the command above, then generate `reports.actual.json` explicitly
+or with `all`. Build, structural checks, and comparison with C++ remain macOS CI
 gates; Linux workers never create `golden/reports.json`.
