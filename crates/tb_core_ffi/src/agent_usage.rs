@@ -50,6 +50,13 @@ const CLAUDE_PROBE_MODEL: &str = "claude-haiku-4-5";
 // the launch-method-independent way to hand Syrtis a token for the limits card:
 //   security add-generic-password -a "$USER" -s tokenbar-claude-oauth-token -w "<token>"
 const CLAUDE_RAW_TOKEN_KEYCHAIN_SERVICE: &str = "tokenbar-claude-oauth-token";
+#[cfg(target_os = "linux")]
+const CLAUDE_SECRET_SERVICE_ATTRIBUTES: [&str; 4] = [
+    "application",
+    "syrtis",
+    "service",
+    CLAUDE_RAW_TOKEN_KEYCHAIN_SERVICE,
+];
 
 #[derive(Debug, Clone, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -3566,7 +3573,10 @@ fn load_codex_credentials_from(auth_path: &Path) -> Result<CodexCredentials, Str
 /// credential that exists but failed). `fetch_claude` turns this into a snapshot
 /// with `source == "unconfigured"`, so the UI shows a setup prompt rather than a
 /// red error.
+#[cfg(not(target_os = "linux"))]
 const CLAUDE_UNCONFIGURED_ERROR: &str = "Claude OAuth credentials not found. Run `claude` to authenticate, or set CLAUDE_CODE_OAUTH_TOKEN / add a `tokenbar-claude-oauth-token` Keychain item to use a setup-token.";
+#[cfg(target_os = "linux")]
+const CLAUDE_UNCONFIGURED_ERROR: &str = "Claude OAuth credentials not found. Run `claude` to authenticate, or run `claude setup-token` and store it with `secret-tool store --label='Syrtis Claude setup-token' application syrtis service tokenbar-claude-oauth-token` (requires libsecret-tools; enter the token at the prompt), or set CLAUDE_CODE_OAUTH_TOKEN.";
 /// The Codex sibling of `CLAUDE_UNCONFIGURED_ERROR`: there is no `auth.json` to
 /// read at all. Paired with `source == "unconfigured"` by
 /// `required_card_source`; see that function for why the distinction has to
@@ -3711,6 +3721,7 @@ async fn resolve_claude_code_oauth_token() -> Option<ResolvedClaudeToken> {
 
 /// The `tokenbar-claude-oauth-token` Keychain item (a Syrtis-specific setup
 /// token). A last-resort fallback, below the stored `/login`.
+#[cfg(not(target_os = "linux"))]
 fn resolve_claude_keychain_token() -> Result<Option<ResolvedClaudeToken>, String> {
     load_claude_raw_token_from_keychain().map(|token| {
         token.map(|access_token| ResolvedClaudeToken {
@@ -3721,6 +3732,51 @@ fn resolve_claude_keychain_token() -> Result<Option<ResolvedClaudeToken>, String
             },
         })
     })
+}
+
+/// Linux counterpart of the fixed-service Keychain fallback. Only reads the
+/// Syrtis-owned item; never refreshes or writes it back.
+#[cfg(target_os = "linux")]
+fn resolve_claude_keychain_token() -> Result<Option<ResolvedClaudeToken>, String> {
+    resolve_claude_secret_service_token_with(std::process::Command::output)
+}
+
+#[cfg(target_os = "linux")]
+fn resolve_claude_secret_service_token_with(
+    lookup: impl FnOnce(&mut std::process::Command) -> std::io::Result<std::process::Output>,
+) -> Result<Option<ResolvedClaudeToken>, String> {
+    const READ_ERROR: &str = "The Syrtis setup-token Secret Service item could not be read.";
+    let mut command = std::process::Command::new("secret-tool");
+    command
+        .arg("lookup")
+        .args(CLAUDE_SECRET_SERVICE_ATTRIBUTES)
+        .stdin(std::process::Stdio::null())
+        .stderr(std::process::Stdio::null());
+    let output = match lookup(&mut command) {
+        Ok(output) => output,
+        Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(None),
+        Err(_) => return Err(READ_ERROR.to_string()),
+    };
+    // libsecret's lookup exits 1 when no item is found. Never consume stdout
+    // after a failed lookup, or expose stderr / OS error text to the card.
+    match output.status.code() {
+        Some(0) => {}
+        Some(1) => return Ok(None),
+        _ => return Err(READ_ERROR.to_string()),
+    }
+    let raw = String::from_utf8(output.stdout).map_err(|_| READ_ERROR.to_string())?;
+    let token = raw.trim();
+    if token.is_empty() || !token.bytes().all(|byte| byte.is_ascii_graphic()) {
+        return Err(READ_ERROR.to_string());
+    }
+    Ok(Some(ResolvedClaudeToken {
+        access_token: token.to_string(),
+        scope_slot: CredentialSlot {
+            semantic_source: "claude-setup-secret-service",
+            canonical_location: "application=syrtis;service=tokenbar-claude-oauth-token"
+                .to_string(),
+        },
+    }))
 }
 
 fn load_claude_credentials_from_environment() -> Result<Option<ClaudeCredentials>, String> {
@@ -4129,7 +4185,7 @@ fn load_claude_raw_token_from_keychain() -> Result<Option<String>, String> {
     claude_raw_token_output(output.status.code(), output.stdout)
 }
 
-#[cfg(not(target_os = "macos"))]
+#[cfg(not(any(target_os = "macos", target_os = "linux")))]
 fn load_claude_raw_token_from_keychain() -> Result<Option<String>, String> {
     Ok(None)
 }
@@ -6919,6 +6975,204 @@ mod tests {
         ProviderFetchOutcome::Success {
             snapshot: cache_test_snapshot(ProviderId::Claude, Err(AccountScopeError::NoTrustedEvidence), now),
             cache_binding: None,
+        }
+    }
+
+    #[cfg(target_os = "linux")]
+    fn claude_secret_service_output(status: i32, stdout: &[u8]) -> std::process::Output {
+        use std::os::unix::process::ExitStatusExt;
+        std::process::Output {
+            status: std::process::ExitStatus::from_raw(status),
+            stdout: stdout.to_vec(),
+            stderr: b"synthetic-secret-stderr".to_vec(),
+        }
+    }
+
+    #[cfg(target_os = "linux")]
+    #[test]
+    fn claude_secret_service_lookup_is_read_only_and_uses_fixed_attributes() {
+        let token = resolve_claude_secret_service_token_with(|command| {
+            assert_eq!(command.get_program(), "secret-tool");
+            assert_eq!(
+                command.get_args().collect::<Vec<_>>(),
+                [
+                    "lookup",
+                    "application",
+                    "syrtis",
+                    "service",
+                    "tokenbar-claude-oauth-token"
+                ]
+            );
+            Ok(claude_secret_service_output(
+                0,
+                b"  sk-ant-oat01-synthetic\r\n",
+            ))
+        })
+        .unwrap()
+        .unwrap();
+        assert_eq!(token.access_token, "sk-ant-oat01-synthetic");
+        assert_eq!(
+            token.scope_slot.semantic_source,
+            "claude-setup-secret-service"
+        );
+        assert_eq!(
+            token.scope_slot.canonical_location,
+            "application=syrtis;service=tokenbar-claude-oauth-token"
+        );
+        let credentials = claude_credentials_from_access_token(token);
+        assert_eq!(credentials.source, ClaudeCredentialSource::Environment);
+        assert!(credentials.refresh_token.is_none());
+        assert!(credentials.expires_at.is_none());
+        assert!(credentials.raw_root.is_none());
+        assert_eq!(
+            credentials.scope_marker(),
+            Some(credentials.access_token.as_bytes())
+        );
+        assert!(CLAUDE_UNCONFIGURED_ERROR.contains("`claude`"));
+        assert!(CLAUDE_UNCONFIGURED_ERROR.contains(&format!(
+            "secret-tool store --label='Syrtis Claude setup-token' {}",
+            CLAUDE_SECRET_SERVICE_ATTRIBUTES.join(" ")
+        )));
+        assert!(!CLAUDE_UNCONFIGURED_ERROR.contains("Keychain"));
+    }
+
+    #[cfg(target_os = "linux")]
+    #[test]
+    fn claude_secret_service_failures_are_closed_and_secret_free() {
+        for result in [
+            Err(std::io::Error::new(
+                std::io::ErrorKind::NotFound,
+                "synthetic-secret-error",
+            )),
+            Ok(claude_secret_service_output(
+                1 << 8,
+                b"synthetic-secret-stdout",
+            )),
+        ] {
+            assert!(matches!(
+                resolve_claude_secret_service_token_with(|_| result),
+                Ok(None)
+            ));
+        }
+        for result in [
+            Err(std::io::Error::new(
+                std::io::ErrorKind::PermissionDenied,
+                "synthetic-secret-error",
+            )),
+            Ok(claude_secret_service_output(
+                2 << 8,
+                b"synthetic-secret-stdout",
+            )),
+            Ok(claude_secret_service_output(9, b"synthetic-secret-stdout")),
+            Ok(claude_secret_service_output(0, b"")),
+            Ok(claude_secret_service_output(0, b" \r\n\t")),
+            Ok(claude_secret_service_output(0, b"synthetic-secret\xff")),
+            Ok(claude_secret_service_output(0, b"synthetic-secret\0")),
+            Ok(claude_secret_service_output(
+                0,
+                b"synthetic-secret\nsecond-line",
+            )),
+            Ok(claude_secret_service_output(
+                0,
+                b"synthetic-secret with-spaces",
+            )),
+        ] {
+            let error = resolve_claude_secret_service_token_with(|_| result).unwrap_err();
+            assert_eq!(
+                error,
+                "The Syrtis setup-token Secret Service item could not be read."
+            );
+            assert!(!error.contains("synthetic-secret"));
+        }
+        // Unlike `security`, secret-tool returns literal text, never hex rendering.
+        let token = resolve_claude_secret_service_token_with(|_| {
+            Ok(claude_secret_service_output(0, b"636166c3a9\n"))
+        })
+        .unwrap()
+        .unwrap();
+        assert_eq!(token.access_token, "636166c3a9");
+    }
+
+    #[cfg(target_os = "linux")]
+    #[tokio::test]
+    async fn claude_secret_service_fallback_preserves_file_login_precedence() {
+        for (raw, expected_source, expected_lookups) in [
+            (None, "setup-token", 1),
+            (
+                Some(r#"{"claudeAiOauth":{"refreshToken":"stale"}}"#),
+                "setup-token",
+                1,
+            ),
+            (
+                Some(
+                    r#"{"claudeAiOauth":{"accessToken":"synthetic-access","refreshToken":"synthetic-refresh"}}"#,
+                ),
+                "oauth",
+                0,
+            ),
+            (Some("{"), "oauth", 0),
+        ] {
+            let login = load_stored_claude_login_with(|| Ok(None), || Ok(raw.map(str::to_string)));
+            let lookups = std::cell::Cell::new(0);
+            let (source, outcome) = fetch_claude_login_or_setup_with(
+                login,
+                |_| async { ("oauth", claude_test_success_outcome()) },
+                || {
+                    resolve_claude_secret_service_token_with(|_| {
+                        lookups.set(lookups.get() + 1);
+                        Ok(claude_secret_service_output(0, b"sk-ant-oat01-synthetic\n"))
+                    })
+                },
+                |token| async move {
+                    assert_eq!(
+                        token.scope_slot.semantic_source,
+                        "claude-setup-secret-service"
+                    );
+                    ("setup-token", claude_test_success_outcome())
+                },
+            )
+            .await;
+            assert_eq!(source, expected_source);
+            assert_eq!(lookups.get(), expected_lookups);
+            assert_eq!(
+                matches!(outcome, ProviderFetchOutcome::Success { .. }),
+                raw != Some("{")
+            );
+        }
+    }
+
+    #[cfg(target_os = "linux")]
+    #[tokio::test]
+    async fn claude_secret_service_miss_is_unconfigured_and_invalid_item_is_terminal() {
+        for (result, expected_source, expected_error) in [
+            (
+                Err(std::io::Error::from(std::io::ErrorKind::NotFound)),
+                "unconfigured",
+                CLAUDE_UNCONFIGURED_ERROR,
+            ),
+            (
+                Ok(claude_secret_service_output(1 << 8, b"ignored")),
+                "unconfigured",
+                CLAUDE_UNCONFIGURED_ERROR,
+            ),
+            (
+                Ok(claude_secret_service_output(0, b"\xff")),
+                "setup-token",
+                "The Syrtis setup-token Secret Service item could not be read.",
+            ),
+        ] {
+            let (source, outcome) = fetch_claude_login_or_setup_with(
+                ClaudeLoginResolution::Absent,
+                |_| async { unreachable!("no file login") },
+                || resolve_claude_secret_service_token_with(|_| result),
+                |_| async { unreachable!("no usable setup-token") },
+            )
+            .await;
+            assert_eq!(source, expected_source);
+            assert!(matches!(outcome,
+                ProviderFetchOutcome::Failure(ProviderFetchFailure::Terminal { display, .. })
+                if display == expected_error
+            ));
         }
     }
 
@@ -13798,6 +14052,8 @@ mod tests {
             "claude-code-environment",
             "claude-code-login-shell",
             "claude-setup-keychain",
+            #[cfg(target_os = "linux")]
+            "claude-setup-secret-service",
             "claude-environment",
             "claude-login-keychain",
             "claude-login-file",
