@@ -2,9 +2,38 @@ cmake_minimum_required(VERSION 3.21)
 
 project(Syrtis LANGUAGES CXX)
 
-find_package(Qt6 6.8 REQUIRED COMPONENTS Quick)
+find_package(Qt6 6.8 REQUIRED COMPONENTS Quick Concurrent)
 find_package(KF6DBusAddons 6.13 REQUIRED)
+find_package(Threads REQUIRED)
+find_program(CARGO_EXECUTABLE cargo REQUIRED)
 qt_standard_project_setup(REQUIRES 6.8)
+
+# Let Cargo track Rust sources, manifests, build scripts and the engine pin on
+# every build; a CMake-only file list can silently leave a stale archive linked.
+get_filename_component(SYRTIS_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/.." ABSOLUTE)
+set(RUST_TARGET_DIR "${CMAKE_CURRENT_BINARY_DIR}/cargo")
+set(RUST_STATICLIB "${RUST_TARGET_DIR}/release/libtb_core_ffi.a")
+add_custom_target(syrtis-rust
+    COMMAND "${CMAKE_COMMAND}" -E env "CARGO_TARGET_DIR=${RUST_TARGET_DIR}"
+        "${CARGO_EXECUTABLE}" build -p tb_core_ffi --release --locked --offline
+    WORKING_DIRECTORY "${SYRTIS_ROOT}"
+    BYPRODUCTS "${RUST_STATICLIB}"
+    USES_TERMINAL
+    VERBATIM
+)
+add_library(tb_core_ffi STATIC IMPORTED)
+set_target_properties(tb_core_ffi PROPERTIES
+    IMPORTED_LOCATION "${RUST_STATICLIB}"
+    INTERFACE_INCLUDE_DIRECTORIES "${SYRTIS_ROOT}/Sources/CTB/include"
+)
+add_dependencies(tb_core_ffi syrtis-rust)
+target_link_libraries(tb_core_ffi INTERFACE Threads::Threads ${CMAKE_DL_LIBS} m rt util)
+
+add_library(syrtis-bridge STATIC src/bridge/Bridge.cpp src/bridge/Bridge.h)
+target_compile_features(syrtis-bridge PRIVATE cxx_std_20)
+set_target_properties(syrtis-bridge PROPERTIES CXX_EXTENSIONS OFF)
+target_include_directories(syrtis-bridge PUBLIC src/bridge)
+target_link_libraries(syrtis-bridge PUBLIC Qt6::Concurrent PRIVATE tb_core_ffi)
 
 add_library(syrtis-singleinstance STATIC
     src/singleinstance/SingleInstance.cpp
@@ -22,12 +51,12 @@ qt_add_qml_module(syrtis
     QML_FILES qml/Main.qml src/tray/Tray.qml
     RESOURCES src/tray/tray-icon.svg
 )
-target_link_libraries(syrtis PRIVATE Qt6::Quick syrtis-singleinstance)
+target_link_libraries(syrtis PRIVATE Qt6::Quick syrtis-singleinstance syrtis-bridge)
 
 include(CTest)
 if(BUILD_TESTING)
     find_program(DBUS_RUN_SESSION_EXECUTABLE dbus-run-session REQUIRED)
-    find_package(Qt6 6.8 REQUIRED COMPONENTS Concurrent Test)
+    find_package(Qt6 6.8 REQUIRED COMPONENTS Test)
     qt_add_executable(syrtis-singleinstance-helper tests/singleinstance/InstanceHelper.cpp)
     target_link_libraries(syrtis-singleinstance-helper PRIVATE syrtis-singleinstance Qt6::Gui)
     qt_add_executable(syrtis-singleinstance-test tests/singleinstance/SingleInstanceTest.cpp)
@@ -57,6 +86,21 @@ if(BUILD_TESTING)
     target_link_libraries(syrtis-bridge-test PRIVATE Qt6::Concurrent Qt6::Test)
     add_test(NAME syrtis-bridge COMMAND syrtis-bridge-test)
     set_tests_properties(syrtis-bridge PROPERTIES TIMEOUT 30)
+
+    qt_add_executable(syrtis-bridge-smoke tests/bridge/BridgeSmokeTest.cpp)
+    target_link_libraries(syrtis-bridge-smoke PRIVATE syrtis-bridge Qt6::Test)
+    # Observe the actual FFI entry thread without replacing the Rust function.
+    target_link_options(syrtis-bridge-smoke PRIVATE "LINKER:--wrap=tb_probe")
+    add_test(NAME syrtis-bridge-smoke
+        COMMAND sh "${CMAKE_CURRENT_SOURCE_DIR}/tests/bridge/run-smoke.sh"
+            $<TARGET_FILE:syrtis-bridge-smoke>
+    )
+    set_tests_properties(syrtis-bridge-smoke PROPERTIES TIMEOUT 30)
+    add_test(NAME syrtis-probe
+        COMMAND sh "${CMAKE_CURRENT_SOURCE_DIR}/tests/bridge/run-smoke.sh"
+            "${DBUS_RUN_SESSION_EXECUTABLE}" -- $<TARGET_FILE:syrtis> --probe
+    )
+    set_tests_properties(syrtis-probe PROPERTIES TIMEOUT 30)
 
     qt_add_executable(syrtis-tray-test tests/tray/TrayTest.cpp)
     target_compile_features(syrtis-tray-test PRIVATE cxx_std_20)
