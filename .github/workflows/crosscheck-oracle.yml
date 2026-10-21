@@ -1,0 +1,65 @@
+name: Cross-check Swift oracle
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'linux/core/**'
+      - 'linux/crosscheck/**'
+      - '.github/workflows/crosscheck-oracle.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  golden:
+    # Keep the shipping Swift oracle on the same SDK as ci.yml.
+    runs-on: xcode-27
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: recursive
+          persist-credentials: false
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      # Both harnesses compile the shipping TokenBarCore, including its FFI
+      # facade, so the Rust archive must exist before SwiftPM links them.
+      - name: Build Rust staticlib
+        run: cargo build --release --locked
+
+      - name: Run shipping selectors
+        run: |
+          set -euo pipefail
+          for selector in usage-pace format provider-quota-pace-v3; do
+            TZ=Asia/Taipei swift run crosscheck-harness \
+              linux/crosscheck/fixtures "$RUNNER_TEMP/crosscheck-actual" \
+              "$selector" -AppleLanguages "(en)"
+            test -s "$RUNNER_TEMP/crosscheck-actual/$selector.actual.json"
+          done
+
+      - name: Build and check Linux-owned harness
+        run: |
+          set -euo pipefail
+          swift build --package-path linux/crosscheck/swift
+          bin_dir=$(swift build --package-path linux/crosscheck/swift --show-bin-path)
+          python3 linux/crosscheck/swift/check.py \
+            "$bin_dir/linux-crosscheck-harness" "$RUNNER_TEMP"
+          TZ=Asia/Taipei swift run --package-path linux/crosscheck/swift \
+            linux-crosscheck-harness linux/crosscheck/fixtures \
+            "$RUNNER_TEMP/crosscheck-actual" all -AppleLanguages "(en)"
+
+      - name: Stage golden filenames
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/crosscheck-golden"
+          for actual in "$RUNNER_TEMP/crosscheck-actual/"*.actual.json; do
+            selector=$(basename "$actual" .actual.json)
+            mv "$actual" "$RUNNER_TEMP/crosscheck-golden/$selector.json"
+          done
+
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: crosscheck-golden
+          path: ${{ runner.temp }}/crosscheck-golden/*.json
+          if-no-files-found: error
