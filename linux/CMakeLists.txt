@@ -17,6 +17,24 @@ target_link_libraries(syrtis PRIVATE Qt6::Quick)
 
 include(CTest)
 if(BUILD_TESTING)
+    find_package(Qt6 6.8 REQUIRED COMPONENTS Concurrent Test)
+    qt_add_executable(syrtis-bridge-test
+        src/bridge/Bridge.cpp
+        src/bridge/Bridge.h
+        tests/bridge/BridgeTest.cpp
+        tests/bridge/FakeFfi.cpp
+        tests/bridge/FakeFfi.h
+    )
+    target_compile_features(syrtis-bridge-test PRIVATE cxx_std_20)
+    set_target_properties(syrtis-bridge-test PROPERTIES CXX_EXTENSIONS OFF)
+    target_include_directories(syrtis-bridge-test PRIVATE
+        src/bridge
+        ../Sources/CTB/include
+    )
+    target_link_libraries(syrtis-bridge-test PRIVATE Qt6::Concurrent Qt6::Test)
+    add_test(NAME syrtis-bridge COMMAND syrtis-bridge-test)
+    set_tests_properties(syrtis-bridge PROPERTIES TIMEOUT 30)
+
     add_test(NAME syrtis-startup COMMAND syrtis --quit-after-start)
     set_tests_properties(syrtis-startup PROPERTIES
         ENVIRONMENT "QT_QPA_PLATFORM=offscreen"
