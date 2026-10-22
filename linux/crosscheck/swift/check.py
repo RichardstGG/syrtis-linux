@@ -1,4 +1,4 @@
-"""Check core-leaf, reports, and the fail-closed CLI on macOS."""
+"""Check the core-leaf, quota-trend and reports selectors and the fail-closed CLI on macOS."""
 
 import json
 import os
@@ -12,15 +12,18 @@ import tempfile
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "harness"))
 from reports_check import verify_structure as verify_reports_structure
 
+SELECTORS = ("core-leaf", "quota-trend", "reports")
+
 
 def main():
     harness, work = sys.argv[1:]
     env = dict(os.environ, TZ="Asia/Taipei")
+    fixture_dir = Path(__file__).resolve().parents[1] / "fixtures"
     with tempfile.TemporaryDirectory(dir=work) as scratch:
         fixtures = Path(scratch) / "fixtures"
         fixtures.mkdir()
-        shutil.copyfile(Path(__file__).resolve().parents[1] / "fixtures/core-leaf.json", fixtures / "core-leaf.json")
-        shutil.copyfile(Path(__file__).resolve().parents[1] / "fixtures/reports.json", fixtures / "reports.json")
+        for name in SELECTORS:
+            shutil.copyfile(fixture_dir / f"{name}.json", fixtures / f"{name}.json")
         out = Path(scratch) / "out"
         base = [str(fixtures), str(out)]
         pin = ["-AppleLanguages", "(en)"]
@@ -39,18 +42,21 @@ def main():
         # The extension must never run root selectors or invent oracle goldens.
         run([*base, *pin])
         run([*pin, *base, "all"])
-        if {p.name for p in out.iterdir()} != {"core-leaf.actual.json", "reports.actual.json"}:
+        if {p.name for p in out.iterdir()} != {f"{name}.actual.json" for name in SELECTORS}:
             raise RuntimeError("extension selector set changed")
         # Oracle checks validate transport/coverage, never guessed decoder or
         # calculation results. diff.py compares C++ semantics to these outputs.
-        if not isinstance(json.loads((out / "core-leaf.actual.json").read_text()), dict):
+        baseline = {name: json.loads((out / f"{name}.actual.json").read_text()) for name in SELECTORS}
+        if not isinstance(baseline["core-leaf"], dict):
             raise RuntimeError("invalid core-leaf output object")
+        trend = json.loads((fixtures / "quota-trend.json").read_text())
+        if set(baseline["quota-trend"]) != {row["id"] for rows in trend.values() for row in rows}:
+            raise RuntimeError("quota-trend case set differs from fixture")
         verify_reports_structure(out / "reports.actual.json", fixtures / "reports.json")
-        run([*base, "reports", *pin])
-        verify_reports_structure(out / "reports.actual.json", fixtures / "reports.json")
-        run([*base, "core-leaf", *pin])
-        if not isinstance(json.loads((out / "core-leaf.actual.json").read_text()), dict):
-            raise RuntimeError("invalid core-leaf output object")
+        for name in SELECTORS:
+            run([*base, name, *pin])
+            if json.loads((out / f"{name}.actual.json").read_text()) != baseline[name]:
+                raise RuntimeError(f"{name} output depends on selector invocation")
         for selector in ("unknown", "usage-pace", "format", "provider-quota-pace-v3"):
             run([*base, selector, *pin], expected=2)
         for args in (pin, [*base, "all", "extra", *pin],
@@ -62,7 +68,9 @@ def main():
         blocked = Path(scratch) / "file"
         blocked.write_text("synthetic", encoding="utf-8")
         run([str(fixtures), str(blocked), *pin], expected=1)
-    print("Linux Swift harness self-test OK (core-leaf, reports, CLI, timezone, I/O)")
+        (fixtures / "quota-trend.json").write_text("{", encoding="utf-8")
+        run([*base, "quota-trend", *pin], expected=1)
+    print("Linux Swift harness self-test OK (core-leaf, quota-trend, reports, CLI, timezone, I/O)")
 
 
 if __name__ == "__main__":
