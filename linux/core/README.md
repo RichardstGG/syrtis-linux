@@ -47,6 +47,20 @@ checked subtraction, percentages, ordering, exact duplicate samples, coverage
 endpoints/count and the 65,536-point ceiling. It preserves `isActiveGroup` rather
 than deriving it from reset timestamps.
 
+`AccountIdentity` keeps client and account keys separate, shares window IDs
+between overview rows and heatmaps, and lets the settings owner install the
+captured Antigravity label resolver. `QuotaResolver` preserves unmatched
+explicit selections during partial fetches, migrates unique raw labels, and
+resolves explicit accounts independently of Auto's client exclusions. Auto
+considers every healthy account, preserving payload order on percentage ties.
+
+`QuotaSummaryFold` reuses that resolver and `UsagePace` presentation for its
+tightest reading, comfortable-window counts, largest burn deficit and number
+of windows actually checked. `QuotaOverviewFold` consumes caller-supplied
+cycles, showing the newest sixteen in chronological order while deriving
+exhaustion from the lifetime peak (99% or above). `QuotaCycle.h` contains only
+the `QuotaCycle` value dependency from Swift, without history folding or joins.
+
 From the repository root:
 
 ```sh
@@ -69,7 +83,14 @@ rejections. Its existing Swift mode in `Sources/CrossCheckHarness/main.swift`
 remains the oracle; no new selector or Swift mode is introduced. `format` handles
 all eleven existing Swift harness functions, including null top-client results
 and errors for missing or invalid `now` timestamps. Its oracle mode also already
-exists in that root Swift harness. Unported selectors emit
+exists in that root Swift harness. `provider-quota-pace-v3` uses the existing
+root Swift oracle mode too: typed production payload/window decoding, raw
+lifecycle rows, pace presentation, selection migration, legacy and malformed
+windows. The current read-only fixture contains fourteen cases and nine
+lifecycle windows. `quota-unit` additionally checks account identity, Auto
+exclusions and ties, explicit account selection, summary counts/burn warnings,
+and overview strip/peak boundaries; those extra checks are C++ regressions,
+not independent Swift oracle comparisons. Unported selectors emit
 `{"error":"not ported"}`; their CTests skip. Once ported, each CTest compares
 against the matching macOS oracle JSON under [`../crosscheck/golden/`](../crosscheck/golden/),
 skipping if that oracle is absent. The runner copies the oracle to an isolated

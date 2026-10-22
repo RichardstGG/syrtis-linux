@@ -19,6 +19,7 @@
 #include "reports.h"
 #include "charts.h"
 #include "agent-usage.h"
+#include "provider-quota-pace-v3.h"
 #include "attribution.h"
 
 namespace {
@@ -185,6 +186,7 @@ int main(int argc, char *argv[])
             if (name == QStringLiteral("reports")) data = reports(args[0]);
             if (name == QStringLiteral("charts")) data = charts(args[0]);
             if (name == QStringLiteral("agent-usage")) data = agentUsage(args[0]);
+            if (name == QStringLiteral("provider-quota-pace-v3")) data = providerQuotaPaceV3(args[0]);
             if (name == QStringLiteral("attribution")) data = attribution(args[0]);
         } catch (const std::exception &error) {
             return fail(QString::fromUtf8(error.what()), 1);
