@@ -1,6 +1,6 @@
 #pragma once
 #include "AccountIdentity.h"
-#include "QuotaHistory.h"
+#include "QuotaCycle.h"
 #include <QtCore/QList>
 
 namespace Syrtis {

@@ -58,7 +58,7 @@ considers every healthy account, preserving payload order on percentage ties.
 tightest reading, comfortable-window counts, largest burn deficit and number
 of windows actually checked. `QuotaOverviewFold` consumes caller-supplied
 cycles, showing the newest sixteen in chronological order while deriving
-exhaustion from the lifetime peak (99% or above). `QuotaHistory.h` contains only
+exhaustion from the lifetime peak (99% or above). `QuotaCycle.h` contains only
 the `QuotaCycle` value dependency from Swift, without history folding or joins.
 
 From the repository root:
