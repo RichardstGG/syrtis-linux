@@ -37,8 +37,8 @@ std::optional<qint64> integer(const QJsonValue &value)
 {
     return value.isDouble() ? std::optional<qint64>(value.toInteger()) : std::nullopt;
 }
-QJsonValue json(std::optional<qint64> value) { return value ? QJsonValue(*value) : QJsonValue(QJsonValue::Null); }
-QJsonValue json(const std::optional<QString> &value) { return value ? QJsonValue(*value) : QJsonValue(QJsonValue::Null); }
+QJsonValue optionalJSON(std::optional<qint64> value) { return value ? QJsonValue(*value) : QJsonValue(QJsonValue::Null); }
+QJsonValue optionalJSON(const std::optional<QString> &value) { return value ? QJsonValue(*value) : QJsonValue(QJsonValue::Null); }
 QJsonObject day(const ISODay &value)
 {
     return {{"number", value.number}, {"iso", value.iso()}, {"weekday", value.weekday()}};
@@ -75,9 +75,9 @@ QJsonObject registryCase(const QJsonObject &c)
             {"displayClients", array(R::displayClients(present, p))}}}
     };
     R::migrateLegacyOrderKey(p);
-    out["migratedOrder"] = json(p.order);
+    out["migratedOrder"] = optionalJSON(p.order);
     R::migrateLegacyOrderKey(p);
-    out["migratedOrderAgain"] = json(p.order);
+    out["migratedOrderAgain"] = optionalJSON(p.order);
     return out;
 }
 }
@@ -124,7 +124,7 @@ QByteArray coreLeaf(const QString &fixturesDir)
             messages.append(message);
         }
         const auto r = WindowResolver::resolve(integer(c["reset"]), integer(c["duration"]), c["now"].toInteger(), integer(c["first"]));
-        QJsonObject result{{"firstUsageAfterReset", json(WindowResolver::firstUsageAfterReset(messages, c["probeReset"].toInteger()))}};
+        QJsonObject result{{"firstUsageAfterReset", optionalJSON(WindowResolver::firstUsageAfterReset(messages, c["probeReset"].toInteger()))}};
         switch (r.kind) {
         case WindowResolution::Kind::active: result["kind"] = "active"; break;
         case WindowResolution::Kind::idle: result["kind"] = "idle"; break;

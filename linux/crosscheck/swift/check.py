@@ -1,4 +1,4 @@
-"""Check the core-leaf, quota-trend, reports, charts and agent-usage selectors and the fail-closed CLI on macOS."""
+"""Check the core-leaf, quota-trend, reports, charts, agent-usage and attribution selectors and the fail-closed CLI on macOS."""
 
 import json
 import os
@@ -12,8 +12,9 @@ import tempfile
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "harness"))
 from reports_check import verify_structure as verify_reports_structure
 from agent_usage_check import verify_structure as verify_agent_structure
+from attribution_check import verify_structure as verify_attribution_structure
 
-SELECTORS = ("core-leaf", "quota-trend", "reports", "charts", "agent-usage")
+SELECTORS = ("core-leaf", "quota-trend", "reports", "charts", "agent-usage", "attribution")
 
 
 def main():
@@ -57,6 +58,7 @@ def main():
         if not isinstance(baseline["charts"], dict):
             raise RuntimeError("invalid charts output object")
         verify_agent_structure(out / "agent-usage.actual.json", fixtures / "agent-usage.json")
+        verify_attribution_structure(out / "attribution.actual.json", fixtures / "attribution.json")
         for name in SELECTORS:
             run([*base, name, *pin])
             if json.loads((out / f"{name}.actual.json").read_text()) != baseline[name]:
@@ -74,7 +76,7 @@ def main():
         run([str(fixtures), str(blocked), *pin], expected=1)
         (fixtures / "quota-trend.json").write_text("{", encoding="utf-8")
         run([*base, "quota-trend", *pin], expected=1)
-    print("Linux Swift harness self-test OK (core-leaf, quota-trend, reports, charts, agent-usage, CLI, timezone, I/O)")
+    print("Linux Swift harness self-test OK (core-leaf, quota-trend, reports, charts, agent-usage, attribution, CLI, timezone, I/O)")
 
 
 if __name__ == "__main__":
