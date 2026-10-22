@@ -65,3 +65,21 @@ agreement is decided by `diff.py` against the generated golden.
 On macOS, run the command above, then generate `reports.actual.json` explicitly
 or with `all`. Build, structural checks, and comparison with C++ remain macOS CI
 gates; Linux workers never create `golden/reports.json`.
+
+The `agent-usage` extension reads
+[`agent-usage.json`](../fixtures/agent-usage.json), decodes the shipping
+`AgentUsagePayload`, `UsageWindow`, related values and `QuotaCurve`, and invokes
+the production card/setup/configured-client and display-only rewrite methods.
+`qualify` emits raw and qualified card IDs/labels from `rawCardWindows` and
+`uniqueCardWindows`, so repeated-label qualification is explicitly covered here.
+For reset-tier cases, `resetOffsetsSeconds` creates resets relative to `Date()`;
+the fixture offsets leave at least fifty seconds before countdown rounding
+changes. Only names and IDs are emitted for these cases, so no wall-clock value
+enters the golden. Other cases serialize the full decoded shipping values.
+
+`check.py` calls only `agent_usage_check.verify_structure` for this selector:
+valid JSON, one result for each fixture case, matching IDs and output shape.
+It never runs `verify_cpp_output` or guesses Swift semantic expectations.
+The oracle workflow's existing `all` invocation includes this extension;
+macOS build, structural preflight, golden generation and C++ comparison remain
+CI gates. Workers never write `golden/agent-usage.json`.
