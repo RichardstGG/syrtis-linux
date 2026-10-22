@@ -68,8 +68,12 @@ def main():
             elif selector == "format":
                 if len(output) != 74 or output.get("exact-int64-max") != "9,223,372,036,854,775,807":
                     raise RuntimeError("format did not preserve exact token formatting")
-            elif output != {"error": "not ported"}:
-                raise RuntimeError(f"unexpected skeleton output: {selector}")
+            else:
+                fixture = json.loads((crosscheck / "fixtures" / f"{selector}.json").read_text())
+                if (output.get("schemaVersion") != 3
+                        or set(output.get("cases", {})) != {c["name"] for c in fixture["cases"]}
+                        or len(output.get("lifecycle", [])) != sum(len(a["windows"]) for a in fixture["payload"]["agents"])):
+                    raise RuntimeError(f"incomplete provider output: {selector}")
         check_usage_pace(harness, scratch)
         check_format(harness, scratch)
         for selector in ([], ["all"]):
@@ -96,14 +100,11 @@ def main():
         blocked.write_text("synthetic", encoding="utf-8")
         run([harness, fixtures, str(blocked), "format"], expected=1)
 
-        result = run([sys.executable, str(runner), harness, fixtures,
-                      str(scratch / "missing"), str(scratch / "selector"), "format"], expected=77)
-        if "not ported" in result.stdout or "golden missing" not in result.stdout:
-            raise RuntimeError("ported format did not skip only for the absent oracle")
-        result = run([sys.executable, str(runner), harness, fixtures,
-                      str(scratch / "missing"), str(scratch / "pace-selector"), "usage-pace"], expected=77)
-        if "not ported" in result.stdout or "golden missing" not in result.stdout:
-            raise RuntimeError("ported usage-pace did not skip only for the absent oracle")
+        for selector in ("format", "usage-pace", "provider-quota-pace-v3"):
+            result = run([sys.executable, str(runner), harness, fixtures,
+                          str(scratch / "missing"), str(scratch / selector), selector], expected=77)
+            if "not ported" in result.stdout or "golden missing" not in result.stdout:
+                raise RuntimeError(f"ported {selector} did not skip only for the absent oracle")
     print("crosscheck self-test OK (diff success/failure, CLI, timezone, skips)")
 
 

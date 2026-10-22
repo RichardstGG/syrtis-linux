@@ -18,6 +18,8 @@ remain distinct. The settings owner loads the snapshot and persists it after
 `migrateLegacyOrderKey`; Core only changes the snapshot. The explicit raw-string
 and set overloads match Swift's reactive overloads. Tab hiding folds and expands
 groups; limits hiding remains member-specific.
+
+`QuotaHeatmap` and `QuotaTrend` retain their Swift source names and semantics.
 It is intentionally not included by [`../CMakeLists.txt`](../CMakeLists.txt).
 
 `Format` ports the English-pinned formatting surface from
@@ -45,6 +47,20 @@ checked subtraction, percentages, ordering, exact duplicate samples, coverage
 endpoints/count and the 65,536-point ceiling. It preserves `isActiveGroup` rather
 than deriving it from reset timestamps.
 
+`AccountIdentity` keeps client and account keys separate, shares window IDs
+between overview rows and heatmaps, and lets the settings owner install the
+captured Antigravity label resolver. `QuotaResolver` preserves unmatched
+explicit selections during partial fetches, migrates unique raw labels, and
+resolves explicit accounts independently of Auto's client exclusions. Auto
+considers every healthy account, preserving payload order on percentage ties.
+
+`QuotaSummaryFold` reuses that resolver and `UsagePace` presentation for its
+tightest reading, comfortable-window counts, largest burn deficit and number
+of windows actually checked. `QuotaOverviewFold` consumes caller-supplied
+cycles, showing the newest sixteen in chronological order while deriving
+exhaustion from the lifetime peak (99% or above). `QuotaCycle.h` contains only
+the `QuotaCycle` value dependency from Swift, without history folding or joins.
+
 From the repository root:
 
 ```sh
@@ -54,8 +70,8 @@ TZ=Asia/Taipei ctest --test-dir linux/core/build --output-on-failure
 TZ=Asia/Taipei linux/core/build/crosscheck/syrtis-crosscheck linux/crosscheck/fixtures linux/core/build/actual format
 ```
 
-The harness accepts `attribution`, `agent-usage`, `reports`, `core-leaf`, `usage-pace`, `format`, and `provider-quota-pace-v3`. Like the
-[Swift harness](../../Sources/CrossCheckHarness/main.swift), an omitted selector
+The harness accepts `core-leaf`, `usage-pace`, `format`, `provider-quota-pace-v3`,
+`quota-trend`, `reports`, `charts`, `agent-usage`, and `attribution`. Like the [Swift harness](../../Sources/CrossCheckHarness/main.swift), an omitted selector
 or `all` runs the two legacy selectors (`usage-pace` and `format`). `TZ` must be
 exactly `Asia/Taipei`. The Qt harness pins its locale to English internally;
 the Swift-compatible `-AppleLanguages "(en)"` pair is also accepted anywhere in
@@ -67,7 +83,14 @@ rejections. Its existing Swift mode in `Sources/CrossCheckHarness/main.swift`
 remains the oracle; no new selector or Swift mode is introduced. `format` handles
 all eleven existing Swift harness functions, including null top-client results
 and errors for missing or invalid `now` timestamps. Its oracle mode also already
-exists in that root Swift harness. Unported selectors emit
+exists in that root Swift harness. `provider-quota-pace-v3` uses the existing
+root Swift oracle mode too: typed production payload/window decoding, raw
+lifecycle rows, pace presentation, selection migration, legacy and malformed
+windows. The current read-only fixture contains fourteen cases and nine
+lifecycle windows. `quota-unit` additionally checks account identity, Auto
+exclusions and ties, explicit account selection, summary counts/burn warnings,
+and overview strip/peak boundaries; those extra checks are C++ regressions,
+not independent Swift oracle comparisons. Unported selectors emit
 `{"error":"not ported"}`; their CTests skip. Once ported, each CTest compares
 against the matching macOS oracle JSON under [`../crosscheck/golden/`](../crosscheck/golden/),
 skipping if that oracle is absent. The runner copies the oracle to an isolated
@@ -92,6 +115,16 @@ and returns CTest SKIP (77) until the macOS oracle supplies `core-leaf.json`.
 Its CTest registration lives here to keep the crosscheck parent outside this
 port's write scope. The matching Swift extension invokes shipping Swift code;
 its build, self-test, and oracle comparison remain macOS CI gates.
+
+`quota-trend` covers both folds using the synthetic
+[fixture](../crosscheck/fixtures/quota-trend.json). Heatmap inputs are the three
+fields consumed from each curve point (seconds); its weekday/hour cells and
+observed days use a Gregorian calendar in the supplied `QTimeZone`. Trend samples
+use milliseconds. The default-constructed `QuotaHeatmap{}` is Swift's `.empty`.
+`quota-trend-selftest` checks local semantics independently of oracle availability;
+`crosscheck-quota-trend` skips until the macOS oracle supplies its golden. The
+[Swift extension](../crosscheck/swift/README.md) calls the shipping folds for
+parity validation; local assertions do not substitute for that gate.
 
 `reports` ports the payload declarations and pure envelope decoders from
 [`TBCore.swift`](../../Sources/TokenBarCore/TBCore.swift), plus `AgentsReport`,

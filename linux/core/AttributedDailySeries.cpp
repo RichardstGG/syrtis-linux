@@ -5,27 +5,6 @@
 #include <tuple>
 
 namespace syrtis::core {
-ContributionClient ContributionClient::decode(const json::Decoder &d) {
-    return {d.field<QString>("client"), d.field<QString>("modelId"), d.field<QString>("providerId"),
-        d.field<TokenBreakdown>("tokens"), d.field<double>("cost"), d.field<qint64>("messages")};
-}
-Contribution::Totals Contribution::Totals::decode(const json::Decoder &d) {
-    return {d.field<qint64>("tokens"), d.field<double>("cost"), d.field<qint64>("messages")};
-}
-Contribution Contribution::decode(const json::Decoder &d) {
-    Contribution out{d.field<QString>("date"), d.field<Totals>("totals"), d.field<qint64>("intensity"),
-        d.field<TokenBreakdown>("tokenBreakdown"), d.field<QList<ContributionClient>>("clients"), std::nullopt};
-    const auto turns = d.value.toObject().value("turnsByClient");
-    if (!turns.isNull() && !turns.isUndefined()) {
-        const json::Decoder map{turns, d.path + QStringList{"turnsByClient"}};
-        map.object();
-        out.turnsByClient.emplace();
-        const auto object = turns.toObject();
-        for (auto it = object.constBegin(); it != object.constEnd(); ++it)
-            (*out.turnsByClient)[it.key()] = json::Decoder{it.value(), map.path + QStringList{it.key()}}.decode<qint64>();
-    }
-    return out;
-}
 namespace AttributedDailySeries {
 bool Point::operator==(const Point &other) const {
     return attributionKey(date) == attributionKey(other.date) && state == other.state

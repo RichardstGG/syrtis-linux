@@ -1,0 +1,5245 @@
+{
+  "cases" : [
+    {
+      "id" : "codec-absent",
+      "value" : {
+        "declares" : false,
+        "isWritable" : true,
+        "records" : [
+
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : "[{\"client\":\"new\\\/source\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"}]",
+        "updatedRaw" : "[{\"client\":\"new\\\/source\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"}]"
+      }
+    },
+    {
+      "id" : "codec-valid",
+      "value" : {
+        "declares" : true,
+        "isWritable" : true,
+        "records" : [
+          {
+            "client" : "other",
+            "model" : null,
+            "provider" : "provider",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "codex"
+            }
+          },
+          {
+            "client" : "synthetic",
+            "model" : null,
+            "provider" : "provider",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            }
+          },
+          {
+            "client" : "synthetic",
+            "model" : "special",
+            "provider" : "provider",
+            "state" : {
+              "kind" : "excluded"
+            }
+          }
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "assigned",
+            "target" : "claude"
+          },
+          {
+            "kind" : "assigned",
+            "target" : "claude"
+          },
+          {
+            "kind" : "excluded"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : "[{\"client\":\"new\\\/source\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"other\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"codex\"},{\"client\":\"synthetic\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"}]",
+        "updatedRaw" : "[{\"client\":\"new\\\/source\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"other\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"codex\"},{\"client\":\"synthetic\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"}]"
+      }
+    },
+    {
+      "id" : "codec-empty",
+      "value" : {
+        "declares" : false,
+        "isWritable" : true,
+        "records" : [
+
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : "[{\"client\":\"new\\\/source\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"}]",
+        "updatedRaw" : "[{\"client\":\"new\\\/source\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"}]"
+      }
+    },
+    {
+      "id" : "codec-foreign-null",
+      "value" : {
+        "declares" : false,
+        "isWritable" : false,
+        "records" : [
+
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : null,
+        "updatedRaw" : null
+      }
+    },
+    {
+      "id" : "codec-foreign-number",
+      "value" : {
+        "declares" : false,
+        "isWritable" : false,
+        "records" : [
+
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : null,
+        "updatedRaw" : null
+      }
+    },
+    {
+      "id" : "codec-foreign-object",
+      "value" : {
+        "declares" : false,
+        "isWritable" : false,
+        "records" : [
+
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : null,
+        "updatedRaw" : null
+      }
+    },
+    {
+      "id" : "codec-malformed",
+      "value" : {
+        "declares" : false,
+        "isWritable" : false,
+        "records" : [
+
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : null,
+        "updatedRaw" : null
+      }
+    },
+    {
+      "id" : "codec-object",
+      "value" : {
+        "declares" : false,
+        "isWritable" : false,
+        "records" : [
+
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : null,
+        "updatedRaw" : null
+      }
+    },
+    {
+      "id" : "codec-duplicate",
+      "value" : {
+        "declares" : false,
+        "isWritable" : false,
+        "records" : [
+
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : null,
+        "updatedRaw" : null
+      }
+    },
+    {
+      "id" : "codec-duplicate-canonical",
+      "value" : {
+        "declares" : false,
+        "isWritable" : false,
+        "records" : [
+
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : null,
+        "updatedRaw" : null
+      }
+    },
+    {
+      "id" : "codec-unknown-target",
+      "value" : {
+        "declares" : false,
+        "isWritable" : false,
+        "records" : [
+
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : null,
+        "updatedRaw" : null
+      }
+    },
+    {
+      "id" : "codec-empty-source",
+      "value" : {
+        "declares" : false,
+        "isWritable" : false,
+        "records" : [
+
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : null,
+        "updatedRaw" : null
+      }
+    },
+    {
+      "id" : "codec-unassigned",
+      "value" : {
+        "declares" : false,
+        "isWritable" : false,
+        "records" : [
+
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : null,
+        "updatedRaw" : null
+      }
+    },
+    {
+      "id" : "codec-missing-model",
+      "value" : {
+        "declares" : false,
+        "isWritable" : false,
+        "records" : [
+
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : null,
+        "updatedRaw" : null
+      }
+    },
+    {
+      "id" : "codec-extra-key",
+      "value" : {
+        "declares" : false,
+        "isWritable" : false,
+        "records" : [
+
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : null,
+        "updatedRaw" : null
+      }
+    },
+    {
+      "id" : "codec-wrong-model",
+      "value" : {
+        "declares" : false,
+        "isWritable" : false,
+        "records" : [
+
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : null,
+        "updatedRaw" : null
+      }
+    },
+    {
+      "id" : "codec-source-outside-registry",
+      "value" : {
+        "declares" : true,
+        "isWritable" : true,
+        "records" : [
+          {
+            "client" : "cc-mirror\/synthetic",
+            "model" : null,
+            "provider" : "provider",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            }
+          }
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : "[{\"client\":\"cc-mirror\\\/synthetic\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"new\\\/source\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"}]",
+        "updatedRaw" : "[{\"client\":\"cc-mirror\\\/synthetic\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"new\\\/source\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"}]"
+      }
+    },
+    {
+      "id" : "codec-unicode-sort",
+      "value" : {
+        "declares" : true,
+        "isWritable" : true,
+        "records" : [
+          {
+            "client" : "Café",
+            "model" : null,
+            "provider" : "provider",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            }
+          },
+          {
+            "client" : "a",
+            "model" : null,
+            "provider" : "provider",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            }
+          },
+          {
+            "client" : "a",
+            "model" : "",
+            "provider" : "provider",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            }
+          },
+          {
+            "client" : "",
+            "model" : null,
+            "provider" : "provider",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            }
+          },
+          {
+            "client" : "𐀀",
+            "model" : null,
+            "provider" : "provider",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            }
+          }
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : "[{\"client\":\"Café\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"a\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"a\",\"model\":\"\",\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"new\\\/source\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"𐀀\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"}]",
+        "updatedRaw" : "[{\"client\":\"Café\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"a\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"a\",\"model\":\"\",\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"new\\\/source\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"𐀀\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"}]"
+      }
+    },
+    {
+      "id" : "codec-remove",
+      "value" : {
+        "declares" : true,
+        "isWritable" : true,
+        "records" : [
+          {
+            "client" : "other",
+            "model" : null,
+            "provider" : "provider",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "codex"
+            }
+          },
+          {
+            "client" : "synthetic",
+            "model" : null,
+            "provider" : "provider",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            }
+          },
+          {
+            "client" : "synthetic",
+            "model" : "special",
+            "provider" : "provider",
+            "state" : {
+              "kind" : "excluded"
+            }
+          }
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "assigned",
+            "target" : "claude"
+          },
+          {
+            "kind" : "assigned",
+            "target" : "claude"
+          },
+          {
+            "kind" : "excluded"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : "[{\"client\":\"other\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"codex\"},{\"client\":\"synthetic\",\"model\":\"special\",\"provider\":\"provider\",\"state\":\"excluded\"}]",
+        "updatedRaw" : "[{\"client\":\"other\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"codex\"},{\"client\":\"synthetic\",\"model\":\"special\",\"provider\":\"provider\",\"state\":\"excluded\"}]"
+      }
+    },
+    {
+      "id" : "codec-last-update-wins",
+      "value" : {
+        "declares" : true,
+        "isWritable" : true,
+        "records" : [
+          {
+            "client" : "other",
+            "model" : null,
+            "provider" : "provider",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "codex"
+            }
+          },
+          {
+            "client" : "synthetic",
+            "model" : null,
+            "provider" : "provider",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            }
+          },
+          {
+            "client" : "synthetic",
+            "model" : "special",
+            "provider" : "provider",
+            "state" : {
+              "kind" : "excluded"
+            }
+          }
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "assigned",
+            "target" : "claude"
+          },
+          {
+            "kind" : "assigned",
+            "target" : "claude"
+          },
+          {
+            "kind" : "excluded"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : "[{\"client\":\"other\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"codex\"},{\"client\":\"synthetic\",\"model\":null,\"provider\":\"provider\",\"state\":\"excluded\"},{\"client\":\"synthetic\",\"model\":\"special\",\"provider\":\"provider\",\"state\":\"excluded\"}]",
+        "updatedRaw" : "[{\"client\":\"other\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"codex\"},{\"client\":\"synthetic\",\"model\":null,\"provider\":\"provider\",\"state\":\"excluded\"},{\"client\":\"synthetic\",\"model\":\"special\",\"provider\":\"provider\",\"state\":\"excluded\"}]"
+      }
+    },
+    {
+      "id" : "codec-invalid-update",
+      "value" : {
+        "declares" : true,
+        "isWritable" : true,
+        "records" : [
+          {
+            "client" : "other",
+            "model" : null,
+            "provider" : "provider",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "codex"
+            }
+          },
+          {
+            "client" : "synthetic",
+            "model" : null,
+            "provider" : "provider",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            }
+          },
+          {
+            "client" : "synthetic",
+            "model" : "special",
+            "provider" : "provider",
+            "state" : {
+              "kind" : "excluded"
+            }
+          }
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "assigned",
+            "target" : "claude"
+          },
+          {
+            "kind" : "assigned",
+            "target" : "claude"
+          },
+          {
+            "kind" : "excluded"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : null,
+        "updatedRaw" : null
+      }
+    },
+    {
+      "id" : "codec-invalid-target",
+      "value" : {
+        "declares" : true,
+        "isWritable" : true,
+        "records" : [
+          {
+            "client" : "other",
+            "model" : null,
+            "provider" : "provider",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "codex"
+            }
+          },
+          {
+            "client" : "synthetic",
+            "model" : null,
+            "provider" : "provider",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            }
+          },
+          {
+            "client" : "synthetic",
+            "model" : "special",
+            "provider" : "provider",
+            "state" : {
+              "kind" : "excluded"
+            }
+          }
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "assigned",
+            "target" : "claude"
+          },
+          {
+            "kind" : "assigned",
+            "target" : "claude"
+          },
+          {
+            "kind" : "excluded"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : null,
+        "updatedRaw" : null
+      }
+    },
+    {
+      "id" : "codec-replacement-duplicate",
+      "value" : {
+        "declares" : true,
+        "isWritable" : true,
+        "records" : [
+          {
+            "client" : "other",
+            "model" : null,
+            "provider" : "provider",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "codex"
+            }
+          },
+          {
+            "client" : "synthetic",
+            "model" : null,
+            "provider" : "provider",
+            "state" : {
+              "kind" : "assigned",
+              "target" : "claude"
+            }
+          },
+          {
+            "client" : "synthetic",
+            "model" : "special",
+            "provider" : "provider",
+            "state" : {
+              "kind" : "excluded"
+            }
+          }
+        ],
+        "replacedRaw" : null,
+        "states" : [
+          {
+            "kind" : "assigned",
+            "target" : "claude"
+          },
+          {
+            "kind" : "assigned",
+            "target" : "claude"
+          },
+          {
+            "kind" : "excluded"
+          },
+          {
+            "kind" : "unassigned"
+          }
+        ],
+        "suggestedRaw" : "[{\"client\":\"other\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"codex\"},{\"client\":\"synthetic\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"synthetic\",\"model\":\"special\",\"provider\":\"provider\",\"state\":\"excluded\"}]",
+        "updatedRaw" : "[{\"client\":\"other\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"codex\"},{\"client\":\"synthetic\",\"model\":null,\"provider\":\"provider\",\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"synthetic\",\"model\":\"special\",\"provider\":\"provider\",\"state\":\"excluded\"}]"
+      }
+    },
+    {
+      "id" : "readings-0",
+      "value" : {
+        "consumed" : 0,
+        "deltaQualifies" : false,
+        "lowerBound" : 0,
+        "risingRuns" : 0
+      }
+    },
+    {
+      "id" : "readings-1",
+      "value" : {
+        "consumed" : 0,
+        "deltaQualifies" : false,
+        "lowerBound" : 0,
+        "risingRuns" : 0
+      }
+    },
+    {
+      "id" : "readings-2",
+      "value" : {
+        "consumed" : 0,
+        "deltaQualifies" : false,
+        "lowerBound" : 1,
+        "risingRuns" : 0
+      }
+    },
+    {
+      "id" : "readings-3",
+      "value" : {
+        "consumed" : 20,
+        "deltaQualifies" : true,
+        "lowerBound" : 1,
+        "risingRuns" : 1
+      }
+    },
+    {
+      "id" : "readings-4",
+      "value" : {
+        "consumed" : 27,
+        "deltaQualifies" : true,
+        "lowerBound" : 3,
+        "risingRuns" : 2
+      }
+    },
+    {
+      "id" : "readings-5",
+      "value" : {
+        "consumed" : 1,
+        "deltaQualifies" : false,
+        "lowerBound" : 3,
+        "risingRuns" : 1
+      }
+    },
+    {
+      "id" : "readings-6",
+      "value" : {
+        "consumed" : 4.9989999999999997,
+        "deltaQualifies" : false,
+        "lowerBound" : 4,
+        "risingRuns" : 1
+      }
+    },
+    {
+      "id" : "readings-7",
+      "value" : {
+        "consumed" : 5,
+        "deltaQualifies" : true,
+        "lowerBound" : 4,
+        "risingRuns" : 1
+      }
+    },
+    {
+      "id" : "readings-8",
+      "value" : {
+        "consumed" : 10,
+        "deltaQualifies" : true,
+        "lowerBound" : 3,
+        "risingRuns" : 2
+      }
+    },
+    {
+      "id" : "readings-9",
+      "value" : {
+        "consumed" : 11,
+        "deltaQualifies" : true,
+        "lowerBound" : 3,
+        "risingRuns" : 2
+      }
+    },
+    {
+      "id" : "row-empty",
+      "value" : {
+        "row" : {
+          "isRatio" : false,
+          "kind" : "unavailable",
+          "text" : "Not enough quota readings yet"
+        }
+      }
+    },
+    {
+      "id" : "row-single",
+      "value" : {
+        "row" : {
+          "isRatio" : false,
+          "kind" : "unavailable",
+          "text" : "Not enough quota readings yet"
+        }
+      }
+    },
+    {
+      "id" : "row-flat",
+      "value" : {
+        "row" : {
+          "isRatio" : false,
+          "kind" : "notMoved",
+          "text" : "Quota has not moved yet"
+        }
+      }
+    },
+    {
+      "id" : "row-fall",
+      "value" : {
+        "row" : {
+          "isRatio" : false,
+          "kind" : "notMoved",
+          "text" : "Quota has not moved yet"
+        }
+      }
+    },
+    {
+      "id" : "row-unaccounted",
+      "value" : {
+        "row" : {
+          "deltaPercent" : 10,
+          "isRatio" : false,
+          "kind" : "unaccounted",
+          "text" : "Quota moved 10%, none of it recorded on this machine"
+        }
+      }
+    },
+    {
+      "id" : "row-insufficient",
+      "value" : {
+        "row" : {
+          "deltaPercent" : 4.9900000000000002,
+          "errorPercent" : 10,
+          "isRatio" : false,
+          "kind" : "insufficient",
+          "text" : "Quota moved only 5% — too little to estimate (±10%)"
+        }
+      }
+    },
+    {
+      "id" : "row-threshold",
+      "value" : {
+        "row" : {
+          "costPerTenth" : 2,
+          "errorPercent" : 10,
+          "isRatio" : true,
+          "kind" : "ratio",
+          "text" : "10% of quota ~ 98 · 2.000 API-equivalent, ±10%",
+          "tokensPerTenth" : 98
+        }
+      }
+    },
+    {
+      "id" : "row-tokens",
+      "value" : {
+        "row" : {
+          "errorPercent" : 5,
+          "isRatio" : false,
+          "kind" : "tokensOnly",
+          "text" : "10% of quota ~ 49, unpriced models, ±5%",
+          "tokensPerTenth" : 49
+        }
+      }
+    },
+    {
+      "id" : "row-cost",
+      "value" : {
+        "row" : {
+          "costPerTenth" : 1,
+          "errorPercent" : 5,
+          "isRatio" : false,
+          "kind" : "costOnly",
+          "text" : "10% of quota ~ 1.000 API-equivalent, tokens unavailable, ±5%"
+        }
+      }
+    },
+    {
+      "id" : "row-boundaries",
+      "value" : {
+        "row" : {
+          "costPerTenth" : 2,
+          "errorPercent" : 5,
+          "isRatio" : true,
+          "kind" : "ratio",
+          "text" : "10% of quota ~ 98 · 2.000 API-equivalent, ±5%",
+          "tokensPerTenth" : 98
+        }
+      }
+    },
+    {
+      "id" : "row-reset-runs",
+      "value" : {
+        "row" : {
+          "deltaPercent" : 9,
+          "errorPercent" : 11,
+          "isRatio" : false,
+          "kind" : "insufficient",
+          "text" : "Quota moved only 9% — too little to estimate (±11%)"
+        }
+      }
+    },
+    {
+      "id" : "row-saturation",
+      "value" : {
+        "row" : {
+          "costPerTenth" : 4,
+          "errorPercent" : 10,
+          "isRatio" : true,
+          "kind" : "ratio",
+          "text" : "10% of quota ~ 9223372036854775807 · 4.000 API-equivalent, ±10%",
+          "tokensPerTenth" : 9223372036854775807
+        }
+      }
+    },
+    {
+      "id" : "row-negative-overflow",
+      "value" : {
+        "row" : {
+          "costPerTenth" : 1,
+          "errorPercent" : 5,
+          "isRatio" : true,
+          "kind" : "ratio",
+          "text" : "10% of quota ~ 9223372036854775807 · 1.000 API-equivalent, ±5%",
+          "tokensPerTenth" : 9223372036854775807
+        }
+      }
+    },
+    {
+      "id" : "row-exact-int",
+      "value" : {
+        "row" : {
+          "costPerTenth" : 1,
+          "errorPercent" : 5,
+          "isRatio" : true,
+          "kind" : "ratio",
+          "text" : "10% of quota ~ 9007199254740992 · 1.000 API-equivalent, ±5%",
+          "tokensPerTenth" : 9007199254740992
+        }
+      }
+    },
+    {
+      "id" : "aggregate-empty",
+      "value" : {
+        "row" : {
+          "isRatio" : false,
+          "kind" : "unavailable",
+          "text" : "Not enough quota readings yet"
+        }
+      }
+    },
+    {
+      "id" : "aggregate-flat",
+      "value" : {
+        "row" : {
+          "isRatio" : false,
+          "kind" : "notMoved",
+          "text" : "Quota has not moved yet"
+        }
+      }
+    },
+    {
+      "id" : "aggregate-unaccounted",
+      "value" : {
+        "row" : {
+          "deltaPercent" : 10,
+          "isRatio" : false,
+          "kind" : "unaccounted",
+          "text" : "Quota moved 10%, none of it recorded on this machine"
+        }
+      }
+    },
+    {
+      "id" : "aggregate-insufficient",
+      "value" : {
+        "row" : {
+          "deltaPercent" : 4,
+          "errorPercent" : 13,
+          "isRatio" : false,
+          "kind" : "insufficient",
+          "text" : "Quota moved only 4% — too little to estimate (±13%)"
+        }
+      }
+    },
+    {
+      "id" : "aggregate-low-coverage",
+      "value" : {
+        "row" : {
+          "deltaPercent" : 10,
+          "errorPercent" : 5,
+          "isRatio" : false,
+          "kind" : "insufficient",
+          "text" : "Quota moved only 10% — too little to estimate (±5%)"
+        }
+      }
+    },
+    {
+      "id" : "aggregate-few",
+      "value" : {
+        "row" : {
+          "count" : 2,
+          "isRatio" : false,
+          "kind" : "tooFewCycles",
+          "needed" : 3,
+          "text" : "2 of 3 windows recorded — the estimate needs that many"
+        }
+      }
+    },
+    {
+      "id" : "aggregate-ratio",
+      "value" : {
+        "row" : {
+          "costPerTenth" : 2,
+          "errorPercent" : 1,
+          "isRatio" : true,
+          "kind" : "ratio",
+          "text" : "10% of quota ~ 100 · 2.000 API-equivalent, ±1%",
+          "tokensPerTenth" : 100
+        }
+      }
+    },
+    {
+      "id" : "aggregate-tokens",
+      "value" : {
+        "row" : {
+          "errorPercent" : 1,
+          "isRatio" : false,
+          "kind" : "tokensOnly",
+          "text" : "10% of quota ~ 100, unpriced models, ±1%",
+          "tokensPerTenth" : 100
+        }
+      }
+    },
+    {
+      "id" : "aggregate-cost",
+      "value" : {
+        "row" : {
+          "costPerTenth" : 2,
+          "errorPercent" : 1,
+          "isRatio" : false,
+          "kind" : "costOnly",
+          "text" : "10% of quota ~ 2.000 API-equivalent, tokens unavailable, ±1%"
+        }
+      }
+    },
+    {
+      "id" : "aggregate-few-each",
+      "value" : {
+        "row" : {
+          "count" : 2,
+          "isRatio" : false,
+          "kind" : "tooFewCycles",
+          "needed" : 3,
+          "text" : "2 of 3 windows recorded — the estimate needs that many"
+        }
+      }
+    },
+    {
+      "id" : "aggregate-token-spread",
+      "value" : {
+        "row" : {
+          "highCostPerTenth" : 2,
+          "highPerTenth" : 10000,
+          "isRatio" : false,
+          "kind" : "spread",
+          "lowCostPerTenth" : 2,
+          "lowPerTenth" : 1,
+          "text" : "10% of quota ~ 1-10000 · 2.000-2.000 API-equivalent"
+        }
+      }
+    },
+    {
+      "id" : "aggregate-cost-spread",
+      "value" : {
+        "row" : {
+          "highCostPerTenth" : 1000,
+          "highPerTenth" : 100,
+          "isRatio" : false,
+          "kind" : "spread",
+          "lowCostPerTenth" : 0.01,
+          "lowPerTenth" : 100,
+          "text" : "10% of quota ~ 100-100 · 0.010-1000.000 API-equivalent"
+        }
+      }
+    },
+    {
+      "id" : "aggregate-token-separate-pool",
+      "value" : {
+        "row" : {
+          "costPerTenth" : 2,
+          "errorPercent" : 1,
+          "isRatio" : true,
+          "kind" : "ratio",
+          "text" : "10% of quota ~ 100 · 2.000 API-equivalent, ±1%",
+          "tokensPerTenth" : 100
+        }
+      }
+    },
+    {
+      "id" : "aggregate-price-separate-pool",
+      "value" : {
+        "row" : {
+          "costPerTenth" : 2,
+          "errorPercent" : 1,
+          "isRatio" : true,
+          "kind" : "ratio",
+          "text" : "10% of quota ~ 100 · 2.000 API-equivalent, ±1%",
+          "tokensPerTenth" : 100
+        }
+      }
+    },
+    {
+      "id" : "aggregate-multi-run-reject",
+      "value" : {
+        "row" : {
+          "deltaPercent" : 27,
+          "errorPercent" : 11,
+          "isRatio" : false,
+          "kind" : "insufficient",
+          "text" : "Quota moved only 27% — too little to estimate (±11%)"
+        }
+      }
+    },
+    {
+      "id" : "aggregate-multi-run-admit",
+      "value" : {
+        "row" : {
+          "costPerTenth" : 2,
+          "errorPercent" : 1,
+          "isRatio" : true,
+          "kind" : "ratio",
+          "text" : "10% of quota ~ 100 · 2.000 API-equivalent, ±1%",
+          "tokensPerTenth" : 100
+        }
+      }
+    },
+    {
+      "id" : "aggregate-coverage-threshold",
+      "value" : {
+        "row" : {
+          "costPerTenth" : 2,
+          "errorPercent" : 1,
+          "isRatio" : true,
+          "kind" : "ratio",
+          "text" : "10% of quota ~ 100 · 2.000 API-equivalent, ±1%",
+          "tokensPerTenth" : 100
+        }
+      }
+    },
+    {
+      "id" : "aggregate-undeclared",
+      "value" : {
+        "row" : {
+          "isRatio" : false,
+          "kind" : "undeclared",
+          "text" : "Classify your usage in Settings to see what this window is worth"
+        }
+      }
+    },
+    {
+      "id" : "history-empty",
+      "value" : {
+        "aggregate" : {
+          "isRatio" : false,
+          "kind" : "unavailable",
+          "text" : "Not enough quota readings yet"
+        },
+        "considered" : [
+
+        ],
+        "cycles" : [
+
+        ],
+        "rows" : [
+
+        ],
+        "spans" : [
+
+        ]
+      }
+    },
+    {
+      "id" : "history-mixed",
+      "value" : {
+        "aggregate" : {
+          "count" : 1,
+          "isRatio" : false,
+          "kind" : "tooFewCycles",
+          "needed" : 3,
+          "text" : "1 of 3 windows recorded — the estimate needs that many"
+        },
+        "considered" : [
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 0,
+            "firstSampleMs" : 0,
+            "lastSampleMs" : 18005000,
+            "observedFraction" : 1,
+            "peakUsedPercent" : 22,
+            "resetAtMs" : 18000000,
+            "risingRuns" : 1,
+            "sampleCount" : 4,
+            "startMs" : 0,
+            "usedPercent" : 21
+          }
+        ],
+        "cycles" : [
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 0,
+            "firstSampleMs" : 0,
+            "lastSampleMs" : 18005000,
+            "observedFraction" : 1,
+            "peakUsedPercent" : 22,
+            "resetAtMs" : 18000000,
+            "risingRuns" : 1,
+            "sampleCount" : 4,
+            "startMs" : 0,
+            "usedPercent" : 21
+          }
+        ],
+        "rows" : [
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 0,
+              "firstSampleMs" : 0,
+              "lastSampleMs" : 18005000,
+              "observedFraction" : 1,
+              "peakUsedPercent" : 22,
+              "resetAtMs" : 18000000,
+              "risingRuns" : 1,
+              "sampleCount" : 4,
+              "startMs" : 0,
+              "usedPercent" : 21
+            },
+            "id" : 18000000,
+            "mineBreakdown" : {
+              "cacheRead" : 90,
+              "cacheWrite" : 9,
+              "input" : 30,
+              "output" : 6,
+              "reasoning" : 12,
+              "total" : 147
+            },
+            "mineCost" : 3,
+            "mineTokens" : 147,
+            "mineTokensExCacheRead" : 57,
+            "models" : [
+              {
+                "breakdown" : {
+                  "cacheRead" : 90,
+                  "cacheWrite" : 9,
+                  "input" : 30,
+                  "output" : 6,
+                  "reasoning" : 12,
+                  "total" : 147
+                },
+                "cost" : 3,
+                "id" : "provider|normal",
+                "modelId" : "normal",
+                "providerId" : "provider",
+                "tokens" : 147
+              }
+            ],
+            "otherCost" : 6,
+            "otherHasAssigned" : true,
+            "otherHasExcluded" : true,
+            "otherHasUnattributed" : true,
+            "otherTokens" : 147,
+            "spanCost" : 4,
+            "spanTokens" : 196
+          }
+        ],
+        "spans" : [
+          {
+            "cost" : 4,
+            "tokens" : 196
+          }
+        ]
+      }
+    },
+    {
+      "id" : "history-scope",
+      "value" : {
+        "aggregate" : {
+          "deltaPercent" : 21,
+          "isRatio" : false,
+          "kind" : "unaccounted",
+          "text" : "Quota moved 21%, none of it recorded on this machine"
+        },
+        "considered" : [
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 0,
+            "firstSampleMs" : 0,
+            "lastSampleMs" : 18005000,
+            "observedFraction" : 1,
+            "peakUsedPercent" : 22,
+            "resetAtMs" : 18000000,
+            "risingRuns" : 1,
+            "sampleCount" : 4,
+            "startMs" : 0,
+            "usedPercent" : 21
+          }
+        ],
+        "cycles" : [
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 0,
+            "firstSampleMs" : 0,
+            "lastSampleMs" : 18005000,
+            "observedFraction" : 1,
+            "peakUsedPercent" : 22,
+            "resetAtMs" : 18000000,
+            "risingRuns" : 1,
+            "sampleCount" : 4,
+            "startMs" : 0,
+            "usedPercent" : 21
+          }
+        ],
+        "rows" : [
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 0,
+              "firstSampleMs" : 0,
+              "lastSampleMs" : 18005000,
+              "observedFraction" : 1,
+              "peakUsedPercent" : 22,
+              "resetAtMs" : 18000000,
+              "risingRuns" : 1,
+              "sampleCount" : 4,
+              "startMs" : 0,
+              "usedPercent" : 21
+            },
+            "id" : 18000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 1,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : true,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 49,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          }
+        ],
+        "spans" : [
+          {
+            "cost" : 0,
+            "tokens" : 0
+          }
+        ]
+      }
+    },
+    {
+      "id" : "history-no-declaration",
+      "value" : {
+        "aggregate" : {
+          "isRatio" : false,
+          "kind" : "undeclared",
+          "text" : "Classify your usage in Settings to see what this window is worth"
+        },
+        "considered" : [
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 0,
+            "firstSampleMs" : 0,
+            "lastSampleMs" : 18005000,
+            "observedFraction" : 1,
+            "peakUsedPercent" : 22,
+            "resetAtMs" : 18000000,
+            "risingRuns" : 1,
+            "sampleCount" : 4,
+            "startMs" : 0,
+            "usedPercent" : 21
+          }
+        ],
+        "cycles" : [
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 0,
+            "firstSampleMs" : 0,
+            "lastSampleMs" : 18005000,
+            "observedFraction" : 1,
+            "peakUsedPercent" : 22,
+            "resetAtMs" : 18000000,
+            "risingRuns" : 1,
+            "sampleCount" : 4,
+            "startMs" : 0,
+            "usedPercent" : 21
+          }
+        ],
+        "rows" : [
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 0,
+              "firstSampleMs" : 0,
+              "lastSampleMs" : 18005000,
+              "observedFraction" : 1,
+              "peakUsedPercent" : 22,
+              "resetAtMs" : 18000000,
+              "risingRuns" : 1,
+              "sampleCount" : 4,
+              "startMs" : 0,
+              "usedPercent" : 21
+            },
+            "id" : 18000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 9,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : true,
+            "otherTokens" : 294,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          }
+        ],
+        "spans" : [
+          {
+            "cost" : 0,
+            "tokens" : 0
+          }
+        ]
+      }
+    },
+    {
+      "id" : "history-shortened-duration",
+      "value" : {
+        "aggregate" : {
+          "count" : 1,
+          "isRatio" : false,
+          "kind" : "tooFewCycles",
+          "needed" : 3,
+          "text" : "1 of 3 windows recorded — the estimate needs that many"
+        },
+        "considered" : [
+          {
+            "durationMs" : 9000000,
+            "evidenceStartMs" : 0,
+            "firstSampleMs" : 0,
+            "lastSampleMs" : 17000000,
+            "observedFraction" : 1,
+            "peakUsedPercent" : 30,
+            "resetAtMs" : 18000000,
+            "risingRuns" : 1,
+            "sampleCount" : 3,
+            "startMs" : 9000000,
+            "usedPercent" : 20
+          }
+        ],
+        "cycles" : [
+          {
+            "durationMs" : 9000000,
+            "evidenceStartMs" : 0,
+            "firstSampleMs" : 0,
+            "lastSampleMs" : 17000000,
+            "observedFraction" : 1,
+            "peakUsedPercent" : 30,
+            "resetAtMs" : 18000000,
+            "risingRuns" : 1,
+            "sampleCount" : 3,
+            "startMs" : 9000000,
+            "usedPercent" : 20
+          }
+        ],
+        "rows" : [
+          {
+            "cycle" : {
+              "durationMs" : 9000000,
+              "evidenceStartMs" : 0,
+              "firstSampleMs" : 0,
+              "lastSampleMs" : 17000000,
+              "observedFraction" : 1,
+              "peakUsedPercent" : 30,
+              "resetAtMs" : 18000000,
+              "risingRuns" : 1,
+              "sampleCount" : 3,
+              "startMs" : 9000000,
+              "usedPercent" : 20
+            },
+            "id" : 18000000,
+            "mineBreakdown" : {
+              "cacheRead" : 90,
+              "cacheWrite" : 9,
+              "input" : 30,
+              "output" : 6,
+              "reasoning" : 12,
+              "total" : 147
+            },
+            "mineCost" : 3,
+            "mineTokens" : 147,
+            "mineTokensExCacheRead" : 57,
+            "models" : [
+              {
+                "breakdown" : {
+                  "cacheRead" : 90,
+                  "cacheWrite" : 9,
+                  "input" : 30,
+                  "output" : 6,
+                  "reasoning" : 12,
+                  "total" : 147
+                },
+                "cost" : 3,
+                "id" : "provider|normal",
+                "modelId" : "normal",
+                "providerId" : "provider",
+                "tokens" : 147
+              }
+            ],
+            "otherCost" : 6,
+            "otherHasAssigned" : true,
+            "otherHasExcluded" : true,
+            "otherHasUnattributed" : true,
+            "otherTokens" : 147,
+            "spanCost" : 2,
+            "spanTokens" : 98
+          }
+        ],
+        "spans" : [
+          {
+            "cost" : 2,
+            "tokens" : 98
+          }
+        ]
+      }
+    },
+    {
+      "id" : "history-mode-tie",
+      "value" : {
+        "aggregate" : {
+          "count" : 1,
+          "isRatio" : false,
+          "kind" : "tooFewCycles",
+          "needed" : 3,
+          "text" : "1 of 3 windows recorded — the estimate needs that many"
+        },
+        "considered" : [
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 0,
+            "firstSampleMs" : 0,
+            "lastSampleMs" : 9000000,
+            "observedFraction" : 0.5,
+            "peakUsedPercent" : 20,
+            "resetAtMs" : 18000000,
+            "risingRuns" : 1,
+            "sampleCount" : 2,
+            "startMs" : 0,
+            "usedPercent" : 10
+          }
+        ],
+        "cycles" : [
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 0,
+            "firstSampleMs" : 0,
+            "lastSampleMs" : 9000000,
+            "observedFraction" : 0.5,
+            "peakUsedPercent" : 20,
+            "resetAtMs" : 18000000,
+            "risingRuns" : 1,
+            "sampleCount" : 2,
+            "startMs" : 0,
+            "usedPercent" : 10
+          }
+        ],
+        "rows" : [
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 0,
+              "firstSampleMs" : 0,
+              "lastSampleMs" : 9000000,
+              "observedFraction" : 0.5,
+              "peakUsedPercent" : 20,
+              "resetAtMs" : 18000000,
+              "risingRuns" : 1,
+              "sampleCount" : 2,
+              "startMs" : 0,
+              "usedPercent" : 10
+            },
+            "id" : 18000000,
+            "mineBreakdown" : {
+              "cacheRead" : 90,
+              "cacheWrite" : 9,
+              "input" : 30,
+              "output" : 6,
+              "reasoning" : 12,
+              "total" : 147
+            },
+            "mineCost" : 3,
+            "mineTokens" : 147,
+            "mineTokensExCacheRead" : 57,
+            "models" : [
+              {
+                "breakdown" : {
+                  "cacheRead" : 90,
+                  "cacheWrite" : 9,
+                  "input" : 30,
+                  "output" : 6,
+                  "reasoning" : 12,
+                  "total" : 147
+                },
+                "cost" : 3,
+                "id" : "provider|normal",
+                "modelId" : "normal",
+                "providerId" : "provider",
+                "tokens" : 147
+              }
+            ],
+            "otherCost" : 6,
+            "otherHasAssigned" : true,
+            "otherHasExcluded" : true,
+            "otherHasUnattributed" : true,
+            "otherTokens" : 147,
+            "spanCost" : 2,
+            "spanTokens" : 98
+          }
+        ],
+        "spans" : [
+          {
+            "cost" : 2,
+            "tokens" : 98
+          }
+        ]
+      }
+    },
+    {
+      "id" : "history-model-grouping",
+      "value" : {
+        "aggregate" : {
+          "count" : 1,
+          "isRatio" : false,
+          "kind" : "tooFewCycles",
+          "needed" : 3,
+          "text" : "1 of 3 windows recorded — the estimate needs that many"
+        },
+        "considered" : [
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 0,
+            "firstSampleMs" : 0,
+            "lastSampleMs" : 15000000,
+            "observedFraction" : 0.83333333333333337,
+            "peakUsedPercent" : 30,
+            "resetAtMs" : 18000000,
+            "risingRuns" : 1,
+            "sampleCount" : 2,
+            "startMs" : 0,
+            "usedPercent" : 20
+          }
+        ],
+        "cycles" : [
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 0,
+            "firstSampleMs" : 0,
+            "lastSampleMs" : 15000000,
+            "observedFraction" : 0.83333333333333337,
+            "peakUsedPercent" : 30,
+            "resetAtMs" : 18000000,
+            "risingRuns" : 1,
+            "sampleCount" : 2,
+            "startMs" : 0,
+            "usedPercent" : 20
+          }
+        ],
+        "rows" : [
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 0,
+              "firstSampleMs" : 0,
+              "lastSampleMs" : 15000000,
+              "observedFraction" : 0.83333333333333337,
+              "peakUsedPercent" : 30,
+              "resetAtMs" : 18000000,
+              "risingRuns" : 1,
+              "sampleCount" : 2,
+              "startMs" : 0,
+              "usedPercent" : 20
+            },
+            "id" : 18000000,
+            "mineBreakdown" : {
+              "cacheRead" : 90,
+              "cacheWrite" : 9,
+              "input" : 30,
+              "output" : 6,
+              "reasoning" : 12,
+              "total" : 147
+            },
+            "mineCost" : 3,
+            "mineTokens" : 147,
+            "mineTokensExCacheRead" : 57,
+            "models" : [
+              {
+                "breakdown" : {
+                  "cacheRead" : 30,
+                  "cacheWrite" : 3,
+                  "input" : 10,
+                  "output" : 2,
+                  "reasoning" : 4,
+                  "total" : 49
+                },
+                "cost" : 1,
+                "id" : "provider|claude-sonnet-4",
+                "modelId" : "claude-sonnet-4",
+                "providerId" : "provider",
+                "tokens" : 49
+              },
+              {
+                "breakdown" : {
+                  "cacheRead" : 30,
+                  "cacheWrite" : 3,
+                  "input" : 10,
+                  "output" : 2,
+                  "reasoning" : 4,
+                  "total" : 49
+                },
+                "cost" : 1,
+                "id" : "provider|claude-sonnet-4-20250514",
+                "modelId" : "claude-sonnet-4-20250514",
+                "providerId" : "provider",
+                "tokens" : 49
+              },
+              {
+                "breakdown" : {
+                  "cacheRead" : 30,
+                  "cacheWrite" : 3,
+                  "input" : 10,
+                  "output" : 2,
+                  "reasoning" : 4,
+                  "total" : 49
+                },
+                "cost" : 1,
+                "id" : "second|claude-sonnet-4-20250514",
+                "modelId" : "claude-sonnet-4-20250514",
+                "providerId" : "second",
+                "tokens" : 49
+              }
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 3,
+            "spanTokens" : 147
+          }
+        ],
+        "spans" : [
+          {
+            "cost" : 3,
+            "tokens" : 147
+          }
+        ]
+      }
+    },
+    {
+      "id" : "history-saturation",
+      "value" : {
+        "aggregate" : {
+          "count" : 1,
+          "isRatio" : false,
+          "kind" : "tooFewCycles",
+          "needed" : 3,
+          "text" : "1 of 3 windows recorded — the estimate needs that many"
+        },
+        "considered" : [
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 0,
+            "firstSampleMs" : 0,
+            "lastSampleMs" : 18005000,
+            "observedFraction" : 1,
+            "peakUsedPercent" : 22,
+            "resetAtMs" : 18000000,
+            "risingRuns" : 1,
+            "sampleCount" : 4,
+            "startMs" : 0,
+            "usedPercent" : 21
+          }
+        ],
+        "cycles" : [
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 0,
+            "firstSampleMs" : 0,
+            "lastSampleMs" : 18005000,
+            "observedFraction" : 1,
+            "peakUsedPercent" : 22,
+            "resetAtMs" : 18000000,
+            "risingRuns" : 1,
+            "sampleCount" : 4,
+            "startMs" : 0,
+            "usedPercent" : 21
+          }
+        ],
+        "rows" : [
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 0,
+              "firstSampleMs" : 0,
+              "lastSampleMs" : 18005000,
+              "observedFraction" : 1,
+              "peakUsedPercent" : 22,
+              "resetAtMs" : 18000000,
+              "risingRuns" : 1,
+              "sampleCount" : 4,
+              "startMs" : 0,
+              "usedPercent" : 21
+            },
+            "id" : 18000000,
+            "mineBreakdown" : {
+              "cacheRead" : 60,
+              "cacheWrite" : 6,
+              "input" : 9223372036854775807,
+              "output" : 4,
+              "reasoning" : 8,
+              "total" : 9223372036854775807
+            },
+            "mineCost" : 2,
+            "mineTokens" : 9223372036854775807,
+            "mineTokensExCacheRead" : 9223372036854775807,
+            "models" : [
+              {
+                "breakdown" : {
+                  "cacheRead" : 60,
+                  "cacheWrite" : 6,
+                  "input" : 9223372036854775807,
+                  "output" : 4,
+                  "reasoning" : 8,
+                  "total" : 9223372036854775807
+                },
+                "cost" : 2,
+                "id" : "provider|normal",
+                "modelId" : "normal",
+                "providerId" : "provider",
+                "tokens" : 9223372036854775807
+              }
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 2,
+            "spanTokens" : 9223372036854775807
+          }
+        ],
+        "spans" : [
+          {
+            "cost" : 2,
+            "tokens" : 9223372036854775807
+          }
+        ]
+      }
+    },
+    {
+      "id" : "history-cap",
+      "value" : {
+        "aggregate" : {
+          "isRatio" : false,
+          "kind" : "notMoved",
+          "text" : "Quota has not moved yet"
+        },
+        "considered" : [
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 612000000,
+            "firstSampleMs" : 612001000,
+            "lastSampleMs" : 612001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 630000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 612000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 594000000,
+            "firstSampleMs" : 594001000,
+            "lastSampleMs" : 594001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 612000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 594000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 576000000,
+            "firstSampleMs" : 576001000,
+            "lastSampleMs" : 576001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 594000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 576000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 558000000,
+            "firstSampleMs" : 558001000,
+            "lastSampleMs" : 558001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 576000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 558000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 540000000,
+            "firstSampleMs" : 540001000,
+            "lastSampleMs" : 540001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 558000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 540000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 522000000,
+            "firstSampleMs" : 522001000,
+            "lastSampleMs" : 522001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 540000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 522000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 504000000,
+            "firstSampleMs" : 504001000,
+            "lastSampleMs" : 504001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 522000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 504000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 486000000,
+            "firstSampleMs" : 486001000,
+            "lastSampleMs" : 486001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 504000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 486000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 468000000,
+            "firstSampleMs" : 468001000,
+            "lastSampleMs" : 468001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 486000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 468000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 450000000,
+            "firstSampleMs" : 450001000,
+            "lastSampleMs" : 450001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 468000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 450000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 432000000,
+            "firstSampleMs" : 432001000,
+            "lastSampleMs" : 432001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 450000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 432000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 414000000,
+            "firstSampleMs" : 414001000,
+            "lastSampleMs" : 414001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 432000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 414000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 396000000,
+            "firstSampleMs" : 396001000,
+            "lastSampleMs" : 396001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 414000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 396000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 378000000,
+            "firstSampleMs" : 378001000,
+            "lastSampleMs" : 378001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 396000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 378000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 360000000,
+            "firstSampleMs" : 360001000,
+            "lastSampleMs" : 360001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 378000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 360000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 342000000,
+            "firstSampleMs" : 342001000,
+            "lastSampleMs" : 342001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 360000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 342000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 324000000,
+            "firstSampleMs" : 324001000,
+            "lastSampleMs" : 324001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 342000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 324000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 306000000,
+            "firstSampleMs" : 306001000,
+            "lastSampleMs" : 306001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 324000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 306000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 288000000,
+            "firstSampleMs" : 288001000,
+            "lastSampleMs" : 288001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 306000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 288000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 270000000,
+            "firstSampleMs" : 270001000,
+            "lastSampleMs" : 270001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 288000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 270000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 252000000,
+            "firstSampleMs" : 252001000,
+            "lastSampleMs" : 252001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 270000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 252000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 234000000,
+            "firstSampleMs" : 234001000,
+            "lastSampleMs" : 234001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 252000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 234000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 216000000,
+            "firstSampleMs" : 216001000,
+            "lastSampleMs" : 216001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 234000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 216000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 198000000,
+            "firstSampleMs" : 198001000,
+            "lastSampleMs" : 198001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 216000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 198000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 180000000,
+            "firstSampleMs" : 180001000,
+            "lastSampleMs" : 180001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 198000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 180000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 162000000,
+            "firstSampleMs" : 162001000,
+            "lastSampleMs" : 162001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 180000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 162000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 144000000,
+            "firstSampleMs" : 144001000,
+            "lastSampleMs" : 144001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 162000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 144000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 126000000,
+            "firstSampleMs" : 126001000,
+            "lastSampleMs" : 126001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 144000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 126000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 108000000,
+            "firstSampleMs" : 108001000,
+            "lastSampleMs" : 108001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 126000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 108000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 90000000,
+            "firstSampleMs" : 90001000,
+            "lastSampleMs" : 90001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 108000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 90000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 72000000,
+            "firstSampleMs" : 72001000,
+            "lastSampleMs" : 72001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 90000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 72000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 54000000,
+            "firstSampleMs" : 54001000,
+            "lastSampleMs" : 54001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 72000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 54000000,
+            "usedPercent" : 0
+          }
+        ],
+        "cycles" : [
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 612000000,
+            "firstSampleMs" : 612001000,
+            "lastSampleMs" : 612001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 630000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 612000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 594000000,
+            "firstSampleMs" : 594001000,
+            "lastSampleMs" : 594001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 612000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 594000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 576000000,
+            "firstSampleMs" : 576001000,
+            "lastSampleMs" : 576001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 594000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 576000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 558000000,
+            "firstSampleMs" : 558001000,
+            "lastSampleMs" : 558001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 576000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 558000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 540000000,
+            "firstSampleMs" : 540001000,
+            "lastSampleMs" : 540001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 558000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 540000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 522000000,
+            "firstSampleMs" : 522001000,
+            "lastSampleMs" : 522001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 540000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 522000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 504000000,
+            "firstSampleMs" : 504001000,
+            "lastSampleMs" : 504001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 522000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 504000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 486000000,
+            "firstSampleMs" : 486001000,
+            "lastSampleMs" : 486001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 504000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 486000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 468000000,
+            "firstSampleMs" : 468001000,
+            "lastSampleMs" : 468001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 486000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 468000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 450000000,
+            "firstSampleMs" : 450001000,
+            "lastSampleMs" : 450001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 468000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 450000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 432000000,
+            "firstSampleMs" : 432001000,
+            "lastSampleMs" : 432001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 450000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 432000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 414000000,
+            "firstSampleMs" : 414001000,
+            "lastSampleMs" : 414001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 432000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 414000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 396000000,
+            "firstSampleMs" : 396001000,
+            "lastSampleMs" : 396001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 414000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 396000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 378000000,
+            "firstSampleMs" : 378001000,
+            "lastSampleMs" : 378001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 396000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 378000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 360000000,
+            "firstSampleMs" : 360001000,
+            "lastSampleMs" : 360001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 378000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 360000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 342000000,
+            "firstSampleMs" : 342001000,
+            "lastSampleMs" : 342001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 360000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 342000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 324000000,
+            "firstSampleMs" : 324001000,
+            "lastSampleMs" : 324001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 342000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 324000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 306000000,
+            "firstSampleMs" : 306001000,
+            "lastSampleMs" : 306001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 324000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 306000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 288000000,
+            "firstSampleMs" : 288001000,
+            "lastSampleMs" : 288001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 306000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 288000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 270000000,
+            "firstSampleMs" : 270001000,
+            "lastSampleMs" : 270001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 288000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 270000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 252000000,
+            "firstSampleMs" : 252001000,
+            "lastSampleMs" : 252001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 270000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 252000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 234000000,
+            "firstSampleMs" : 234001000,
+            "lastSampleMs" : 234001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 252000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 234000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 216000000,
+            "firstSampleMs" : 216001000,
+            "lastSampleMs" : 216001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 234000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 216000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 198000000,
+            "firstSampleMs" : 198001000,
+            "lastSampleMs" : 198001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 216000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 198000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 180000000,
+            "firstSampleMs" : 180001000,
+            "lastSampleMs" : 180001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 198000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 180000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 162000000,
+            "firstSampleMs" : 162001000,
+            "lastSampleMs" : 162001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 180000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 162000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 144000000,
+            "firstSampleMs" : 144001000,
+            "lastSampleMs" : 144001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 162000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 144000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 126000000,
+            "firstSampleMs" : 126001000,
+            "lastSampleMs" : 126001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 144000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 126000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 108000000,
+            "firstSampleMs" : 108001000,
+            "lastSampleMs" : 108001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 126000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 108000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 90000000,
+            "firstSampleMs" : 90001000,
+            "lastSampleMs" : 90001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 108000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 90000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 72000000,
+            "firstSampleMs" : 72001000,
+            "lastSampleMs" : 72001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 90000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 72000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 54000000,
+            "firstSampleMs" : 54001000,
+            "lastSampleMs" : 54001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 72000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 54000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 36000000,
+            "firstSampleMs" : 36001000,
+            "lastSampleMs" : 36001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 54000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 36000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 18000000,
+            "firstSampleMs" : 18001000,
+            "lastSampleMs" : 18001000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 36000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 18000000,
+            "usedPercent" : 0
+          },
+          {
+            "durationMs" : 18000000,
+            "evidenceStartMs" : 0,
+            "firstSampleMs" : 1000,
+            "lastSampleMs" : 1000,
+            "observedFraction" : 0,
+            "peakUsedPercent" : 10,
+            "resetAtMs" : 18000000,
+            "risingRuns" : 0,
+            "sampleCount" : 1,
+            "startMs" : 0,
+            "usedPercent" : 0
+          }
+        ],
+        "rows" : [
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 612000000,
+              "firstSampleMs" : 612001000,
+              "lastSampleMs" : 612001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 630000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 612000000,
+              "usedPercent" : 0
+            },
+            "id" : 630000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 594000000,
+              "firstSampleMs" : 594001000,
+              "lastSampleMs" : 594001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 612000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 594000000,
+              "usedPercent" : 0
+            },
+            "id" : 612000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 576000000,
+              "firstSampleMs" : 576001000,
+              "lastSampleMs" : 576001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 594000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 576000000,
+              "usedPercent" : 0
+            },
+            "id" : 594000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 558000000,
+              "firstSampleMs" : 558001000,
+              "lastSampleMs" : 558001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 576000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 558000000,
+              "usedPercent" : 0
+            },
+            "id" : 576000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 540000000,
+              "firstSampleMs" : 540001000,
+              "lastSampleMs" : 540001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 558000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 540000000,
+              "usedPercent" : 0
+            },
+            "id" : 558000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 522000000,
+              "firstSampleMs" : 522001000,
+              "lastSampleMs" : 522001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 540000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 522000000,
+              "usedPercent" : 0
+            },
+            "id" : 540000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 504000000,
+              "firstSampleMs" : 504001000,
+              "lastSampleMs" : 504001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 522000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 504000000,
+              "usedPercent" : 0
+            },
+            "id" : 522000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 486000000,
+              "firstSampleMs" : 486001000,
+              "lastSampleMs" : 486001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 504000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 486000000,
+              "usedPercent" : 0
+            },
+            "id" : 504000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 468000000,
+              "firstSampleMs" : 468001000,
+              "lastSampleMs" : 468001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 486000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 468000000,
+              "usedPercent" : 0
+            },
+            "id" : 486000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 450000000,
+              "firstSampleMs" : 450001000,
+              "lastSampleMs" : 450001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 468000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 450000000,
+              "usedPercent" : 0
+            },
+            "id" : 468000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 432000000,
+              "firstSampleMs" : 432001000,
+              "lastSampleMs" : 432001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 450000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 432000000,
+              "usedPercent" : 0
+            },
+            "id" : 450000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 414000000,
+              "firstSampleMs" : 414001000,
+              "lastSampleMs" : 414001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 432000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 414000000,
+              "usedPercent" : 0
+            },
+            "id" : 432000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 396000000,
+              "firstSampleMs" : 396001000,
+              "lastSampleMs" : 396001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 414000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 396000000,
+              "usedPercent" : 0
+            },
+            "id" : 414000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 378000000,
+              "firstSampleMs" : 378001000,
+              "lastSampleMs" : 378001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 396000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 378000000,
+              "usedPercent" : 0
+            },
+            "id" : 396000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 360000000,
+              "firstSampleMs" : 360001000,
+              "lastSampleMs" : 360001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 378000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 360000000,
+              "usedPercent" : 0
+            },
+            "id" : 378000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 342000000,
+              "firstSampleMs" : 342001000,
+              "lastSampleMs" : 342001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 360000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 342000000,
+              "usedPercent" : 0
+            },
+            "id" : 360000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 324000000,
+              "firstSampleMs" : 324001000,
+              "lastSampleMs" : 324001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 342000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 324000000,
+              "usedPercent" : 0
+            },
+            "id" : 342000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 306000000,
+              "firstSampleMs" : 306001000,
+              "lastSampleMs" : 306001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 324000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 306000000,
+              "usedPercent" : 0
+            },
+            "id" : 324000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 288000000,
+              "firstSampleMs" : 288001000,
+              "lastSampleMs" : 288001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 306000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 288000000,
+              "usedPercent" : 0
+            },
+            "id" : 306000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 270000000,
+              "firstSampleMs" : 270001000,
+              "lastSampleMs" : 270001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 288000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 270000000,
+              "usedPercent" : 0
+            },
+            "id" : 288000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 252000000,
+              "firstSampleMs" : 252001000,
+              "lastSampleMs" : 252001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 270000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 252000000,
+              "usedPercent" : 0
+            },
+            "id" : 270000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 234000000,
+              "firstSampleMs" : 234001000,
+              "lastSampleMs" : 234001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 252000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 234000000,
+              "usedPercent" : 0
+            },
+            "id" : 252000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 216000000,
+              "firstSampleMs" : 216001000,
+              "lastSampleMs" : 216001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 234000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 216000000,
+              "usedPercent" : 0
+            },
+            "id" : 234000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 198000000,
+              "firstSampleMs" : 198001000,
+              "lastSampleMs" : 198001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 216000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 198000000,
+              "usedPercent" : 0
+            },
+            "id" : 216000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 180000000,
+              "firstSampleMs" : 180001000,
+              "lastSampleMs" : 180001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 198000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 180000000,
+              "usedPercent" : 0
+            },
+            "id" : 198000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 162000000,
+              "firstSampleMs" : 162001000,
+              "lastSampleMs" : 162001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 180000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 162000000,
+              "usedPercent" : 0
+            },
+            "id" : 180000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 144000000,
+              "firstSampleMs" : 144001000,
+              "lastSampleMs" : 144001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 162000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 144000000,
+              "usedPercent" : 0
+            },
+            "id" : 162000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 126000000,
+              "firstSampleMs" : 126001000,
+              "lastSampleMs" : 126001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 144000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 126000000,
+              "usedPercent" : 0
+            },
+            "id" : 144000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 108000000,
+              "firstSampleMs" : 108001000,
+              "lastSampleMs" : 108001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 126000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 108000000,
+              "usedPercent" : 0
+            },
+            "id" : 126000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 90000000,
+              "firstSampleMs" : 90001000,
+              "lastSampleMs" : 90001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 108000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 90000000,
+              "usedPercent" : 0
+            },
+            "id" : 108000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 72000000,
+              "firstSampleMs" : 72001000,
+              "lastSampleMs" : 72001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 90000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 72000000,
+              "usedPercent" : 0
+            },
+            "id" : 90000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          },
+          {
+            "cycle" : {
+              "durationMs" : 18000000,
+              "evidenceStartMs" : 54000000,
+              "firstSampleMs" : 54001000,
+              "lastSampleMs" : 54001000,
+              "observedFraction" : 0,
+              "peakUsedPercent" : 10,
+              "resetAtMs" : 72000000,
+              "risingRuns" : 0,
+              "sampleCount" : 1,
+              "startMs" : 54000000,
+              "usedPercent" : 0
+            },
+            "id" : 72000000,
+            "mineBreakdown" : {
+              "cacheRead" : 0,
+              "cacheWrite" : 0,
+              "input" : 0,
+              "output" : 0,
+              "reasoning" : 0,
+              "total" : 0
+            },
+            "mineCost" : 0,
+            "mineTokens" : 0,
+            "mineTokensExCacheRead" : 0,
+            "models" : [
+
+            ],
+            "otherCost" : 0,
+            "otherHasAssigned" : false,
+            "otherHasExcluded" : false,
+            "otherHasUnattributed" : false,
+            "otherTokens" : 0,
+            "spanCost" : 0,
+            "spanTokens" : 0
+          }
+        ],
+        "spans" : [
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          },
+          {
+            "cost" : 0,
+            "tokens" : 0
+          }
+        ]
+      }
+    },
+    {
+      "id" : "geometry-used",
+      "value" : {
+        "bars" : [
+          {
+            "height" : 1,
+            "isEmpty" : false,
+            "width" : 0.20000000000000001,
+            "x" : 0
+          },
+          {
+            "height" : 0,
+            "isEmpty" : true,
+            "width" : 0.20000000000000001,
+            "x" : 0.20000000000000001
+          },
+          {
+            "height" : 0,
+            "isEmpty" : true,
+            "width" : 0.20000000000000001,
+            "x" : 0.40000000000000002
+          },
+          {
+            "height" : 0,
+            "isEmpty" : true,
+            "width" : 0.20000000000000001,
+            "x" : 0.59999999999999998
+          }
+        ],
+        "curve" : [
+          {
+            "x" : 0,
+            "y" : 1
+          },
+          {
+            "x" : 0.025000000000000001,
+            "y" : 1.5546875
+          },
+          {
+            "x" : 0.050000000000000003,
+            "y" : 2.1875
+          },
+          {
+            "x" : 0.075000000000000011,
+            "y" : 2.8515625
+          },
+          {
+            "x" : 0.10000000000000001,
+            "y" : 3.5
+          },
+          {
+            "x" : 0.125,
+            "y" : 4.0859375
+          },
+          {
+            "x" : 0.15000000000000002,
+            "y" : 4.5625
+          },
+          {
+            "x" : 0.17500000000000002,
+            "y" : 4.8828125
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 5
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 5.04296875
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 5.15625
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 5.31640625
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 5.5
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 5.68359375
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 5.84375
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 5.95703125
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 6
+          },
+          {
+            "x" : 0.22500000000000001,
+            "y" : 5.95703125
+          },
+          {
+            "x" : 0.25,
+            "y" : 5.84375
+          },
+          {
+            "x" : 0.27500000000000002,
+            "y" : 5.68359375
+          },
+          {
+            "x" : 0.30000000000000004,
+            "y" : 5.5
+          },
+          {
+            "x" : 0.32500000000000001,
+            "y" : 5.31640625
+          },
+          {
+            "x" : 0.35000000000000003,
+            "y" : 5.15625
+          },
+          {
+            "x" : 0.375,
+            "y" : 5.04296875
+          },
+          {
+            "x" : 0.40000000000000002,
+            "y" : 5
+          },
+          {
+            "x" : 0.42500000000000004,
+            "y" : 5.732421875
+          },
+          {
+            "x" : 0.45000000000000001,
+            "y" : 7.734375
+          },
+          {
+            "x" : 0.47499999999999998,
+            "y" : 10.712890625
+          },
+          {
+            "x" : 0.5,
+            "y" : 14.375
+          },
+          {
+            "x" : 0.52500000000000002,
+            "y" : 18.427734375
+          },
+          {
+            "x" : 0.55000000000000004,
+            "y" : 22.578125
+          },
+          {
+            "x" : 0.57499999999999996,
+            "y" : 26.533203125
+          },
+          {
+            "x" : 0.59999999999999998,
+            "y" : 30
+          }
+        ],
+        "firstSampleX" : 0,
+        "hits" : [
+          {
+            "closingSample" : {
+              "atMs" : 1000,
+              "usedPercent" : 5
+            },
+            "consumedRemaining" : -4,
+            "consumedUsed" : 4,
+            "hiMs" : 1000,
+            "index" : 0,
+            "loMs" : 0,
+            "openingSample" : {
+              "atMs" : 0,
+              "usedPercent" : 1
+            },
+            "width" : 0.20000000000000001,
+            "x" : 0
+          },
+          {
+            "closingSample" : {
+              "atMs" : 2000,
+              "usedPercent" : 5
+            },
+            "consumedRemaining" : 0,
+            "consumedUsed" : 0,
+            "hiMs" : 2000,
+            "index" : 1,
+            "loMs" : 1000,
+            "openingSample" : {
+              "atMs" : 1000,
+              "usedPercent" : 5
+            },
+            "width" : 0.20000000000000001,
+            "x" : 0.20000000000000001
+          },
+          {
+            "closingSample" : {
+              "atMs" : 3000,
+              "usedPercent" : 30
+            },
+            "consumedRemaining" : -25,
+            "consumedUsed" : 25,
+            "hiMs" : 3000,
+            "index" : 2,
+            "loMs" : 2000,
+            "openingSample" : {
+              "atMs" : 2000,
+              "usedPercent" : 5
+            },
+            "width" : 0.20000000000000001,
+            "x" : 0.40000000000000002
+          },
+          {
+            "closingSample" : null,
+            "consumedRemaining" : null,
+            "consumedUsed" : null,
+            "hiMs" : 4000,
+            "index" : 3,
+            "loMs" : 3000,
+            "openingSample" : {
+              "atMs" : 3000,
+              "usedPercent" : 30
+            },
+            "width" : 0.20000000000000001,
+            "x" : 0.59999999999999998
+          }
+        ],
+        "nowX" : 0.80000000000000004,
+        "samplePoints" : [
+          {
+            "x" : 0,
+            "y" : 1
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 5
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 6
+          },
+          {
+            "x" : 0.40000000000000002,
+            "y" : 5
+          },
+          {
+            "x" : 0.59999999999999998,
+            "y" : 30
+          }
+        ]
+      }
+    },
+    {
+      "id" : "geometry-remaining",
+      "value" : {
+        "bars" : [
+          {
+            "height" : 1,
+            "isEmpty" : false,
+            "width" : 0.20000000000000001,
+            "x" : 0
+          },
+          {
+            "height" : 0.66666666666666663,
+            "isEmpty" : false,
+            "width" : 0.20000000000000001,
+            "x" : 0.20000000000000001
+          },
+          {
+            "height" : 0.33333333333333331,
+            "isEmpty" : false,
+            "width" : 0.20000000000000001,
+            "x" : 0.40000000000000002
+          },
+          {
+            "height" : 0.33333333333333331,
+            "isEmpty" : false,
+            "width" : 0.20000000000000001,
+            "x" : 0.59999999999999998
+          }
+        ],
+        "curve" : [
+          {
+            "x" : 0,
+            "y" : 99
+          },
+          {
+            "x" : 0.025000000000000001,
+            "y" : 98.4453125
+          },
+          {
+            "x" : 0.050000000000000003,
+            "y" : 97.8125
+          },
+          {
+            "x" : 0.075000000000000011,
+            "y" : 97.1484375
+          },
+          {
+            "x" : 0.10000000000000001,
+            "y" : 96.5
+          },
+          {
+            "x" : 0.125,
+            "y" : 95.9140625
+          },
+          {
+            "x" : 0.15000000000000002,
+            "y" : 95.4375
+          },
+          {
+            "x" : 0.17500000000000002,
+            "y" : 95.1171875
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 95
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 94.95703125
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 94.84375
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 94.68359375
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 94.5
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 94.31640625
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 94.15625
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 94.04296875
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 94
+          },
+          {
+            "x" : 0.22500000000000001,
+            "y" : 94.04296875
+          },
+          {
+            "x" : 0.25,
+            "y" : 94.15625
+          },
+          {
+            "x" : 0.27500000000000002,
+            "y" : 94.31640625
+          },
+          {
+            "x" : 0.30000000000000004,
+            "y" : 94.5
+          },
+          {
+            "x" : 0.32500000000000001,
+            "y" : 94.68359375
+          },
+          {
+            "x" : 0.35000000000000003,
+            "y" : 94.84375
+          },
+          {
+            "x" : 0.375,
+            "y" : 94.95703125
+          },
+          {
+            "x" : 0.40000000000000002,
+            "y" : 95
+          },
+          {
+            "x" : 0.42500000000000004,
+            "y" : 94.267578125
+          },
+          {
+            "x" : 0.45000000000000001,
+            "y" : 92.265625
+          },
+          {
+            "x" : 0.47499999999999998,
+            "y" : 89.287109375
+          },
+          {
+            "x" : 0.5,
+            "y" : 85.625
+          },
+          {
+            "x" : 0.52500000000000002,
+            "y" : 81.572265625
+          },
+          {
+            "x" : 0.55000000000000004,
+            "y" : 77.421875
+          },
+          {
+            "x" : 0.57499999999999996,
+            "y" : 73.466796875
+          },
+          {
+            "x" : 0.59999999999999998,
+            "y" : 70
+          }
+        ],
+        "firstSampleX" : 0,
+        "hits" : [
+          {
+            "closingSample" : {
+              "atMs" : 1000,
+              "usedPercent" : 5
+            },
+            "consumedRemaining" : -4,
+            "consumedUsed" : 4,
+            "hiMs" : 1000,
+            "index" : 0,
+            "loMs" : 0,
+            "openingSample" : {
+              "atMs" : 0,
+              "usedPercent" : 1
+            },
+            "width" : 0.20000000000000001,
+            "x" : 0
+          },
+          {
+            "closingSample" : {
+              "atMs" : 2000,
+              "usedPercent" : 5
+            },
+            "consumedRemaining" : 0,
+            "consumedUsed" : 0,
+            "hiMs" : 2000,
+            "index" : 1,
+            "loMs" : 1000,
+            "openingSample" : {
+              "atMs" : 1000,
+              "usedPercent" : 5
+            },
+            "width" : 0.20000000000000001,
+            "x" : 0.20000000000000001
+          },
+          {
+            "closingSample" : {
+              "atMs" : 3000,
+              "usedPercent" : 30
+            },
+            "consumedRemaining" : -25,
+            "consumedUsed" : 25,
+            "hiMs" : 3000,
+            "index" : 2,
+            "loMs" : 2000,
+            "openingSample" : {
+              "atMs" : 2000,
+              "usedPercent" : 5
+            },
+            "width" : 0.20000000000000001,
+            "x" : 0.40000000000000002
+          },
+          {
+            "closingSample" : null,
+            "consumedRemaining" : null,
+            "consumedUsed" : null,
+            "hiMs" : 4000,
+            "index" : 3,
+            "loMs" : 3000,
+            "openingSample" : {
+              "atMs" : 3000,
+              "usedPercent" : 30
+            },
+            "width" : 0.20000000000000001,
+            "x" : 0.59999999999999998
+          }
+        ],
+        "nowX" : 0.80000000000000004,
+        "samplePoints" : [
+          {
+            "x" : 0,
+            "y" : 99
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 95
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 94
+          },
+          {
+            "x" : 0.40000000000000002,
+            "y" : 95
+          },
+          {
+            "x" : 0.59999999999999998,
+            "y" : 70
+          }
+        ]
+      }
+    },
+    {
+      "id" : "geometry-empty",
+      "value" : {
+        "bars" : [
+          {
+            "height" : 0,
+            "isEmpty" : true,
+            "width" : 0.80000000000000004,
+            "x" : 0
+          }
+        ],
+        "curve" : [
+
+        ],
+        "firstSampleX" : 0.80000000000000004,
+        "hits" : [
+          {
+            "closingSample" : null,
+            "consumedRemaining" : null,
+            "consumedUsed" : null,
+            "hiMs" : 4000,
+            "index" : 0,
+            "loMs" : 0,
+            "openingSample" : null,
+            "width" : 0.80000000000000004,
+            "x" : 0
+          }
+        ],
+        "nowX" : 0.80000000000000004,
+        "samplePoints" : [
+
+        ]
+      }
+    },
+    {
+      "id" : "geometry-one",
+      "value" : {
+        "bars" : [
+          {
+            "height" : 1,
+            "isEmpty" : false,
+            "width" : 0.20000000000000001,
+            "x" : 0
+          },
+          {
+            "height" : 0,
+            "isEmpty" : true,
+            "width" : 0.59999999999999998,
+            "x" : 0.20000000000000001
+          }
+        ],
+        "curve" : [
+
+        ],
+        "firstSampleX" : 0.20000000000000001,
+        "hits" : [
+          {
+            "closingSample" : {
+              "atMs" : 1000,
+              "usedPercent" : 5
+            },
+            "consumedRemaining" : null,
+            "consumedUsed" : null,
+            "hiMs" : 1000,
+            "index" : 0,
+            "loMs" : 0,
+            "openingSample" : null,
+            "width" : 0.20000000000000001,
+            "x" : 0
+          },
+          {
+            "closingSample" : null,
+            "consumedRemaining" : null,
+            "consumedUsed" : null,
+            "hiMs" : 4000,
+            "index" : 1,
+            "loMs" : 1000,
+            "openingSample" : {
+              "atMs" : 1000,
+              "usedPercent" : 5
+            },
+            "width" : 0.59999999999999998,
+            "x" : 0.20000000000000001
+          }
+        ],
+        "nowX" : 0.80000000000000004,
+        "samplePoints" : [
+          {
+            "x" : 0.20000000000000001,
+            "y" : 5
+          }
+        ]
+      }
+    },
+    {
+      "id" : "geometry-invalid-window",
+      "value" : {
+        "bars" : [
+
+        ],
+        "curve" : [
+
+        ],
+        "firstSampleX" : 1000,
+        "hits" : [
+
+        ],
+        "nowX" : 1000,
+        "samplePoints" : [
+
+        ]
+      }
+    },
+    {
+      "id" : "geometry-before-start",
+      "value" : {
+        "bars" : [
+
+        ],
+        "curve" : [
+
+        ],
+        "firstSampleX" : -0.25,
+        "hits" : [
+
+        ],
+        "nowX" : -0.25,
+        "samplePoints" : [
+
+        ]
+      }
+    },
+    {
+      "id" : "geometry-cache-only",
+      "value" : {
+        "bars" : [
+          {
+            "height" : 0,
+            "isEmpty" : true,
+            "width" : 0.40000000000000002,
+            "x" : 0
+          },
+          {
+            "height" : 0,
+            "isEmpty" : true,
+            "width" : 0.40000000000000002,
+            "x" : 0.40000000000000002
+          }
+        ],
+        "curve" : [
+          {
+            "x" : 0,
+            "y" : 1
+          },
+          {
+            "x" : 0.050000000000000003,
+            "y" : 3.375
+          },
+          {
+            "x" : 0.10000000000000001,
+            "y" : 5.75
+          },
+          {
+            "x" : 0.15000000000000002,
+            "y" : 8.125
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 10.5
+          },
+          {
+            "x" : 0.25,
+            "y" : 12.875
+          },
+          {
+            "x" : 0.30000000000000004,
+            "y" : 15.25
+          },
+          {
+            "x" : 0.35000000000000003,
+            "y" : 17.625
+          },
+          {
+            "x" : 0.40000000000000002,
+            "y" : 20
+          }
+        ],
+        "firstSampleX" : 0,
+        "hits" : [
+          {
+            "closingSample" : {
+              "atMs" : 2000,
+              "usedPercent" : 20
+            },
+            "consumedRemaining" : -19,
+            "consumedUsed" : 19,
+            "hiMs" : 2000,
+            "index" : 0,
+            "loMs" : 0,
+            "openingSample" : {
+              "atMs" : 0,
+              "usedPercent" : 1
+            },
+            "width" : 0.40000000000000002,
+            "x" : 0
+          },
+          {
+            "closingSample" : null,
+            "consumedRemaining" : null,
+            "consumedUsed" : null,
+            "hiMs" : 4000,
+            "index" : 1,
+            "loMs" : 2000,
+            "openingSample" : {
+              "atMs" : 2000,
+              "usedPercent" : 20
+            },
+            "width" : 0.40000000000000002,
+            "x" : 0.40000000000000002
+          }
+        ],
+        "nowX" : 0.80000000000000004,
+        "samplePoints" : [
+          {
+            "x" : 0,
+            "y" : 1
+          },
+          {
+            "x" : 0.40000000000000002,
+            "y" : 20
+          }
+        ]
+      }
+    },
+    {
+      "id" : "geometry-limited-tangents",
+      "value" : {
+        "bars" : [
+          {
+            "height" : 0,
+            "isEmpty" : true,
+            "width" : 0.20000000000000001,
+            "x" : 0
+          },
+          {
+            "height" : 0,
+            "isEmpty" : true,
+            "width" : 0.20000000000000001,
+            "x" : 0.20000000000000001
+          },
+          {
+            "height" : 0,
+            "isEmpty" : true,
+            "width" : 0.20000000000000001,
+            "x" : 0.40000000000000002
+          },
+          {
+            "height" : 0,
+            "isEmpty" : true,
+            "width" : 0.20000000000000001,
+            "x" : 0.59999999999999998
+          }
+        ],
+        "curve" : [
+          {
+            "x" : 0,
+            "y" : 0
+          },
+          {
+            "x" : 0.025000000000000001,
+            "y" : 0.0077604982854066404
+          },
+          {
+            "x" : 0.050000000000000003,
+            "y" : 0.024174675921054822
+          },
+          {
+            "x" : 0.075000000000000011,
+            "y" : 0.061664193476765772
+          },
+          {
+            "x" : 0.10000000000000001,
+            "y" : 0.13265071152236041
+          },
+          {
+            "x" : 0.125,
+            "y" : 0.24955589062766004
+          },
+          {
+            "x" : 0.15000000000000002,
+            "y" : 0.42480139136248579
+          },
+          {
+            "x" : 0.17500000000000002,
+            "y" : 0.6708088742966587
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 1
+          },
+          {
+            "x" : 0.22500000000000001,
+            "y" : 5.4569810472760985
+          },
+          {
+            "x" : 0.25,
+            "y" : 16.593692625458399
+          },
+          {
+            "x" : 0.27500000000000002,
+            "y" : 32.183557890911494
+          },
+          {
+            "x" : 0.30000000000000004,
+            "y" : 50
+          },
+          {
+            "x" : 0.32500000000000001,
+            "y" : 67.816442109088499
+          },
+          {
+            "x" : 0.35000000000000003,
+            "y" : 83.406307374541598
+          },
+          {
+            "x" : 0.375,
+            "y" : 94.543018952723898
+          },
+          {
+            "x" : 0.40000000000000002,
+            "y" : 99
+          },
+          {
+            "x" : 0.42500000000000004,
+            "y" : 99.329191125703332
+          },
+          {
+            "x" : 0.45000000000000001,
+            "y" : 99.575198608637521
+          },
+          {
+            "x" : 0.47499999999999998,
+            "y" : 99.750444109372339
+          },
+          {
+            "x" : 0.5,
+            "y" : 99.867349288477641
+          },
+          {
+            "x" : 0.52500000000000002,
+            "y" : 99.938335806523227
+          },
+          {
+            "x" : 0.55000000000000004,
+            "y" : 99.97582532407894
+          },
+          {
+            "x" : 0.57499999999999996,
+            "y" : 99.992239501714607
+          },
+          {
+            "x" : 0.59999999999999998,
+            "y" : 100
+          }
+        ],
+        "firstSampleX" : 0,
+        "hits" : [
+          {
+            "closingSample" : {
+              "atMs" : 1000,
+              "usedPercent" : 1
+            },
+            "consumedRemaining" : -1,
+            "consumedUsed" : 1,
+            "hiMs" : 1000,
+            "index" : 0,
+            "loMs" : 0,
+            "openingSample" : {
+              "atMs" : 0,
+              "usedPercent" : 0
+            },
+            "width" : 0.20000000000000001,
+            "x" : 0
+          },
+          {
+            "closingSample" : {
+              "atMs" : 2000,
+              "usedPercent" : 99
+            },
+            "consumedRemaining" : -98,
+            "consumedUsed" : 98,
+            "hiMs" : 2000,
+            "index" : 1,
+            "loMs" : 1000,
+            "openingSample" : {
+              "atMs" : 1000,
+              "usedPercent" : 1
+            },
+            "width" : 0.20000000000000001,
+            "x" : 0.20000000000000001
+          },
+          {
+            "closingSample" : {
+              "atMs" : 3000,
+              "usedPercent" : 100
+            },
+            "consumedRemaining" : -1,
+            "consumedUsed" : 1,
+            "hiMs" : 3000,
+            "index" : 2,
+            "loMs" : 2000,
+            "openingSample" : {
+              "atMs" : 2000,
+              "usedPercent" : 99
+            },
+            "width" : 0.20000000000000001,
+            "x" : 0.40000000000000002
+          },
+          {
+            "closingSample" : null,
+            "consumedRemaining" : null,
+            "consumedUsed" : null,
+            "hiMs" : 4000,
+            "index" : 3,
+            "loMs" : 3000,
+            "openingSample" : {
+              "atMs" : 3000,
+              "usedPercent" : 100
+            },
+            "width" : 0.20000000000000001,
+            "x" : 0.59999999999999998
+          }
+        ],
+        "nowX" : 0.80000000000000004,
+        "samplePoints" : [
+          {
+            "x" : 0,
+            "y" : 0
+          },
+          {
+            "x" : 0.20000000000000001,
+            "y" : 1
+          },
+          {
+            "x" : 0.40000000000000002,
+            "y" : 99
+          },
+          {
+            "x" : 0.59999999999999998,
+            "y" : 100
+          }
+        ]
+      }
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "Index 0",
+          "isTurnStart"
+        ]
+      },
+      "id" : "decode-bool-null"
+    },
+    {
+      "error" : {
+        "kind" : "dataCorrupted",
+        "path" : [
+
+        ]
+      },
+      "id" : "decode-int-fraction"
+    },
+    {
+      "error" : {
+        "kind" : "valueNotFound",
+        "path" : [
+          "Index 0",
+          "input"
+        ]
+      },
+      "id" : "decode-int-null"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "Index 0",
+          "modelId"
+        ]
+      },
+      "id" : "decode-string-type"
+    }
+  ]
+}
