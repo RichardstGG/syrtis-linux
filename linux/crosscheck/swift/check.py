@@ -1,4 +1,4 @@
-"""Check the core-leaf and quota-trend selectors and the fail-closed CLI on macOS."""
+"""Check the core-leaf, quota-trend and reports selectors and the fail-closed CLI on macOS."""
 
 import json
 import os
@@ -10,9 +10,9 @@ import tempfile
 
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "harness"))
-from core_leaf_check import verify_output
+from reports_check import verify_structure as verify_reports_structure
 
-SELECTORS = ("core-leaf", "quota-trend")
+SELECTORS = ("core-leaf", "quota-trend", "reports")
 
 
 def main():
@@ -44,12 +44,15 @@ def main():
         run([*pin, *base, "all"])
         if {p.name for p in out.iterdir()} != {f"{name}.actual.json" for name in SELECTORS}:
             raise RuntimeError("extension selector set changed")
-        verify_output(out / "core-leaf.actual.json")
-        # Oracle checks validate coverage only; diff.py against the golden owns semantics.
-        trend = json.loads((fixtures / "quota-trend.json").read_text())
+        # Oracle checks validate transport/coverage, never guessed decoder or
+        # calculation results. diff.py compares C++ semantics to these outputs.
         baseline = {name: json.loads((out / f"{name}.actual.json").read_text()) for name in SELECTORS}
+        if not isinstance(baseline["core-leaf"], dict):
+            raise RuntimeError("invalid core-leaf output object")
+        trend = json.loads((fixtures / "quota-trend.json").read_text())
         if set(baseline["quota-trend"]) != {row["id"] for rows in trend.values() for row in rows}:
             raise RuntimeError("quota-trend case set differs from fixture")
+        verify_reports_structure(out / "reports.actual.json", fixtures / "reports.json")
         for name in SELECTORS:
             run([*base, name, *pin])
             if json.loads((out / f"{name}.actual.json").read_text()) != baseline[name]:
@@ -67,7 +70,7 @@ def main():
         run([str(fixtures), str(blocked), *pin], expected=1)
         (fixtures / "quota-trend.json").write_text("{", encoding="utf-8")
         run([*base, "quota-trend", *pin], expected=1)
-    print("Linux Swift harness self-test OK (core-leaf, quota-trend, CLI, timezone, I/O)")
+    print("Linux Swift harness self-test OK (core-leaf, quota-trend, reports, CLI, timezone, I/O)")
 
 
 if __name__ == "__main__":

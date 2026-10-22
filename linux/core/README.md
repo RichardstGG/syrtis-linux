@@ -49,7 +49,7 @@ TZ=Asia/Taipei linux/core/build/crosscheck/syrtis-crosscheck linux/crosscheck/fi
 ```
 
 The harness accepts `core-leaf`, `usage-pace`, `format`, `provider-quota-pace-v3`,
-and `quota-trend`. Like the [Swift harness](../../Sources/CrossCheckHarness/main.swift), an omitted selector
+`quota-trend`, and `reports`. Like the [Swift harness](../../Sources/CrossCheckHarness/main.swift), an omitted selector
 or `all` runs the two legacy selectors (`usage-pace` and `format`). `TZ` must be
 exactly `Asia/Taipei`. The Qt harness pins its locale to English internally;
 the Swift-compatible `-AppleLanguages "(en)"` pair is also accepted anywhere in
@@ -96,3 +96,31 @@ use milliseconds. The default-constructed `QuotaHeatmap{}` is Swift's `.empty`.
 `crosscheck-quota-trend` skips until the macOS oracle supplies its golden. The
 [Swift extension](../crosscheck/swift/README.md) calls the shipping folds for
 parity validation; local assertions do not substitute for that gate.
+
+`reports` ports the payload declarations and pure envelope decoders from
+[`TBCore.swift`](../../Sources/TokenBarCore/TBCore.swift), plus `AgentsReport`,
+`HourlyReport`, `ModelReport`, and `FilterParityProbe`. `TBCore::decodeEnvelope<T>`
+and `decodeOptionalEnvelope<T>` accept the bridge's `QJsonObject` (through
+`QJsonValue`) or copied JSON bytes. No FFI symbols or pointer ownership enter
+Core. This port covers decoding and the parity probe's bounded smoke summary;
+model display folding and other report calculations are outside this decoder
+surface. Reports retain Rust's supplied totals, entry order, and client lists.
+
+`DecodingError` records Swift's error kind, coding path, and missing field;
+`TBCoreError` preserves backend error text, including the `unknown` fallback.
+The typed payload and optional error are decoded before checking `ok`, as in
+Swift. Missing and explicit-null `data` differ only in the optional-envelope
+path. Unknown keys are ignored; required fields never default to zero.
+Missing required keys produce `keyNotFound`. Present null values produce
+`valueNotFound`, except keyed `Bool` fields, where Swift's direct type check
+produces `typeMismatch`. Optional fields accept both missing and null keys.
+
+[`reports.json`](../crosscheck/fixtures/reports.json) contains only synthetic
+data, including legacy optional fields, exact signed 64-bit values, malformed
+envelopes, all four parity statuses, and the Rust `msPer1kTokens` spelling.
+`reports-selftest` checks C++ decoder regressions, including missing/null/wrong
+types for every Boolean field and each other decoded field category. The Swift
+oracle preflight shares only JSON structure and case-id coverage checks;
+semantic agreement is checked by `diff.py` after golden generation.
+`crosscheck-reports` runs the normal comparator and skips with return code 77
+until macOS supplies `golden/reports.json`.
