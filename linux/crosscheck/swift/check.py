@@ -1,22 +1,29 @@
-"""Check the quota-trend extension and fail-closed CLI on macOS."""
+"""Check the core-leaf and quota-trend selectors and the fail-closed CLI on macOS."""
 
 import json
 import os
-from pathlib import Path
 import shutil
+from pathlib import Path
 import subprocess
 import sys
 import tempfile
 
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "harness"))
+from core_leaf_check import verify_output
+
+SELECTORS = ("core-leaf", "quota-trend")
+
+
 def main():
     harness, work = sys.argv[1:]
     env = dict(os.environ, TZ="Asia/Taipei")
+    fixture_dir = Path(__file__).resolve().parents[1] / "fixtures"
     with tempfile.TemporaryDirectory(dir=work) as scratch:
         fixtures = Path(scratch) / "fixtures"
         fixtures.mkdir()
-        source = Path(__file__).resolve().parent.parent / "fixtures/quota-trend.json"
-        shutil.copyfile(source, fixtures / source.name)
+        for name in SELECTORS:
+            shutil.copyfile(fixture_dir / f"{name}.json", fixtures / f"{name}.json")
         out = Path(scratch) / "out"
         base = [str(fixtures), str(out)]
         pin = ["-AppleLanguages", "(en)"]
@@ -32,22 +39,21 @@ def main():
                     f"{result.stdout}{result.stderr}"
                 )
 
-        # The extension's all/default run owns only its new selector.
+        # The extension must never run root selectors or invent oracle goldens.
         run([*base, *pin])
-        actual = json.loads((out / "quota-trend.actual.json").read_text())
-        fixture = json.loads(source.read_text())
-        if set(actual) != {row["id"] for rows in fixture.values() for row in rows}:
-            raise RuntimeError("quota-trend case set differs from fixture")
-        if actual["trend-runs-out"]["runsOutEarly"] is not True or actual["trend-empty"] is not None:
-            raise RuntimeError("quota-trend did not call the shipping trend fold")
-        if actual["heatmap-gap-only-fractional"]["hasMovement"] is not True:
-            raise RuntimeError("quota-trend did not call the shipping heatmap fold")
         run([*pin, *base, "all"])
-        run([*base, "quota-trend", *pin])
-        if {p.name for p in out.iterdir()} != {"quota-trend.actual.json"}:
-            raise RuntimeError("extension produced unexpected selectors")
-        if json.loads((out / "quota-trend.actual.json").read_text()) != actual:
-            raise RuntimeError("explicit selector differs from all/default")
+        if {p.name for p in out.iterdir()} != {f"{name}.actual.json" for name in SELECTORS}:
+            raise RuntimeError("extension selector set changed")
+        verify_output(out / "core-leaf.actual.json")
+        # Oracle checks validate coverage only; diff.py against the golden owns semantics.
+        trend = json.loads((fixtures / "quota-trend.json").read_text())
+        baseline = {name: json.loads((out / f"{name}.actual.json").read_text()) for name in SELECTORS}
+        if set(baseline["quota-trend"]) != {row["id"] for rows in trend.values() for row in rows}:
+            raise RuntimeError("quota-trend case set differs from fixture")
+        for name in SELECTORS:
+            run([*base, name, *pin])
+            if json.loads((out / f"{name}.actual.json").read_text()) != baseline[name]:
+                raise RuntimeError(f"{name} output depends on selector invocation")
         for selector in ("unknown", "usage-pace", "format", "provider-quota-pace-v3"):
             run([*base, selector, *pin], expected=2)
         for args in (pin, [*base, "all", "extra", *pin],
@@ -59,9 +65,9 @@ def main():
         blocked = Path(scratch) / "file"
         blocked.write_text("synthetic", encoding="utf-8")
         run([str(fixtures), str(blocked), *pin], expected=1)
-        (fixtures / source.name).write_text("{", encoding="utf-8")
+        (fixtures / "quota-trend.json").write_text("{", encoding="utf-8")
         run([*base, "quota-trend", *pin], expected=1)
-    print("Linux Swift harness self-test OK (quota-trend, CLI, timezone, I/O)")
+    print("Linux Swift harness self-test OK (core-leaf, quota-trend, CLI, timezone, I/O)")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,742 @@
+{
+  "ids": [
+    "claude",
+    "gemini",
+    "qwen",
+    "antigravity-cli",
+    "grok",
+    "grok-bot",
+    "antigravity",
+    "codex",
+    "unknown-cli",
+    "",
+    "ßeta",
+    "éclair",
+    "🧑‍💻dev",
+    "Unknown Code",
+    "Unknown CLI",
+    "claude-code",
+    "codex-cli",
+    "gemini-cli"
+  ],
+  "labels": [
+    "Codex",
+    "Claude",
+    "Copilot",
+    "Gemini",
+    "OpenAI",
+    "gemini",
+    "",
+    "MiXeD"
+  ],
+  "registry": [
+    {},
+    {
+      "raw": ",,claude,,codex,claude, codex,",
+      "present": [
+        "grok",
+        "grok-bot",
+        "codex",
+        "antigravity-cli",
+        "unknown",
+        "claude",
+        "antigravity"
+      ],
+      "quotaIds": [
+        "grok-bot",
+        "antigravity",
+        "codex",
+        "grok-bot"
+      ],
+      "tabHidden": [
+        "grok-bot"
+      ],
+      "limitsHidden": [
+        "antigravity-cli"
+      ],
+      "placeholders": [
+        "grok-bot",
+        "antigravity-cli"
+      ],
+      "orderRaw": "antigravity-cli,antigravity,codex,codex,unknown",
+      "hiddenRaw": "grok-bot",
+      "preferences": {
+        "order": null,
+        "hidden": "grok-bot",
+        "limitsHidden": "antigravity-cli",
+        "legacyOrder": "codex,claude"
+      }
+    },
+    {
+      "present": [
+        "grok",
+        "grok-bot",
+        "antigravity",
+        "antigravity-cli",
+        "claude",
+        "new"
+      ],
+      "quotaIds": [
+        "copilot",
+        "grok-bot"
+      ],
+      "tabHidden": [
+        "antigravity-cli"
+      ],
+      "limitsHidden": [
+        "grok-bot"
+      ],
+      "placeholders": [
+        "grok",
+        "antigravity-cli",
+        "new"
+      ],
+      "hiddenRaw": "antigravity-cli",
+      "orderRaw": "grok-bot,grok,claude",
+      "preferences": {
+        "order": "",
+        "legacyOrder": "claude"
+      }
+    },
+    {
+      "present": [
+        "grok-bot",
+        "antigravity-cli"
+      ],
+      "orderRaw": "antigravity-cli,grok-bot",
+      "preferences": {
+        "order": "codex",
+        "legacyOrder": "claude"
+      }
+    },
+    {
+      "present": [
+        "claude",
+        "codex",
+        "claude",
+        "new"
+      ],
+      "orderRaw": "codex,claude,codex",
+      "preferences": {
+        "legacyOrder": ""
+      }
+    },
+    {
+      "present": [
+        "grok",
+        "antigravity"
+      ],
+      "tabHidden": [
+        "grok",
+        "antigravity"
+      ],
+      "limitsHidden": [
+        "grok"
+      ],
+      "hiddenRaw": "grok,antigravity"
+    },
+    {
+      "list": [
+        "a",
+        "b",
+        "c"
+      ],
+      "full": [
+        "off",
+        "a",
+        "middle",
+        "b",
+        "tail"
+      ],
+      "visible": [
+        "a",
+        "b",
+        "c"
+      ],
+      "fromId": "a",
+      "toId": "c"
+    },
+    {
+      "list": [
+        "a",
+        "b",
+        "c"
+      ],
+      "full": [
+        "off",
+        "a",
+        "middle",
+        "b",
+        "tail"
+      ],
+      "visible": [
+        "a",
+        "b",
+        "c"
+      ],
+      "fromId": "c",
+      "toId": "a"
+    },
+    {
+      "list": [
+        "a",
+        "b",
+        "c"
+      ],
+      "full": [
+        "off",
+        "a",
+        "middle",
+        "b",
+        "tail"
+      ],
+      "visible": [
+        "a",
+        "b",
+        "c"
+      ],
+      "fromId": "a",
+      "toId": "a"
+    },
+    {
+      "list": [
+        "a",
+        "b",
+        "c"
+      ],
+      "full": [
+        "off",
+        "a",
+        "middle",
+        "b",
+        "tail"
+      ],
+      "visible": [
+        "a",
+        "b",
+        "c"
+      ],
+      "fromId": "missing",
+      "toId": "a"
+    },
+    {
+      "list": [
+        "a",
+        "b",
+        "c"
+      ],
+      "full": [
+        "off",
+        "a",
+        "middle",
+        "b",
+        "tail"
+      ],
+      "visible": [
+        "a",
+        "b",
+        "c"
+      ],
+      "fromId": "a",
+      "toId": "missing"
+    },
+    {
+      "list": [
+        "a",
+        "b",
+        "a",
+        "c"
+      ],
+      "full": [
+        "a",
+        "a",
+        "off",
+        "b",
+        "b"
+      ],
+      "visible": [
+        "a",
+        "b"
+      ],
+      "fromId": "a",
+      "toId": "b"
+    }
+  ],
+  "grouping": [
+    "grok-4-build",
+    "grok-4.20-build",
+    "grok-04.002-build",
+    "grok-build",
+    "grok--build",
+    "grok-4.-build",
+    "grok-.4-build",
+    "grok-4..2-build",
+    "grok-x-build",
+    "Grok-4-build",
+    "grok-4-Build",
+    "grok-４-build",
+    "grok-4a-build",
+    "grok-4",
+    "grok-4-build-extra",
+    "",
+    "grok-4\n-build"
+  ],
+  "scopes": [
+    {
+      "scope": "Fable",
+      "model": "claude-fable-5"
+    },
+    {
+      "scope": "Fable 5",
+      "model": "claude-fable-5"
+    },
+    {
+      "scope": "fable",
+      "model": "claude-fables-5"
+    },
+    {
+      "scope": "",
+      "model": "fable"
+    },
+    {
+      "scope": "---",
+      "model": "fable"
+    },
+    {
+      "scope": "fable",
+      "model": ""
+    },
+    {
+      "scope": "5 FABLE fable",
+      "model": "claude-fable-5"
+    },
+    {
+      "scope": "model x",
+      "model": "model-y"
+    },
+    {
+      "scope": "CAFÉ",
+      "model": "vendor-café-2"
+    },
+    {
+      "scope": "模型 ٢",
+      "model": "模型-٢"
+    },
+    {
+      "scope": "Ⅳ",
+      "model": "version-ⅳ"
+    }
+  ],
+  "windows": [
+    {
+      "reset": null,
+      "duration": 10,
+      "now": 100,
+      "first": null,
+      "probeReset": 100,
+      "messages": []
+    },
+    {
+      "reset": 100,
+      "duration": null,
+      "now": 100,
+      "first": null,
+      "probeReset": 100,
+      "messages": []
+    },
+    {
+      "reset": 110,
+      "duration": 10,
+      "now": 100,
+      "first": null,
+      "probeReset": 100,
+      "messages": []
+    },
+    {
+      "reset": 111,
+      "duration": 10,
+      "now": 100,
+      "first": null,
+      "probeReset": 100,
+      "messages": []
+    },
+    {
+      "reset": 105,
+      "duration": 10,
+      "now": 100,
+      "first": null,
+      "probeReset": 100,
+      "messages": []
+    },
+    {
+      "reset": 100,
+      "duration": 10,
+      "now": 100,
+      "first": null,
+      "probeReset": 100,
+      "messages": []
+    },
+    {
+      "reset": 100,
+      "duration": 10,
+      "now": 100,
+      "first": 100,
+      "probeReset": 100,
+      "messages": []
+    },
+    {
+      "reset": 90,
+      "duration": 10,
+      "now": 100,
+      "first": 95,
+      "probeReset": 100,
+      "messages": []
+    },
+    {
+      "reset": 89,
+      "duration": 10,
+      "now": 100,
+      "first": 95,
+      "probeReset": 100,
+      "messages": []
+    },
+    {
+      "reset": 100,
+      "duration": 0,
+      "now": 100,
+      "first": null,
+      "probeReset": 100,
+      "messages": []
+    },
+    {
+      "reset": 100,
+      "duration": -1,
+      "now": 100,
+      "first": 100,
+      "probeReset": 100,
+      "messages": []
+    },
+    {
+      "reset": 110,
+      "duration": -1,
+      "now": 100,
+      "first": null,
+      "probeReset": 100,
+      "messages": []
+    },
+    {
+      "reset": 100,
+      "duration": 10,
+      "now": 100,
+      "first": 125,
+      "probeReset": 100,
+      "messages": []
+    },
+    {
+      "reset": 100,
+      "duration": 10,
+      "now": 100,
+      "first": null,
+      "probeReset": 100,
+      "messages": []
+    },
+    {
+      "reset": 100,
+      "duration": 10,
+      "now": 100,
+      "first": null,
+      "probeReset": 100,
+      "messages": [
+        {
+          "timestamp": 99,
+          "client": "synthetic",
+          "providerId": "",
+          "modelId": "synthetic-model",
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0,
+          "cost": 0,
+          "isTurnStart": false
+        },
+        {
+          "timestamp": 5,
+          "client": "synthetic",
+          "providerId": "",
+          "modelId": "synthetic-model",
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0,
+          "cost": 0,
+          "isTurnStart": false
+        }
+      ]
+    },
+    {
+      "reset": 100,
+      "duration": 10,
+      "now": 100,
+      "first": null,
+      "probeReset": 100,
+      "messages": [
+        {
+          "timestamp": 110,
+          "client": "synthetic",
+          "providerId": "",
+          "modelId": "synthetic-model",
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0,
+          "cost": 0,
+          "isTurnStart": false
+        },
+        {
+          "timestamp": 100,
+          "client": "synthetic",
+          "providerId": "",
+          "modelId": "synthetic-model",
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0,
+          "cost": 0,
+          "isTurnStart": false
+        },
+        {
+          "timestamp": 103,
+          "client": "synthetic",
+          "providerId": "",
+          "modelId": "synthetic-model",
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0,
+          "cost": 0,
+          "isTurnStart": false
+        },
+        {
+          "timestamp": 100,
+          "client": "synthetic",
+          "providerId": "",
+          "modelId": "synthetic-model",
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0,
+          "cost": 0,
+          "isTurnStart": false
+        }
+      ]
+    },
+    {
+      "reset": 100,
+      "duration": 10,
+      "now": 100,
+      "first": null,
+      "probeReset": 100,
+      "messages": [
+        {
+          "timestamp": 105,
+          "client": "synthetic",
+          "providerId": "",
+          "modelId": "synthetic-model",
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0,
+          "cost": 0,
+          "isTurnStart": false
+        },
+        {
+          "timestamp": 110,
+          "client": "synthetic",
+          "providerId": "",
+          "modelId": "synthetic-model",
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0,
+          "cost": 0,
+          "isTurnStart": false
+        },
+        {
+          "timestamp": 101,
+          "client": "synthetic",
+          "providerId": "",
+          "modelId": "synthetic-model",
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0,
+          "cost": 0,
+          "isTurnStart": false
+        }
+      ]
+    },
+    {
+      "reset": 100,
+      "duration": 10,
+      "now": 100,
+      "first": null,
+      "probeReset": 100,
+      "messages": [
+        {
+          "timestamp": 9007199254740993,
+          "client": "synthetic",
+          "providerId": "",
+          "modelId": "synthetic-model",
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0,
+          "cost": 0,
+          "isTurnStart": false
+        },
+        {
+          "timestamp": 9007199254740992,
+          "client": "synthetic",
+          "providerId": "",
+          "modelId": "synthetic-model",
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0,
+          "cost": 0,
+          "isTurnStart": false
+        }
+      ]
+    },
+    {
+      "reset": 100,
+      "duration": 10,
+      "now": 100,
+      "first": null,
+      "probeReset": 100,
+      "messages": [
+        {
+          "timestamp": 9007199254740993,
+          "client": "synthetic",
+          "providerId": "",
+          "modelId": "synthetic-model",
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0,
+          "cost": 0,
+          "isTurnStart": false
+        }
+      ]
+    }
+  ],
+  "grids": [
+    {
+      "year": "invalid",
+      "entries": []
+    },
+    {
+      "year": "2023",
+      "entries": []
+    },
+    {
+      "year": "2000",
+      "entries": []
+    },
+    {
+      "year": "1900",
+      "entries": []
+    },
+    {
+      "year": "0000",
+      "entries": []
+    },
+    {
+      "year": "2024",
+      "entries": [
+        {
+          "date": "2023-12-31",
+          "tokens": 9999,
+          "cost": 2.5,
+          "intensity": 0,
+          "hasMessages": false
+        },
+        {
+          "date": "2024-01-01",
+          "tokens": 7,
+          "cost": 0.125,
+          "intensity": 0,
+          "hasMessages": false
+        },
+        {
+          "date": "2024-02-29",
+          "tokens": 13,
+          "cost": 0.5,
+          "intensity": 0,
+          "hasMessages": false
+        },
+        {
+          "date": "2024-03-01",
+          "tokens": 0,
+          "cost": 0.25,
+          "intensity": 0,
+          "hasMessages": true
+        },
+        {
+          "date": "2024-03-02",
+          "tokens": -3,
+          "cost": -0.5,
+          "intensity": 0,
+          "hasMessages": false
+        },
+        {
+          "date": "2024-12-31",
+          "tokens": 9007199254740993,
+          "cost": 0.75,
+          "intensity": 0,
+          "hasMessages": false
+        },
+        {
+          "date": "2025-01-01",
+          "tokens": 9223372036854775807,
+          "cost": 1,
+          "intensity": 0,
+          "hasMessages": false
+        }
+      ]
+    }
+  ],
+  "days": [
+    "1970-01-01",
+    "1969-12-31",
+    "2000-02-29",
+    "1900-03-01",
+    "0000-01-01",
+    "2024-13-01",
+    "2024-02-30",
+    "bad",
+    "2024-x-01-02",
+    "2024- 1-02"
+  ],
+  "dayNumbers": [
+    -719529,
+    -5,
+    -4,
+    -1,
+    0,
+    1,
+    19782
+  ]
+}
