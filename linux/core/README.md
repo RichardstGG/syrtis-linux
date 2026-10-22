@@ -6,6 +6,18 @@ countdown text. `Localization` preserves English keys and semantic fallbacks,
 with the string/integer format placeholders used by this surface. Future ports
 retain their Swift source names and semantics; the library does not perform
 I/O, call FFI, or aggregate Rust data.
+
+The leaf ports are `ClientRegistry`, `ModelGrouping`,
+`ModelScope`, `WindowResolution`, and `Grid`. `Grid.h` includes its `ISODay` and
+`PerDay` value dependencies from `UsageStats.swift`. `WindowResolution.h` carries
+the message timestamp needed by the resolver.
+
+`ClientPreferences` is a caller-supplied snapshot of the three registry defaults
+and optional legacy order. Missing order and an explicitly saved empty order
+remain distinct. The settings owner loads the snapshot and persists it after
+`migrateLegacyOrderKey`; Core only changes the snapshot. The explicit raw-string
+and set overloads match Swift's reactive overloads. Tab hiding folds and expands
+groups; limits hiding remains member-specific.
 It is intentionally not included by [`../CMakeLists.txt`](../CMakeLists.txt).
 
 `Format` ports the English-pinned formatting surface from
@@ -34,7 +46,7 @@ TZ=Asia/Taipei ctest --test-dir linux/core/build --output-on-failure
 TZ=Asia/Taipei linux/core/build/crosscheck/syrtis-crosscheck linux/crosscheck/fixtures linux/core/build/actual format
 ```
 
-The harness accepts `usage-pace`, `format`, and `provider-quota-pace-v3`. Like the
+The harness accepts `core-leaf`, `usage-pace`, `format`, and `provider-quota-pace-v3`. Like the
 [Swift harness](../../Sources/CrossCheckHarness/main.swift), an omitted selector
 or `all` runs the two legacy selectors (`usage-pace` and `format`). `TZ` must be
 exactly `Asia/Taipei`. The Qt harness pins its locale to English internally;
@@ -60,3 +72,15 @@ Only the deliberately synthetic self-test pair lives under
 and checks strict decoding and serialization without creating oracle goldens.
 The same self-test checks Format's binary rounding, Int64 limits, local midnight,
 duplicate days, per-client stripe totals, saturation and deterministic ties.
+
+The synthetic [`core-leaf.json`](../crosscheck/fixtures/core-leaf.json) covers
+registered and fallback styles, aliases, grouped tab/limit visibility, ordering,
+reorder and migration guards, model folding and scope token matching, window
+anchor boundaries, leap/century and cross-year grid cells, and exact Int64
+values beyond binary64's integer range. The handler writes every grid cell.
+`core-leaf-selftest` checks selected branch results and fixture failures without
+creating a golden. `crosscheck-core-leaf` uses the shared runner and `diff.py`,
+and returns CTest SKIP (77) until the macOS oracle supplies `core-leaf.json`.
+Its CTest registration lives here to keep the crosscheck parent outside this
+port's write scope. The matching Swift extension invokes shipping Swift code;
+its build, self-test, and oracle comparison remain macOS CI gates.

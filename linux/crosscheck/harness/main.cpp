@@ -8,10 +8,12 @@
 #include <QtCore/QStringList>
 
 #include <iostream>
+#include <exception>
 #include <stdexcept>
 
 #include "UsagePace.h"
 #include "FormatSelector.h"
+#include "core-leaf.h"
 
 namespace {
 int fail(const QString &message, int code)
@@ -135,11 +137,11 @@ int main(int argc, char *argv[])
     QLocale::setDefault(QLocale(QLocale::English, QLocale::UnitedStates));
 
     if (args.size() < 2 || args.size() > 3)
-        return fail(QStringLiteral("usage: syrtis-crosscheck <fixtures-dir> <out-dir> [usage-pace|format|provider-quota-pace-v3]"), 2);
+        return fail(QStringLiteral("usage: syrtis-crosscheck <fixtures-dir> <out-dir> [usage-pace|format|provider-quota-pace-v3|core-leaf]"), 2);
 
     const QStringList knownSelectors{
         QStringLiteral("usage-pace"), QStringLiteral("format"),
-        QStringLiteral("provider-quota-pace-v3")};
+        QStringLiteral("provider-quota-pace-v3"), QStringLiteral("core-leaf")};
     const auto selector = args.size() == 3 ? args[2] : QStringLiteral("all");
     if (selector != QStringLiteral("all") && !knownSelectors.contains(selector))
         return fail(QStringLiteral("error: unknown selector %1").arg(selector), 2);
@@ -161,6 +163,11 @@ int main(int argc, char *argv[])
             } catch (const std::exception &error) {
                 return fail(QString::fromUtf8(error.what()), 1);
             }
+        }
+        try {
+            if (name == QStringLiteral("core-leaf")) data = coreLeaf(args[0]);
+        } catch (const std::exception &error) {
+            return fail(QString::fromUtf8(error.what()), 1);
         }
         if (!output.open(QIODevice::WriteOnly) || output.write(data) != data.size()
             || !output.commit())
