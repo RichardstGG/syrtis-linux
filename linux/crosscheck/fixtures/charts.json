@@ -1,0 +1,4871 @@
+{
+  "cases": [
+    {
+      "id": "filtered",
+      "op": "payload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2024-02-27",
+            "end": "2024-03-03"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2024-02-27",
+              "end": "2024-03-03"
+            }
+          }
+        ],
+        "contributions": [
+          {
+            "date": "2024-02-28",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 10,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 3,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0.25,
+                "messages": 1
+              },
+              {
+                "client": "codex",
+                "modelId": "gpt-5",
+                "providerId": "openai",
+                "tokens": {
+                  "input": 20,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 2,
+                "messages": 2
+              }
+            ],
+            "turnsByClient": {
+              "claude": 2,
+              "codex": 3
+            }
+          },
+          {
+            "date": "2024-02-29",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 2
+              }
+            ],
+            "turnsByClient": {}
+          },
+          {
+            "date": "2024-03-01",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 3,
+                "messages": 0
+              }
+            ],
+            "turnsByClient": {
+              "claude": 4
+            }
+          },
+          {
+            "date": "2024-03-03",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "codex",
+                "modelId": "gpt-5",
+                "providerId": "openai",
+                "tokens": {
+                  "input": 30,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 4,
+                "messages": 2
+              }
+            ]
+          }
+        ]
+      },
+      "selected": [
+        "claude"
+      ],
+      "hidden": [
+        "codex"
+      ],
+      "today": "2024-02-28",
+      "rangeEnd": "2024-03-01",
+      "endFallback": "2024-04-01",
+      "entries": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4",
+          "cost": 10
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": 8
+        }
+      ]
+    },
+    {
+      "id": "all-fast",
+      "op": "payload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2024-02-27",
+            "end": "2024-03-03"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2024-02-27",
+              "end": "2024-03-03"
+            }
+          }
+        ],
+        "contributions": [
+          {
+            "date": "2024-02-28",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 10,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 3,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0.25,
+                "messages": 1
+              },
+              {
+                "client": "codex",
+                "modelId": "gpt-5",
+                "providerId": "openai",
+                "tokens": {
+                  "input": 20,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 2,
+                "messages": 2
+              }
+            ],
+            "turnsByClient": {
+              "claude": 2,
+              "codex": 3
+            }
+          },
+          {
+            "date": "2024-02-29",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 2
+              }
+            ],
+            "turnsByClient": {}
+          },
+          {
+            "date": "2024-03-01",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 3,
+                "messages": 0
+              }
+            ],
+            "turnsByClient": {
+              "claude": 4
+            }
+          },
+          {
+            "date": "2024-03-03",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "codex",
+                "modelId": "gpt-5",
+                "providerId": "openai",
+                "tokens": {
+                  "input": 30,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 4,
+                "messages": 2
+              }
+            ]
+          }
+        ]
+      },
+      "selected": [
+        "claude",
+        "codex"
+      ],
+      "hidden": [],
+      "today": "2024-02-28",
+      "rangeEnd": "2024-03-01",
+      "endFallback": "2024-04-01",
+      "entries": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4",
+          "cost": 10
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": 8
+        }
+      ]
+    },
+    {
+      "id": "none-selected",
+      "op": "payload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2024-02-27",
+            "end": "2024-03-03"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2024-02-27",
+              "end": "2024-03-03"
+            }
+          }
+        ],
+        "contributions": [
+          {
+            "date": "2024-02-28",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 10,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 3,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0.25,
+                "messages": 1
+              },
+              {
+                "client": "codex",
+                "modelId": "gpt-5",
+                "providerId": "openai",
+                "tokens": {
+                  "input": 20,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 2,
+                "messages": 2
+              }
+            ],
+            "turnsByClient": {
+              "claude": 2,
+              "codex": 3
+            }
+          },
+          {
+            "date": "2024-02-29",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 2
+              }
+            ],
+            "turnsByClient": {}
+          },
+          {
+            "date": "2024-03-01",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 3,
+                "messages": 0
+              }
+            ],
+            "turnsByClient": {
+              "claude": 4
+            }
+          },
+          {
+            "date": "2024-03-03",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "codex",
+                "modelId": "gpt-5",
+                "providerId": "openai",
+                "tokens": {
+                  "input": 30,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 4,
+                "messages": 2
+              }
+            ]
+          }
+        ]
+      },
+      "selected": [],
+      "hidden": [
+        "codex"
+      ],
+      "today": "2024-02-28",
+      "rangeEnd": "2024-03-01",
+      "endFallback": "2024-04-01",
+      "entries": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4",
+          "cost": 10
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": 8
+        }
+      ]
+    },
+    {
+      "id": "only-claude",
+      "op": "payload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2024-02-27",
+            "end": "2024-03-03"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2024-02-27",
+              "end": "2024-03-03"
+            }
+          }
+        ],
+        "contributions": [
+          {
+            "date": "2024-02-28",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 10,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 3,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0.25,
+                "messages": 1
+              },
+              {
+                "client": "codex",
+                "modelId": "gpt-5",
+                "providerId": "openai",
+                "tokens": {
+                  "input": 20,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 2,
+                "messages": 2
+              }
+            ],
+            "turnsByClient": {
+              "claude": 2,
+              "codex": 3
+            }
+          },
+          {
+            "date": "2024-02-29",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 2
+              }
+            ],
+            "turnsByClient": {}
+          },
+          {
+            "date": "2024-03-01",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 3,
+                "messages": 0
+              }
+            ],
+            "turnsByClient": {
+              "claude": 4
+            }
+          },
+          {
+            "date": "2024-03-03",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "codex",
+                "modelId": "gpt-5",
+                "providerId": "openai",
+                "tokens": {
+                  "input": 30,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 4,
+                "messages": 2
+              }
+            ]
+          }
+        ]
+      },
+      "selected": [
+        "claude"
+      ],
+      "hidden": [],
+      "today": "2024-02-28",
+      "rangeEnd": "2024-03-01",
+      "endFallback": "2024-04-01",
+      "entries": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4",
+          "cost": 10
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": 8
+        }
+      ],
+      "only": [
+        "claude"
+      ]
+    },
+    {
+      "id": "only-empty",
+      "op": "payload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2024-02-27",
+            "end": "2024-03-03"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2024-02-27",
+              "end": "2024-03-03"
+            }
+          }
+        ],
+        "contributions": [
+          {
+            "date": "2024-02-28",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 10,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 3,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0.25,
+                "messages": 1
+              },
+              {
+                "client": "codex",
+                "modelId": "gpt-5",
+                "providerId": "openai",
+                "tokens": {
+                  "input": 20,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 2,
+                "messages": 2
+              }
+            ],
+            "turnsByClient": {
+              "claude": 2,
+              "codex": 3
+            }
+          },
+          {
+            "date": "2024-02-29",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 2
+              }
+            ],
+            "turnsByClient": {}
+          },
+          {
+            "date": "2024-03-01",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 3,
+                "messages": 0
+              }
+            ],
+            "turnsByClient": {
+              "claude": 4
+            }
+          },
+          {
+            "date": "2024-03-03",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "codex",
+                "modelId": "gpt-5",
+                "providerId": "openai",
+                "tokens": {
+                  "input": 30,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 4,
+                "messages": 2
+              }
+            ]
+          }
+        ]
+      },
+      "selected": [
+        "claude"
+      ],
+      "hidden": [],
+      "today": "2024-02-28",
+      "rangeEnd": "2024-03-01",
+      "endFallback": "2024-04-01",
+      "entries": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4",
+          "cost": 10
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": 8
+        }
+      ],
+      "only": []
+    },
+    {
+      "id": "only-hidden",
+      "op": "payload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2024-02-27",
+            "end": "2024-03-03"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2024-02-27",
+              "end": "2024-03-03"
+            }
+          }
+        ],
+        "contributions": [
+          {
+            "date": "2024-02-28",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 10,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 3,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0.25,
+                "messages": 1
+              },
+              {
+                "client": "codex",
+                "modelId": "gpt-5",
+                "providerId": "openai",
+                "tokens": {
+                  "input": 20,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 2,
+                "messages": 2
+              }
+            ],
+            "turnsByClient": {
+              "claude": 2,
+              "codex": 3
+            }
+          },
+          {
+            "date": "2024-02-29",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 2
+              }
+            ],
+            "turnsByClient": {}
+          },
+          {
+            "date": "2024-03-01",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 3,
+                "messages": 0
+              }
+            ],
+            "turnsByClient": {
+              "claude": 4
+            }
+          },
+          {
+            "date": "2024-03-03",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "codex",
+                "modelId": "gpt-5",
+                "providerId": "openai",
+                "tokens": {
+                  "input": 30,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 4,
+                "messages": 2
+              }
+            ]
+          }
+        ]
+      },
+      "selected": [
+        "claude"
+      ],
+      "hidden": [
+        "codex"
+      ],
+      "today": "2024-02-28",
+      "rangeEnd": "2024-03-01",
+      "endFallback": "2024-04-01",
+      "entries": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4",
+          "cost": 10
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": 8
+        }
+      ],
+      "only": [
+        "codex"
+      ]
+    },
+    {
+      "id": "empty-fallback",
+      "op": "payload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2024-02-27",
+            "end": "2024-03-03"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2024-02-27",
+              "end": "2024-03-03"
+            }
+          }
+        ],
+        "contributions": []
+      },
+      "selected": [
+        "claude"
+      ],
+      "hidden": [
+        "codex"
+      ],
+      "today": "2024-02-28",
+      "rangeEnd": "",
+      "endFallback": "2024-04-01",
+      "entries": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4",
+          "cost": 10
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": 8
+        }
+      ]
+    },
+    {
+      "id": "empty-range",
+      "op": "payload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2024-02-27",
+            "end": "2024-03-03"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2024-02-27",
+              "end": "2024-03-03"
+            }
+          }
+        ],
+        "contributions": []
+      },
+      "selected": [
+        "claude"
+      ],
+      "hidden": [
+        "codex"
+      ],
+      "today": "2024-02-28",
+      "rangeEnd": "2024-02-29",
+      "endFallback": "2024-04-01",
+      "entries": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4",
+          "cost": 10
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": 8
+        }
+      ]
+    },
+    {
+      "id": "invalid-end",
+      "op": "payload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2024-02-27",
+            "end": "2024-03-03"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2024-02-27",
+              "end": "2024-03-03"
+            }
+          }
+        ],
+        "contributions": []
+      },
+      "selected": [
+        "claude"
+      ],
+      "hidden": [
+        "codex"
+      ],
+      "today": "2024-02-28",
+      "rangeEnd": "invalid",
+      "endFallback": "2024-04-01",
+      "entries": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4",
+          "cost": 10
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": 8
+        }
+      ]
+    },
+    {
+      "id": "message-only",
+      "op": "payload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2024-02-27",
+            "end": "2024-03-03"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2024-02-27",
+              "end": "2024-03-03"
+            }
+          }
+        ],
+        "contributions": [
+          {
+            "date": "2024-02-29",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 1
+              }
+            ]
+          }
+        ]
+      },
+      "selected": [
+        "claude"
+      ],
+      "hidden": [
+        "codex"
+      ],
+      "today": "2024-02-28",
+      "rangeEnd": "2024-02-29",
+      "endFallback": "2024-04-01",
+      "entries": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4",
+          "cost": 10
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": 8
+        }
+      ]
+    },
+    {
+      "id": "cost-only",
+      "op": "payload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2024-02-27",
+            "end": "2024-03-03"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2024-02-27",
+              "end": "2024-03-03"
+            }
+          }
+        ],
+        "contributions": [
+          {
+            "date": "2024-02-29",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 2,
+                "messages": 0
+              }
+            ]
+          }
+        ]
+      },
+      "selected": [
+        "claude"
+      ],
+      "hidden": [
+        "codex"
+      ],
+      "today": "2024-02-28",
+      "rangeEnd": "2024-02-29",
+      "endFallback": "2024-04-01",
+      "entries": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4",
+          "cost": 10
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": 8
+        }
+      ]
+    },
+    {
+      "id": "saturated",
+      "op": "payload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2024-02-27",
+            "end": "2024-03-03"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2024-02-27",
+              "end": "2024-03-03"
+            }
+          }
+        ],
+        "contributions": [
+          {
+            "date": "2024-02-28",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 9223372036854775807,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 10,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              }
+            ],
+            "turnsByClient": {
+              "claude": 9223372036854775807,
+              "codex": 9
+            }
+          },
+          {
+            "date": "2024-02-29",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 9223372036854775807,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              }
+            ]
+          }
+        ]
+      },
+      "selected": [
+        "claude",
+        "codex"
+      ],
+      "hidden": [
+        "absent"
+      ],
+      "today": "2024-02-28",
+      "rangeEnd": "2024-03-01",
+      "endFallback": "2024-04-01",
+      "entries": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4",
+          "cost": 10
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": 8
+        }
+      ]
+    },
+    {
+      "id": "negative",
+      "op": "payload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2024-02-27",
+            "end": "2024-03-03"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2024-02-27",
+              "end": "2024-03-03"
+            }
+          }
+        ],
+        "contributions": [
+          {
+            "date": "2024-02-28",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": -9223372036854775808,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": -2,
+                "messages": 0
+              },
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": -4,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 0
+              }
+            ]
+          }
+        ]
+      },
+      "selected": [
+        "claude"
+      ],
+      "hidden": [],
+      "today": "2024-02-28",
+      "rangeEnd": "2024-03-01",
+      "endFallback": "2024-04-01",
+      "entries": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4",
+          "cost": 10
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": 8
+        }
+      ]
+    },
+    {
+      "id": "unregistered-only",
+      "op": "payload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2023-12-31",
+            "end": "2024-03-03"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2023-12-31",
+              "end": "2024-03-03"
+            }
+          }
+        ],
+        "contributions": [
+          {
+            "date": "2023-12-31",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "cc-mirror/test",
+                "modelId": "",
+                "providerId": "",
+                "tokens": {
+                  "input": 12,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 0
+              }
+            ]
+          },
+          {
+            "date": "2024-02-28",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 10,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              }
+            ]
+          }
+        ]
+      },
+      "selected": [
+        "cc-mirror/test"
+      ],
+      "hidden": [
+        "claude"
+      ],
+      "today": "2023-12-31",
+      "rangeEnd": "2024-03-01",
+      "endFallback": "2024-04-01",
+      "entries": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4",
+          "cost": 10
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": 8
+        }
+      ],
+      "only": [
+        "cc-mirror/test"
+      ]
+    },
+    {
+      "id": "top-tie",
+      "op": "payload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2024-02-27",
+            "end": "2024-03-03"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2024-02-27",
+              "end": "2024-03-03"
+            }
+          }
+        ],
+        "contributions": [
+          {
+            "date": "2024-02-28",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "z-agent",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 7,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              },
+              {
+                "client": "a-agent",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 4,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0.5,
+                "messages": 1
+              },
+              {
+                "client": "a-agent",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 3,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0.5,
+                "messages": 1
+              },
+              {
+                "client": "b-agent",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 7,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              }
+            ]
+          }
+        ]
+      },
+      "selected": [
+        "a-agent",
+        "b-agent",
+        "z-agent"
+      ],
+      "hidden": [],
+      "today": "2024-02-28",
+      "rangeEnd": "2024-03-01",
+      "endFallback": "2024-04-01",
+      "entries": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4",
+          "cost": 10
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": 8
+        }
+      ]
+    },
+    {
+      "id": "top-cost-tie",
+      "op": "payload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2024-02-27",
+            "end": "2024-03-03"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2024-02-27",
+              "end": "2024-03-03"
+            }
+          }
+        ],
+        "contributions": [
+          {
+            "date": "2024-02-28",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "z-agent",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 7,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              },
+              {
+                "client": "a-agent",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 4,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0.5,
+                "messages": 1
+              },
+              {
+                "client": "a-agent",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 3,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0.5,
+                "messages": 1
+              },
+              {
+                "client": "b-agent",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 7,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 2,
+                "messages": 1
+              }
+            ]
+          }
+        ]
+      },
+      "selected": [
+        "a-agent",
+        "b-agent",
+        "z-agent"
+      ],
+      "hidden": [
+        "unknown"
+      ],
+      "today": "2024-02-28",
+      "rangeEnd": "2024-03-01",
+      "endFallback": "2024-04-01",
+      "entries": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4",
+          "cost": 10
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": 8
+        }
+      ]
+    },
+    {
+      "id": "duplicate-dates",
+      "op": "payload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2024-02-27",
+            "end": "2024-03-03"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2024-02-27",
+              "end": "2024-03-03"
+            }
+          }
+        ],
+        "contributions": [
+          {
+            "date": "2024-02-28",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 5,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              }
+            ]
+          },
+          {
+            "date": "2024-02-28",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 7,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 2,
+                "messages": 1
+              }
+            ]
+          }
+        ]
+      },
+      "selected": [
+        "claude"
+      ],
+      "hidden": [
+        "codex"
+      ],
+      "today": "2024-02-28",
+      "rangeEnd": "2024-03-01",
+      "endFallback": "2024-04-01",
+      "entries": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4",
+          "cost": 10
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": 8
+        }
+      ]
+    },
+    {
+      "id": "window-truncation",
+      "op": "payload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2023-12-31",
+            "end": "2024-02-29"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2023-12-31",
+              "end": "2024-02-29"
+            }
+          }
+        ],
+        "contributions": [
+          {
+            "date": "2023-12-31",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 1000,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              }
+            ]
+          },
+          {
+            "date": "2024-02-29",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 1,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              }
+            ]
+          }
+        ]
+      },
+      "selected": [
+        "claude"
+      ],
+      "hidden": [
+        "codex"
+      ],
+      "today": "2024-02-28",
+      "rangeEnd": "2024-03-01",
+      "endFallback": "2024-04-01",
+      "entries": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4",
+          "cost": 10
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": 8
+        }
+      ]
+    },
+    {
+      "id": "best-first-tie",
+      "op": "payload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2024-02-27",
+            "end": "2024-02-29"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2024-02-27",
+              "end": "2024-02-29"
+            }
+          }
+        ],
+        "contributions": [
+          {
+            "date": "2024-02-28",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 10,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              }
+            ]
+          },
+          {
+            "date": "2024-02-29",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 10,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              }
+            ]
+          }
+        ]
+      },
+      "selected": [
+        "claude"
+      ],
+      "hidden": [
+        "codex"
+      ],
+      "today": "2024-02-28",
+      "rangeEnd": "2024-03-01",
+      "endFallback": "2024-04-01",
+      "entries": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4",
+          "cost": 10
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": 8
+        }
+      ]
+    },
+    {
+      "id": "overview-default",
+      "op": "overview",
+      "hiddenRaw": ""
+    },
+    {
+      "id": "overview-anchor",
+      "op": "overview",
+      "hiddenRaw": "quotaSummary,chart,limits,trace,models,streaks,unknown"
+    },
+    {
+      "id": "overview-case",
+      "op": "overview",
+      "hiddenRaw": "TRACE, trace,trace, models"
+    },
+    {
+      "id": "colors",
+      "op": "colors",
+      "entries": [
+        {
+          "provider": "openai",
+          "model": "gpt-test-0",
+          "cost": 20
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-test-1",
+          "cost": 19
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-test-2",
+          "cost": 18
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-test-3",
+          "cost": 17
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-test-4",
+          "cost": 16
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-test-5",
+          "cost": 15
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-test-6",
+          "cost": 14
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-test-7",
+          "cost": 13
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-test-8",
+          "cost": 12
+        },
+        {
+          "provider": "",
+          "model": "grok-4.6-build",
+          "cost": 10
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "cost": 1
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": "nan"
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": "infinity"
+        }
+      ],
+      "lookups": [
+        {
+          "provider": null,
+          "model": "claude-sonnet"
+        },
+        {
+          "provider": null,
+          "model": "gpt-5"
+        },
+        {
+          "provider": null,
+          "model": "o1-test"
+        },
+        {
+          "provider": null,
+          "model": "o3-test"
+        },
+        {
+          "provider": null,
+          "model": "codex"
+        },
+        {
+          "provider": null,
+          "model": "text-embedding"
+        },
+        {
+          "provider": null,
+          "model": "dall-e"
+        },
+        {
+          "provider": null,
+          "model": "whisper"
+        },
+        {
+          "provider": null,
+          "model": "tts"
+        },
+        {
+          "provider": null,
+          "model": "gemini"
+        },
+        {
+          "provider": null,
+          "model": "deepseek"
+        },
+        {
+          "provider": null,
+          "model": "grok"
+        },
+        {
+          "provider": null,
+          "model": "llama"
+        },
+        {
+          "provider": null,
+          "model": "mixtral"
+        },
+        {
+          "provider": null,
+          "model": "mistral"
+        },
+        {
+          "provider": null,
+          "model": "auto"
+        },
+        {
+          "provider": null,
+          "model": "composer"
+        },
+        {
+          "provider": null,
+          "model": "cursor"
+        },
+        {
+          "provider": null,
+          "model": "mystery"
+        },
+        {
+          "provider": "litellm, openai",
+          "model": "gpt-5"
+        },
+        {
+          "provider": "ANTHROPIC",
+          "model": "gpt-5"
+        },
+        {
+          "provider": "azure-openai",
+          "model": "gpt-5"
+        },
+        {
+          "provider": "google-ai",
+          "model": "gpt-5"
+        },
+        {
+          "provider": "gemini-api",
+          "model": "gpt-5"
+        },
+        {
+          "provider": "deepseek-cloud",
+          "model": "gpt-5"
+        },
+        {
+          "provider": "xai-api",
+          "model": "gpt-5"
+        },
+        {
+          "provider": "grok-api",
+          "model": "gpt-5"
+        },
+        {
+          "provider": "meta-cloud",
+          "model": "gpt-5"
+        },
+        {
+          "provider": "llama-api",
+          "model": "gpt-5"
+        },
+        {
+          "provider": "mistral-ai",
+          "model": "gpt-5"
+        },
+        {
+          "provider": "cursor-ai",
+          "model": "gpt-5"
+        },
+        {
+          "provider": "unknown",
+          "model": "gpt-5"
+        },
+        {
+          "provider": "unmapped",
+          "model": "gpt-5"
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-test-0"
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-test-1"
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-test-2"
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-test-3"
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-test-4"
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-test-5"
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-test-6"
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-test-7"
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-test-8"
+        },
+        {
+          "provider": "",
+          "model": "grok-4.6-build"
+        },
+        {
+          "provider": "",
+          "model": "grok-4.6"
+        }
+      ],
+      "shades": [
+        {
+          "hex": "#000000",
+          "rank": -9
+        },
+        {
+          "hex": "#000000",
+          "rank": 1
+        },
+        {
+          "hex": "#000000",
+          "rank": 99
+        },
+        {
+          "hex": "ABCDEF",
+          "rank": 2
+        },
+        {
+          "hex": "#12345g",
+          "rank": 2
+        },
+        {
+          "hex": "bad",
+          "rank": 1
+        },
+        {
+          "hex": "#ffffff",
+          "rank": 6
+        },
+        {
+          "hex": "#da7756",
+          "rank": 3
+        }
+      ],
+      "report": {
+        "entries": [
+          {
+            "client": "codex",
+            "model": "gpt-5",
+            "provider": "openai",
+            "input": 1,
+            "output": 2,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "total": 77,
+            "messageCount": 1,
+            "cost": 20
+          }
+        ],
+        "totalInput": 1,
+        "totalOutput": 2,
+        "totalCacheRead": 0,
+        "totalCacheWrite": 0,
+        "totalMessages": 1,
+        "totalCost": 33
+      }
+    },
+    {
+      "id": "colors-ties",
+      "op": "colors",
+      "entries": [
+        {
+          "provider": "openai",
+          "model": "gpt-b",
+          "cost": 1
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-a",
+          "cost": 1
+        }
+      ],
+      "lookups": [
+        {
+          "model": "gpt-a",
+          "provider": null
+        },
+        {
+          "model": "gpt-b",
+          "provider": null
+        }
+      ],
+      "shades": [],
+      "report": null
+    },
+    {
+      "id": "trace-filter",
+      "op": "trace",
+      "input": [
+        {
+          "client": "claude-code",
+          "agent": "z",
+          "model": "unknown",
+          "tokens": 4,
+          "messages": 1,
+          "tokens_per_min": 0.5
+        },
+        {
+          "client": "claude-code",
+          "agent": "a",
+          "model": "claude-sonnet",
+          "tokens": 5,
+          "messages": 1,
+          "tokens_per_min": 1
+        },
+        {
+          "client": "codex",
+          "agent": "b",
+          "model": "unknown",
+          "tokens": 20,
+          "messages": 1,
+          "tokens_per_min": 3
+        },
+        {
+          "client": "other",
+          "agent": "a",
+          "model": "unknown",
+          "tokens": 2,
+          "messages": 1,
+          "tokens_per_min": 0.25
+        },
+        {
+          "client": "other",
+          "agent": "a",
+          "model": "unknown",
+          "tokens": 2,
+          "messages": 1,
+          "tokens_per_min": 0.25
+        },
+        {
+          "client": "claude",
+          "agent": "a",
+          "model": "named",
+          "tokens": 1,
+          "messages": 1,
+          "tokens_per_min": 0.1
+        }
+      ],
+      "hidden": [
+        "claude"
+      ]
+    },
+    {
+      "id": "trace-all",
+      "op": "trace",
+      "input": [
+        {
+          "client": "claude-code",
+          "agent": "z",
+          "model": "unknown",
+          "tokens": 4,
+          "messages": 1,
+          "tokens_per_min": 0.5
+        },
+        {
+          "client": "claude-code",
+          "agent": "a",
+          "model": "claude-sonnet",
+          "tokens": 5,
+          "messages": 1,
+          "tokens_per_min": 1
+        },
+        {
+          "client": "codex",
+          "agent": "b",
+          "model": "unknown",
+          "tokens": 20,
+          "messages": 1,
+          "tokens_per_min": 3
+        },
+        {
+          "client": "other",
+          "agent": "a",
+          "model": "unknown",
+          "tokens": 2,
+          "messages": 1,
+          "tokens_per_min": 0.25
+        },
+        {
+          "client": "other",
+          "agent": "a",
+          "model": "unknown",
+          "tokens": 2,
+          "messages": 1,
+          "tokens_per_min": 0.25
+        },
+        {
+          "client": "claude",
+          "agent": "a",
+          "model": "named",
+          "tokens": 1,
+          "messages": 1,
+          "tokens_per_min": 0.1
+        }
+      ],
+      "hidden": []
+    },
+    {
+      "id": "trace-empty",
+      "op": "trace",
+      "input": [],
+      "hidden": []
+    },
+    {
+      "id": "trace-saturated",
+      "op": "trace",
+      "input": [
+        {
+          "client": "x",
+          "agent": "b",
+          "model": "m2",
+          "tokens": 9223372036854775807,
+          "messages": 1,
+          "tokens_per_min": 1
+        },
+        {
+          "client": "x",
+          "agent": "a",
+          "model": "m1",
+          "tokens": 9,
+          "messages": 1,
+          "tokens_per_min": 2
+        },
+        {
+          "client": "y",
+          "agent": "c",
+          "model": "unknown",
+          "tokens": 9223372036854775807,
+          "messages": 1,
+          "tokens_per_min": 3
+        }
+      ],
+      "hidden": []
+    },
+    {
+      "id": "trace-negative",
+      "op": "trace",
+      "input": [
+        {
+          "client": "x",
+          "agent": "b",
+          "model": "unknown",
+          "tokens": -9223372036854775808,
+          "messages": 1,
+          "tokens_per_min": 1
+        },
+        {
+          "client": "x",
+          "agent": "a",
+          "model": "unknown",
+          "tokens": -9,
+          "messages": 1,
+          "tokens_per_min": 2
+        }
+      ],
+      "hidden": []
+    },
+    {
+      "id": "streak-cost",
+      "op": "streaks",
+      "start": "2024-02-28",
+      "end": "2024-03-01",
+      "days": [
+        {
+          "date": "2024-02-28",
+          "tokens": 3,
+          "cost": 0,
+          "hasMessages": false
+        },
+        {
+          "date": "2024-02-29",
+          "tokens": 0,
+          "cost": 0,
+          "hasMessages": true
+        },
+        {
+          "date": "2024-03-01",
+          "tokens": 0,
+          "cost": 1,
+          "hasMessages": false
+        }
+      ]
+    },
+    {
+      "id": "streak-current",
+      "op": "streaks",
+      "start": "2024-02-28",
+      "end": "2024-03-01",
+      "days": [
+        {
+          "date": "2024-02-29",
+          "tokens": 0,
+          "cost": 0,
+          "hasMessages": true
+        },
+        {
+          "date": "2024-03-01",
+          "tokens": 1,
+          "cost": 0,
+          "hasMessages": false
+        }
+      ]
+    },
+    {
+      "id": "streak-invalid",
+      "op": "streaks",
+      "start": "bad",
+      "end": "2024-03-01",
+      "days": []
+    },
+    {
+      "id": "streak-reversed",
+      "op": "streaks",
+      "start": "2024-03-01",
+      "end": "2024-02-28",
+      "days": []
+    },
+    {
+      "id": "decode-TokenBreakdown",
+      "op": "decode",
+      "type": "TokenBreakdown",
+      "input": {
+        "input": 9223372036854775807,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0
+      }
+    },
+    {
+      "id": "decode-ContributionClient",
+      "op": "decode",
+      "type": "ContributionClient",
+      "input": {
+        "client": "claude",
+        "modelId": "claude-sonnet-4",
+        "providerId": "anthropic",
+        "tokens": {
+          "input": 10,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0
+        },
+        "cost": 1,
+        "messages": 1
+      }
+    },
+    {
+      "id": "decode-Contribution",
+      "op": "decode",
+      "type": "Contribution",
+      "input": {
+        "date": "2024-02-28",
+        "totals": {
+          "tokens": 101,
+          "cost": 9.5,
+          "messages": 7
+        },
+        "intensity": 3,
+        "tokenBreakdown": {
+          "input": 99,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0
+        },
+        "clients": [
+          {
+            "client": "claude",
+            "modelId": "claude-sonnet-4",
+            "providerId": "anthropic",
+            "tokens": {
+              "input": 10,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "cost": 1,
+            "messages": 1
+          },
+          {
+            "client": "claude",
+            "modelId": "claude-sonnet-4",
+            "providerId": "anthropic",
+            "tokens": {
+              "input": 3,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "cost": 0.25,
+            "messages": 1
+          },
+          {
+            "client": "codex",
+            "modelId": "gpt-5",
+            "providerId": "openai",
+            "tokens": {
+              "input": 20,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "cost": 2,
+            "messages": 2
+          }
+        ],
+        "turnsByClient": {
+          "claude": 2,
+          "codex": 3
+        }
+      }
+    },
+    {
+      "id": "decode-DateRange",
+      "op": "decode",
+      "type": "DateRange",
+      "input": {
+        "start": "x",
+        "end": "y"
+      }
+    },
+    {
+      "id": "decode-YearMeta",
+      "op": "decode",
+      "type": "YearMeta",
+      "input": {
+        "year": "2024",
+        "totalTokens": 777,
+        "totalCost": 77,
+        "range": {
+          "start": "2024-02-27",
+          "end": "2024-03-03"
+        }
+      }
+    },
+    {
+      "id": "decode-UsagePayload",
+      "op": "decode",
+      "type": "UsagePayload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2024-02-27",
+            "end": "2024-03-03"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2024-02-27",
+              "end": "2024-03-03"
+            }
+          }
+        ],
+        "contributions": [
+          {
+            "date": "2024-02-28",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 10,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 3,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0.25,
+                "messages": 1
+              },
+              {
+                "client": "codex",
+                "modelId": "gpt-5",
+                "providerId": "openai",
+                "tokens": {
+                  "input": 20,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 2,
+                "messages": 2
+              }
+            ],
+            "turnsByClient": {
+              "claude": 2,
+              "codex": 3
+            }
+          },
+          {
+            "date": "2024-02-29",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 2
+              }
+            ],
+            "turnsByClient": {}
+          },
+          {
+            "date": "2024-03-01",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 3,
+                "messages": 0
+              }
+            ],
+            "turnsByClient": {
+              "claude": 4
+            }
+          },
+          {
+            "date": "2024-03-03",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "codex",
+                "modelId": "gpt-5",
+                "providerId": "openai",
+                "tokens": {
+                  "input": 30,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 4,
+                "messages": 2
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "decode-TraceBucket",
+      "op": "decode",
+      "type": "TraceBucket",
+      "input": {
+        "client": "claude-code",
+        "agent": "z",
+        "model": "unknown",
+        "tokens": 4,
+        "messages": 1,
+        "tokens_per_min": 0.5
+      }
+    },
+    {
+      "id": "decode-TokensPerMin",
+      "op": "decode",
+      "type": "TokensPerMin",
+      "input": {
+        "tokensPerMin": 1.25
+      }
+    },
+    {
+      "id": "token-saturate-max",
+      "op": "decode",
+      "type": "TokenBreakdown",
+      "input": {
+        "input": 9223372036854775807,
+        "output": 1,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": -1
+      }
+    },
+    {
+      "id": "token-saturate-min",
+      "op": "decode",
+      "type": "TokenBreakdown",
+      "input": {
+        "input": -9223372036854775808,
+        "output": -1,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 1
+      }
+    },
+    {
+      "id": "token-exact",
+      "op": "decode",
+      "type": "TokenBreakdown",
+      "input": {
+        "input": 9007199254740993,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0
+      }
+    },
+    {
+      "id": "turns-missing",
+      "op": "decode",
+      "type": "Contribution",
+      "input": {
+        "date": "2024-02-28",
+        "totals": {
+          "tokens": 101,
+          "cost": 9.5,
+          "messages": 7
+        },
+        "intensity": 3,
+        "tokenBreakdown": {
+          "input": 99,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0
+        },
+        "clients": [
+          {
+            "client": "claude",
+            "modelId": "claude-sonnet-4",
+            "providerId": "anthropic",
+            "tokens": {
+              "input": 10,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "cost": 1,
+            "messages": 1
+          },
+          {
+            "client": "claude",
+            "modelId": "claude-sonnet-4",
+            "providerId": "anthropic",
+            "tokens": {
+              "input": 3,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "cost": 0.25,
+            "messages": 1
+          },
+          {
+            "client": "codex",
+            "modelId": "gpt-5",
+            "providerId": "openai",
+            "tokens": {
+              "input": 20,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "cost": 2,
+            "messages": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "turns-null",
+      "op": "decode",
+      "type": "Contribution",
+      "input": {
+        "date": "2024-02-28",
+        "totals": {
+          "tokens": 101,
+          "cost": 9.5,
+          "messages": 7
+        },
+        "intensity": 3,
+        "tokenBreakdown": {
+          "input": 99,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0
+        },
+        "clients": [
+          {
+            "client": "claude",
+            "modelId": "claude-sonnet-4",
+            "providerId": "anthropic",
+            "tokens": {
+              "input": 10,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "cost": 1,
+            "messages": 1
+          },
+          {
+            "client": "claude",
+            "modelId": "claude-sonnet-4",
+            "providerId": "anthropic",
+            "tokens": {
+              "input": 3,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "cost": 0.25,
+            "messages": 1
+          },
+          {
+            "client": "codex",
+            "modelId": "gpt-5",
+            "providerId": "openai",
+            "tokens": {
+              "input": 20,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "cost": 2,
+            "messages": 2
+          }
+        ],
+        "turnsByClient": null
+      }
+    },
+    {
+      "id": "turns-empty",
+      "op": "decode",
+      "type": "Contribution",
+      "input": {
+        "date": "2024-02-28",
+        "totals": {
+          "tokens": 101,
+          "cost": 9.5,
+          "messages": 7
+        },
+        "intensity": 3,
+        "tokenBreakdown": {
+          "input": 99,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0
+        },
+        "clients": [
+          {
+            "client": "claude",
+            "modelId": "claude-sonnet-4",
+            "providerId": "anthropic",
+            "tokens": {
+              "input": 10,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "cost": 1,
+            "messages": 1
+          },
+          {
+            "client": "claude",
+            "modelId": "claude-sonnet-4",
+            "providerId": "anthropic",
+            "tokens": {
+              "input": 3,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "cost": 0.25,
+            "messages": 1
+          },
+          {
+            "client": "codex",
+            "modelId": "gpt-5",
+            "providerId": "openai",
+            "tokens": {
+              "input": 20,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "cost": 2,
+            "messages": 2
+          }
+        ],
+        "turnsByClient": {}
+      }
+    },
+    {
+      "id": "token-missing",
+      "op": "decode",
+      "type": "TokenBreakdown",
+      "input": {
+        "input": 9223372036854775807,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      }
+    },
+    {
+      "id": "client-missing",
+      "op": "decode",
+      "type": "ContributionClient",
+      "input": {
+        "client": "claude",
+        "modelId": "claude-sonnet-4",
+        "providerId": "anthropic",
+        "tokens": {
+          "input": 10,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0
+        },
+        "cost": 1
+      }
+    },
+    {
+      "id": "trace-camel-spelling",
+      "op": "decode",
+      "type": "TraceBucket",
+      "input": {
+        "client": "claude-code",
+        "agent": "z",
+        "model": "unknown",
+        "tokens": 4,
+        "messages": 1,
+        "tokensPerMin": 1
+      }
+    },
+    {
+      "id": "rate-snake-spelling",
+      "op": "decode",
+      "type": "TokensPerMin",
+      "input": {
+        "tokens_per_min": 1
+      }
+    },
+    {
+      "id": "token-bool",
+      "op": "decode",
+      "type": "TokenBreakdown",
+      "input": {
+        "input": true,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0
+      }
+    },
+    {
+      "id": "token-fraction",
+      "op": "decode",
+      "type": "TokenBreakdown",
+      "input": {
+        "input": 1.5,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0
+      }
+    },
+    {
+      "id": "turns-wrong-element",
+      "op": "decode",
+      "type": "Contribution",
+      "input": {
+        "date": "2024-02-28",
+        "totals": {
+          "tokens": 101,
+          "cost": 9.5,
+          "messages": 7
+        },
+        "intensity": 3,
+        "tokenBreakdown": {
+          "input": 99,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0
+        },
+        "clients": [
+          {
+            "client": "claude",
+            "modelId": "claude-sonnet-4",
+            "providerId": "anthropic",
+            "tokens": {
+              "input": 10,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "cost": 1,
+            "messages": 1
+          },
+          {
+            "client": "claude",
+            "modelId": "claude-sonnet-4",
+            "providerId": "anthropic",
+            "tokens": {
+              "input": 3,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "cost": 0.25,
+            "messages": 1
+          },
+          {
+            "client": "codex",
+            "modelId": "gpt-5",
+            "providerId": "openai",
+            "tokens": {
+              "input": 20,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "cost": 2,
+            "messages": 2
+          }
+        ],
+        "turnsByClient": {
+          "claude": "3"
+        }
+      }
+    },
+    {
+      "id": "turns-array",
+      "op": "decode",
+      "type": "Contribution",
+      "input": {
+        "date": "2024-02-28",
+        "totals": {
+          "tokens": 101,
+          "cost": 9.5,
+          "messages": 7
+        },
+        "intensity": 3,
+        "tokenBreakdown": {
+          "input": 99,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0
+        },
+        "clients": [
+          {
+            "client": "claude",
+            "modelId": "claude-sonnet-4",
+            "providerId": "anthropic",
+            "tokens": {
+              "input": 10,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "cost": 1,
+            "messages": 1
+          },
+          {
+            "client": "claude",
+            "modelId": "claude-sonnet-4",
+            "providerId": "anthropic",
+            "tokens": {
+              "input": 3,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "cost": 0.25,
+            "messages": 1
+          },
+          {
+            "client": "codex",
+            "modelId": "gpt-5",
+            "providerId": "openai",
+            "tokens": {
+              "input": 20,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "cost": 2,
+            "messages": 2
+          }
+        ],
+        "turnsByClient": []
+      }
+    },
+    {
+      "id": "clients-null",
+      "op": "decode",
+      "type": "Contribution",
+      "input": {
+        "date": "2024-02-28",
+        "totals": {
+          "tokens": 101,
+          "cost": 9.5,
+          "messages": 7
+        },
+        "intensity": 3,
+        "tokenBreakdown": {
+          "input": 99,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0
+        },
+        "clients": null,
+        "turnsByClient": {
+          "claude": 2,
+          "codex": 3
+        }
+      }
+    },
+    {
+      "id": "trace-string",
+      "op": "decode",
+      "type": "TraceBucket",
+      "input": {
+        "client": "claude-code",
+        "agent": "z",
+        "model": "unknown",
+        "tokens": 4,
+        "messages": 1,
+        "tokens_per_min": "1"
+      }
+    },
+    {
+      "id": "payload-client-element",
+      "op": "decode",
+      "type": "UsagePayload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2024-02-27",
+            "end": "2024-03-03"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            7
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2024-02-27",
+              "end": "2024-03-03"
+            }
+          }
+        ],
+        "contributions": [
+          {
+            "date": "2024-02-28",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 10,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 3,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0.25,
+                "messages": 1
+              },
+              {
+                "client": "codex",
+                "modelId": "gpt-5",
+                "providerId": "openai",
+                "tokens": {
+                  "input": 20,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 2,
+                "messages": 2
+              }
+            ],
+            "turnsByClient": {
+              "claude": 2,
+              "codex": 3
+            }
+          },
+          {
+            "date": "2024-02-29",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 2
+              }
+            ],
+            "turnsByClient": {}
+          },
+          {
+            "date": "2024-03-01",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 3,
+                "messages": 0
+              }
+            ],
+            "turnsByClient": {
+              "claude": 4
+            }
+          },
+          {
+            "date": "2024-03-03",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "codex",
+                "modelId": "gpt-5",
+                "providerId": "openai",
+                "tokens": {
+                  "input": 30,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 4,
+                "messages": 2
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "payload-missing-end",
+      "op": "decode",
+      "type": "UsagePayload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2024-02-27"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2024-02-27",
+              "end": "2024-03-03"
+            }
+          }
+        ],
+        "contributions": [
+          {
+            "date": "2024-02-28",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 10,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 3,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0.25,
+                "messages": 1
+              },
+              {
+                "client": "codex",
+                "modelId": "gpt-5",
+                "providerId": "openai",
+                "tokens": {
+                  "input": 20,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 2,
+                "messages": 2
+              }
+            ],
+            "turnsByClient": {
+              "claude": 2,
+              "codex": 3
+            }
+          },
+          {
+            "date": "2024-02-29",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 2
+              }
+            ],
+            "turnsByClient": {}
+          },
+          {
+            "date": "2024-03-01",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 3,
+                "messages": 0
+              }
+            ],
+            "turnsByClient": {
+              "claude": 4
+            }
+          },
+          {
+            "date": "2024-03-03",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "codex",
+                "modelId": "gpt-5",
+                "providerId": "openai",
+                "tokens": {
+                  "input": 30,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 4,
+                "messages": 2
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "malformed",
+      "op": "decode",
+      "type": "UsagePayload",
+      "rawJSON": "{bad"
+    },
+    {
+      "id": "scalar",
+      "op": "decode",
+      "type": "UsagePayload",
+      "input": 4
+    },
+    {
+      "id": "wide-intensity",
+      "op": "payload",
+      "input": {
+        "meta": {
+          "generatedAt": "synthetic",
+          "version": "test",
+          "dateRange": {
+            "start": "2024-02-27",
+            "end": "2024-03-03"
+          }
+        },
+        "summary": {
+          "totalTokens": 999,
+          "totalCost": 99.5,
+          "totalDays": 6,
+          "activeDays": 5,
+          "averagePerDay": 19.9,
+          "maxCostInSingleDay": 33,
+          "clients": [
+            "claude",
+            "codex"
+          ],
+          "models": [
+            "synthetic"
+          ]
+        },
+        "years": [
+          {
+            "year": "2024",
+            "totalTokens": 777,
+            "totalCost": 77,
+            "range": {
+              "start": "2024-02-27",
+              "end": "2024-03-03"
+            }
+          }
+        ],
+        "contributions": [
+          {
+            "date": "2024-02-28",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 2147483648,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 10,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 1,
+                "messages": 1
+              },
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 3,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0.25,
+                "messages": 1
+              },
+              {
+                "client": "codex",
+                "modelId": "gpt-5",
+                "providerId": "openai",
+                "tokens": {
+                  "input": 20,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 2,
+                "messages": 2
+              }
+            ],
+            "turnsByClient": {
+              "claude": 2,
+              "codex": 3
+            }
+          },
+          {
+            "date": "2024-02-29",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 0,
+                "messages": 2
+              }
+            ],
+            "turnsByClient": {}
+          },
+          {
+            "date": "2024-03-01",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "claude",
+                "modelId": "claude-sonnet-4",
+                "providerId": "anthropic",
+                "tokens": {
+                  "input": 0,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 3,
+                "messages": 0
+              }
+            ],
+            "turnsByClient": {
+              "claude": 4
+            }
+          },
+          {
+            "date": "2024-03-03",
+            "totals": {
+              "tokens": 101,
+              "cost": 9.5,
+              "messages": 7
+            },
+            "intensity": 3,
+            "tokenBreakdown": {
+              "input": 99,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "reasoning": 0
+            },
+            "clients": [
+              {
+                "client": "codex",
+                "modelId": "gpt-5",
+                "providerId": "openai",
+                "tokens": {
+                  "input": 30,
+                  "output": 0,
+                  "cacheRead": 0,
+                  "cacheWrite": 0,
+                  "reasoning": 0
+                },
+                "cost": 4,
+                "messages": 2
+              }
+            ]
+          }
+        ]
+      },
+      "selected": [
+        "claude"
+      ],
+      "hidden": [
+        "codex"
+      ],
+      "today": "2024-02-28",
+      "rangeEnd": "2024-03-01",
+      "endFallback": "2024-04-01",
+      "entries": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4",
+          "cost": 10
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-5",
+          "cost": 8
+        }
+      ]
+    },
+    {
+      "id": "shade-signed",
+      "op": "colors",
+      "entries": [],
+      "lookups": [],
+      "shades": [
+        {
+          "hex": "#-1ffff",
+          "rank": 0
+        },
+        {
+          "hex": "#+1ffff",
+          "rank": 0
+        },
+        {
+          "hex": "# ff ff",
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "id": "overview-whitespace",
+      "op": "overview",
+      "hiddenRaw": "quotaSummary, chart, limits,trace,models,streaks,unknown"
+    }
+  ]
+}
