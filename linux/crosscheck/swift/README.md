@@ -3,8 +3,11 @@
 This macOS SwiftPM package adds selectors that the
 [root harness](../../../Sources/CrossCheckHarness/main.swift) does not provide.
 The `core-leaf` selector covers ClientRegistry, ModelGrouping, ModelScope,
-WindowResolver, and Grid with the shared synthetic fixture. Omitted selector or
-`all` runs every registered extension in sorted order; unknown selectors fail.
+WindowResolver, and Grid with the shared synthetic fixture. The `quota-trend`
+selector calls shipping `QuotaHeatmapFold` and `QuotaTrendFold` with the synthetic
+[fixture](../fixtures/quota-trend.json), decoding curve points with the production
+`QuotaCurvePoint` decoder. Omitted selector or `all` runs every registered
+extension in sorted order; unknown selectors fail.
 The root harness remains responsible for `usage-pace`, `format`, and
 `provider-quota-pace-v3` (its legacy `all` runs only the first two).
 
@@ -80,3 +83,20 @@ It never runs `verify_cpp_output` or guesses Swift semantic expectations.
 The oracle workflow's existing `all` invocation includes this extension;
 macOS build, structural preflight, golden generation and C++ comparison remain
 CI gates. Workers never write `golden/agent-usage.json`.
+
+
+The `attribution` extension reads
+[`attribution.json`](../fixtures/attribution.json) and calls shipping
+`UsageAttribution`, `QuotaHistoryFold`, `WindowEquivalence`, and
+`WindowCardGeometry`. Production decoders supply window messages and quota
+points. Reflection serializes values; explicit mapping preserves equivalence
+case payloads and computed IDs, totals, bounds and consumed percentages.
+Codec cases pass synthetic raw values to public APIs without touching defaults.
+The public suggestion replacement guard reports whether a foreign raw value is
+writable; confirmed records alone supply resolution and history calculations.
+
+`check.py` calls only `attribution_check.verify_structure`, checking JSON shape,
+case IDs and error structure. It never runs the separate C++ semantic checks or
+asserts inferred Swift results. The existing `all` workflow includes this
+selector. Its macOS build, structural preflight, golden generation and C++
+comparison remain CI gates; workers never create `golden/attribution.json`.

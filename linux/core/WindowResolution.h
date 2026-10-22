@@ -1,12 +1,8 @@
 #pragma once
-#include <QtCore/QList>
+#include "WindowUsage.h"
 #include <optional>
 
 namespace syrtis::core {
-// Timestamp projection of a WindowUsage.swift row; the resolver reads no other fields.
-struct WindowMessage {
-    qint64 timestamp = 0;
-};
 struct WindowResolution {
     enum class Kind { active, idle, inferred, unavailable };
     Kind kind = Kind::unavailable;

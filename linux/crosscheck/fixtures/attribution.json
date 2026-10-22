@@ -1,0 +1,4101 @@
+{
+  "cases": [
+    {
+      "id": "codec-absent",
+      "op": "codec",
+      "input": {
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "unassigned"
+          },
+          {
+            "client": "new/source",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-valid",
+      "op": "codec",
+      "input": {
+        "raw": "[{\"client\":\"synthetic\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"synthetic\",\"provider\":\"provider\",\"model\":\"special\",\"state\":\"excluded\"},{\"client\":\"other\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"codex\"}]",
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "unassigned"
+          },
+          {
+            "client": "new/source",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-empty",
+      "op": "codec",
+      "input": {
+        "raw": "[]",
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "unassigned"
+          },
+          {
+            "client": "new/source",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-foreign-null",
+      "op": "codec",
+      "input": {
+        "raw": null,
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "unassigned"
+          },
+          {
+            "client": "new/source",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-foreign-number",
+      "op": "codec",
+      "input": {
+        "raw": 12,
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "unassigned"
+          },
+          {
+            "client": "new/source",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-foreign-object",
+      "op": "codec",
+      "input": {
+        "raw": {},
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "unassigned"
+          },
+          {
+            "client": "new/source",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-malformed",
+      "op": "codec",
+      "input": {
+        "raw": "{",
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "unassigned"
+          },
+          {
+            "client": "new/source",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-object",
+      "op": "codec",
+      "input": {
+        "raw": "{}",
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "unassigned"
+          },
+          {
+            "client": "new/source",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-duplicate",
+      "op": "codec",
+      "input": {
+        "raw": "[{\"client\":\"synthetic\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"synthetic\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"claude\"}]",
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "unassigned"
+          },
+          {
+            "client": "new/source",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-duplicate-canonical",
+      "op": "codec",
+      "input": {
+        "raw": "[{\"client\":\"Café\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"Café\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"claude\"}]",
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "unassigned"
+          },
+          {
+            "client": "new/source",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-unknown-target",
+      "op": "codec",
+      "input": {
+        "raw": "[{\"client\":\"synthetic\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"unregistered\"}]",
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "unassigned"
+          },
+          {
+            "client": "new/source",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-empty-source",
+      "op": "codec",
+      "input": {
+        "raw": "[{\"client\":\"\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"claude\"}]",
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "unassigned"
+          },
+          {
+            "client": "new/source",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-unassigned",
+      "op": "codec",
+      "input": {
+        "raw": "[{\"client\":\"synthetic\",\"provider\":\"provider\",\"model\":null,\"state\":\"unassigned\"}]",
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "unassigned"
+          },
+          {
+            "client": "new/source",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-missing-model",
+      "op": "codec",
+      "input": {
+        "raw": "[{\"client\":\"synthetic\",\"provider\":\"provider\",\"state\":\"excluded\"}]",
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "unassigned"
+          },
+          {
+            "client": "new/source",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-extra-key",
+      "op": "codec",
+      "input": {
+        "raw": "[{\"client\":\"synthetic\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"claude\",\"extra\":true}]",
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "unassigned"
+          },
+          {
+            "client": "new/source",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-wrong-model",
+      "op": "codec",
+      "input": {
+        "raw": "[{\"client\":\"synthetic\",\"provider\":\"provider\",\"model\":2,\"state\":\"assigned\",\"target\":\"claude\"}]",
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "unassigned"
+          },
+          {
+            "client": "new/source",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-source-outside-registry",
+      "op": "codec",
+      "input": {
+        "raw": "[{\"client\":\"cc-mirror/synthetic\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"claude\"}]",
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "unassigned"
+          },
+          {
+            "client": "new/source",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-unicode-sort",
+      "op": "codec",
+      "input": {
+        "raw": "[{\"client\":\"𐀀\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"Café\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"a\",\"provider\":\"provider\",\"model\":\"\",\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"a\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"claude\"}]",
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "unassigned"
+          },
+          {
+            "client": "new/source",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-remove",
+      "op": "codec",
+      "input": {
+        "raw": "[{\"client\":\"synthetic\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"synthetic\",\"provider\":\"provider\",\"model\":\"special\",\"state\":\"excluded\"},{\"client\":\"other\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"codex\"}]",
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null,
+            "state": "unassigned"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-last-update-wins",
+      "op": "codec",
+      "input": {
+        "raw": "[{\"client\":\"synthetic\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"synthetic\",\"provider\":\"provider\",\"model\":\"special\",\"state\":\"excluded\"},{\"client\":\"other\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"codex\"}]",
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "codex"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null,
+            "state": "unassigned"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null,
+            "state": "excluded"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-invalid-update",
+      "op": "codec",
+      "input": {
+        "raw": "[{\"client\":\"synthetic\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"synthetic\",\"provider\":\"provider\",\"model\":\"special\",\"state\":\"excluded\"},{\"client\":\"other\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"codex\"}]",
+        "records": [
+          {
+            "client": "",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-invalid-target",
+      "op": "codec",
+      "input": {
+        "raw": "[{\"client\":\"synthetic\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"synthetic\",\"provider\":\"provider\",\"model\":\"special\",\"state\":\"excluded\"},{\"client\":\"other\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"codex\"}]",
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "unknown"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "codec-replacement-duplicate",
+      "op": "codec",
+      "input": {
+        "raw": "[{\"client\":\"synthetic\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"claude\"},{\"client\":\"synthetic\",\"provider\":\"provider\",\"model\":\"special\",\"state\":\"excluded\"},{\"client\":\"other\",\"provider\":\"provider\",\"model\":null,\"state\":\"assigned\",\"target\":\"codex\"}]",
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "queries": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "normal"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special"
+          },
+          {
+            "client": "unknown",
+            "provider": "provider",
+            "model": "normal"
+          }
+        ],
+        "subscription": "claude"
+      }
+    },
+    {
+      "id": "readings-0",
+      "op": "readings",
+      "input": {
+        "readings": [],
+        "stamps": [
+          0,
+          2,
+          2,
+          6,
+          9223372036854775807
+        ],
+        "probe": -1
+      }
+    },
+    {
+      "id": "readings-1",
+      "op": "readings",
+      "input": {
+        "readings": [
+          5
+        ],
+        "stamps": [
+          0,
+          2,
+          2,
+          6,
+          9223372036854775807
+        ],
+        "probe": 0
+      }
+    },
+    {
+      "id": "readings-2",
+      "op": "readings",
+      "input": {
+        "readings": [
+          5,
+          5,
+          5
+        ],
+        "stamps": [
+          0,
+          2,
+          2,
+          6,
+          9223372036854775807
+        ],
+        "probe": 1
+      }
+    },
+    {
+      "id": "readings-3",
+      "op": "readings",
+      "input": {
+        "readings": [
+          10,
+          20,
+          30
+        ],
+        "stamps": [
+          0,
+          2,
+          2,
+          6,
+          9223372036854775807
+        ],
+        "probe": 2
+      }
+    },
+    {
+      "id": "readings-4",
+      "op": "readings",
+      "input": {
+        "readings": [
+          10,
+          20,
+          20,
+          30,
+          5,
+          8,
+          8,
+          12
+        ],
+        "stamps": [
+          0,
+          2,
+          2,
+          6,
+          9223372036854775807
+        ],
+        "probe": 3
+      }
+    },
+    {
+      "id": "readings-5",
+      "op": "readings",
+      "input": {
+        "readings": [
+          99,
+          1,
+          2
+        ],
+        "stamps": [
+          0,
+          2,
+          2,
+          6,
+          9223372036854775807
+        ],
+        "probe": 6
+      }
+    },
+    {
+      "id": "readings-6",
+      "op": "readings",
+      "input": {
+        "readings": [
+          0,
+          4.999
+        ],
+        "stamps": [
+          0,
+          2,
+          2,
+          6,
+          9223372036854775807
+        ],
+        "probe": 7
+      }
+    },
+    {
+      "id": "readings-7",
+      "op": "readings",
+      "input": {
+        "readings": [
+          0,
+          5
+        ],
+        "stamps": [
+          0,
+          2,
+          2,
+          6,
+          9223372036854775807
+        ],
+        "probe": 9223372036854775807
+      }
+    },
+    {
+      "id": "readings-8",
+      "op": "readings",
+      "input": {
+        "readings": [
+          0,
+          5,
+          0,
+          5
+        ],
+        "stamps": [
+          0,
+          2,
+          2,
+          6,
+          9223372036854775807
+        ],
+        "probe": 4
+      }
+    },
+    {
+      "id": "readings-9",
+      "op": "readings",
+      "input": {
+        "readings": [
+          5,
+          0,
+          5,
+          0,
+          6
+        ],
+        "stamps": [
+          0,
+          2,
+          2,
+          6,
+          9223372036854775807
+        ],
+        "probe": 5
+      }
+    },
+    {
+      "id": "row-empty",
+      "op": "row",
+      "input": {
+        "samples": [],
+        "messages": []
+      }
+    },
+    {
+      "id": "row-single",
+      "op": "row",
+      "input": {
+        "samples": [
+          {
+            "atMs": 0,
+            "usedPercent": 1
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": 1000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "row-flat",
+      "op": "row",
+      "input": {
+        "samples": [
+          {
+            "atMs": 0,
+            "usedPercent": 10
+          },
+          {
+            "atMs": 2000,
+            "usedPercent": 10
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": 1000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "row-fall",
+      "op": "row",
+      "input": {
+        "samples": [
+          {
+            "atMs": 0,
+            "usedPercent": 20
+          },
+          {
+            "atMs": 2000,
+            "usedPercent": 1
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": 1000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "row-unaccounted",
+      "op": "row",
+      "input": {
+        "samples": [
+          {
+            "atMs": 0,
+            "usedPercent": 1
+          },
+          {
+            "atMs": 2000,
+            "usedPercent": 11
+          }
+        ],
+        "messages": []
+      }
+    },
+    {
+      "id": "row-insufficient",
+      "op": "row",
+      "input": {
+        "samples": [
+          {
+            "atMs": 0,
+            "usedPercent": 1
+          },
+          {
+            "atMs": 2000,
+            "usedPercent": 5.99
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": 1000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "row-threshold",
+      "op": "row",
+      "input": {
+        "samples": [
+          {
+            "atMs": 0,
+            "usedPercent": 1
+          },
+          {
+            "atMs": 2000,
+            "usedPercent": 6
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": 1000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "row-tokens",
+      "op": "row",
+      "input": {
+        "samples": [
+          {
+            "atMs": 0,
+            "usedPercent": 1
+          },
+          {
+            "atMs": 2000,
+            "usedPercent": 11
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": 1000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 0,
+            "isTurnStart": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "row-cost",
+      "op": "row",
+      "input": {
+        "samples": [
+          {
+            "atMs": 0,
+            "usedPercent": 1
+          },
+          {
+            "atMs": 2000,
+            "usedPercent": 11
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": 1000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "row-boundaries",
+      "op": "row",
+      "input": {
+        "samples": [
+          {
+            "atMs": 0,
+            "usedPercent": 1
+          },
+          {
+            "atMs": 2000,
+            "usedPercent": 11
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": -1,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 100,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 0,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 100,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 1,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 2000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 2001,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 100,
+            "isTurnStart": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "row-reset-runs",
+      "op": "row",
+      "input": {
+        "samples": [
+          {
+            "atMs": 0,
+            "usedPercent": 20
+          },
+          {
+            "atMs": 500,
+            "usedPercent": 25
+          },
+          {
+            "atMs": 1000,
+            "usedPercent": 1
+          },
+          {
+            "atMs": 1500,
+            "usedPercent": 5
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": 1000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "row-saturation",
+      "op": "row",
+      "input": {
+        "samples": [
+          {
+            "atMs": 0,
+            "usedPercent": 1
+          },
+          {
+            "atMs": 2000,
+            "usedPercent": 6
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": 1000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 9223372036854775807,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 1000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 9223372036854775807,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "row-negative-overflow",
+      "op": "row",
+      "input": {
+        "samples": [
+          {
+            "atMs": 0,
+            "usedPercent": 1
+          },
+          {
+            "atMs": 2000,
+            "usedPercent": 11
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": 1000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": -9223372036854775808,
+            "output": -1,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "row-exact-int",
+      "op": "row",
+      "input": {
+        "samples": [
+          {
+            "atMs": 0,
+            "usedPercent": 1
+          },
+          {
+            "atMs": 2000,
+            "usedPercent": 11
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": 1000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 9007199254740993,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "aggregate-empty",
+      "op": "aggregate",
+      "input": {
+        "cycles": [],
+        "declared": true
+      }
+    },
+    {
+      "id": "aggregate-flat",
+      "op": "aggregate",
+      "input": {
+        "cycles": [
+          {
+            "deltaPercent": 0,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          }
+        ],
+        "declared": true
+      }
+    },
+    {
+      "id": "aggregate-unaccounted",
+      "op": "aggregate",
+      "input": {
+        "cycles": [
+          {
+            "deltaPercent": 10,
+            "spanTokens": 0,
+            "spanCost": 0,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          }
+        ],
+        "declared": true
+      }
+    },
+    {
+      "id": "aggregate-insufficient",
+      "op": "aggregate",
+      "input": {
+        "cycles": [
+          {
+            "deltaPercent": 4,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          }
+        ],
+        "declared": true
+      }
+    },
+    {
+      "id": "aggregate-low-coverage",
+      "op": "aggregate",
+      "input": {
+        "cycles": [
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.49,
+            "risingRuns": 1
+          }
+        ],
+        "declared": true
+      }
+    },
+    {
+      "id": "aggregate-few",
+      "op": "aggregate",
+      "input": {
+        "cycles": [
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          }
+        ],
+        "declared": true
+      }
+    },
+    {
+      "id": "aggregate-ratio",
+      "op": "aggregate",
+      "input": {
+        "cycles": [
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 20,
+            "spanTokens": 200,
+            "spanCost": 4,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 30,
+            "spanTokens": 300,
+            "spanCost": 6,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          }
+        ],
+        "declared": true
+      }
+    },
+    {
+      "id": "aggregate-tokens",
+      "op": "aggregate",
+      "input": {
+        "cycles": [
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 0,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 0,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 0,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          }
+        ],
+        "declared": true
+      }
+    },
+    {
+      "id": "aggregate-cost",
+      "op": "aggregate",
+      "input": {
+        "cycles": [
+          {
+            "deltaPercent": 10,
+            "spanTokens": 0,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 0,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 0,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          }
+        ],
+        "declared": true
+      }
+    },
+    {
+      "id": "aggregate-few-each",
+      "op": "aggregate",
+      "input": {
+        "cycles": [
+          {
+            "deltaPercent": 10,
+            "spanTokens": 0,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 0,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          }
+        ],
+        "declared": true
+      }
+    },
+    {
+      "id": "aggregate-token-spread",
+      "op": "aggregate",
+      "input": {
+        "cycles": [
+          {
+            "deltaPercent": 10,
+            "spanTokens": 1,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 10000,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          }
+        ],
+        "declared": true
+      }
+    },
+    {
+      "id": "aggregate-cost-spread",
+      "op": "aggregate",
+      "input": {
+        "cycles": [
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 0.01,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 10,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 1000,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          }
+        ],
+        "declared": true
+      }
+    },
+    {
+      "id": "aggregate-token-separate-pool",
+      "op": "aggregate",
+      "input": {
+        "cycles": [
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 0,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          }
+        ],
+        "declared": true
+      }
+    },
+    {
+      "id": "aggregate-price-separate-pool",
+      "op": "aggregate",
+      "input": {
+        "cycles": [
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 0,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          }
+        ],
+        "declared": true
+      }
+    },
+    {
+      "id": "aggregate-multi-run-reject",
+      "op": "aggregate",
+      "input": {
+        "cycles": [
+          {
+            "deltaPercent": 9,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 2
+          },
+          {
+            "deltaPercent": 9,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 2
+          },
+          {
+            "deltaPercent": 9,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 2
+          }
+        ],
+        "declared": true
+      }
+    },
+    {
+      "id": "aggregate-multi-run-admit",
+      "op": "aggregate",
+      "input": {
+        "cycles": [
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 2
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 2
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 2
+          }
+        ],
+        "declared": true
+      }
+    },
+    {
+      "id": "aggregate-coverage-threshold",
+      "op": "aggregate",
+      "input": {
+        "cycles": [
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.5,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.5,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.5,
+            "risingRuns": 1
+          }
+        ],
+        "declared": true
+      }
+    },
+    {
+      "id": "aggregate-undeclared",
+      "op": "aggregate",
+      "input": {
+        "cycles": [
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          },
+          {
+            "deltaPercent": 10,
+            "spanTokens": 100,
+            "spanCost": 2,
+            "observedFraction": 0.8,
+            "risingRuns": 1
+          }
+        ],
+        "declared": false
+      }
+    },
+    {
+      "id": "history-empty",
+      "op": "history",
+      "input": {
+        "points": [],
+        "messages": [],
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "excluded"
+          },
+          {
+            "client": "other",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "codex"
+          }
+        ],
+        "subscription": "claude",
+        "modelScope": null
+      }
+    },
+    {
+      "id": "history-mixed",
+      "op": "history",
+      "input": {
+        "points": [
+          {
+            "sampledAt": 0,
+            "usedPercent": 1,
+            "resetAt": 18000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 9000,
+            "usedPercent": 11,
+            "resetAt": 18000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 18000,
+            "usedPercent": 21,
+            "resetAt": 18000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 18005,
+            "usedPercent": 22,
+            "resetAt": 18005,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 18001,
+            "usedPercent": 1,
+            "resetAt": 36000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": true
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": 0,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 1,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 9000000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 18000000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 18000001,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 5000,
+            "client": "other",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 6000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "special",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 7000,
+            "client": "unknown",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "cost": 3,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 8000,
+            "client": "synthetic",
+            "providerId": "second",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ],
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "excluded"
+          },
+          {
+            "client": "other",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "codex"
+          }
+        ],
+        "subscription": "claude",
+        "modelScope": null
+      }
+    },
+    {
+      "id": "history-scope",
+      "op": "history",
+      "input": {
+        "points": [
+          {
+            "sampledAt": 0,
+            "usedPercent": 1,
+            "resetAt": 18000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 9000,
+            "usedPercent": 11,
+            "resetAt": 18000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 18000,
+            "usedPercent": 21,
+            "resetAt": 18000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 18005,
+            "usedPercent": 22,
+            "resetAt": 18005,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 18001,
+            "usedPercent": 1,
+            "resetAt": 36000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": true
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": 0,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 1,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 9000000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 18000000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 18000001,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 5000,
+            "client": "other",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 6000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "special",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 7000,
+            "client": "unknown",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "cost": 3,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 8000,
+            "client": "synthetic",
+            "providerId": "second",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ],
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "excluded"
+          },
+          {
+            "client": "other",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "codex"
+          }
+        ],
+        "subscription": "claude",
+        "modelScope": "special"
+      }
+    },
+    {
+      "id": "history-no-declaration",
+      "op": "history",
+      "input": {
+        "points": [
+          {
+            "sampledAt": 0,
+            "usedPercent": 1,
+            "resetAt": 18000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 9000,
+            "usedPercent": 11,
+            "resetAt": 18000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 18000,
+            "usedPercent": 21,
+            "resetAt": 18000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 18005,
+            "usedPercent": 22,
+            "resetAt": 18005,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 18001,
+            "usedPercent": 1,
+            "resetAt": 36000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": true
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": 0,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 1,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 9000000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 18000000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 18000001,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 5000,
+            "client": "other",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 6000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "special",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 7000,
+            "client": "unknown",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "cost": 3,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 8000,
+            "client": "synthetic",
+            "providerId": "second",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ],
+        "records": [],
+        "subscription": "claude",
+        "modelScope": null
+      }
+    },
+    {
+      "id": "history-shortened-duration",
+      "op": "history",
+      "input": {
+        "points": [
+          {
+            "sampledAt": 0,
+            "usedPercent": 10,
+            "resetAt": 18000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 9000,
+            "usedPercent": 20,
+            "resetAt": 18000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 17000,
+            "usedPercent": 30,
+            "resetAt": 18000,
+            "durationSeconds": 9000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": 0,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 1,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 9000000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 18000000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 18000001,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 5000,
+            "client": "other",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 6000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "special",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 7000,
+            "client": "unknown",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "cost": 3,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 8000,
+            "client": "synthetic",
+            "providerId": "second",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ],
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "excluded"
+          },
+          {
+            "client": "other",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "codex"
+          }
+        ],
+        "subscription": "claude",
+        "modelScope": null
+      }
+    },
+    {
+      "id": "history-mode-tie",
+      "op": "history",
+      "input": {
+        "points": [
+          {
+            "sampledAt": 0,
+            "usedPercent": 10,
+            "resetAt": 18000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 9000,
+            "usedPercent": 20,
+            "resetAt": 18005,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": 0,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 1,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 9000000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 18000000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 18000001,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 5000,
+            "client": "other",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 6000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "special",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 7000,
+            "client": "unknown",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "cost": 3,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 8000,
+            "client": "synthetic",
+            "providerId": "second",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ],
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "excluded"
+          },
+          {
+            "client": "other",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "codex"
+          }
+        ],
+        "subscription": "claude",
+        "modelScope": null
+      }
+    },
+    {
+      "id": "history-model-grouping",
+      "op": "history",
+      "input": {
+        "points": [
+          {
+            "sampledAt": 0,
+            "usedPercent": 10,
+            "resetAt": 18000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 15000,
+            "usedPercent": 30,
+            "resetAt": 18000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": 1,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "claude-sonnet-4-20250514",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 2,
+            "client": "synthetic",
+            "providerId": "second",
+            "modelId": "claude-sonnet-4-20250514",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 3,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "claude-sonnet-4",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ],
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "synthetic",
+            "provider": "second",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          }
+        ],
+        "subscription": "claude",
+        "modelScope": null
+      }
+    },
+    {
+      "id": "history-saturation",
+      "op": "history",
+      "input": {
+        "points": [
+          {
+            "sampledAt": 0,
+            "usedPercent": 1,
+            "resetAt": 18000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 9000,
+            "usedPercent": 11,
+            "resetAt": 18000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 18000,
+            "usedPercent": 21,
+            "resetAt": 18000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 18005,
+            "usedPercent": 22,
+            "resetAt": 18005,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 18001,
+            "usedPercent": 1,
+            "resetAt": 36000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": true
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": 1,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 9223372036854775807,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 2,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 9223372036854775807,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ],
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "excluded"
+          },
+          {
+            "client": "other",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "codex"
+          }
+        ],
+        "subscription": "claude",
+        "modelScope": null
+      }
+    },
+    {
+      "id": "history-cap",
+      "op": "history",
+      "input": {
+        "points": [
+          {
+            "sampledAt": 1,
+            "usedPercent": 10,
+            "resetAt": 18000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 18001,
+            "usedPercent": 10,
+            "resetAt": 36000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 36001,
+            "usedPercent": 10,
+            "resetAt": 54000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 54001,
+            "usedPercent": 10,
+            "resetAt": 72000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 72001,
+            "usedPercent": 10,
+            "resetAt": 90000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 90001,
+            "usedPercent": 10,
+            "resetAt": 108000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 108001,
+            "usedPercent": 10,
+            "resetAt": 126000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 126001,
+            "usedPercent": 10,
+            "resetAt": 144000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 144001,
+            "usedPercent": 10,
+            "resetAt": 162000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 162001,
+            "usedPercent": 10,
+            "resetAt": 180000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 180001,
+            "usedPercent": 10,
+            "resetAt": 198000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 198001,
+            "usedPercent": 10,
+            "resetAt": 216000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 216001,
+            "usedPercent": 10,
+            "resetAt": 234000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 234001,
+            "usedPercent": 10,
+            "resetAt": 252000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 252001,
+            "usedPercent": 10,
+            "resetAt": 270000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 270001,
+            "usedPercent": 10,
+            "resetAt": 288000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 288001,
+            "usedPercent": 10,
+            "resetAt": 306000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 306001,
+            "usedPercent": 10,
+            "resetAt": 324000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 324001,
+            "usedPercent": 10,
+            "resetAt": 342000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 342001,
+            "usedPercent": 10,
+            "resetAt": 360000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 360001,
+            "usedPercent": 10,
+            "resetAt": 378000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 378001,
+            "usedPercent": 10,
+            "resetAt": 396000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 396001,
+            "usedPercent": 10,
+            "resetAt": 414000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 414001,
+            "usedPercent": 10,
+            "resetAt": 432000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 432001,
+            "usedPercent": 10,
+            "resetAt": 450000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 450001,
+            "usedPercent": 10,
+            "resetAt": 468000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 468001,
+            "usedPercent": 10,
+            "resetAt": 486000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 486001,
+            "usedPercent": 10,
+            "resetAt": 504000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 504001,
+            "usedPercent": 10,
+            "resetAt": 522000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 522001,
+            "usedPercent": 10,
+            "resetAt": 540000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 540001,
+            "usedPercent": 10,
+            "resetAt": 558000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 558001,
+            "usedPercent": 10,
+            "resetAt": 576000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 576001,
+            "usedPercent": 10,
+            "resetAt": 594000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 594001,
+            "usedPercent": 10,
+            "resetAt": 612000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          },
+          {
+            "sampledAt": 612001,
+            "usedPercent": 10,
+            "resetAt": 630000,
+            "durationSeconds": 18000,
+            "durationSource": "provider",
+            "origin": "liveV3",
+            "isActiveGroup": false
+          }
+        ],
+        "messages": [],
+        "records": [
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "claude"
+          },
+          {
+            "client": "synthetic",
+            "provider": "provider",
+            "model": "special",
+            "state": "excluded"
+          },
+          {
+            "client": "other",
+            "provider": "provider",
+            "model": null,
+            "state": "assigned",
+            "target": "codex"
+          }
+        ],
+        "subscription": "claude",
+        "modelScope": null
+      }
+    },
+    {
+      "id": "geometry-used",
+      "op": "geometry",
+      "input": {
+        "start": 0,
+        "end": 5000,
+        "now": 4000,
+        "samples": [
+          {
+            "atMs": -1,
+            "usedPercent": 90
+          },
+          {
+            "atMs": 0,
+            "usedPercent": 1
+          },
+          {
+            "atMs": 1000,
+            "usedPercent": 5
+          },
+          {
+            "atMs": 1000,
+            "usedPercent": 6
+          },
+          {
+            "atMs": 2000,
+            "usedPercent": 5
+          },
+          {
+            "atMs": 3000,
+            "usedPercent": 30
+          },
+          {
+            "atMs": 5000,
+            "usedPercent": 40
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": 0,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 1,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 9000000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ],
+        "metric": "used"
+      }
+    },
+    {
+      "id": "geometry-remaining",
+      "op": "geometry",
+      "input": {
+        "start": 0,
+        "end": 5000,
+        "now": 4000,
+        "samples": [
+          {
+            "atMs": -1,
+            "usedPercent": 90
+          },
+          {
+            "atMs": 0,
+            "usedPercent": 1
+          },
+          {
+            "atMs": 1000,
+            "usedPercent": 5
+          },
+          {
+            "atMs": 1000,
+            "usedPercent": 6
+          },
+          {
+            "atMs": 2000,
+            "usedPercent": 5
+          },
+          {
+            "atMs": 3000,
+            "usedPercent": 30
+          },
+          {
+            "atMs": 5000,
+            "usedPercent": 40
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": -1,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 0,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 1,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 1000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 1001,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 2000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 3000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 4000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          },
+          {
+            "timestamp": 4001,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ],
+        "metric": "remaining"
+      }
+    },
+    {
+      "id": "geometry-empty",
+      "op": "geometry",
+      "input": {
+        "start": 0,
+        "end": 5000,
+        "now": 4000,
+        "samples": [],
+        "messages": [],
+        "metric": "used"
+      }
+    },
+    {
+      "id": "geometry-one",
+      "op": "geometry",
+      "input": {
+        "start": 0,
+        "end": 5000,
+        "now": 4000,
+        "samples": [
+          {
+            "atMs": 1000,
+            "usedPercent": 5
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": 1000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ],
+        "metric": "used"
+      }
+    },
+    {
+      "id": "geometry-invalid-window",
+      "op": "geometry",
+      "input": {
+        "start": 1000,
+        "end": 0,
+        "now": 2000,
+        "samples": [],
+        "messages": [],
+        "metric": "used"
+      }
+    },
+    {
+      "id": "geometry-before-start",
+      "op": "geometry",
+      "input": {
+        "start": 1000,
+        "end": 5000,
+        "now": 0,
+        "samples": [],
+        "messages": [],
+        "metric": "used"
+      }
+    },
+    {
+      "id": "geometry-cache-only",
+      "op": "geometry",
+      "input": {
+        "start": 0,
+        "end": 5000,
+        "now": 4000,
+        "samples": [
+          {
+            "atMs": 0,
+            "usedPercent": 1
+          },
+          {
+            "atMs": 2000,
+            "usedPercent": 20
+          }
+        ],
+        "messages": [
+          {
+            "timestamp": 1000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 0,
+            "output": 0,
+            "cacheRead": 30,
+            "cacheWrite": 0,
+            "reasoning": 0,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ],
+        "metric": "used"
+      }
+    },
+    {
+      "id": "geometry-limited-tangents",
+      "op": "geometry",
+      "input": {
+        "start": 0,
+        "end": 5000,
+        "now": 4000,
+        "samples": [
+          {
+            "atMs": 0,
+            "usedPercent": 0
+          },
+          {
+            "atMs": 1000,
+            "usedPercent": 1
+          },
+          {
+            "atMs": 2000,
+            "usedPercent": 99
+          },
+          {
+            "atMs": 3000,
+            "usedPercent": 100
+          }
+        ],
+        "messages": [],
+        "metric": "used"
+      }
+    },
+    {
+      "id": "decode-bool-null",
+      "op": "row",
+      "input": {
+        "samples": [],
+        "messages": [
+          {
+            "timestamp": 1000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "decode-int-fraction",
+      "op": "row",
+      "input": {
+        "samples": [],
+        "messages": [
+          {
+            "timestamp": 1000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": 1.5,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "decode-int-null",
+      "op": "row",
+      "input": {
+        "samples": [],
+        "messages": [
+          {
+            "timestamp": 1000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": "normal",
+            "input": null,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "decode-string-type",
+      "op": "row",
+      "input": {
+        "samples": [],
+        "messages": [
+          {
+            "timestamp": 1000,
+            "client": "synthetic",
+            "providerId": "provider",
+            "modelId": 1,
+            "input": 10,
+            "output": 2,
+            "cacheRead": 30,
+            "cacheWrite": 3,
+            "reasoning": 4,
+            "cost": 1,
+            "isTurnStart": false
+          }
+        ]
+      }
+    }
+  ]
+}
