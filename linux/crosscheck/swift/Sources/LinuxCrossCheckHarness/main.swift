@@ -39,7 +39,7 @@ guard (2...3).contains(args.count) else {
 // handler reads synthetic fixtures and calls shipping TokenBarCore/Format.
 // Each extension invokes the shipping core with synthetic inputs.
 typealias Selector = (URL) throws -> [String: Any]
-let selectors: [String: Selector] = ["core-leaf": coreLeaf, "reports": reports, "charts": charts]
+let selectors: [String: Selector] = ["core-leaf": coreLeaf, "quota-trend": quotaTrendSelector, "reports": reports, "charts": charts]
 
 let selector = args.count == 3 ? args[2] : "all"
 guard selector == "all" || selectors[selector] != nil else {

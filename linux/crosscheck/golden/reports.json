@@ -1,0 +1,2035 @@
+{
+  "cases" : [
+    {
+      "id" : "valid-ProbeResult",
+      "value" : {
+        "err" : null,
+        "messages" : 7,
+        "ok" : true
+      }
+    },
+    {
+      "id" : "valid-ScanPathNote",
+      "value" : {
+        "client" : "synthetic",
+        "path" : "\/synthetic\/scan",
+        "reason" : "synthetic_unreadable"
+      }
+    },
+    {
+      "id" : "valid-ExtraScanPathsResult",
+      "value" : {
+        "registeredCount" : 1,
+        "rejected" : [
+          {
+            "client" : "synthetic-other",
+            "path" : "\/synthetic\/rejected",
+            "reason" : "synthetic_unsupported"
+          }
+        ],
+        "unreadable" : [
+          {
+            "client" : "synthetic",
+            "path" : "\/synthetic\/scan",
+            "reason" : "synthetic_unreadable"
+          }
+        ]
+      }
+    },
+    {
+      "id" : "valid-RejectedConfigDir",
+      "value" : {
+        "path" : "\/synthetic\/config",
+        "reason" : "synthetic_rejected"
+      }
+    },
+    {
+      "id" : "valid-ClaudeConfigDirsResult",
+      "value" : {
+        "registeredCount" : 0,
+        "rejected" : [
+          {
+            "path" : "\/synthetic\/config",
+            "reason" : "synthetic_rejected"
+          }
+        ]
+      }
+    },
+    {
+      "id" : "valid-RejectedAntigravityAccount",
+      "value" : {
+        "index" : 1,
+        "reason" : "synthetic_duplicate"
+      }
+    },
+    {
+      "id" : "valid-AntigravityAccountsResult",
+      "value" : {
+        "registeredCount" : 1,
+        "rejected" : [
+          {
+            "index" : 1,
+            "reason" : "synthetic_duplicate"
+          }
+        ]
+      }
+    },
+    {
+      "id" : "valid-AntigravityCapturedAccount",
+      "value" : {
+        "key" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "label" : "Synthetic account"
+      }
+    },
+    {
+      "id" : "valid-AntigravityBindingResult",
+      "value" : {
+        "bound" : true
+      }
+    },
+    {
+      "id" : "valid-AntigravityRemoved",
+      "value" : {
+        "removed" : false
+      }
+    },
+    {
+      "id" : "valid-AntigravityLoginMarker",
+      "value" : {
+        "marker" : "absent"
+      }
+    },
+    {
+      "id" : "valid-AntigravityAutoCaptureResult",
+      "value" : {
+        "key" : "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "label" : "Synthetic capture",
+        "status" : "captured"
+      }
+    },
+    {
+      "id" : "valid-RejectedKeychainConsent",
+      "value" : {
+        "client" : "synthetic",
+        "reason" : "synthetic_unsupported"
+      }
+    },
+    {
+      "id" : "valid-KeychainConsentResult",
+      "value" : {
+        "grantedCount" : 0,
+        "rejected" : [
+          {
+            "client" : "synthetic",
+            "reason" : "synthetic_unsupported"
+          }
+        ]
+      }
+    },
+    {
+      "id" : "valid-CursorSyncConfigResult",
+      "value" : {
+        "cleanupFailed" : true,
+        "cliTakeoverConfirmed" : false,
+        "dir" : null,
+        "enabled" : false,
+        "removedFiles" : 2
+      }
+    },
+    {
+      "id" : "valid-CursorSyncStatus",
+      "value" : {
+        "events" : 3,
+        "lastSuccessMs" : 1234567890,
+        "reason" : "synthetic_offline",
+        "state" : "partial"
+      }
+    },
+    {
+      "id" : "valid-AgentReportEntry",
+      "value" : {
+        "agent" : "Synthetic 主代理 🧪",
+        "cacheRead" : 4,
+        "cacheWrite" : 8,
+        "clients" : [
+          "synthetic",
+          "synthetic-other"
+        ],
+        "cost" : 0.125,
+        "input" : 1,
+        "messages" : 3,
+        "output" : 2,
+        "reasoning" : 16,
+        "total" : 31
+      }
+    },
+    {
+      "id" : "valid-AgentsReport",
+      "value" : {
+        "entries" : [
+          {
+            "agent" : "Synthetic 主代理 🧪",
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "clients" : [
+              "synthetic",
+              "synthetic-other"
+            ],
+            "cost" : 0.125,
+            "input" : 1,
+            "messages" : 3,
+            "output" : 2,
+            "reasoning" : 16,
+            "total" : 31
+          }
+        ],
+        "totalCost" : 0.125,
+        "totalMessages" : 3
+      }
+    },
+    {
+      "id" : "valid-HourlyReportEntry",
+      "value" : {
+        "cacheRead" : 4,
+        "cacheWrite" : 8,
+        "clients" : [
+          "synthetic"
+        ],
+        "cost" : 0.125,
+        "hour" : "2024-02-29 23:00",
+        "input" : 1,
+        "messageCount" : 3,
+        "models" : [
+          "synthetic-model"
+        ],
+        "output" : 2,
+        "reasoning" : 16,
+        "total" : 31,
+        "turnCount" : 2
+      }
+    },
+    {
+      "id" : "valid-HourlyReport",
+      "value" : {
+        "entries" : [
+          {
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "clients" : [
+              "synthetic"
+            ],
+            "cost" : 0.125,
+            "hour" : "2024-02-29 23:00",
+            "input" : 1,
+            "messageCount" : 3,
+            "models" : [
+              "synthetic-model"
+            ],
+            "output" : 2,
+            "reasoning" : 16,
+            "total" : 31,
+            "turnCount" : 2
+          }
+        ],
+        "totalCost" : 0.125
+      }
+    },
+    {
+      "id" : "valid-ModelReportEntry",
+      "value" : {
+        "cacheRead" : 4,
+        "cacheWrite" : 8,
+        "client" : "synthetic",
+        "cost" : 0.125,
+        "costEstimate" : 0.25,
+        "input" : 1,
+        "messageCount" : 3,
+        "model" : "synthetic-model",
+        "msPer1kTokens" : 12.5,
+        "output" : 2,
+        "provider" : "synthetic-provider",
+        "reasoning" : 16,
+        "total" : 31
+      }
+    },
+    {
+      "id" : "valid-ModelReport",
+      "value" : {
+        "entries" : [
+          {
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "client" : "synthetic",
+            "cost" : 0.125,
+            "costEstimate" : 0.25,
+            "input" : 1,
+            "messageCount" : 3,
+            "model" : "synthetic-model",
+            "msPer1kTokens" : 12.5,
+            "output" : 2,
+            "provider" : "synthetic-provider",
+            "reasoning" : 16,
+            "total" : 31
+          }
+        ],
+        "pricingUpdatedAt" : 1234567890,
+        "totalCacheRead" : 4,
+        "totalCacheWrite" : 8,
+        "totalCost" : 0.125,
+        "totalInput" : 1,
+        "totalMessages" : 3,
+        "totalOutput" : 2
+      }
+    },
+    {
+      "id" : "valid-FilterParityAggregate",
+      "value" : {
+        "cacheRead" : 4,
+        "cacheWrite" : 8,
+        "entryCount" : 1,
+        "input" : 1,
+        "messageCount" : 3,
+        "output" : 2,
+        "reasoning" : 16,
+        "totalCost" : 0.125,
+        "totalTokens" : 31
+      }
+    },
+    {
+      "id" : "valid-FilterParityReport",
+      "value" : {
+        "delta" : {
+          "cacheRead" : 0,
+          "cacheWrite" : 0,
+          "entryCount" : 0,
+          "input" : 0,
+          "messageCount" : 0,
+          "output" : 0,
+          "reasoning" : 0,
+          "totalCost" : 0,
+          "totalTokens" : 0
+        },
+        "full" : {
+          "cacheRead" : 4,
+          "cacheWrite" : 8,
+          "entryCount" : 1,
+          "input" : 1,
+          "messageCount" : 3,
+          "output" : 2,
+          "reasoning" : 16,
+          "totalCost" : 0.125,
+          "totalTokens" : 31
+        },
+        "status" : "match",
+        "unfiltered" : {
+          "cacheRead" : 4,
+          "cacheWrite" : 8,
+          "entryCount" : 1,
+          "input" : 1,
+          "messageCount" : 3,
+          "output" : 2,
+          "reasoning" : 16,
+          "totalCost" : 0.125,
+          "totalTokens" : 31
+        }
+      }
+    },
+    {
+      "id" : "valid-FilterParityProbe",
+      "smokeSummary" : "hourly=MATCH entriesΔ=0 tokensΔ=0 messagesΔ=0 costΔ=0.00; agents=SOURCE_CHANGED \/ SKIP",
+      "value" : {
+        "agents" : {
+          "delta" : null,
+          "full" : null,
+          "status" : "sourceChanged",
+          "unfiltered" : null
+        },
+        "hourly" : {
+          "delta" : {
+            "cacheRead" : 0,
+            "cacheWrite" : 0,
+            "entryCount" : 0,
+            "input" : 0,
+            "messageCount" : 0,
+            "output" : 0,
+            "reasoning" : 0,
+            "totalCost" : 0,
+            "totalTokens" : 0
+          },
+          "full" : {
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "entryCount" : 1,
+            "input" : 1,
+            "messageCount" : 3,
+            "output" : 2,
+            "reasoning" : 16,
+            "totalCost" : 0.125,
+            "totalTokens" : 31
+          },
+          "status" : "match",
+          "unfiltered" : {
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "entryCount" : 1,
+            "input" : 1,
+            "messageCount" : 3,
+            "output" : 2,
+            "reasoning" : 16,
+            "totalCost" : 0.125,
+            "totalTokens" : 31
+          }
+        },
+        "presentClientCount" : 2
+      }
+    },
+    {
+      "id" : "empty-AgentsReport",
+      "value" : {
+        "entries" : [
+
+        ],
+        "totalCost" : 0.125,
+        "totalMessages" : 3
+      }
+    },
+    {
+      "id" : "exact-AgentsReport",
+      "value" : {
+        "entries" : [
+          {
+            "agent" : "Synthetic 主代理 🧪",
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "clients" : [
+              "synthetic",
+              "synthetic-other"
+            ],
+            "cost" : 0.125,
+            "input" : 9007199254740993,
+            "messages" : 3,
+            "output" : 9223372036854775807,
+            "reasoning" : -9223372036854775808,
+            "total" : -7
+          }
+        ],
+        "totalCost" : 99.5,
+        "totalMessages" : 3
+      }
+    },
+    {
+      "id" : "empty-HourlyReport",
+      "value" : {
+        "entries" : [
+
+        ],
+        "totalCost" : 0.125
+      }
+    },
+    {
+      "id" : "exact-HourlyReport",
+      "value" : {
+        "entries" : [
+          {
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "clients" : [
+              "synthetic"
+            ],
+            "cost" : 0.125,
+            "hour" : "2024-02-29 23:00",
+            "input" : 9007199254740993,
+            "messageCount" : 3,
+            "models" : [
+              "synthetic-model"
+            ],
+            "output" : 9223372036854775807,
+            "reasoning" : -9223372036854775808,
+            "total" : -7,
+            "turnCount" : 2
+          }
+        ],
+        "totalCost" : 99.5
+      }
+    },
+    {
+      "id" : "empty-ModelReport",
+      "value" : {
+        "entries" : [
+
+        ],
+        "pricingUpdatedAt" : 1234567890,
+        "totalCacheRead" : 4,
+        "totalCacheWrite" : 8,
+        "totalCost" : 0.125,
+        "totalInput" : 1,
+        "totalMessages" : 3,
+        "totalOutput" : 2
+      }
+    },
+    {
+      "id" : "exact-ModelReport",
+      "value" : {
+        "entries" : [
+          {
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "client" : "synthetic",
+            "cost" : 0.125,
+            "costEstimate" : 0.25,
+            "input" : 9007199254740993,
+            "messageCount" : 3,
+            "model" : "synthetic-model",
+            "msPer1kTokens" : 12.5,
+            "output" : 9223372036854775807,
+            "provider" : "synthetic-provider",
+            "reasoning" : -9223372036854775808,
+            "total" : -7
+          }
+        ],
+        "pricingUpdatedAt" : 1234567890,
+        "totalCacheRead" : 4,
+        "totalCacheWrite" : 8,
+        "totalCost" : 99.5,
+        "totalInput" : 1,
+        "totalMessages" : 3,
+        "totalOutput" : 2
+      }
+    },
+    {
+      "id" : "model-legacy",
+      "value" : {
+        "entries" : [
+          {
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "client" : "synthetic",
+            "cost" : 0.125,
+            "costEstimate" : null,
+            "input" : 1,
+            "messageCount" : 3,
+            "model" : "synthetic-model",
+            "msPer1kTokens" : null,
+            "output" : 2,
+            "provider" : "synthetic-provider",
+            "reasoning" : 16,
+            "total" : 31
+          }
+        ],
+        "pricingUpdatedAt" : null,
+        "totalCacheRead" : 4,
+        "totalCacheWrite" : 8,
+        "totalCost" : 0.125,
+        "totalInput" : 1,
+        "totalMessages" : 3,
+        "totalOutput" : 2
+      }
+    },
+    {
+      "id" : "model-wrong-throughput-spelling",
+      "value" : {
+        "entries" : [
+          {
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "client" : "synthetic",
+            "cost" : 0.125,
+            "costEstimate" : null,
+            "input" : 1,
+            "messageCount" : 3,
+            "model" : "synthetic-model",
+            "msPer1kTokens" : null,
+            "output" : 2,
+            "provider" : "synthetic-provider",
+            "reasoning" : 16,
+            "total" : 31
+          }
+        ],
+        "pricingUpdatedAt" : null,
+        "totalCacheRead" : 4,
+        "totalCacheWrite" : 8,
+        "totalCost" : 0.125,
+        "totalInput" : 1,
+        "totalMessages" : 3,
+        "totalOutput" : 2
+      }
+    },
+    {
+      "id" : "model-null-optionals",
+      "value" : {
+        "entries" : [
+          {
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "client" : "synthetic",
+            "cost" : 0.125,
+            "costEstimate" : null,
+            "input" : 1,
+            "messageCount" : 3,
+            "model" : "synthetic-model",
+            "msPer1kTokens" : null,
+            "output" : 2,
+            "provider" : "synthetic-provider",
+            "reasoning" : 16,
+            "total" : 31
+          }
+        ],
+        "pricingUpdatedAt" : null,
+        "totalCacheRead" : 4,
+        "totalCacheWrite" : 8,
+        "totalCost" : 0.125,
+        "totalInput" : 1,
+        "totalMessages" : 3,
+        "totalOutput" : 2
+      }
+    },
+    {
+      "id" : "parity-match",
+      "smokeSummary" : "hourly=MATCH entriesΔ=-1 tokensΔ=-13 messagesΔ=-2 costΔ=-1.12; agents=MATCH",
+      "value" : {
+        "agents" : {
+          "delta" : null,
+          "full" : null,
+          "status" : "match",
+          "unfiltered" : null
+        },
+        "hourly" : {
+          "delta" : {
+            "cacheRead" : 0,
+            "cacheWrite" : 0,
+            "entryCount" : -1,
+            "input" : 0,
+            "messageCount" : -2,
+            "output" : 0,
+            "reasoning" : 0,
+            "totalCost" : -1.125,
+            "totalTokens" : -13
+          },
+          "full" : {
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "entryCount" : 1,
+            "input" : 1,
+            "messageCount" : 3,
+            "output" : 2,
+            "reasoning" : 16,
+            "totalCost" : 0.125,
+            "totalTokens" : 31
+          },
+          "status" : "match",
+          "unfiltered" : {
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "entryCount" : 1,
+            "input" : 1,
+            "messageCount" : 3,
+            "output" : 2,
+            "reasoning" : 16,
+            "totalCost" : 0.125,
+            "totalTokens" : 31
+          }
+        },
+        "presentClientCount" : 2
+      }
+    },
+    {
+      "id" : "parity-mismatch",
+      "smokeSummary" : "hourly=MISMATCH entriesΔ=-1 tokensΔ=-13 messagesΔ=-2 costΔ=-1.12; agents=MISMATCH",
+      "value" : {
+        "agents" : {
+          "delta" : null,
+          "full" : null,
+          "status" : "mismatch",
+          "unfiltered" : null
+        },
+        "hourly" : {
+          "delta" : {
+            "cacheRead" : 0,
+            "cacheWrite" : 0,
+            "entryCount" : -1,
+            "input" : 0,
+            "messageCount" : -2,
+            "output" : 0,
+            "reasoning" : 0,
+            "totalCost" : -1.125,
+            "totalTokens" : -13
+          },
+          "full" : {
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "entryCount" : 1,
+            "input" : 1,
+            "messageCount" : 3,
+            "output" : 2,
+            "reasoning" : 16,
+            "totalCost" : 0.125,
+            "totalTokens" : 31
+          },
+          "status" : "mismatch",
+          "unfiltered" : {
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "entryCount" : 1,
+            "input" : 1,
+            "messageCount" : 3,
+            "output" : 2,
+            "reasoning" : 16,
+            "totalCost" : 0.125,
+            "totalTokens" : 31
+          }
+        },
+        "presentClientCount" : 2
+      }
+    },
+    {
+      "id" : "parity-sourceChanged",
+      "smokeSummary" : "hourly=SOURCE_CHANGED \/ SKIP; agents=SOURCE_CHANGED \/ SKIP",
+      "value" : {
+        "agents" : {
+          "delta" : null,
+          "full" : null,
+          "status" : "sourceChanged",
+          "unfiltered" : null
+        },
+        "hourly" : {
+          "delta" : {
+            "cacheRead" : 0,
+            "cacheWrite" : 0,
+            "entryCount" : -1,
+            "input" : 0,
+            "messageCount" : -2,
+            "output" : 0,
+            "reasoning" : 0,
+            "totalCost" : -1.125,
+            "totalTokens" : -13
+          },
+          "full" : {
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "entryCount" : 1,
+            "input" : 1,
+            "messageCount" : 3,
+            "output" : 2,
+            "reasoning" : 16,
+            "totalCost" : 0.125,
+            "totalTokens" : 31
+          },
+          "status" : "sourceChanged",
+          "unfiltered" : {
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "entryCount" : 1,
+            "input" : 1,
+            "messageCount" : 3,
+            "output" : 2,
+            "reasoning" : 16,
+            "totalCost" : 0.125,
+            "totalTokens" : 31
+          }
+        },
+        "presentClientCount" : 2
+      }
+    },
+    {
+      "id" : "parity-tokenUnavailable",
+      "smokeSummary" : "hourly=TOKEN_UNAVAILABLE \/ SKIP; agents=TOKEN_UNAVAILABLE \/ SKIP",
+      "value" : {
+        "agents" : {
+          "delta" : null,
+          "full" : null,
+          "status" : "tokenUnavailable",
+          "unfiltered" : null
+        },
+        "hourly" : {
+          "delta" : {
+            "cacheRead" : 0,
+            "cacheWrite" : 0,
+            "entryCount" : -1,
+            "input" : 0,
+            "messageCount" : -2,
+            "output" : 0,
+            "reasoning" : 0,
+            "totalCost" : -1.125,
+            "totalTokens" : -13
+          },
+          "full" : {
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "entryCount" : 1,
+            "input" : 1,
+            "messageCount" : 3,
+            "output" : 2,
+            "reasoning" : 16,
+            "totalCost" : 0.125,
+            "totalTokens" : 31
+          },
+          "status" : "tokenUnavailable",
+          "unfiltered" : {
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "entryCount" : 1,
+            "input" : 1,
+            "messageCount" : 3,
+            "output" : 2,
+            "reasoning" : 16,
+            "totalCost" : 0.125,
+            "totalTokens" : 31
+          }
+        },
+        "presentClientCount" : 2
+      }
+    },
+    {
+      "error" : {
+        "kind" : "dataCorrupted",
+        "path" : [
+          "data",
+          "hourly",
+          "status"
+        ]
+      },
+      "id" : "parity-invalid-MATCH"
+    },
+    {
+      "error" : {
+        "kind" : "dataCorrupted",
+        "path" : [
+          "data",
+          "hourly",
+          "status"
+        ]
+      },
+      "id" : "parity-invalid-source_changed"
+    },
+    {
+      "error" : {
+        "kind" : "dataCorrupted",
+        "path" : [
+          "data",
+          "hourly",
+          "status"
+        ]
+      },
+      "id" : "parity-invalid-futureStatus"
+    },
+    {
+      "id" : "missing-optionals-ProbeResult",
+      "value" : {
+        "err" : null,
+        "messages" : null,
+        "ok" : true
+      }
+    },
+    {
+      "id" : "missing-optionals-AntigravityAutoCaptureResult",
+      "value" : {
+        "key" : null,
+        "label" : null,
+        "status" : "captured"
+      }
+    },
+    {
+      "id" : "missing-optionals-CursorSyncConfigResult",
+      "value" : {
+        "cleanupFailed" : true,
+        "cliTakeoverConfirmed" : false,
+        "dir" : null,
+        "enabled" : false,
+        "removedFiles" : 2
+      }
+    },
+    {
+      "id" : "missing-optionals-CursorSyncStatus",
+      "value" : {
+        "events" : 3,
+        "lastSuccessMs" : null,
+        "reason" : null,
+        "state" : "partial"
+      }
+    },
+    {
+      "error" : {
+        "field" : "agent",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data",
+          "entries",
+          "Index 0"
+        ]
+      },
+      "id" : "agent-missing-agent"
+    },
+    {
+      "error" : {
+        "field" : "clients",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data",
+          "entries",
+          "Index 0"
+        ]
+      },
+      "id" : "agent-missing-clients"
+    },
+    {
+      "error" : {
+        "field" : "input",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data",
+          "entries",
+          "Index 0"
+        ]
+      },
+      "id" : "agent-missing-input"
+    },
+    {
+      "error" : {
+        "field" : "output",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data",
+          "entries",
+          "Index 0"
+        ]
+      },
+      "id" : "agent-missing-output"
+    },
+    {
+      "error" : {
+        "field" : "cacheRead",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data",
+          "entries",
+          "Index 0"
+        ]
+      },
+      "id" : "agent-missing-cacheRead"
+    },
+    {
+      "error" : {
+        "field" : "cacheWrite",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data",
+          "entries",
+          "Index 0"
+        ]
+      },
+      "id" : "agent-missing-cacheWrite"
+    },
+    {
+      "error" : {
+        "field" : "reasoning",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data",
+          "entries",
+          "Index 0"
+        ]
+      },
+      "id" : "agent-missing-reasoning"
+    },
+    {
+      "error" : {
+        "field" : "total",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data",
+          "entries",
+          "Index 0"
+        ]
+      },
+      "id" : "agent-missing-total"
+    },
+    {
+      "error" : {
+        "field" : "cost",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data",
+          "entries",
+          "Index 0"
+        ]
+      },
+      "id" : "agent-missing-cost"
+    },
+    {
+      "error" : {
+        "field" : "messages",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data",
+          "entries",
+          "Index 0"
+        ]
+      },
+      "id" : "agent-missing-messages"
+    },
+    {
+      "error" : {
+        "kind" : "valueNotFound",
+        "path" : [
+          "data",
+          "entries",
+          "Index 0",
+          "agent"
+        ]
+      },
+      "id" : "agent-null"
+    },
+    {
+      "error" : {
+        "field" : "turnCount",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data",
+          "entries",
+          "Index 0"
+        ]
+      },
+      "id" : "hourly-missing-turns"
+    },
+    {
+      "error" : {
+        "field" : "provider",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data",
+          "entries",
+          "Index 0"
+        ]
+      },
+      "id" : "model-missing-provider"
+    },
+    {
+      "error" : {
+        "field" : "reason",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data",
+          "unreadable",
+          "Index 0"
+        ]
+      },
+      "id" : "scan-missing-reason"
+    },
+    {
+      "error" : {
+        "field" : "presentClientCount",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data"
+        ]
+      },
+      "id" : "parity-missing-count"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "entries",
+          "Index 0",
+          "input"
+        ]
+      },
+      "id" : "agent-input-string"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "entries",
+          "Index 0",
+          "cost"
+        ]
+      },
+      "id" : "agent-cost-bool"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "entries",
+          "Index 0",
+          "clients",
+          "Index 1"
+        ]
+      },
+      "id" : "agent-clients-wrong-element"
+    },
+    {
+      "error" : {
+        "kind" : "valueNotFound",
+        "path" : [
+          "data",
+          "entries",
+          "Index 0",
+          "models"
+        ]
+      },
+      "id" : "hourly-models-null"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "entries",
+          "Index 0",
+          "msPer1kTokens"
+        ]
+      },
+      "id" : "model-throughput-string"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "entries",
+          "Index 0",
+          "costEstimate"
+        ]
+      },
+      "id" : "model-estimate-bool"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "pricingUpdatedAt"
+        ]
+      },
+      "id" : "model-pricing-string"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "hourly",
+          "delta"
+        ]
+      },
+      "id" : "parity-invalid-aggregate"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "lastSuccessMs"
+        ]
+      },
+      "id" : "cursor-time-string"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "label"
+        ]
+      },
+      "id" : "capture-label-number"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "bound"
+        ]
+      },
+      "id" : "binding-not-bool"
+    },
+    {
+      "error" : {
+        "kind" : "bridge",
+        "message" : "synthetic_failure"
+      },
+      "id" : "bridge-message"
+    },
+    {
+      "error" : {
+        "kind" : "bridge",
+        "message" : "unknown"
+      },
+      "id" : "bridge-unknown"
+    },
+    {
+      "error" : {
+        "kind" : "bridge",
+        "message" : "unknown"
+      },
+      "id" : "bridge-null-error"
+    },
+    {
+      "error" : {
+        "kind" : "bridge",
+        "message" : ""
+      },
+      "id" : "bridge-empty-error"
+    },
+    {
+      "error" : {
+        "kind" : "bridge",
+        "message" : "synthetic_failure"
+      },
+      "id" : "bridge-optional"
+    },
+    {
+      "error" : {
+        "kind" : "bridge",
+        "message" : "synthetic_failure"
+      },
+      "id" : "bridge-valid-data"
+    },
+    {
+      "error" : {
+        "field" : "entries",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data"
+        ]
+      },
+      "id" : "bridge-malformed-data"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "err"
+        ]
+      },
+      "id" : "bridge-malformed-error"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "err"
+        ]
+      },
+      "id" : "success-malformed-error"
+    },
+    {
+      "id" : "success-null-error",
+      "value" : {
+        "entries" : [
+          {
+            "agent" : "Synthetic 主代理 🧪",
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "clients" : [
+              "synthetic",
+              "synthetic-other"
+            ],
+            "cost" : 0.125,
+            "input" : 1,
+            "messages" : 3,
+            "output" : 2,
+            "reasoning" : 16,
+            "total" : 31
+          }
+        ],
+        "totalCost" : 0.125,
+        "totalMessages" : 3
+      }
+    },
+    {
+      "error" : {
+        "description" : "successful FFI envelope is missing data",
+        "kind" : "dataCorrupted",
+        "path" : [
+
+        ]
+      },
+      "id" : "missing-data"
+    },
+    {
+      "error" : {
+        "description" : "successful FFI envelope is missing data",
+        "kind" : "dataCorrupted",
+        "path" : [
+
+        ]
+      },
+      "id" : "null-data"
+    },
+    {
+      "error" : {
+        "description" : "successful FFI envelope is missing the data key",
+        "kind" : "dataCorrupted",
+        "path" : [
+
+        ]
+      },
+      "id" : "optional-missing-data"
+    },
+    {
+      "id" : "optional-null-data",
+      "value" : null
+    },
+    {
+      "id" : "optional-value",
+      "value" : {
+        "entries" : [
+          {
+            "agent" : "Synthetic 主代理 🧪",
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "clients" : [
+              "synthetic",
+              "synthetic-other"
+            ],
+            "cost" : 0.125,
+            "input" : 1,
+            "messages" : 3,
+            "output" : 2,
+            "reasoning" : 16,
+            "total" : 31
+          }
+        ],
+        "totalCost" : 0.125,
+        "totalMessages" : 3
+      }
+    },
+    {
+      "error" : {
+        "field" : "ok",
+        "kind" : "keyNotFound",
+        "path" : [
+
+        ]
+      },
+      "id" : "missing-ok"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "ok"
+        ]
+      },
+      "id" : "null-ok"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "ok"
+        ]
+      },
+      "id" : "string-ok"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+
+        ]
+      },
+      "id" : "array-envelope"
+    },
+    {
+      "error" : {
+        "kind" : "valueNotFound",
+        "path" : [
+
+        ]
+      },
+      "id" : "null-envelope"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data"
+        ]
+      },
+      "id" : "array-data"
+    },
+    {
+      "error" : {
+        "kind" : "dataCorrupted",
+        "path" : [
+
+        ]
+      },
+      "id" : "malformed-json"
+    },
+    {
+      "error" : {
+        "kind" : "dataCorrupted",
+        "path" : [
+
+        ]
+      },
+      "id" : "trailing-json"
+    },
+    {
+      "error" : {
+        "kind" : "dataCorrupted",
+        "path" : [
+
+        ]
+      },
+      "id" : "empty-json"
+    },
+    {
+      "error" : {
+        "field" : "ok",
+        "kind" : "keyNotFound",
+        "path" : [
+
+        ]
+      },
+      "id" : "field-ProbeResult-ok-missing"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "ok"
+        ]
+      },
+      "id" : "field-ProbeResult-ok-null"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "ok"
+        ]
+      },
+      "id" : "field-ProbeResult-ok-wrong"
+    },
+    {
+      "error" : {
+        "field" : "bound",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data"
+        ]
+      },
+      "id" : "field-AntigravityBindingResult-bound-missing"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "bound"
+        ]
+      },
+      "id" : "field-AntigravityBindingResult-bound-null"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "bound"
+        ]
+      },
+      "id" : "field-AntigravityBindingResult-bound-wrong"
+    },
+    {
+      "error" : {
+        "field" : "removed",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data"
+        ]
+      },
+      "id" : "field-AntigravityRemoved-removed-missing"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "removed"
+        ]
+      },
+      "id" : "field-AntigravityRemoved-removed-null"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "removed"
+        ]
+      },
+      "id" : "field-AntigravityRemoved-removed-wrong"
+    },
+    {
+      "error" : {
+        "field" : "enabled",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data"
+        ]
+      },
+      "id" : "field-CursorSyncConfigResult-enabled-missing"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "enabled"
+        ]
+      },
+      "id" : "field-CursorSyncConfigResult-enabled-null"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "enabled"
+        ]
+      },
+      "id" : "field-CursorSyncConfigResult-enabled-wrong"
+    },
+    {
+      "error" : {
+        "field" : "cliTakeoverConfirmed",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data"
+        ]
+      },
+      "id" : "field-CursorSyncConfigResult-cliTakeoverConfirmed-missing"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "cliTakeoverConfirmed"
+        ]
+      },
+      "id" : "field-CursorSyncConfigResult-cliTakeoverConfirmed-null"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "cliTakeoverConfirmed"
+        ]
+      },
+      "id" : "field-CursorSyncConfigResult-cliTakeoverConfirmed-wrong"
+    },
+    {
+      "error" : {
+        "field" : "cleanupFailed",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data"
+        ]
+      },
+      "id" : "field-CursorSyncConfigResult-cleanupFailed-missing"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "cleanupFailed"
+        ]
+      },
+      "id" : "field-CursorSyncConfigResult-cleanupFailed-null"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "cleanupFailed"
+        ]
+      },
+      "id" : "field-CursorSyncConfigResult-cleanupFailed-wrong"
+    },
+    {
+      "error" : {
+        "field" : "agent",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data"
+        ]
+      },
+      "id" : "field-AgentReportEntry-agent-missing"
+    },
+    {
+      "error" : {
+        "kind" : "valueNotFound",
+        "path" : [
+          "data",
+          "agent"
+        ]
+      },
+      "id" : "field-AgentReportEntry-agent-null"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "agent"
+        ]
+      },
+      "id" : "field-AgentReportEntry-agent-wrong"
+    },
+    {
+      "error" : {
+        "field" : "input",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data"
+        ]
+      },
+      "id" : "field-AgentReportEntry-input-missing"
+    },
+    {
+      "error" : {
+        "kind" : "valueNotFound",
+        "path" : [
+          "data",
+          "input"
+        ]
+      },
+      "id" : "field-AgentReportEntry-input-null"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "input"
+        ]
+      },
+      "id" : "field-AgentReportEntry-input-wrong"
+    },
+    {
+      "error" : {
+        "field" : "cost",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data"
+        ]
+      },
+      "id" : "field-AgentReportEntry-cost-missing"
+    },
+    {
+      "error" : {
+        "kind" : "valueNotFound",
+        "path" : [
+          "data",
+          "cost"
+        ]
+      },
+      "id" : "field-AgentReportEntry-cost-null"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "cost"
+        ]
+      },
+      "id" : "field-AgentReportEntry-cost-wrong"
+    },
+    {
+      "error" : {
+        "field" : "clients",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data"
+        ]
+      },
+      "id" : "field-AgentReportEntry-clients-missing"
+    },
+    {
+      "error" : {
+        "kind" : "valueNotFound",
+        "path" : [
+          "data",
+          "clients"
+        ]
+      },
+      "id" : "field-AgentReportEntry-clients-null"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "clients"
+        ]
+      },
+      "id" : "field-AgentReportEntry-clients-wrong"
+    },
+    {
+      "error" : {
+        "field" : "entries",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data"
+        ]
+      },
+      "id" : "field-AgentsReport-entries-missing"
+    },
+    {
+      "error" : {
+        "kind" : "valueNotFound",
+        "path" : [
+          "data",
+          "entries"
+        ]
+      },
+      "id" : "field-AgentsReport-entries-null"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "entries"
+        ]
+      },
+      "id" : "field-AgentsReport-entries-wrong"
+    },
+    {
+      "error" : {
+        "field" : "hourly",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data"
+        ]
+      },
+      "id" : "field-FilterParityProbe-hourly-missing"
+    },
+    {
+      "error" : {
+        "kind" : "valueNotFound",
+        "path" : [
+          "data",
+          "hourly"
+        ]
+      },
+      "id" : "field-FilterParityProbe-hourly-null"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "hourly"
+        ]
+      },
+      "id" : "field-FilterParityProbe-hourly-wrong"
+    },
+    {
+      "error" : {
+        "field" : "status",
+        "kind" : "keyNotFound",
+        "path" : [
+          "data"
+        ]
+      },
+      "id" : "field-FilterParityReport-status-missing"
+    },
+    {
+      "error" : {
+        "kind" : "valueNotFound",
+        "path" : [
+          "data",
+          "status"
+        ]
+      },
+      "id" : "field-FilterParityReport-status-null"
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "status"
+        ]
+      },
+      "id" : "field-FilterParityReport-status-wrong"
+    },
+    {
+      "id" : "field-ModelReportEntry-costEstimate-missing",
+      "value" : {
+        "cacheRead" : 4,
+        "cacheWrite" : 8,
+        "client" : "synthetic",
+        "cost" : 0.125,
+        "costEstimate" : null,
+        "input" : 1,
+        "messageCount" : 3,
+        "model" : "synthetic-model",
+        "msPer1kTokens" : 12.5,
+        "output" : 2,
+        "provider" : "synthetic-provider",
+        "reasoning" : 16,
+        "total" : 31
+      }
+    },
+    {
+      "id" : "field-ModelReportEntry-costEstimate-null",
+      "value" : {
+        "cacheRead" : 4,
+        "cacheWrite" : 8,
+        "client" : "synthetic",
+        "cost" : 0.125,
+        "costEstimate" : null,
+        "input" : 1,
+        "messageCount" : 3,
+        "model" : "synthetic-model",
+        "msPer1kTokens" : 12.5,
+        "output" : 2,
+        "provider" : "synthetic-provider",
+        "reasoning" : 16,
+        "total" : 31
+      }
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "costEstimate"
+        ]
+      },
+      "id" : "field-ModelReportEntry-costEstimate-wrong"
+    },
+    {
+      "id" : "field-ModelReport-pricingUpdatedAt-missing",
+      "value" : {
+        "entries" : [
+          {
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "client" : "synthetic",
+            "cost" : 0.125,
+            "costEstimate" : 0.25,
+            "input" : 1,
+            "messageCount" : 3,
+            "model" : "synthetic-model",
+            "msPer1kTokens" : 12.5,
+            "output" : 2,
+            "provider" : "synthetic-provider",
+            "reasoning" : 16,
+            "total" : 31
+          }
+        ],
+        "pricingUpdatedAt" : null,
+        "totalCacheRead" : 4,
+        "totalCacheWrite" : 8,
+        "totalCost" : 0.125,
+        "totalInput" : 1,
+        "totalMessages" : 3,
+        "totalOutput" : 2
+      }
+    },
+    {
+      "id" : "field-ModelReport-pricingUpdatedAt-null",
+      "value" : {
+        "entries" : [
+          {
+            "cacheRead" : 4,
+            "cacheWrite" : 8,
+            "client" : "synthetic",
+            "cost" : 0.125,
+            "costEstimate" : 0.25,
+            "input" : 1,
+            "messageCount" : 3,
+            "model" : "synthetic-model",
+            "msPer1kTokens" : 12.5,
+            "output" : 2,
+            "provider" : "synthetic-provider",
+            "reasoning" : 16,
+            "total" : 31
+          }
+        ],
+        "pricingUpdatedAt" : null,
+        "totalCacheRead" : 4,
+        "totalCacheWrite" : 8,
+        "totalCost" : 0.125,
+        "totalInput" : 1,
+        "totalMessages" : 3,
+        "totalOutput" : 2
+      }
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "pricingUpdatedAt"
+        ]
+      },
+      "id" : "field-ModelReport-pricingUpdatedAt-wrong"
+    },
+    {
+      "id" : "field-CursorSyncStatus-reason-missing",
+      "value" : {
+        "events" : 3,
+        "lastSuccessMs" : 1234567890,
+        "reason" : null,
+        "state" : "partial"
+      }
+    },
+    {
+      "id" : "field-CursorSyncStatus-reason-null",
+      "value" : {
+        "events" : 3,
+        "lastSuccessMs" : 1234567890,
+        "reason" : null,
+        "state" : "partial"
+      }
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "reason"
+        ]
+      },
+      "id" : "field-CursorSyncStatus-reason-wrong"
+    },
+    {
+      "id" : "field-CursorSyncStatus-lastSuccessMs-missing",
+      "value" : {
+        "events" : 3,
+        "lastSuccessMs" : null,
+        "reason" : "synthetic_offline",
+        "state" : "partial"
+      }
+    },
+    {
+      "id" : "field-CursorSyncStatus-lastSuccessMs-null",
+      "value" : {
+        "events" : 3,
+        "lastSuccessMs" : null,
+        "reason" : "synthetic_offline",
+        "state" : "partial"
+      }
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "lastSuccessMs"
+        ]
+      },
+      "id" : "field-CursorSyncStatus-lastSuccessMs-wrong"
+    },
+    {
+      "id" : "field-FilterParityReport-delta-missing",
+      "value" : {
+        "delta" : null,
+        "full" : {
+          "cacheRead" : 4,
+          "cacheWrite" : 8,
+          "entryCount" : 1,
+          "input" : 1,
+          "messageCount" : 3,
+          "output" : 2,
+          "reasoning" : 16,
+          "totalCost" : 0.125,
+          "totalTokens" : 31
+        },
+        "status" : "match",
+        "unfiltered" : {
+          "cacheRead" : 4,
+          "cacheWrite" : 8,
+          "entryCount" : 1,
+          "input" : 1,
+          "messageCount" : 3,
+          "output" : 2,
+          "reasoning" : 16,
+          "totalCost" : 0.125,
+          "totalTokens" : 31
+        }
+      }
+    },
+    {
+      "id" : "field-FilterParityReport-delta-null",
+      "value" : {
+        "delta" : null,
+        "full" : {
+          "cacheRead" : 4,
+          "cacheWrite" : 8,
+          "entryCount" : 1,
+          "input" : 1,
+          "messageCount" : 3,
+          "output" : 2,
+          "reasoning" : 16,
+          "totalCost" : 0.125,
+          "totalTokens" : 31
+        },
+        "status" : "match",
+        "unfiltered" : {
+          "cacheRead" : 4,
+          "cacheWrite" : 8,
+          "entryCount" : 1,
+          "input" : 1,
+          "messageCount" : 3,
+          "output" : 2,
+          "reasoning" : 16,
+          "totalCost" : 0.125,
+          "totalTokens" : 31
+        }
+      }
+    },
+    {
+      "error" : {
+        "kind" : "typeMismatch",
+        "path" : [
+          "data",
+          "delta"
+        ]
+      },
+      "id" : "field-FilterParityReport-delta-wrong"
+    },
+    {
+      "error" : {
+        "kind" : "valueNotFound",
+        "path" : [
+          "data",
+          "clients",
+          "Index 0"
+        ]
+      },
+      "id" : "null-string-array-element"
+    },
+    {
+      "error" : {
+        "kind" : "valueNotFound",
+        "path" : [
+          "data",
+          "entries",
+          "Index 0"
+        ]
+      },
+      "id" : "null-object-array-element"
+    }
+  ]
+}
