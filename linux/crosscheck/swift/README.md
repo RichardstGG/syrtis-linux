@@ -3,8 +3,11 @@
 This macOS SwiftPM package adds selectors that the
 [root harness](../../../Sources/CrossCheckHarness/main.swift) does not provide.
 The `core-leaf` selector covers ClientRegistry, ModelGrouping, ModelScope,
-WindowResolver, and Grid with the shared synthetic fixture. Omitted selector or
-`all` runs every registered extension in sorted order; unknown selectors fail.
+WindowResolver, and Grid with the shared synthetic fixture. The `quota-trend`
+selector calls shipping `QuotaHeatmapFold` and `QuotaTrendFold` with the synthetic
+[fixture](../fixtures/quota-trend.json), decoding curve points with the production
+`QuotaCurvePoint` decoder. Omitted selector or `all` runs every registered
+extension in sorted order; unknown selectors fail.
 The root harness remains responsible for `usage-pace`, `format`, and
 `provider-quota-pace-v3` (its legacy `all` runs only the first two).
 
