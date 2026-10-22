@@ -17,7 +17,7 @@ struct PerDay {
     QString date;
     qint64 tokens = 0;
     double cost = 0;
-    int intensity = 0;
+    qint64 intensity = 0;
     bool hasMessages = false;
     bool isActive() const { return tokens > 0 || hasMessages; }
 };
