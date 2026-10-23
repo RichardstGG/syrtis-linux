@@ -54,8 +54,11 @@ int main(int argc, char *argv[])
     if (engine.rootObjects().isEmpty())
         return EXIT_FAILURE;
 
-    if (parser.isSet(quitAfterStart))
+    if (parser.isSet(quitAfterStart)) {
+        // Exit waits for an in-flight FFI call (ADR-003); the startup check must not fetch quota.
+        quotaService.stop();
         QTimer::singleShot(0, &app, &QCoreApplication::quit);
+    }
 
     return app.exec();
 }
