@@ -1,8 +1,42 @@
 #include "QuotaService.h"
+#include "ClientRegistry.h"
+#include "Format.h"
+#include "Localization.h"
+#include "QuotaSummary.h"
 #include <QThread>
+#include <cmath>
 #include <utility>
 
 namespace Syrtis {
+namespace ClientRegistry = syrtis::core::ClientRegistry;
+namespace {
+const QStringList cardClients{"claude", "codex", "antigravity"};
+
+QString remainingText(double percent)
+{
+    // Same integer rounding and localized format as AgentLimitsCard.swift.
+    return localized("%lld%% left", {Format::exactTokens(qint64(std::round(percent)))});
+}
+
+bool snapshotStale(const AgentUsageSnapshot &agent, const QDateTime &now)
+{
+    const auto updated = QDateTime::fromString(agent.updatedAt, Qt::ISODateWithMs);
+    return !updated.isValid() || updated.msecsTo(now) > 30 * 60 * 1000;
+}
+
+QString loginText(const AccountIdentity &identity)
+{
+    if (identity.clientId == "claude" && !identity.isPrimary())
+        return QStringLiteral("Run `claude` to sign in with this account's CLAUDE_CONFIG_DIR, then refresh.");
+    if (identity.clientId == "claude")
+        return QStringLiteral("Run `claude` to sign in, or run `claude setup-token` and save the token with "
+            "`secret-tool store --label='Syrtis Claude setup-token' application syrtis service "
+            "tokenbar-claude-oauth-token` (requires libsecret-tools; enter the token at the prompt).");
+    return QStringLiteral("Sign in to %1, then refresh to see its limits.")
+        .arg(ClientRegistry::style(identity.clientId).displayName);
+}
+} // namespace
+
 QuotaService::QuotaService(QObject *parent, Clock now)
     : QObject(parent), now_(std::move(now))
 {
@@ -20,6 +54,101 @@ bool QuotaService::stale() const
 {
     return reading_ && (failed_ || providerFailed_
         || (resolvedAt_ && resolvedAt_->msecsTo(now_()) > 30 * 60 * 1000));
+}
+
+QVariantList QuotaService::cards() const
+{
+    QVariantList result;
+    const auto now = now_();
+    const auto referenceTime = now.toMSecsSinceEpoch() / 1000.0 - 978307200.0;
+    for (const auto &client : cardClients) {
+        QList<const AgentUsageSnapshot *> snapshots;
+        if (payload_) {
+            for (const auto &agent : payload_->agents) {
+                if (agent.clientId != client) continue;
+                // An explicit account view must never fall back to another
+                // account's provider result, including the primary account.
+                if (selection_ != QuotaResolver::automatic
+                    && (client != selection_.section('|', 0, 0) || agent.accountKey != accountKey_)) continue;
+                snapshots.append(&agent);
+            }
+        }
+        if (selection_ != QuotaResolver::automatic && client != selection_.section('|', 0, 0)) continue;
+        if (snapshots.isEmpty()) snapshots.append(nullptr);
+        for (const auto *agent : snapshots) {
+            const AccountIdentity identity{client, agent ? agent->accountKey : accountKey_};
+            QVariantMap card{{"clientId", client}, {"id", identity.windowKey("limits")},
+                {"name", ClientRegistry::style(client).displayName},
+                {"accountLabel", identity.accountLabel().value_or(QString())}};
+            QString state, message;
+            QVariantList windows;
+            if (!agent) {
+                state = failed_ ? "error" : attempted_ ? "unsupported" : "loading";
+                message = failed_ ? error_ : attempted_ ? "No supported quota windows reported."
+                                                       : "Checking agent limits…";
+            } else if (agent->source == "unconfigured" || agent->source == "needs-login") {
+                state = "needs-login";
+                message = loginText(identity);
+            } else if (agent->source == "unsupported") {
+                state = "unsupported";
+                message = "Quota is not supported by this provider.";
+            } else {
+                for (const auto &window : agent->uniqueCardWindows()) {
+                    const auto reset = window.resetsAt
+                        ? UsagePace::resetText(*window.resetsAt, referenceTime) : std::nullopt;
+                    windows.append(QVariantMap{{"id", identity.windowKey(window.cardId)},
+                        {"label", localized(window.label)}, {"remainingPercent", window.remainingPercent},
+                        {"remainingText", remainingText(window.remainingPercent)},
+                        {"resetText", reset.value_or(window.resetText.value_or(QString()))}});
+                }
+                if (windows.isEmpty()) {
+                    state = failed_ || agent->error ? "error" : "unsupported";
+                    message = failed_ ? error_ : agent->error.value_or("No supported quota windows reported.");
+                } else {
+                    state = failed_ || agent->error || snapshotStale(*agent, now) ? "stale" : "fresh";
+                    if (state == "stale") {
+                        message = "Last known quota; refresh pending.";
+                        const auto detail = failed_ ? error_ : agent->error.value_or(QString());
+                        if (!detail.isEmpty()) message += " " + detail;
+                    }
+                }
+            }
+            card.insert("state", state);
+            card.insert("message", message);
+            card.insert("windows", windows);
+            result.append(card);
+        }
+    }
+    return result;
+}
+
+QVariantMap QuotaService::summary() const
+{
+    if (!payload_ || failed_) return {};
+    // The summary speaks only for fresh supported cards. It must not claim
+    // that a retained last-good window is a current reading.
+    QList<AgentUsageSnapshot> fresh;
+    for (const auto &agent : payload_->agents) {
+        if (!cardClients.contains(agent.clientId) || agent.isSetupPlaceholder()
+            || agent.source == "needs-login" || agent.source == "unsupported"
+            || agent.error || snapshotStale(agent, now_())) continue;
+        if (selection_ != QuotaResolver::automatic
+            && (agent.clientId != selection_.section('|', 0, 0) || agent.accountKey != accountKey_)) continue;
+        fresh.append(agent);
+    }
+    const auto summary = QuotaSummaryFold::build(payload_->replacingAgents(fresh), {}, PaceMode::historical,
+        now_().toMSecsSinceEpoch() / 1000.0 - 978307200.0);
+    if (!summary) return {};
+    const AccountIdentity identity{summary->tightestClient, summary->tightestAccountKey};
+    const auto account = identity.accountLabel();
+    const auto reset = summary->resetsAt
+        ? UsagePace::resetText(*summary->resetsAt, now_().toMSecsSinceEpoch() / 1000.0 - 978307200.0)
+        : std::nullopt;
+    return {{"name", ClientRegistry::style(summary->tightestClient).displayName
+                + (account ? " " + *account : QString())},
+        {"label", localized(summary->tightestLabel)},
+        {"remainingText", remainingText(summary->remainingPercent)},
+        {"resetText", reset.value_or(QString())}};
 }
 
 void QuotaService::setSelection(QString selection, std::optional<QString> accountKey,

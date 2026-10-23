@@ -1,4 +1,5 @@
 #include "bridge/Bridge.h"
+#include "quota/QuotaService.h"
 #include "singleinstance/SingleInstance.h"
 
 #include <QCommandLineParser>
@@ -36,7 +37,9 @@ int main(int argc, char *argv[])
         return app.exec();
     }
 
+    Syrtis::QuotaService quotaService;
     QQmlApplicationEngine engine;
+    engine.setInitialProperties({{QStringLiteral("quotaService"), QVariant::fromValue(&quotaService)}});
     QObject::connect(&singleInstance, &Syrtis::SingleInstance::activationRequested,
                      &engine, [&engine] {
         for (auto *root : engine.rootObjects()) {

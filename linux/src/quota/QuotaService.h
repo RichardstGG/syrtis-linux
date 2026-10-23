@@ -17,6 +17,8 @@ class QuotaService final : public QObject {
     Q_PROPERTY(bool busy READ busy NOTIFY stateChanged)
     Q_PROPERTY(bool attempted READ attempted NOTIFY stateChanged)
     Q_PROPERTY(QString error READ error NOTIFY stateChanged)
+    Q_PROPERTY(QVariantList cards READ cards NOTIFY stateChanged)
+    Q_PROPERTY(QVariantMap summary READ summary NOTIFY stateChanged)
 
 public:
     using Clock = std::function<QDateTime()>;
@@ -30,6 +32,10 @@ public:
     bool busy() const { return requestId_ != 0; }
     bool attempted() const { return attempted_; }
     QString error() const { return error_; }
+    // AgentLimitsCard.swift / QuotaSummaryLine.swift presentation only. All
+    // window selection, countdowns and numeric text use syrtis-core.
+    QVariantList cards() const;
+    QVariantMap summary() const;
 
     // Auto considers every account, exactly as QuotaResolver does. Explicit
     // selection uses accountKey (nullopt = primary). Context changes discard
