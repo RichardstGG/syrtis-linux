@@ -62,7 +62,7 @@ private slots:
     void selectionPolicy()
     {
         const auto object = QJsonDocument::fromJson(reply({agent(72), agent(19, "account-b")})).object();
-        std::optional<AgentUsagePayload> payload = AgentUsagePayload::decode({object["data"], {}});
+        std::optional<syrtis::core::AgentUsagePayload> payload = syrtis::core::AgentUsagePayload::decode({object["data"], {}});
         QCOMPARE(QuotaSelectionPolicy::effectiveSelection(payload, "codex|Session"), "codex|session.v1");
         QCOMPARE(QuotaSelectionPolicy::migrationToPersist(payload, "codex|Session").value(), "codex|session.v1");
         QVERIFY(!QuotaSelectionPolicy::migrationToPersist(payload, "auto"));

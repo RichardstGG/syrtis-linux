@@ -2,7 +2,7 @@
 
 #include <QtCore/QStringList>
 
-namespace Syrtis {
+namespace syrtis::core {
 // English-only counterpart of Localization.swift. Source text is its own key.
 QString localized(const QString &key);
 QString localized(const QString &key, const QStringList &arguments);

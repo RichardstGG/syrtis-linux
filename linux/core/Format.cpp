@@ -12,7 +12,7 @@
 #include <limits>
 #include <stdexcept>
 
-namespace Syrtis {
+namespace syrtis::core {
 namespace {
 QString fixed(double value, int precision)
 {

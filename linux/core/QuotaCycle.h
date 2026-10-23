@@ -24,7 +24,3 @@ struct QuotaCycle {
     bool operator==(const QuotaCycle &) const = default;
 };
 }
-
-namespace Syrtis {
-using syrtis::core::QuotaCycle;
-}

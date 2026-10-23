@@ -3,7 +3,7 @@
 #include "QuotaCycle.h"
 #include <QtCore/QList>
 
-namespace Syrtis {
+namespace syrtis::core {
 struct QuotaWindowSummary {
     QString clientId;
     std::optional<QString> accountKey;

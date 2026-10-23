@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cmath>
 
-namespace syrtis {
+namespace syrtis::core {
 std::optional<QuotaTrend> QuotaTrendFold::trend(
     double usedPercent, qint64 windowStartMs, qint64 windowEndMs, qint64 nowMs,
     const std::vector<QuotaSample> &samples)

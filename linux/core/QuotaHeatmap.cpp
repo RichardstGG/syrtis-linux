@@ -6,7 +6,7 @@
 #include <map>
 #include <set>
 
-namespace syrtis {
+namespace syrtis::core {
 QuotaHeatmap QuotaHeatmapFold::build(const std::vector<QuotaCurvePoint> &points,
                                    const QTimeZone &timeZone)
 {

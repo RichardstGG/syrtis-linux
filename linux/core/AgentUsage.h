@@ -6,7 +6,7 @@
 
 #include <optional>
 
-namespace Syrtis {
+namespace syrtis::core {
 // UI-free AgentUsage.swift values; no FFI, provider calls or aggregation.
 enum class UsagePaceState { learningDuration, learningHistory, available, unavailable, legacyMissing };
 enum class UsagePaceDurationSource { provider, contract, observed };

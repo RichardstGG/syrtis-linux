@@ -145,7 +145,7 @@ QJsonObject run(const QJsonObject &c) {
         return {{"nowX", g.nowX}, {"firstSampleX", g.firstSampleX}, {"bars", wire(g.bars)}, {"hits", wire(g.hits)}, {"samplePoints", wire(g.samplePoints)}, {"curve", wire(g.curve)}};
     }
     if (op == "history") {
-        const auto cycles = H::cycles(json::Decoder{input["points"], {}}.decode<QList<Syrtis::QuotaCurvePoint>>());
+        const auto cycles = H::cycles(json::Decoder{input["points"], {}}.decode<QList<syrtis::core::QuotaCurvePoint>>());
         const auto considered = H::considered(cycles);
         const auto subscription = d.field<QString>("subscription");
         const auto scope = d.field<std::optional<QString>>("modelScope");

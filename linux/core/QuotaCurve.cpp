@@ -3,7 +3,7 @@
 #include <set>
 #include <tuple>
 
-namespace Syrtis {
+namespace syrtis::core {
 namespace {
 using syrtis::core::json::Decoder;
 void require(bool condition, const Decoder &d)

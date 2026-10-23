@@ -7,7 +7,7 @@
 #include <algorithm>
 #include <cmath>
 
-namespace Syrtis {
+namespace syrtis::core {
 namespace {
 PaceStage stageFor(double delta)
 {

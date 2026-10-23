@@ -5,7 +5,6 @@
 #include <QtCore/QDir>
 #include <QtCore/QFile>
 
-using namespace Syrtis;
 using namespace syrtis::core;
 namespace {
 struct ProviderCase {

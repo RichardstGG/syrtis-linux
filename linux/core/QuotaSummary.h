@@ -3,7 +3,7 @@
 #include "UsagePace.h"
 #include <QtCore/QDateTime>
 
-namespace Syrtis {
+namespace syrtis::core {
 struct BurnWarning {
     QString clientId;
     std::optional<QString> accountKey;

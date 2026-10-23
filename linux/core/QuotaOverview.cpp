@@ -1,7 +1,7 @@
 #include "QuotaOverview.h"
 #include <algorithm>
 
-namespace Syrtis {
+namespace syrtis::core {
 QList<QuotaWindowSummary> QuotaOverviewFold::summaries(const QList<QuotaOverviewWindow> &windows)
 {
     QList<QuotaWindowSummary> result;

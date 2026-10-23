@@ -15,16 +15,16 @@ const QStringList cardClients{"claude", "codex", "antigravity"};
 QString remainingText(double percent)
 {
     // Same integer rounding and localized format as AgentLimitsCard.swift.
-    return localized("%lld%% left", {Format::exactTokens(qint64(std::round(percent)))});
+    return syrtis::core::localized("%lld%% left", {syrtis::core::Format::exactTokens(qint64(std::round(percent)))});
 }
 
-bool snapshotStale(const AgentUsageSnapshot &agent, const QDateTime &now)
+bool snapshotStale(const syrtis::core::AgentUsageSnapshot &agent, const QDateTime &now)
 {
     const auto updated = QDateTime::fromString(agent.updatedAt, Qt::ISODateWithMs);
     return !updated.isValid() || updated.msecsTo(now) > 30 * 60 * 1000;
 }
 
-QString loginText(const AccountIdentity &identity)
+QString loginText(const syrtis::core::AccountIdentity &identity)
 {
     if (identity.clientId == "claude" && !identity.isPrimary())
         return QStringLiteral("Run `claude` to sign in with this account's CLAUDE_CONFIG_DIR, then refresh.");
@@ -62,21 +62,21 @@ QVariantList QuotaService::cards() const
     const auto now = now_();
     const auto referenceTime = now.toMSecsSinceEpoch() / 1000.0 - 978307200.0;
     for (const auto &client : cardClients) {
-        QList<const AgentUsageSnapshot *> snapshots;
+        QList<const syrtis::core::AgentUsageSnapshot *> snapshots;
         if (payload_) {
             for (const auto &agent : payload_->agents) {
                 if (agent.clientId != client) continue;
                 // An explicit account view must never fall back to another
                 // account's provider result, including the primary account.
-                if (selection_ != QuotaResolver::automatic
+                if (selection_ != syrtis::core::QuotaResolver::automatic
                     && (client != selection_.section('|', 0, 0) || agent.accountKey != accountKey_)) continue;
                 snapshots.append(&agent);
             }
         }
-        if (selection_ != QuotaResolver::automatic && client != selection_.section('|', 0, 0)) continue;
+        if (selection_ != syrtis::core::QuotaResolver::automatic && client != selection_.section('|', 0, 0)) continue;
         if (snapshots.isEmpty()) snapshots.append(nullptr);
         for (const auto *agent : snapshots) {
-            const AccountIdentity identity{client, agent ? agent->accountKey : accountKey_};
+            const syrtis::core::AccountIdentity identity{client, agent ? agent->accountKey : accountKey_};
             QVariantMap card{{"clientId", client}, {"id", identity.windowKey("limits")},
                 {"name", ClientRegistry::style(client).displayName},
                 {"accountLabel", identity.accountLabel().value_or(QString())}};
@@ -95,9 +95,9 @@ QVariantList QuotaService::cards() const
             } else {
                 for (const auto &window : agent->uniqueCardWindows()) {
                     const auto reset = window.resetsAt
-                        ? UsagePace::resetText(*window.resetsAt, referenceTime) : std::nullopt;
+                        ? syrtis::core::UsagePace::resetText(*window.resetsAt, referenceTime) : std::nullopt;
                     windows.append(QVariantMap{{"id", identity.windowKey(window.cardId)},
-                        {"label", localized(window.label)}, {"remainingPercent", window.remainingPercent},
+                        {"label", syrtis::core::localized(window.label)}, {"remainingPercent", window.remainingPercent},
                         {"remainingText", remainingText(window.remainingPercent)},
                         {"resetText", reset.value_or(window.resetText.value_or(QString()))}});
                 }
@@ -127,26 +127,26 @@ QVariantMap QuotaService::summary() const
     if (!payload_ || failed_) return {};
     // The summary speaks only for fresh supported cards. It must not claim
     // that a retained last-good window is a current reading.
-    QList<AgentUsageSnapshot> fresh;
+    QList<syrtis::core::AgentUsageSnapshot> fresh;
     for (const auto &agent : payload_->agents) {
         if (!cardClients.contains(agent.clientId) || agent.isSetupPlaceholder()
             || agent.source == "needs-login" || agent.source == "unsupported"
             || agent.error || snapshotStale(agent, now_())) continue;
-        if (selection_ != QuotaResolver::automatic
+        if (selection_ != syrtis::core::QuotaResolver::automatic
             && (agent.clientId != selection_.section('|', 0, 0) || agent.accountKey != accountKey_)) continue;
         fresh.append(agent);
     }
-    const auto summary = QuotaSummaryFold::build(payload_->replacingAgents(fresh), {}, PaceMode::historical,
+    const auto summary = syrtis::core::QuotaSummaryFold::build(payload_->replacingAgents(fresh), {}, syrtis::core::PaceMode::historical,
         now_().toMSecsSinceEpoch() / 1000.0 - 978307200.0);
     if (!summary) return {};
-    const AccountIdentity identity{summary->tightestClient, summary->tightestAccountKey};
+    const syrtis::core::AccountIdentity identity{summary->tightestClient, summary->tightestAccountKey};
     const auto account = identity.accountLabel();
     const auto reset = summary->resetsAt
-        ? UsagePace::resetText(*summary->resetsAt, now_().toMSecsSinceEpoch() / 1000.0 - 978307200.0)
+        ? syrtis::core::UsagePace::resetText(*summary->resetsAt, now_().toMSecsSinceEpoch() / 1000.0 - 978307200.0)
         : std::nullopt;
     return {{"name", ClientRegistry::style(summary->tightestClient).displayName
                 + (account ? " " + *account : QString())},
-        {"label", localized(summary->tightestLabel)},
+        {"label", syrtis::core::localized(summary->tightestLabel)},
         {"remainingText", remainingText(summary->remainingPercent)},
         {"resetText", reset.value_or(QString())}};
 }
@@ -198,7 +198,7 @@ void QuotaService::complete(quint64 requestId, const QJsonObject &envelope)
         failure = envelope.value("err").toString();
     } else {
         try {
-            auto candidate = AgentUsagePayload::decode({envelope.value("data"), {}});
+            auto candidate = syrtis::core::AgentUsagePayload::decode({envelope.value("data"), {}});
             // An older publication cannot overwrite a newer accepted value.
             if (!candidate.publicationGeneration || !highestGeneration_
                 || *candidate.publicationGeneration >= *highestGeneration_) {
@@ -231,9 +231,9 @@ void QuotaService::selectReading()
     // A successful unresolved/terminal payload clears last-good, but an
     // explicit account's provider error still belongs in its empty state.
     const auto canonical = QuotaSelectionPolicy::effectiveSelection(payload_, selection_, excluding_, accountKey_);
-    if (!reading_ && canonical == QuotaResolver::automatic) return;
-    const AccountIdentity selected = reading_ ? AccountIdentity{reading_->clientId, reading_->accountKey}
-        : AccountIdentity{canonical.section('|', 0, 0), accountKey_};
+    if (!reading_ && canonical == syrtis::core::QuotaResolver::automatic) return;
+    const syrtis::core::AccountIdentity selected = reading_ ? syrtis::core::AccountIdentity{reading_->clientId, reading_->accountKey}
+        : syrtis::core::AccountIdentity{canonical.section('|', 0, 0), accountKey_};
     for (const auto &agent : payload_->agents) {
         if (agent.accountIdentity() != selected) continue;
         providerFailed_ = agent.error.has_value();

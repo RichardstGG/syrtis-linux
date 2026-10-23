@@ -35,7 +35,7 @@ struct ModelKey {
 inline constexpr qsizetype consideredCycles = 32;
 struct Span { qint64 tokens = 0; double cost = 0; bool operator==(const Span &) const = default; };
 qint64 canonicalReset(qint64 resetAt, qint64 durationSeconds);
-QList<QuotaCycle> cycles(const QList<Syrtis::QuotaCurvePoint> &points);
+QList<QuotaCycle> cycles(const QList<syrtis::core::QuotaCurvePoint> &points);
 QList<QuotaCycle> considered(const QList<QuotaCycle> &cycles);
 QList<QuotaHistoryRow> rows(const QList<QuotaCycle> &cycles, const QList<WindowMessage> &messages,
     const QString &subscription, const std::optional<QString> &modelScope, const QList<UsageAttribution::Record> &confirmed);

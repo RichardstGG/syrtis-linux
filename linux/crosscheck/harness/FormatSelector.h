@@ -84,7 +84,7 @@ inline QJsonObject runFormat(const QDir &fixtures)
         require(c["now"].isUndefined() || c["now"].isNull() || c["now"].isString());
         const auto name = c["name"].toString();
         const auto fn = c["fn"].toString();
-        using Syrtis::Format;
+        using syrtis::core::Format;
         if (fn == QStringLiteral("compactTokens")) output[name] = Format::compactTokens(argumentInteger(arg));
         else if (fn == QStringLiteral("exactTokens")) output[name] = Format::exactTokens(argumentInteger(arg));
         else if (fn == QStringLiteral("usd")) output[name] = Format::usd(arg.toDouble());
@@ -94,7 +94,7 @@ inline QJsonObject runFormat(const QDir &fixtures)
         else if (fn == QStringLiteral("relativeTime") || fn == QStringLiteral("todayKey")
                  || fn == QStringLiteral("todayTokens") || fn == QStringLiteral("todayCost")
                  || fn == QStringLiteral("todayTopClient")) {
-            const auto parsed = Syrtis::parseRFC3339(c["now"].toString());
+            const auto parsed = syrtis::core::parseRFC3339(c["now"].toString());
             if (!parsed) {
                 output[name] = QJsonObject{{"error", fn + QStringLiteral(" needs now")}};
                 continue;

@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cmath>
 
-namespace Syrtis {
+namespace syrtis::core {
 namespace {
 bool equal(const QString &a, const QString &b)
 {

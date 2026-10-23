@@ -1,17 +1,11 @@
 #pragma once
 
-#include <QtCore/QtGlobal>
+#include "WindowCardGeometry.h"
 
 #include <optional>
 #include <vector>
 
-namespace syrtis {
-
-// Display sample from WindowCardGeometry.swift; times are milliseconds.
-struct QuotaSample {
-    qint64 atMs;
-    double usedPercent;
-};
+namespace syrtis::core {
 
 struct QuotaTrend {
     enum class Direction { rising, falling, flat };

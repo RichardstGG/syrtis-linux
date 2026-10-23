@@ -6,7 +6,7 @@
 #include <QtCore/QHash>
 #include <QtCore/QSet>
 
-namespace Syrtis {
+namespace syrtis::core {
 namespace {
 using syrtis::core::json::Decoder;
 using syrtis::core::DecodingError;
