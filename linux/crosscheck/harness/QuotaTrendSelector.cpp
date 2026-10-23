@@ -69,7 +69,7 @@ QJsonObject quotaTrendSelector(const QDir &fixtures)
         const auto row = object(value);
         const QTimeZone zone(string(row, "timeZone").toUtf8());
         require(zone.isValid(), "invalid heatmap time zone");
-        std::vector<syrtis::QuotaCurvePoint> points;
+        std::vector<syrtis::core::QuotaCurvePoint> points;
         for (const auto &pointValue : array(row, "points")) {
             const auto point = object(pointValue);
             const auto sampledAt = integer(point, "sampledAt");
@@ -85,9 +85,15 @@ QJsonObject quotaTrendSelector(const QDir &fixtures)
                         && (source == "provider" || source == "contract" || source == "observed")
                         && (origin == "liveV3" || origin == "importedV2")
                         && point["isActiveGroup"].isBool(), "invalid quota curve point");
-            points.push_back({sampledAt, used, resetAt});
+            points.push_back({sampledAt, used, resetAt, duration,
+                source == "provider" ? syrtis::core::QuotaCurveDurationSource::provider
+                    : source == "contract" ? syrtis::core::QuotaCurveDurationSource::contract
+                                           : syrtis::core::QuotaCurveDurationSource::observed,
+                origin == "liveV3" ? syrtis::core::QuotaCurveSampleOrigin::liveV3
+                                   : syrtis::core::QuotaCurveSampleOrigin::importedV2,
+                point["isActiveGroup"].toBool()});
         }
-        const auto heatmap = syrtis::QuotaHeatmapFold::build(points, zone);
+        const auto heatmap = syrtis::core::QuotaHeatmapFold::build(points, zone);
         QJsonArray cells;
         for (const auto &hours : heatmap.cells) {
             QJsonArray day;
@@ -102,20 +108,20 @@ QJsonObject quotaTrendSelector(const QDir &fixtures)
 
     for (const auto &value : array(fixture, "trend")) {
         const auto row = object(value);
-        std::vector<syrtis::QuotaSample> samples;
+        std::vector<syrtis::core::QuotaSample> samples;
         for (const auto &sampleValue : array(row, "samples")) {
             const auto sample = object(sampleValue);
             samples.push_back({integer(sample, "atMs"), number(sample, "usedPercent")});
         }
-        const auto trend = syrtis::QuotaTrendFold::trend(
+        const auto trend = syrtis::core::QuotaTrendFold::trend(
             number(row, "usedPercent"), integer(row, "windowStartMs"), integer(row, "windowEndMs"),
             integer(row, "nowMs"), samples);
         if (!trend) {
             insert(row, QJsonValue::Null);
             continue;
         }
-        const char *direction = trend->direction == syrtis::QuotaTrend::Direction::flat ? "flat"
-            : (trend->direction == syrtis::QuotaTrend::Direction::rising ? "rising" : "falling");
+        const char *direction = trend->direction == syrtis::core::QuotaTrend::Direction::flat ? "flat"
+            : (trend->direction == syrtis::core::QuotaTrend::Direction::rising ? "rising" : "falling");
         insert(row, QJsonObject{{"direction", direction}, {"projectedUsedPercent", trend->projectedUsedPercent},
                                {"projectedDeltaPercent", trend->projectedDeltaPercent},
                                {"runsOutEarly", trend->runsOutEarly()}});

@@ -30,7 +30,7 @@ qint64 clamped(double value) {
     return qint64(value);
 }
 QString text(const Row &r, const std::function<QString(qint64)> &tokens, const std::function<QString(double)> &money) {
-    using Syrtis::localized;
+    using syrtis::core::localized;
     const auto error = QString::number(r.errorPercent);
     switch (r.kind) {
     case Row::Kind::ratio: return localized("10%% of quota ~ %@ · %@ API-equivalent, ±%@%%", {tokens(r.tokensPerTenth), money(r.costPerTenth), error});

@@ -1,7 +1,7 @@
 #include "AccountIdentity.h"
 #include "Localization.h"
 
-namespace Syrtis {
+namespace syrtis::core {
 std::function<std::optional<QString>(const QString &)> AccountIdentity::antigravityLabel =
     [](const QString &) -> std::optional<QString> { return std::nullopt; };
 

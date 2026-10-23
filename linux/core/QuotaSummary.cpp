@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cmath>
 
-namespace Syrtis {
+namespace syrtis::core {
 std::optional<QuotaSummary> QuotaSummaryFold::build(const std::optional<AgentUsagePayload> &payload,
     const QSet<QString> &excluding, PaceMode paceMode, double now)
 {

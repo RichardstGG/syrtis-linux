@@ -30,9 +30,9 @@ int fail(const QString &message, int code)
     return code;
 }
 
-QString stageName(Syrtis::PaceStage stage)
+QString stageName(syrtis::core::PaceStage stage)
 {
-    using Stage = Syrtis::PaceStage;
+    using Stage = syrtis::core::PaceStage;
     switch (stage) {
     case Stage::onTrack: return QStringLiteral("onTrack");
     case Stage::slightlyAhead: return QStringLiteral("slightlyAhead");
@@ -75,28 +75,28 @@ QJsonObject runUsagePace(const QDir &fixtures)
         ++index;
         const auto name = c["name"].toString();
         const auto kind = c["kind"].toString();
-        const auto window = Syrtis::UsageWindow::decode(windowObject);
+        const auto window = syrtis::core::UsageWindow::decode(windowObject);
         if (!window) {
             output[name] = QJsonObject{{"rejected", true}};
             continue;
         }
         if (kind == QStringLiteral("compute")) {
             const auto raw = c["mode"].isString() ? c["mode"].toString() : QStringLiteral("nil");
-            std::optional<Syrtis::PaceMode> mode;
-            if (raw == QStringLiteral("off")) mode = Syrtis::PaceMode::off;
-            if (raw == QStringLiteral("linear")) mode = Syrtis::PaceMode::linear;
-            if (raw == QStringLiteral("historical")) mode = Syrtis::PaceMode::historical;
+            std::optional<syrtis::core::PaceMode> mode;
+            if (raw == QStringLiteral("off")) mode = syrtis::core::PaceMode::off;
+            if (raw == QStringLiteral("linear")) mode = syrtis::core::PaceMode::linear;
+            if (raw == QStringLiteral("historical")) mode = syrtis::core::PaceMode::historical;
             if (!mode) {
                 output[name] = QJsonObject{{"error", QStringLiteral("unknown pace mode %1").arg(raw)}};
                 continue;
             }
             const auto nowRaw = c["now"].isString() ? c["now"].toString() : QStringLiteral("nil");
-            const auto now = Syrtis::parseRFC3339(nowRaw);
+            const auto now = syrtis::core::parseRFC3339(nowRaw);
             if (!now) {
                 output[name] = QJsonObject{{"error", QStringLiteral("unparseable now %1").arg(nowRaw)}};
                 continue;
             }
-            const auto pace = Syrtis::UsagePace::compute(*window, *mode, *now);
+            const auto pace = syrtis::core::UsagePace::compute(*window, *mode, *now);
             if (!pace) {
                 output[name] = QJsonValue::Null;
                 continue;
@@ -107,7 +107,7 @@ QJsonObject runUsagePace(const QDir &fixtures)
                 {"etaSeconds", jsonOptional(pace->etaSeconds)}, {"willLastToReset", pace->willLastToReset},
                 {"label", pace->label()}, {"etaText", jsonOptional(pace->etaText())}};
         } else if (kind == QStringLiteral("runOutRisk")) {
-            output[name] = jsonOptional(Syrtis::runOutRiskLabel(*window));
+            output[name] = jsonOptional(syrtis::core::runOutRiskLabel(*window));
         } else {
             output[name] = QJsonObject{{"error", QStringLiteral("unknown kind %1").arg(kind)}};
         }

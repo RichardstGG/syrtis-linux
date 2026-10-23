@@ -81,7 +81,7 @@ std::optional<QString> subscriptionClient(const QString &label) {
     if (providerOwnClient.contains(vendor)) return providerOwnClient.value(vendor);
     return subscriptionProviderMap.contains(vendor) ? std::optional<QString>(vendor) : std::nullopt;
 }
-QStringList subscriptionClients(const std::optional<Syrtis::AgentUsagePayload> &payload) {
+QStringList subscriptionClients(const std::optional<syrtis::core::AgentUsagePayload> &payload) {
     QStringList candidates, result;
     if (!payload) return result;
     for (const auto &s : payload->agents)
@@ -92,7 +92,7 @@ QStringList subscriptionClients(const std::optional<Syrtis::AgentUsagePayload> &
         if (ClientRegistry::allIds().contains(id) && !result.contains(id)) result.append(id);
     return result;
 }
-RoutedSubscriptions routedSubscriptions(const std::optional<Syrtis::AgentUsagePayload> &payload) {
+RoutedSubscriptions routedSubscriptions(const std::optional<syrtis::core::AgentUsagePayload> &payload) {
     QStringList clients;
     if (payload) for (const auto &label : payload->opencodeSubscriptions.value_or(QStringList{}))
         if (const auto client = subscriptionClient(label); client && ClientRegistry::allIds().contains(*client)) clients.append(*client);

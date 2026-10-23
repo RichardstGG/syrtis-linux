@@ -8,7 +8,6 @@
 #include <QtCore/QSet>
 #include <QtCore/QTimeZone>
 
-using namespace Syrtis;
 using namespace syrtis::core;
 namespace {
 QJsonValue wire(const QString &v) { return v; }

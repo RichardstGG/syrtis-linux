@@ -2,7 +2,7 @@
 
 #include <QtCore/QRegularExpression>
 
-namespace Syrtis {
+namespace syrtis::core {
 QString localized(const QString &key)
 {
     return key;

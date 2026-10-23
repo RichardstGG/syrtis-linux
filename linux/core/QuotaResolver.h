@@ -2,7 +2,7 @@
 #include "AgentUsage.h"
 #include <QtCore/QSet>
 
-namespace Syrtis {
+namespace syrtis::core {
 struct ResolvedQuota {
     QString clientId;
     std::optional<QString> accountKey;

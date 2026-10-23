@@ -79,7 +79,7 @@ QJsonObject run(const QString &op, const QJsonObject &input) {
     auto optional = [](const std::optional<QString> &v) { return v ? QJsonValue(*v) : QJsonValue(QJsonValue::Null); };
     if (op == "copy") return {{"settings", QJsonArray::fromStringList(S::Copy::all())}, {"breakdown", QJsonArray::fromStringList(UsageAttributionBreakdown::Copy::all())}};
     if (op == "targets") {
-        const auto payload = field.operator()<std::optional<Syrtis::AgentUsagePayload>>("payload");
+        const auto payload = field.operator()<std::optional<syrtis::core::AgentUsagePayload>>("payload");
         QJsonArray labels;
         for (const auto &label : field.operator()<QStringList>("labels")) labels.append(optional(S::subscriptionClient(label)));
         QJsonObject routed;

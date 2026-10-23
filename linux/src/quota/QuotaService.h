@@ -24,8 +24,8 @@ public:
     using Clock = std::function<QDateTime()>;
     explicit QuotaService(QObject *parent = nullptr, Clock now = QDateTime::currentDateTimeUtc);
 
-    const std::optional<AgentUsagePayload> &payload() const { return payload_; }
-    const std::optional<ResolvedQuota> &reading() const { return reading_; }
+    const std::optional<syrtis::core::AgentUsagePayload> &payload() const { return payload_; }
+    const std::optional<syrtis::core::ResolvedQuota> &reading() const { return reading_; }
     std::optional<QDateTime> resolvedAt() const { return resolvedAt_; }
     QVariant remainingPercent() const;
     bool stale() const;
@@ -61,11 +61,11 @@ private:
     Bridge bridge_;
     QTimer timer_;
     Clock now_;
-    QString selection_ = QuotaResolver::automatic;
+    QString selection_ = syrtis::core::QuotaResolver::automatic;
     std::optional<QString> accountKey_;
     QSet<QString> excluding_;
-    std::optional<AgentUsagePayload> payload_;
-    std::optional<ResolvedQuota> reading_;
+    std::optional<syrtis::core::AgentUsagePayload> payload_;
+    std::optional<syrtis::core::ResolvedQuota> reading_;
     std::optional<QDateTime> resolvedAt_, fetchedAt_;
     std::optional<quint64> highestGeneration_;
     quint64 requestId_ = 0;

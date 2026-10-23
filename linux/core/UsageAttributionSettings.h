@@ -41,9 +41,9 @@ using RoutedSubscriptions = QMap<QString, QStringList>;
 extern const QSet<QString> crossAgentSubscriptionProviders, subscriptionBoundProviders, ownRowsOnlySubscriptions;
 extern const QMap<QString, QString> providerOwnClient;
 extern const QMap<QString, QSet<QString>> subscriptionProviderMap;
-QStringList subscriptionClients(const std::optional<Syrtis::AgentUsagePayload> &payload);
+QStringList subscriptionClients(const std::optional<syrtis::core::AgentUsagePayload> &payload);
 std::optional<QString> subscriptionClient(const QString &label);
-RoutedSubscriptions routedSubscriptions(const std::optional<Syrtis::AgentUsagePayload> &payload);
+RoutedSubscriptions routedSubscriptions(const std::optional<syrtis::core::AgentUsagePayload> &payload);
 enum class PageState { loading, unavailable, empty, rows };
 PageState pageState(bool hasReport, qsizetype rowCount, bool isLoading);
 QList<Row> rows(const QList<ModelReportEntry> &entries, const QList<UsageAttribution::Record> &confirmed,

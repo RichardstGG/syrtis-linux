@@ -1,7 +1,7 @@
 #pragma once
 #include "JsonDecoder.h"
 
-namespace Syrtis {
+namespace syrtis::core {
 enum class QuotaCurveDurationSource { provider, contract, observed };
 enum class QuotaCurveSampleOrigin { liveV3, importedV2 };
 struct QuotaCurvePoint {

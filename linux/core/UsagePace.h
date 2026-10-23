@@ -2,7 +2,7 @@
 
 #include "AgentUsage.h"
 
-namespace Syrtis {
+namespace syrtis::core {
 enum class PaceMode { historical, linear, off };
 enum class PaceStage { onTrack, slightlyAhead, ahead, farAhead, slightlyBehind, behind, farBehind };
 enum class UsagePaceBasis { linear, historical };

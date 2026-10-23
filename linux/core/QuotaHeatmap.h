@@ -1,20 +1,14 @@
 #pragma once
 
+#include "QuotaCurve.h"
+
 #include <QtCore/QTimeZone>
 #include <QtCore/QtGlobal>
 
 #include <array>
 #include <vector>
 
-namespace syrtis {
-
-// The three fields consumed from the producer's QuotaCurvePoint. Wire decoding
-// belongs to the caller; this fold never reads the history store or calls FFI.
-struct QuotaCurvePoint {
-    qint64 sampledAt;
-    double usedPercent;
-    qint64 resetAt;
-};
+namespace syrtis::core {
 
 struct QuotaHeatmap {
     // Monday = 0, Sunday = 6; local hours 0...23.

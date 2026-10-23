@@ -4,7 +4,7 @@
 #include <functional>
 #include <optional>
 
-namespace Syrtis {
+namespace syrtis::core {
 struct AccountIdentity {
     QString clientId;
     std::optional<QString> accountKey;

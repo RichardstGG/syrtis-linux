@@ -11,8 +11,8 @@ qint64 canonicalReset(qint64 resetAt, qint64 duration) {
     const auto quotient = resetAt / quantum, remainder = resetAt % quantum;
     return (remainder * 2 >= quantum ? quotient + 1 : quotient) * quantum;
 }
-QList<QuotaCycle> cycles(const QList<Syrtis::QuotaCurvePoint> &points) {
-    std::map<qint64, QList<Syrtis::QuotaCurvePoint>> grouped;
+QList<QuotaCycle> cycles(const QList<syrtis::core::QuotaCurvePoint> &points) {
+    std::map<qint64, QList<syrtis::core::QuotaCurvePoint>> grouped;
     for (const auto &p : points) if (!p.isActiveGroup) grouped[canonicalReset(p.resetAt, p.durationSeconds)].append(p);
     QList<QuotaCycle> out;
     for (auto &[key, sorted] : grouped) {

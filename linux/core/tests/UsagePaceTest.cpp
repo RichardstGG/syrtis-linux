@@ -5,7 +5,7 @@
 #include <iostream>
 #include <stdexcept>
 
-using namespace Syrtis;
+using namespace syrtis::core;
 
 namespace {
 void check(bool condition, const char *message)

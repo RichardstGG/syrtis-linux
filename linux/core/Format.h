@@ -6,7 +6,7 @@
 
 #include <optional>
 
-namespace Syrtis {
+namespace syrtis::core {
 // English-pinned cross-checked surface of Sources/Syrtis/Format.swift.
 struct Format {
     static QString compactTokens(qint64 count);

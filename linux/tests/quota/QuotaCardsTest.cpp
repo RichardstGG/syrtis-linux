@@ -63,7 +63,7 @@ class QuotaCardsTest final : public QObject {
 
     QQuickItem *card(const QString &client, const QString &account = {})
     {
-        return item(view_, "quotaCard-" + AccountIdentity{client,
+        return item(view_, "quotaCard-" + syrtis::core::AccountIdentity{client,
             account.isEmpty() ? std::nullopt : std::optional<QString>(account)}.windowKey("limits"));
     }
     QVariantMap data(QQuickItem *cardItem) { return cardItem->property("card").toMap(); }
@@ -150,7 +150,7 @@ private slots:
                 QCOMPARE(item(shown, "quotaRemaining")->property("text").toString(), "73% left");
                 QCOMPARE(item(shown, "quotaGauge")->property("value").toDouble(), 72.5);
                 QCOMPARE(item(shown, "quotaReset")->property("text").toString(),
-                    UsagePace::resetText(reset, now_.toMSecsSinceEpoch() / 1000.0 - 978307200.0).value());
+                    syrtis::core::UsagePace::resetText(reset, now_.toMSecsSinceEpoch() / 1000.0 - 978307200.0).value());
                 QCOMPARE(data(shown)["windows"].toList()[1].toMap()["label"].toString(), "Weekly");
             }
         }
