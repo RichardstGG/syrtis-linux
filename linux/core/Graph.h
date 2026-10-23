@@ -1,26 +1,16 @@
 #pragma once
 #include "JsonDecoder.h"
+#include "TokenBreakdown.h"
 #include <QtCore/QHash>
 #include <QtCore/QSet>
 
 namespace syrtis::core {
-qint64 saturatingAdding(qint64 a, qint64 b);
 struct TrayTotals {
     qint64 todayTokens;
     double todayCost;
     qint64 totalTokens;
     double totalCost;
     std::optional<QString> todayTopClient;
-};
-struct TokenBreakdown {
-    qint64 input = 0;
-    qint64 output = 0;
-    qint64 cacheRead = 0;
-    qint64 cacheWrite = 0;
-    qint64 reasoning = 0;
-    qint64 total() const;
-    bool operator==(const TokenBreakdown &) const = default;
-    static TokenBreakdown decode(const json::Decoder &decoder);
 };
 struct ContributionClient {
     QString client;

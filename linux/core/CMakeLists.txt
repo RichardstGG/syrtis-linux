@@ -10,7 +10,7 @@ target_sources(syrtis-core PRIVATE AccountIdentity.cpp QuotaResolver.cpp QuotaOv
 target_sources(syrtis-core PRIVATE ClientRegistry.cpp ModelGrouping.cpp ModelScope.cpp WindowResolution.cpp Grid.cpp)
 target_sources(syrtis-core PRIVATE QuotaHeatmap.cpp QuotaTrend.cpp)
 target_sources(syrtis-core PRIVATE TBCore.cpp AgentsReport.cpp HourlyReport.cpp ModelReport.cpp FilterParityProbe.cpp)
-target_sources(syrtis-core PRIVATE DayBars.cpp Graph.cpp UsageStats.cpp ModelColors.cpp OverviewCard.cpp UsageTrace.cpp)
+target_sources(syrtis-core PRIVATE DayBars.cpp Graph.cpp TokenBreakdown.cpp UsageStats.cpp ModelColors.cpp OverviewCard.cpp UsageTrace.cpp)
 target_compile_features(syrtis-core PUBLIC cxx_std_20)
 set_target_properties(syrtis-core PROPERTIES CXX_EXTENSIONS OFF)
 target_include_directories(syrtis-core PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
@@ -101,4 +101,19 @@ if(BUILD_TESTING)
     add_executable(attribution-test tests/AttributionTest.cpp)
     target_link_libraries(attribution-test PRIVATE syrtis-core)
     add_test(NAME attribution-unit COMMAND attribution-test)
+endif()
+
+# Attribution settings, daily series, trend and complete window usage.
+target_sources(syrtis-core PRIVATE UsageAttributionBreakdown.cpp UsageAttributionSettings.cpp AttributedDailySeries.cpp SubscriptionTrend.cpp)
+target_sources(syrtis-crosscheck PRIVATE ../crosscheck/harness/attribution-ext.cpp)
+if(BUILD_TESTING)
+    add_test(NAME crosscheck-attribution-ext
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/../crosscheck/harness/run_selector.py"
+            $<TARGET_FILE:syrtis-crosscheck> "${CMAKE_CURRENT_SOURCE_DIR}/../crosscheck/fixtures"
+            "${CMAKE_CURRENT_SOURCE_DIR}/../crosscheck/golden" "${CMAKE_CURRENT_BINARY_DIR}/attribution-ext" attribution-ext)
+    set_tests_properties(crosscheck-attribution-ext PROPERTIES ENVIRONMENT "TZ=Asia/Taipei" SKIP_RETURN_CODE 77 TIMEOUT 30)
+    add_test(NAME attribution-ext-selftest
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/../crosscheck/harness/attribution_ext_check.py"
+            $<TARGET_FILE:syrtis-crosscheck> "${CMAKE_CURRENT_BINARY_DIR}/attribution-ext-selftest")
+    set_tests_properties(attribution-ext-selftest PROPERTIES TIMEOUT 30)
 endif()
