@@ -280,8 +280,8 @@ private slots:
         QTest::qWait(20);
         QCOMPARE(FakeFfi::stats().calls.size(), 2);
         main->show();
+        QTRY_COMPARE(FakeFfi::stats().calls.size(), 3); // start() fetches on the next loop turn.
         QTRY_VERIFY(!service_->busy());
-        QCOMPARE(FakeFfi::stats().calls.size(), 3);
         service_->stop();
     }
 };

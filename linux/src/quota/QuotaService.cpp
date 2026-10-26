@@ -246,7 +246,7 @@ void QuotaService::start(int intervalMs)
 {
     intervalMs_ = qMax(1, intervalMs);
     polling_ = true;
-    refresh();
+    timer_.start(0); // Next loop turn, so a caller can still stop() before any FFI call.
 }
 
 void QuotaService::stop()
